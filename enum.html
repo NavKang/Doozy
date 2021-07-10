@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <p style="text-align: center;"><span style="font-size: 24px;"><strong><u>Enumeration</u></strong></span></p>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(97, 189, 109);">Windows Enumeration:</span></strong></span></p>
+    <p><span style="font-size: 24px;">Users - Guest, Admin, Local ser, Network Ser, System, Current User</span></p>
+    <p><span style="font-size: 24px;">Groups - Anon Login, Batch, Creator Own, Everyone, Interactive, Network Restricted, Self, Service, Windows, Terminal</span></p>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(84, 172, 210);">Security Identifiers (SID) Windows:</span></strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">SIDs start with S1-5-21</span></li>
+        <li><span style="font-size: 24px;">Admin account ends 500</span></li>
+        <li><span style="font-size: 24px;">Guess account ends 501</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(147, 101, 184);">Linux:</span></strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">UID is + (positive) number above 500 for user</span></li>
+        <li><span style="font-size: 24px;">Below 100 for system accounts</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(65, 168, 95);">Services and Ports:</span></strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">53 - DNS</span></li>
+        <li><span style="font-size: 24px;">135,137,139 - RPC end point mapper, NBNS, SMB over NETBIOS</span></li>
+        <li><span style="font-size: 24px;">445 - SMB over TCP</span></li>
+        <li><span style="font-size: 24px;">161 - SNMP</span></li>
+        <li><span style="font-size: 24px;">162 - SNMP Trap</span></li>
+        <li><span style="font-size: 24px;">389 - LDAP</span></li>
+        <li><span style="font-size: 24px;">3268 - Global Catelog Service</span></li>
+        <li><span style="font-size: 24px;">25 - SMTP</span></li>
+        <li><span style="font-size: 24px;">500 - ISAKMP/IKE</span></li>
+        <li><span style="font-size: 24px;">5060,5061 - SIP</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(226, 80, 65);">Commonly Exploited Services:</span></strong></span></p>
+    <p><span style="font-size: 24px;"><strong>Windows:</strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">NetBIOS - Null session</span></li>
+        <li><span style="font-size: 24px;">DNS Zone Transfers</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><strong>with SNMP:</strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Management information base (MIB)</span></li>
+    </ul>
+    <p><span style="font-size: 24px; color: rgb(250, 197, 28);"><strong>Unix and Linux:</strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Finger Commands</span></li>
+        <li><span style="font-size: 24px;">RPCinfo</span></li>
+        <li><span style="font-size: 24px;">Showmount</span></li>
+        <li><span style="font-size: 24px;">LDAP and Directory Service Enumeration</span></li>
+        <li><span style="font-size: 24px;">NTP Enumeration</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(40, 50, 78);">SMTP enumeration:</span></strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Using Telnet - VRFY, EXPN, RCPT to</span></li>
+        <li><span style="font-size: 24px;">SMTP Relay</span></li>
+    </ul>
+    <p><br></p>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(226, 80, 65);">Techniques for enumeration:</span></strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Extract Usernames using Email IDs</span></li>
+        <li><span style="font-size: 24px;">Extract info using default passwords</span></li>
+        <li><span style="font-size: 24px;">Brute force Active Directory</span></li>
+        <li><span style="font-size: 24px;">Extract infro using DNS Zone Transfer</span></li>
+        <li><span style="font-size: 24px;">Extract user groups from Windows</span></li>
+        <li><span style="font-size: 24px;">Extract User name using SNMP</span></li>
+    </ul>
+    <p><br></p>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(65, 168, 95);">NetBIOS Enumeration:</span></strong></span></p>
+    <p><span style="font-size: 24px;"><strong>nbstat utility:</strong></span></p>
+    <p><span style="font-size: 24px;"><strong>syntax:</strong></span></p>
+    <p><span style="font-size: 24px;"><strong>-a</strong><strong>&nbsp;(+Remotename)</strong> - Displays netbios name table of remote computer</span></p>
+    <p><span style="font-size: 24px;"><strong>-A (+IP add)</strong> - Display netbios name table of remote computer</span></p>
+    <p><span style="font-size: 24px;"><strong>-c</strong> - Lists contents of netbious name cache, the table of netbious name and their resolved IP addresses</span></p>
+    <p><span style="font-size: 24px;"><strong>-n</strong> - Displays the names registered locally by netbios apps such as server and redirector</span></p>
+    <p><span style="font-size: 24px;"><strong>-R</strong> - Purges the name cache and reloades all #PRE entries from LMHOSTS</span></p>
+    <p><span style="font-size: 24px;"><strong>-RR</strong> -Releases and registers all names with name server</span></p>
+    <p><span style="font-size: 24px;"><strong>-s</strong> - Lists netbios sessions able coverting dest ip add to comp netbios name</span></p>
+    <p><span style="font-size: 24px;"><strong>-S</strong> - Lists current netbios sessions and their state with IP add</span></p>
+    <p><span style="font-size: 24px;"><br></span></p>
+    <p><br></p>
+    <p style="text-align: center;"><strong><span style="font-size: 24px; color: rgb(97, 189, 109);">Enumeration: Tools and Usage for different services</span></strong></p>
+<p style="text-align: left;"><span style="font-size: 24px;"><strong><span style="color: rgb(44, 130, 201);">Memcached recon:</span></strong></span></p>
+<ul>
+    <li style="text-align: left;"><span style="color: rgb(0, 0, 0);"><span style="font-size: 24px;">Find number of current items on a server - <strong>memcstat --server=&lt;ip&gt;</strong></span></span></li>
+    <li style="text-align: left;"><span style="color: rgb(0, 0, 0);"><span style="font-size: 24px;">Find name of keys present on server - <strong>memcdump --servers=&lt;ip&gt;</strong></span></span></li>
+</ul>
+<p style="text-align: left;"><span style="color: rgb(147, 101, 184);"><span style="font-size: 24px;"><strong>NTP queries:</strong></span></span></p>
+<ul>
+    <li style="text-align: left;"><span style="color: rgb(0, 0, 0);"><span style="font-size: 24px;">Current time -<strong>&nbsp;ntpq -c &quot;rv 0 clock&quot; &lt;ip&gt;</strong></span></span></li>
+    <li style="text-align: left;"><span style="color: rgb(0, 0, 0);"><span style="font-size: 24px;">Pool servers used -<strong>&nbsp;ntpq &lt;ip&gt;, Ipeers</strong></span></span></li>
+    <li style="text-align: left;"><span style="color: rgb(0, 0, 0);"><span style="font-size: 24px;">Current time - <strong>ntpdate -q &lt;ip&gt;</strong></span></span></li>
+</ul>
+<p><span style="color: rgb(71, 85, 119);"><span style="font-size: 24px;"><strong>IRC servers:</strong></span></span></p>
+<ul>
+    <li><span style="color: rgb(0, 0, 0);"><span style="font-size: 24px;">IRCSnapShot - dir: <strong>cd /tools/ircsnapshot</strong>, &nbsp;run: <strong>python ircsnapshot.py</strong></span></span></li>
+</ul>
+<p><span style="color: rgb(124, 112, 107);"><span style="font-size: 24px;"><strong>SMTP servers:</strong></span></span></p>
+<ul>
+    <li><span style="color: rgb(0, 0, 0);"><span style="font-size: 24px;">User enum - <strong>stmp-user-enum -U &lt;path&gt; &nbsp;-t &nbsp;&lt;ip&gt;</strong></span></span></li>
+</ul>
+<p style="text-align: left;"><span style="color: rgb(0, 168, 133);"><span style="font-size: 24px;"><strong>SMTP fake email:</strong></span></span></p>
+<ul>
+    <li style="text-align: left;"><span style="color: rgb(0, 0, 0);"><span style="font-size: 24px;">Tool: SendEmail &nbsp;</span></span></li>
+    <li style="text-align: left;"><span style="color: rgb(0, 0, 0);"><span style="font-size: 24px;">Syntax: <strong>sendemail -f admin:attacker.abc &nbsp;-t &nbsp;root@victom1 &nbsp;-s &nbsp;&lt;ip&gt; &nbsp;-u fakemail &nbsp;-m &quot;hi root&quot; &nbsp;-o &nbsp;tls=no</strong></span></span></li>
+</ul>
+<p><span style="color: rgb(84, 172, 210);"><span style="font-size: 24px;"><strong>SSL connections:</strong></span></span></p>
+<ul>
+    <li><span style="color: rgb(0, 0, 0);"><span style="font-size: 24px;">connect server using POP3 over SSL (pop3s)</span></span></li>
+    <li><span style="color: rgb(0, 0, 0);"><span style="font-size: 24px;"><strong>openssl s-client -connect &lt;ip&gt; : &lt;port&gt;</strong></span></span></li>
+</ul>
+<p><span style="color: rgb(71, 85, 119);"><span style="font-size: 24px;"><strong>SMB server:</strong></span></span></p>
+<p><span style="color: rgb(0, 0, 0);"><span style="font-size: 24px;"><strong>NMBlookup Tool</strong></span></span></p>
+<p><span style="color: rgb(0, 0, 0);"><span style="font-size: 24px;">Find NetBIOS name of computer - &nbsp;<strong>nmblookup -H &nbsp;&lt;ip&gt;</strong></span></span></p>
+<p><span style="color: rgb(0, 0, 0);"><span style="font-size: 24px;"><strong>SMBClient Tool</strong></span></span></p>
+<ul>
+    <li><span style="color: rgb(0, 0, 0);"><span style="font-size: 24px;">Check if anonconnection allowed - <strong>smbclient -L &nbsp;&lt;ip&gt; &nbsp;-N</strong></span></span></li>
+    <li><span style="color: rgb(0, 0, 0);"><span style="font-size: 24px;">(allowed if shares are displayed without password requirements)</span></span></li>
+    <li><span style="color: rgb(0, 0, 0);"><span style="font-size: 24px;">directory inside public share: <strong>smbclient //&lt;ip&gt;/public -N, ls</strong></span></span></li>
+    <li><span style="color: rgb(0, 0, 0);"><span style="font-size: 24px;">get flag - <strong>smbclient //&lt;ip&gt;/public -N, ls, cd &lt;folder&gt;, ls, get &lt;file&gt;, exit</strong></span></span></li>
+</ul>
+<p><span style="color: rgb(0, 0, 0);"><span style="font-size: 24px;"><strong>RPCclient Tool&nbsp;</strong></span></span></p>
+<ul>
+    <li><span style="color: rgb(0, 0, 0);"><span style="font-size: 24px;">Information: -N = do not ask for password<br></span></span></li>
+    <li><span style="color: rgb(0, 0, 0);"><span style="font-size: 24px;">determine if anon allowed - <strong>rpcclient -U &quot;&quot; -N &lt;ip&gt;</strong></span></span></li>
+    <li><span style="color: rgb(0, 0, 0);"><span style="font-size: 24px;">find OS of server - <strong>rpcclient -U &quot;&quot; -N &lt;ip&gt;, srvinfo</strong></span></span></li>
+    <li><span style="color: rgb(0, 0, 0);"><span style="font-size: 24px;">Lit all users on samba - <strong>rpcclient -U &quot;&quot; -N &lt;ip&gt;, enumdomusers</strong></span></span></li>
+    <li><span style="color: rgb(0, 0, 0);"><span style="font-size: 24px;">Find SID of user admin -<strong>&nbsp;rpcclient &nbsp;-U &quot;&quot; -N &lt;ip&gt; , lookupnames &lt;admin&gt;</strong></span></span></li>
+    <li><span style="color: rgb(0, 0, 0);"><span style="font-size: 24px;">Find domain groups exist - <strong>rpcclient -U &quot;&quot; -N &lt;ip&gt;, enumdomgroups</strong></span></span></li>
+</ul>
+<p><span style="color: rgb(0, 0, 0);"><span style="font-size: 24px;"><strong>Enum4linux</strong></span></span></p>
+<ul>
+    <li style="text-align: left;"><span style="color: rgb(0, 0, 0);"><span style="font-size: 24px;">Find OS version &nbsp;- <strong>enum4linux -o &lt;ip&gt;</strong></span></span></li>
+    <li style="text-align: left;"><span style="color: rgb(0, 0, 0);"><span style="font-size: 24px;">List all users on samba -<strong>&nbsp;enum4linux -U &lt;ip&gt;</strong></span></span></li>
+    <li style="text-align: left;"><span style="color: rgb(0, 0, 0);"><span style="font-size: 24px;">List all available shares - <strong>enum4linux -U &lt;ip&gt;, enum4linux -U &lt;ip&gt;</strong></span></span></li>
+    <li style="text-align: left;"><span style="color: rgb(0, 0, 0);"><span style="font-size: 24px;">List of SID of unix users - <strong>enum4linux -r -u &quot;admin&quot; -p &lt;pw&gt; &lt;ip&gt;<br></strong></span></span></li>
+</ul>
+<p><span style="color: rgb(0, 0, 0);"><span style="font-size: 24px;"><strong>SMBmap</strong></span></span></p>
+<ul>
+    <li><span style="color: rgb(0, 0, 0);"><span style="font-size: 24px;"><strong>smbmap -H &lt;ip&gt; &nbsp;-u &lt;un&gt; -p &lt;pw&gt;</strong></span></span></li>
+</ul>
+<p><span style="color: rgb(250, 197, 28);"><span style="font-size: 24px;"><strong>VNC server:</strong></span></span></p>
+<ul>
+    <li><span style="color: rgb(0, 0, 0);"><strong><span style="font-size: 24px;">vncviewer &lt;ip&gt;:&lt;port&gt;</span></strong></span></li>
+</ul>
+<p><span style="color: rgb(84, 172, 210);"><br></span></p>
+<p><span style="color: rgb(84, 172, 210);"><br></span></p>
+<p><span style="color: rgb(84, 172, 210);"><br></span></p>
+<p><br></p>
+</body>
+
+</html>

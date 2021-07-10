@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Find Command</title>
+</head>
+<body>
+<!--
+	html5up.net | 
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<h1>CheatSheet</h1>
+
+<p style="text-align: center;"><span style="font-size: 24px; color: rgb(209, 72, 65);"><strong>Find command</strong></span></p>
+<p><span style="font-size: 24px; color: rgb(0, 0, 0);"> <b><u>Useful site to find common linux file extensions:</u></b>  www.lauraliparulo.altervista.org/most-common-linux-file-extensions/</p>
+<br>
+<p><span style="font-size: 24px; color: rgb(0, 0, 0);"><strong><u>Find passwords</u></strong></span></p>
+<p><span style="font-size: 24px; color: rgb(0, 0, 0);">find / -name pass* 2&gt;/dev/null &nbsp;</span></p>
+<p><span style="font-size: 24px; color: rgb(0, 0, 0);"><strong><u>Type can be file or directory (f or d)</u></strong></span></p>
+<p><span style="font-size: 24px; color: rgb(0, 0, 0);">find / -type f &nbsp;-name &lt;filename&gt; 2&gt;/dev/null</span></p>
+<p><span style="font-size: 24px; color: rgb(0, 0, 0);">You can also use wildcards to find files and directories</span></p>
+<p><span style="font-size: 24px; color: rgb(0, 0, 0);"><strong><u>Case insensitive search</u></strong></span></p>
+<p><span style="font-size: 24px; color: rgb(0, 0, 0);">-iname</span></p>
+<p><span style="font-size: 24px;"><strong><u>Specify user</u></strong></span></p>
+<p><span style="font-size: 24px;">-user</span></p>
+<p><strong><span style="font-size: 24px;"><u>Size flag</u></span></strong></p>
+<p><span style="font-size: 24px;">-size (use either just number or + - with the number)</span></p>
+<p><span style="font-size: 24px;">with size the following are required:</span></p>
+<p><span style="font-size: 24px;"><strong>-c</strong> = for bytes</span></p>
+<p><span style="font-size: 24px;"><strong>-k</strong> = for KiBs</span></p>
+<p><span style="font-size: 24px;"><strong>-M</strong> = for MiBs</span></p>
+<p><span style="font-size: 24px;">Example: a size of less than 50 bytes :<strong>&nbsp; &nbsp;-50c</strong></span></p>
+<p><span style="font-size: 24px;"><strong><u>Time flags</u></strong></span></p>
+<p><span style="font-size: 24px;"><strong>min</strong> = for minutes</span></p>
+<p><span style="font-size: 24px;"><strong>time</strong> = for days</span></p>
+<p><span style="font-size: 24px;"><strong>prefixes:</strong></span></p>
+<p><span style="font-size: 24px;"><strong>a</strong> = accessed</span></p>
+<p><span style="font-size: 24px;"><strong>m</strong> = modified</span></p>
+<p><span style="font-size: 24px;"><strong>c</strong> = changed</span></p>
+<p><span style="font-size: 24px;">Example: to find a file last accessed more than 1 hour ago: &nbsp;<strong>&nbsp;-amin +60</strong></span></p>
+<p><span style="font-size: 24px;">*To specify a file modified within last 24 hours, use the<strong>&nbsp;-mtime 0</strong> option</span></p>
+<p><strong><u><span style="font-size: 24px;">Exec flag</span></u></strong></p>
+<p><span style="font-size: 24px;">Will execute a new command for you when used with the find.</span></p>
+<p><span style="font-size: 24px;">Example:&nbsp;</span><strong><span style="font-size: 24px;">-exec whoami \;</span></strong></p>
+<p><br></p>
+
+</body>
+</html>

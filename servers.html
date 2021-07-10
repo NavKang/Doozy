@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Python Server and SCP</title>
+</head>
+<body>
+
+    <!DOCTYPE html>
+    <html>
+    
+    <head>
+        <title></title>
+    </head>
+    
+    <body>
+        <h1><span style="font-size: 24px;">Python Server, SCP, SSH, FTP and WGET, Curl</span></h1>
+        <p><span style="font-size: 24px;"><br></span></p>
+        <p><span style="font-size: 24px;"><strong><span style="color: rgb(147, 101, 184);"><u>Python Server and SCP</u></span></strong></span></p>
+        <p><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);">How to start a python server</span></span></p>
+        <p><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);"><strong>python3 -m http.server</strong></span></span></p>
+        <p><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);">(always start in the directory you wish to transfer files from)</span></span></p>
+        <p><span style="font-size: 24px;"><br></span></p>
+        <p><span style="font-size: 24px;"><span style="color: rgb(41, 105, 176);"><strong><u>Using SCP to tranfer files</u></strong></span></span></p>
+        <p><span style="font-size: 24px;"><strong>-r&nbsp;</strong></span></p>
+        <p><span style="font-size: 24px;"><strong>local to remote&nbsp;</strong></span></p>
+        <p><span style="font-size: 24px;">scp -r /local/directory/123.txt remote_username@&lt;ip&gt;:/remote/directory</span></p>
+        <p><span style="font-size: 24px;"><strong>remote to local</strong></span></p>
+        <p><span style="font-size: 24px;"><code class=" language-bash" style='box-sizing: border-box; font-family: cousine, sfmono-regular, Consolas, Menlo, "liberation mono", "ubuntu mono", Courier, monospace; font-size: 1em; letter-spacing: -0.03em; color: rgb(17, 17, 17); padding: 0px; background: 0px 0px; overflow: visible;'><span class="token function" style='box-sizing: border-box; -webkit-font-smoothing: antialiased; color: rgb(0, 0, 0); font-family: "Times New Roman", Times, serif;'>scp</span><span style='font-family: "Times New Roman", Times, serif;'><span style="color: rgb(0, 0, 0);">&nbsp;user@host:/path on remote &nbsp;/path on local</span></span></code></span></p>
+        <p><span style="font-size: 24px;"><code class=" language-bash" style='box-sizing: border-box; font-family: cousine, sfmono-regular, Consolas, Menlo, "liberation mono", "ubuntu mono", Courier, monospace; font-size: 1em; letter-spacing: -0.03em; color: rgb(17, 17, 17); padding: 0px; background: 0px 0px; overflow: visible;'><span style='font-family: "Times New Roman", Times, serif;'><span style="color: rgb(0, 0, 0);">(can use . (period) to download to the current working directory)</span></span></code></span></p>
+        <p><span style="font-size: 24px;"><strong>-P</strong> &nbsp;</span></p>
+        <p><span style="font-size: 24px;">if not on default port</span></p>
+        <p><span style="font-size: 24px;"><strong>-C</strong></span></p>
+        <p><span style="font-size: 24px;">Copy files with compression</span></p>
+        <p><span style="font-size: 24px;"><strong>-v</strong></span></p>
+        <p><span style="font-size: 24px;">Verbose mode</span></p>
+        <p><br></p>
+        <p><span style="font-size: 24px; color: rgb(65, 168, 95);"><strong><u>FTP</u></strong></span></p>
+        <p><span style="font-size: 24px; color: rgb(0, 0, 0);">get &nbsp;- downloads</span></p>
+        <p><span style="font-size: 24px; color: rgb(0, 0, 0);">put &nbsp;- uploads</span></p>
+        <p><span style="font-size: 24px; color: rgb(0, 0, 0);">Syntax: ftp &lt;ip address&gt;</span></p>
+        <p><br></p>
+        <p><span style="color: rgb(40, 50, 78); font-size: 24px;"><u><strong>SSH</strong></u></span></p>
+        <p><span style="font-size: 24px;">-p &nbsp;-to set port unless default</span></p>
+        <p><span style="font-size: 24px;">syntax: ssh &lt;username&gt;@&lt;ip address&gt; -p &lt;optional&gt;</span></p>
+        <p><span style="font-size: 24px;">syntax: ssh -i  &lt;private key&gt; &lt;username&gt;@&lt;ip address&gt; -p &lt;optional&gt;</span></p>
+        <p><br></p>
+        <p><span style="font-size: 24px; color: rgb(235, 107, 86);"><strong><u>WGET</u></strong></span></p>
+        <p><span style="font-size: 24px; color: rgb(0, 0, 0);">syntax: wget &lt;site address&gt;</span></p>
+        <p><br></p>
+        <p><span style="font-size: 24px; color: rgb(61, 142, 185);"><strong><u>CURL</u></strong></span></p>
+        <p><span style="font-size: 24px; color: rgb(0, 0, 0);">curl &lt;website&gt; --output &lt;filename&gt;</span></p>
+        <p><span style="font-size: 24px; color: rgb(0, 0, 0);">curl -k &lt;website&gt;&nbsp; &nbsp; = skips ssl checks</span></p>
+        <p><br></p>
+    </body>
+    
+    </html>
+
+</body>
+</html>

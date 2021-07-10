@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Directory Searching</title>
+</head>
+<body>
+
+<h1>Search Directories with tools such as: Gobuster, Dirbuster, Dirb and more</h1>
+<p><span style="font-size: 24px;"><strong><u><span style="color: rgb(250, 197, 28);">Gobuster</span></u></strong></span></p>
+    <p><span style="font-size: 24px;">syntax:</span></p>
+    <p><span style="font-size: 24px;"><strong>gobuster dir -u http://&lt;ip&gt; -w &lt;path to wordlist&gt;</strong></span></p>
+    <p><span style="font-size: 24px;">Best wordlist: &nbsp;/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt</span></p>
+    <p><br></p>
+    <p><span style="font-size: 24px;"><strong><u><span style="color: rgb(41, 105, 176);">Dirbuster</span></u></strong></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);">GUI interface</span></span></p>
+    <p><br></p>
+    <p><strong><u><span style="font-size: 24px; color: rgb(226, 80, 65);">DirB</span></u></strong></p>
+    <p><span style="font-size: 24px; color: rgb(0, 0, 0);">simple quick scan (dirb uses default wordlist)</span></p>
+    <p><span style="font-size: 24px; color: rgb(0, 0, 0);"><strong>dirb http://&lt;ip&gt;</strong></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);">use your different wordlist</span></span></p>
+    <p><span style="font-size: 24px;"><strong>dirb http://&lt;ip&gt; &nbsp;/wordlist path</strong></span></p>
+    <p><br></p>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(44, 130, 201);"><u>Ffuf</u></span></strong></span></p>
+    <p><span style="font-size: 24px;"><strong>-w =&nbsp;</strong>wordlist</span></p>
+    <p><span style="font-size: 24px;"><strong>-u =&nbsp;</strong>url</span></p>
+    <p><span style="font-size: 24px;"><strong>-e =&nbsp;</strong>extentions search</span></p>
+    <p><span style="font-size: 24px;"><strong>-mc =&nbsp;</strong>specify status code</span></p>
+    <p><span style="font-size: 24px;"><strong>-d</strong> = specify data to be sent with post request</span></p>
+    <p><span style="font-size: 24px;">Syntax:</span></p>
+    <p><span style="font-size: 24px;"><strong>ffuf &nbsp;-w &lt;wordlist path&gt; &nbsp;-u &lt;url&gt;</strong></span></p>
+    <p><span style="font-size: 24px;"><strong>ffuf &nbsp;-w &lt;wordlist path&gt; &nbsp;-u &lt;url&gt; &nbsp; -e .html .php</strong></span></p>
+    <p><br></p>
+    <p><span style="font-size: 24px;">For VHost discovery:</span></p>
+    <p><span style="font-size: 24px;"><strong>fuff -w &lt;path to sub-domains list&gt; &nbsp;-u &nbsp;&lt;url&gt; &nbsp;-H &quot;Host:FUZZ.site.com</strong></span></p>
+    <p><br></p>
+    <p><span style="font-size: 24px;"><strong></strong></span></p>
+    <p><span style="font-size: 24px;"><strong><u><span style="color: rgb(163, 143, 132);">Dirsearch</span></u></strong></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);">options:</span></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);"><strong>-w</strong> = wordlist path</span></span></p>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(0, 0, 0);">-u =&nbsp;</span></strong><span style="color: rgb(0, 0, 0);">url</span></span></p>
+    <p><span style="color: rgb(0, 0, 0);"><span style="font-size: 24px;"><strong>-e = </strong>extensions</span></span></p>
+    <p><span style="color: rgb(0, 0, 0);"><span style="font-size: 24px;"><strong>-r = </strong>recursive search</span></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);"><strong>--recursion-depth &lt;num&gt;</strong></span></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);">syntax:</span></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);"><strong>python3 dirsearch.py -u &lt;url&gt; &nbsp;-e &lt;entensions&gt;&nbsp; -w &lt;wordlist path&gt;</strong></span></span></p>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <p style="text-align: center;"><strong><span style="font-size: 24px; color: rgb(97, 189, 109);">Windows Commands</span></strong></p>
+    <p style="text-align: left;"><span style="font-size: 24px;"><strong><span style="color: rgb(84, 172, 210);">IPconfig:</span></strong></span></p>
+    <ul>
+        <li style="text-align: left;"><span style="font-size: 24px;">ipconfig - current config of installed IP stack</span></li>
+        <li style="text-align: left;"><span style="font-size: 24px;">ipconfig /all - detailed config report</span></li>
+        <li style="text-align: left;"><span style="font-size: 24px;">ipconfig /displaydns - detailed DNS report</span></li>
+    </ul>
+    <p style="text-align: left;"><span style="font-size: 24px;"><br></span></p>
+    <p style="text-align: left;"><span style="font-size: 24px;"><strong><span style="color: rgb(147, 101, 184);">NetStat:</span></strong></span></p>
+    <ul>
+        <li style="text-align: left;"><span style="font-size: 24px;">netstat - displays active tcp connections and ports listening</span></li>
+        <li style="text-align: left;"><span style="font-size: 24px;">netstat -a - active connections</span></li>
+        <li style="text-align: left;"><span style="font-size: 24px;">netstat -no - displays top active connections</span></li>
+        <li style="text-align: left;"><span style="font-size: 24px;">netstat -ano - combo of above</span></li>
+        <li style="text-align: left;"><span style="font-size: 24px;">netstat -r - routing table</span></li>
+    </ul>
+    <p style="text-align: left;"><span style="font-size: 24px;"><strong>Flags:</strong></span></p>
+    <ul>
+        <li style="text-align: left;"><span style="font-size: 24px;">-t - active tcp</span></li>
+        <li style="text-align: left;"><span style="font-size: 24px;">-u - udp</span></li>
+        <li style="text-align: left;"><span style="font-size: 24px;">-w - raw</span></li>
+        <li style="text-align: left;"><span style="font-size: 24px;">-x - Unix socket</span></li>
+        <li style="text-align: left;"><span style="font-size: 24px;">(all can be combined with -a flag)</span></li>
+        <li style="text-align: left;"><span style="font-size: 24px;">-s - displays statistics</span></li>
+        <li style="text-align: left;"><span style="font-size: 24px;">-p - tcp traffic</span></li>
+        <li style="text-align: left;"><span style="font-size: 24px;">-f -FDQN format</span></li>
+        <li style="text-align: left;"><span style="font-size: 24px;">-e - network interface statistics</span></li>
+        <li style="text-align: left;"><span style="font-size: 24px;">-t (number of seconds) - time and number of seconds update</span></li>
+    </ul>
+    <p style="text-align: left;"><span style="font-size: 24px;"><strong>Watch traffic with the following commands:</strong></span></p>
+    <p style="text-align: left;"><span style="font-size: 24px;">netstat -an (time seconds) | find &quot;port number&quot;&nbsp;</span></p>
+    <p style="text-align: left;"><span style="font-size: 24px;">-checks every (seconds) and prints results if a process starts listening on port (port number)</span></p>
+    <p style="text-align: left;"><span style="font-size: 24px;"><br></span></p>
+    <p style="text-align: left;"><span style="font-size: 24px;"><strong><span style="color: rgb(71, 85, 119);">Ping:</span></strong></span></p>
+    <p style="text-align: left;"><span style="font-size: 24px;">verifies IP level connectivity to another TCP/IP computer by sending an ICMP</span></p>
+    <ul>
+        <li style="text-align: left;"><span style="font-size: 24px;">ping &lt;ip&gt;</span></li>
+        <li style="text-align: left;"><span style="font-size: 24px;">ping -t &nbsp;= continous</span></li>
+        <li style="text-align: left;"><span style="font-size: 24px;">ping -n (select number of pings) -l &nbsp;(number of bytes) &lt;ip&gt;</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><br></span></p>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(65, 168, 95);">Tracert and route:</span></strong></span></p>
+    <p><span style="font-size: 24px;">Tracert determines route to a destination by sending ICMP echo packet. In these packets tracert uses varying IP TTL values</span></p>
+    <p><span style="font-size: 24px;">Route display and mofies the entries in a local IP routing table which helps it understand the topology of a network</span></p>
+    <ul>
+        <li><span style="font-size: 24px;">tracert -h (number) = specify max hops</span></li>
+        <li><span style="font-size: 24px;">route print = similar to netstat -r, shows routing table</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><br></span></p>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(247, 218, 100);">ARP and Whoami:</span></strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">arp -a = displays static and dynamic entries to ARP cache table</span></li>
+        <li><span style="font-size: 24px;">arp -av = as above but with verbose mode</span></li>
+        <li><span style="font-size: 24px;">arp -a -N &lt;ip&gt; = more details about the specified interface IP</span></li>
+    </ul>
+    <p style="text-align: left;"><br></p>
+</body>
+
+</html>
