@@ -15,7 +15,8 @@ The Ethical Hacking section has information on the hacking stages, detailed info
 A big thank you to all those who have provided me with the knowledge and motivation. (a special thank you to: Adam, Dan, James and Ben ( I have omitted last names for confidential reasons, but you all know who you are) and extending a big thanks to TryHackMe, HackTheBox and TCM (cyber mentor).
 
 
-
+The name Doozy:
+you may be wondering what is with the handle Doozy.... it has a very special meaning to me, and it is used in remembrance of my cousin and best friend, Sunny
 
 Note:
 The actual pages with the information are just basic HTML pages, white background and just large text for easier reading.
