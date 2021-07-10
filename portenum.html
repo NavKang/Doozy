@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Port Enumeration - How to</title>
+</head>
+<body>
+
+<h1>Port Emuneration</h1>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <p><strong><span style="font-size: 20px;"><span style="color: rgb(235, 107, 86);">Note:</span> Always NMAP to confirm - as some services may show under non-standard port numbers</span></strong></p>
+    <p><strong><span style="font-size: 24px;"><u><span style="color: rgb(71, 85, 119);">Port 21 - FTP</span></u></span></strong></p>
+    <ul style="list-style-type: square;">
+        <li><span style="color: rgb(184, 49, 47); font-size: 24px;"><strong>Anonymous login allowed ?</strong></span></li>
+        <li><span style="color: rgb(0, 0, 0); font-size: 24px;">Login with username: anonymous &nbsp;password: leave blank</span></li>
+        <li><span style="color: rgb(65, 168, 95); font-size: 24px;"><strong>Do you have a username ?</strong></span></li>
+        <li><span style="font-size: 24px;">Brute force using Hydra</span></li>
+    </ul>
+    <p><br></p>
+    <p><span style="font-size: 24px;"><u><strong><span style="color: rgb(40, 50, 78);">Port 22 - SSH</span></strong></u></span></p>
+    <ul>
+        <li><span style="color: rgb(85, 57, 130); font-size: 24px;"><strong>Do you have a username ?</strong></span></li>
+        <li><span style="font-size: 24px;">Brute force using Hydra</span></li>
+    </ul>
+    <p><br></p>
+    <p><span style="font-size: 24px;"><strong><u><span style="color: rgb(40, 50, 78);">Ports 80,8080,8000 - HTTP (web server)</span></u></strong></span></p>
+    <ul style="list-style-type: disc;">
+        <li><span style="font-size: 24px;">Open browser and visit the site</span></li>
+        <li><span style="font-size: 24px;">Look at page source</span></li>
+        <li><span style="font-size: 24px;">Visit robots.txt</span></li>
+        <li><span style="font-size: 24px;">Run directory search to discover hidden directories</span></li>
+    </ul>
+    <p><br></p>
+    <p><span style="font-size: 24px;"><strong><u><span style="color: rgb(40, 50, 78);">Ports 135-139,445 - SMB</span></u></strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Use Enum4Linux to retreive information on SMB shares</span></li>
+        <li><span style="font-size: 24px;">Use SmbClient to connect to the shares</span></li>
+    </ul>
+    <p><br></p>
+    <p><span style="font-size: 24px;"><strong><u><span style="color: rgb(40, 50, 78);">Port 111, 2049 - Mount / NFS</span></u></strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;"><strong><span style="color: rgb(250, 197, 28);">1.</span></strong> showmount -e &lt;ip&gt; &nbsp;(shows which IPs can connect to it)</span></li>
+        <li><span style="font-size: 24px;"><strong><span style="color: rgb(41, 105, 176);">2.</span></strong> mount -t nfs &lt;ip&gt;:&lt;location&gt; /mnt/&lt;your folder in mnt&gt; &nbsp; &nbsp;</span></li>
+        <li><span style="font-size: 24px;">Key: (-t = type, &nbsp;&lt;location&gt; = remote location, &nbsp;2nd location is local location)</span></li>
+        <li><span style="font-size: 24px;"><span style="color: rgb(0, 168, 133);"><strong>3.</strong></span> type in cd /mnt/&lt;your folder name in mnt&gt;&nbsp;</span></li>
+        <li><span style="font-size: 24px;"><strong><span style="color: rgb(147, 101, 184);">4.</span></strong> type ls -la (and view the mounted drive)</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><br></span></p>
+</body>
+
+</html>
+
+</body>
+</html>

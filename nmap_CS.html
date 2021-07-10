@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Doozy</title>
+		
+	</head>
+
+    <p style="text-align: center;"><span style="color: rgb(0, 168, 133); font-size: 24px;"><strong><u><span style='font-family: "Times New Roman", Times, serif;'>NMAP Commands</span></u></strong></span></p>
+    <p><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;"><strong><u>Flags:</u></strong></span></span></p>
+    <p><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;"><strong>-p-</strong> = Scan all ports</span></span></p>
+    <p><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;"><strong>-A</strong> = Agressive Scan</span></span></p>
+    <p><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;"><strong>-sV&nbsp;</strong>= Version Detection</span></span></p>
+    <p><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;"><strong>-Pn</strong> = Do not ping target hosts</span></span></p>
+    <p><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;"><strong>-sC</strong> = Scripting engine</span></span></p>
+    <p><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;"><strong>-T1 --&gt; 5</strong> = Type of scan</span></span></p>
+    <p><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;"><strong>-o</strong> = Output to file (<strong>-oN, -oX, -oA</strong>)&nbsp;</span></span></p>
+    <p><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;"><strong>-n</strong> = Never do DNS</span></span></p>
+    <p><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;"><strong>-R</strong> = Always do DNS resolve</span></span></p>
+    <p style="line-height: 1;"><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;"><br></span></span></p>
+    <p><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;"><strong><u>NMAP HTTP Information:</u></strong></span></span></p>
+    <p style="line-height: 1;"><br></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;"><strong>nmap --script=http-headers &lt;ip&gt;</strong></span></span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;">Gather page titles from HTTP services&nbsp; &nbsp; &nbsp;</span></span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;"><strong>nmap --script=http-title &lt;ip&gt;</strong></span></span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;">Find web apps from known paths &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span></span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;"><strong>nmap --script=http-enum &lt;ip&gt;</strong></span></span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;"><br></span></span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;"><u><strong>Scan types:</strong></u></span></span></p>
+    <p style="margin: 0cm 0cm 8pt; line-height: 1; font-size: 15px; font-family: Calibri, sans-serif;"><br></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;"><strong><span style="color: rgb(36, 41, 46);">-sA</span></strong><span style="color: rgb(36, 41, 46);">&nbsp; &nbsp; &nbsp; ACK scan</span></span></span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;"><strong><span style="color: rgb(36, 41, 46);">-sF</span></strong><span style="color: rgb(36, 41, 46);">&nbsp; &nbsp; &nbsp; &nbsp;FIN scan</span></span></span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;"><strong><span style="color: rgb(36, 41, 46);">-sI&nbsp; &nbsp; &nbsp; &nbsp;</span></strong><span style="color: rgb(36, 41, 46);">IDLE scan</span></span></span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;"><strong><span style="color: rgb(36, 41, 46);">-sL</span></strong><span style="color: rgb(36, 41, 46);">&nbsp; &nbsp; &nbsp; &nbsp;DNS scan (a.k.a. list scan)</span></span></span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;"><strong><span style="color: rgb(36, 41, 46);">-sN</span></strong><span style="color: rgb(36, 41, 46);">&nbsp; &nbsp; &nbsp;NULL scan</span></span></span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;"><strong><span style="color: rgb(36, 41, 46);">-sO</span></strong><span style="color: rgb(36, 41, 46);">&nbsp; &nbsp; &nbsp;&nbsp;Protocol scan</span></span></span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;"><strong><span style="color: rgb(36, 41, 46);">-sP</span></strong><span style="color: rgb(36, 41, 46);">&nbsp; &nbsp; &nbsp;&nbsp;Ping scan</span></span></span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;"><strong><span style="color: rgb(36, 41, 46);">-sR</span></strong><span style="color: rgb(36, 41, 46);">&nbsp; &nbsp; &nbsp;&nbsp;RPC scan</span></span></span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;"><strong><span style="color: rgb(36, 41, 46);">-sS</span></strong><span style="color: rgb(36, 41, 46);">&nbsp; &nbsp; &nbsp;&nbsp;SYN scan</span></span></span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;"><strong><span style="color: rgb(36, 41, 46);">-sT</span></strong><span style="color: rgb(36, 41, 46);">&nbsp; &nbsp; &nbsp; TCP connect scan</span></span></span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;"><span style="color: rgb(36, 41, 46);"><strong>-sU</strong> &nbsp; &nbsp; &nbsp;UDP Scan</span></span></span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;"><strong><span style="color: rgb(36, 41, 46);">-sW</span></strong><span style="color: rgb(36, 41, 46);">&nbsp; &nbsp; &nbsp;Windows scan</span></span></span></p>
+    <p><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;"><strong><span style="line-height: 107%; color: rgb(36, 41, 46);">-sX</span></strong><span style="line-height: 107%; color: rgb(36, 41, 46);">&nbsp; &nbsp; &nbsp; XMAS scan</span></span></span></p>
+    <p><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;"><span style="line-height: 107%; color: rgb(36, 41, 46);"><strong>-b &quot;FTP relay host&quot;</strong> &nbsp;FTP bounce scan</span></span></span></p>
+    <p><span style="font-size: 24px;"><br></span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;"><span style="color: rgb(36, 41, 46);"><strong><u>Host Discovery:</u></strong></span></span></span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><br></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;"><strong><span style="color: rgb(36, 41, 46);">-PI</span></strong><span style="color: rgb(36, 41, 46);">&nbsp; &nbsp; &nbsp; &nbsp;ICMP ping</span></span></span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;"><strong><span style="color: rgb(36, 41, 46);">-Po</span></strong><span style="color: rgb(36, 41, 46);">&nbsp; &nbsp; &nbsp;No ping</span></span></span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;"><strong><span style="color: rgb(36, 41, 46);">-PS</span></strong><span style="color: rgb(36, 41, 46);">&nbsp; &nbsp; &nbsp; SYN ping</span></span></span></p>
+    <p><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;"><strong><span style="line-height: 107%; color: rgb(36, 41, 46);">-PT</span></strong><span style="line-height: 107%; color: rgb(36, 41, 46);">&nbsp; &nbsp; &nbsp; TCP ping</span></span></span></p>
+    <p><span style="font-size: 24px;"><br></span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong><u><span style="font-size: 24px;">Evading Firewalls:</span></u></strong></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><br></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 24px;"><strong>-f</strong>&nbsp; = Fragment packets</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 24px;"><strong>--mtu &lt;value&gt;</strong> = Set mtu value of packets</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 24px;"><strong>-S &lt;ip add&gt;</strong> = Spoof source address<br></span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 24px;"><strong>--data-length</strong> = append random data to sent packets</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 24px;"><strong>--spoof-mac &lt;mac&gt;</strong> = spoof mac address</span></p>
+    <br>
+    <p style="text-align: center;"><span style="font-size: 24px;"><strong><u><span style="color: rgb(243, 121, 52);">MasScan</span></u></strong></span></p>
+    <p><span style="font-size: 24px;">Download:&nbsp;https://github.com/robertdavidgraham/masscan  -Credit to Robert David Graham</span></p>
+    <p><span style="font-size: 24px;">Default:</span></p>
+    <p><span style="font-size: 24px;">- only does Syn scan</span></p>
+    <p><span style="font-size: 24px;">- does not ping hosts</span></p>
+    <p><span style="font-size: 24px;">- no dns resolution</span></p>
+    <p><span style="font-size: 24px;">Syntax:</span></p>
+    <p><span style="font-size: 24px;">masscan &lt;ip&gt; &lt;port&gt;</span></p>
+
+
+</body>
+</html>

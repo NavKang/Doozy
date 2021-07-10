@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>John The Ripper</title>
+</head>
+<body>
+<!--
+	html5up.net | 
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<h1>CheatSheet</h1>
+
+
+<p style="text-align: center;"><span style="font-size: 24px; color: rgb(85, 57, 130);"><strong><u>John The Ripper</u></strong></span></p>
+<p style="text-align: left;"><span style="font-size: 24px;"><strong><u>John detects type of hash:</u></strong></span></p>
+<p style="text-align: left;"><span style="font-size: 24px;">john --wordlists=/path &nbsp;&lt;path to file&gt;</span></p>
+<p style="text-align: left;"><span style="font-size: 24px;">To id your hash use:<strong>&nbsp;python3 hash-id.py</strong></span></p>
+<p style="text-align: left;"><span style="font-size: 24px;"><strong><u>Specfic hash type:</u></strong></span></p>
+<p style="text-align: left;"><span style="font-size: 24px;">john --format=hash-type &nbsp; &nbsp;--wordlist=/path &nbsp; &lt;path to file&gt;</span></p>
+<p style="text-align: left;"><span style="font-size: 24px;">-raw prefix made need to be used</span></p>
+<p style="text-align: left;"><br></p>
+<p style="text-align: left;"><span style="font-size: 24px;"><strong><u>Cracking hashes from etc/shadow:</u></strong></span></p>
+<p style="text-align: left;"><span style="font-size: 24px;"><strong>Need to first unshadow</strong></span></p>
+<p style="text-align: left;"><span style="font-size: 24px;">unshadow &nbsp; &nbsp;passwd file &nbsp; &nbsp; &nbsp;shadow file &nbsp; &gt; &nbsp;outputfilename</span></p>
+<p style="text-align: left;"><span style="font-size: 24px;"><strong>Then crack</strong></span></p>
+<p style="text-align: left;"><span style="font-size: 24px;">using syntax from above</span></p>
+<p style="text-align: left;"><br></p>
+<p style="text-align: left;"><span style="font-size: 24px;"><strong><u>Single Crack Mode:</u></strong></span></p>
+<p style="text-align: left;"><span style="font-size: 24px;">john --single --format=hash type &nbsp; &nbsp;&lt;file name&gt;<br></span></p>
+<p style="text-align: left;"><span style="font-size: 24px;"><strong><u>GECOs</u></strong></span></p>
+<p style="text-align: left;"><span style="font-size: 24px;">Geco fields are the records between the : (colons) you see in passwd files</span></p>
+<p style="text-align: left;"><br></p>
+<p style="text-align: left;"><strong><u><span style="font-size: 24px;">Cracking ZIP/RAR protected files:</span></u></strong></p>
+<p style="text-align: left;"><span style="font-size: 24px;">zip2john &nbsp;zipfilename &nbsp; &gt; &nbsp; &nbsp;OutputFileName</span></p>
+<p style="text-align: left;"><span style="font-size: 24px;">zip2RAR &nbsp;zipfilename &nbsp; &gt; &nbsp; &nbsp;OutputFileName</span></p>
+<p style="text-align: left;"><span style="font-size: 24px;">-Then crack the OutputfileName using the standard john syntax</span></p>
+<p style="text-align: left;"><br></p>
+<p style="text-align: left;"><span style="font-size: 24px;"><strong><u>Cracking SSH2John:</u></strong></span></p>
+<p style="text-align: left;"><span style="font-size: 24px;">-Converts the id_rsa pirivate key into a hash format</span></p>
+<p style="text-align: left;"><span style="font-size: 24px;">-Download ssh2john or use /opt/john/ss2john.py</span></p>
+<p style="text-align: left;"><span style="font-size: 24px;">ssh2john &nbsp; id_rsa private key &nbsp; &gt; &nbsp; &nbsp; OutputFileName.txt</span></p>
+<p style="text-align: left;"><span style="font-size: 24px;">-Then crack the hash using the above syntax&nbsp;</span></p>
+<p style="text-align: left;"><br></p>
+<p style="text-align: center;"><span style="font-size: 24px;"><u><strong><span style="color: rgb(85, 57, 130);">Hashcat</span></strong></u></span></p>
+<p style="text-align: left;"><span style="font-size: 20px;"><span style="color: rgb(0, 0, 0); font-size: 24px;"><a href="https://hashcat.net/wiki/doku.php?id=hashcat">https://hashcat.net/wiki/doku.php?id=hashcat</a> - Use to find hash mode and type of attack code</span></span></p>
+<p style="text-align: left;"><span style="font-size: 20px;"><span style="color: rgb(0, 0, 0); font-size: 24px;"><strong>-m</strong> = select hash mode (example 0 is MD5)</span></span></p>
+<p style="text-align: left;"><span style="font-size: 20px;"><span style="color: rgb(0, 0, 0); font-size: 24px;"><strong>-a </strong>= select attack type (example 0 is dictionary attack)</span></span></p>
+<p style="text-align: left;"><span style="font-size: 20px;"><span style="color: rgb(0, 0, 0); font-size: 24px;">syntax example:</span></span></p>
+<p style="text-align: left;"><span style="font-size: 20px;"><span style="color: rgb(0, 0, 0); font-size: 24px;"><strong>hashcat -m 0 &nbsp;-a 0 &nbsp;&lt;hash file&gt; &nbsp;&lt;path to wordlist&gt;</strong></span></span></p>
+<br>
+<p style="text-align: center;"><span style="font-size: 24px;"><u><strong><span style="color: rgb(85, 57, 130);">Hydra</span></strong></u></span></p>
+<p style="text-align: left;"><span style="font-size: 24px;"><strong>-l&nbsp;</strong>= (small L) provide the username</span></p>
+<p style="text-align: left;"><span style="font-size: 24px;"><strong>-L</strong> = provide username list path</span></p>
+<p style="text-align: left;"><span style="font-size: 24px;"><strong>-P</strong> = provide wordlist path</span></p>
+<p style="text-align: left;"><span style="font-size: 24px;"><strong>-t</strong> = number of threads</span></p>
+<p style="text-align: left;"><span style="font-size: 24px;"><strong>ssh/ftp/http-get/http-post-form =&nbsp;</strong>service type</span></p>
+<p style="text-align: left;"><span style="font-size: 24px;">If cracking a http post form, open dev tools (inspect element) select network tab and submit the credentials. View the full details, ie: url, how user and pass are sent to server and make note of the error message.</span></p>
+<p style="text-align: left;"><span style="font-size: 24px;"><strong>hydra -l admin -P &lt;wordlist&gt; &lt;machine-ip&gt; http-post-form &quot;/admin/index.php:user=^USER^&amp;pass=^PASS^:Username or password incorrect&quot; -V</strong></span></p>
+<p style="text-align: left;"><br></p>
+<p style="text-align: left;"><br></p>
+
+
+</body>
+</html>
