@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>People Search/Enum/Priv Esc</title>
+</head>
+<body>
+
+    <p style="text-align: center;"><strong><span style="font-size: 24px; color: rgb(184, 49, 47);">Recon and Enumeration</span></strong></p>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(243, 121, 52);">Useful tools to know: - Recon/People Searching</span></strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Google (specifically Google Dorking)</span></li>
+        <li><span style="font-size: 24px;">Wikipedia</span></li>
+        <li><span style="font-size: 24px;">PeopleFinder.com</span></li>
+        <li><span style="font-size: 24px;">who.is</span></li>
+        <li><span style="font-size: 24px;">sublist3r</span></li>
+        <li><span style="font-size: 24px;">hunter.io</span></li>
+        <li><span style="font-size: 24px;">builtwith.com</span></li>
+        <li><span style="font-size: 24px;">wappalyzer</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(65, 168, 95);">Enum tools:</span></strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">dirb (used to find commonly-named directories on a website)</span></li>
+        <li><span style="font-size: 24px;">dirbuster (has a GUI)</span></li>
+        <li><span style="font-size: 24px;">enum4linux (SMB/SAMBA vulnerabilities)</span></li>
+        <li><span style="font-size: 24px;">metasploit (Mainly for exploitation but also recon and scanning)</span></li>
+        <li><span style="font-size: 24px;">Burp Suite (Intercept network traffic and find directories)</span></li>
+    </ul>
+    <p><strong><span style="font-size: 24px; color: rgb(85, 57, 130);">Priv esc tools/techniques:</span></strong></p>
+    <p><span style="font-size: 24px;">Many ways of priv esc, below an example of methods/tools</span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Cracking password hashes found on the target</span></li>
+        <li><span style="font-size: 24px;">Finding a vulnerable service or version of a service which will allow you to escalate privilege THROUGH the service</span></li>
+        <li><span style="font-size: 24px;">Password spraying of previously discovered credentials (password re-use)</span></li>
+        <li><span style="font-size: 24px;">Using default credentials</span></li>
+        <li><span style="font-size: 24px;">Finding secret keys or SSH keys stored on a device which will allow pivoting to another machine</span></li>
+        <li><span style="font-size: 24px;">Running scripts or commands to enumerate system settings like &apos;ifconfig&apos; to find network settings, or the command &apos;find / -perm</span></li>
+        <li><span style="font-size: 24px;">Find set capabiltities - getcap -r / 2&gt;/dev/null</span></li>
+        <li><span style="font-size: 24px;">-4000 -type f 2&gt;/dev/null&apos; to see if the user has access to any commands they can run as root</span></li>
+    </ul>
+</body>
+</html>
