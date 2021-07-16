@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wireless Methodology</title>
+</head>
+<body>
+
+    <p style="text-align: center;"><strong><span style="font-size: 24px;"><u><span style="color: rgb(44, 130, 201);">Wireless Methodology</span></u></span></strong></p>
+    <ul>
+        <li><span style="font-size: 24px;">Threat Assesment&nbsp;</span></li>
+    </ul>
+    <p><span style="font-size: 24px;">-identify the wireless threats facing an organisation info assets</span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Upgrading infrastruture</span></li>
+    </ul>
+    <p><span style="font-size: 24px;">-Change or upgrade existing infrastructure of software, hardware or network &nbsp;design</span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Risk Prevention and Response</span></li>
+    </ul>
+    <p><span style="font-size: 24px;">-provide comprehensive approach of preparation steps that can be taken to prevent inevitable exploitation</span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Security Control Auditing</span></li>
+    </ul>
+    <p><span style="font-size: 24px;">-to test and validate the effieciency of wireless security protections and controls</span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Data Theft Detection</span></li>
+    </ul>
+    <p><span style="font-size: 24px;">-Find streams of sensitive data by sniffing the traffic</span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Info Systems Management</span></li>
+    </ul>
+    <p><span style="font-size: 24px;">-Collect info on security protocols, network strength and connected devices</span></p>
+    <p><span style="font-size: 24px;"><br></span></p>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(251, 160, 38);">Wireless Pen Testing Framework:</span></strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Start</span></li>
+        <li><span style="font-size: 24px;">Discover wireless devices</span></li>
+        <li><span style="font-size: 24px;">If wireless device is foind, document all findings</span></li>
+        <li><span style="font-size: 24px;">If the wireless device found using wi fi network then perform general wi fi network attack and check if it uses WEP encryption</span></li>
+        <li><span style="font-size: 24px;">If WLAN uses WEP encryption then perform WEP encryption, then perform WPA/WPA2 encryption pen testing or else check if it uses WPA/WPA2 encryption</span></li>
+        <li><span style="font-size: 24px;">If WLAN uses WEP encryption then perform WPA/WPA2 encryption, then perform WPA/WPA2 encryption pen testing or else check if it uses LEAP encryption</span></li>
+        <li><span style="font-size: 24px;">If WLAN uses LEAP encryption, then perform LEAP encryption pen testing or else check if WLAN is encrypted</span></li>
+        <li><span style="font-size: 24px;">If WLAN is unencrypted, then perform unencrypted WLAN pen testing or else perform general wifi network attack</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><br></span></p>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(65, 168, 95);">Pen Testing for General Wifi Network Attack:</span></strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Create Rogue Access Point</span></li>
+        <li><span style="font-size: 24px;">Deauthenticate the client using the tools such as Karma, airpplay-ng, etc &nbsp;and then check for client documentation</span></li>
+        <li><span style="font-size: 24px;">If client is deauthenticated, then assocciate with the client, sniff the traffic, and check if passphrase/certificate is acquired, or else try to deauthenticate the client again</span></li>
+        <li><span style="font-size: 24px;">If passphrase is acquired then crack the passphrase using the tool &nbsp;wzcook to steal confidential info or relse try to deauthenticate the client again.</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><br></span></p>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(85, 57, 130);">Pen Testing WEP encrypted WLAN:</span></strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Start</span></li>
+        <li><span style="font-size: 24px;">WEP encrypted WLAN</span></li>
+        <li><span style="font-size: 24px;">Visible SSID - check if visible or hidden</span></li>
+        <li><span style="font-size: 24px;">If SSID is visible, sniff the traffic and then check the status of packet capturing</span></li>
+        <li><span style="font-size: 24px;">If the packets are captured/injected, then break the WEP key using tools such as aircrack-ng, WEPcrack etc or else sniff the traffic again</span></li>
+        <li><span style="font-size: 24px;">If SSID is hidden, then deauthenticate the client using tools such as aireplay-ng, commview for wifi etc, associate the client and then follow the procedure of visible SSID</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><br></span></p>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(41, 105, 176);">Pen Testing WPA/WPA 2 Encrypted WLAN:</span></strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Deauthenticate the client using tools such as Karma, Aireplay-ng</span></li>
+        <li><span style="font-size: 24px;">If client is deauthenticated, sniff the traffic and then check the status of capturing EAPOL handshake or else try to deauthenticate the client again</span></li>
+        <li><span style="font-size: 24px;">If EAPOL handshake is captured, then perform PSK dictionary attack using tools such as coWPAtty, Aircrack-ng, to steal confidential info or else try to deauthenticate the client again</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><br></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(209, 72, 65);"><strong>Pen Testing LEAP encrypted WLAN:</strong></span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Deautheticate the client using tools such as karma,airplay-ng</span></li>
+        <li><span style="font-size: 24px;">If client is deauthenticated, then break the LEAP encryption using tooks such as Asleap, THC-LEAPcracker to steal confidental info or else try to deauthenticate client again</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><br></span></p>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(184, 49, 47);">Pen Testing Uncrypted WLAN:</span></strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Check if SSID is visible or hidden</span></li>
+        <li><span style="font-size: 24px;">If SSID is visible sniff for IP range and then check the status of MAC filtering</span></li>
+        <li><span style="font-size: 24px;">if MAC filtering is enabled, spoof valid MAC using tools such as technitium MAC add changer (TMAC), mac add changer, change mac add etc &nbsp;or connect to the AP using IP within the discovered range</span></li>
+        <li><span style="font-size: 24px;">If SSID is hidden, then deauthenticate the client using tools such as aireplay-ng, commview for wifi associate the client and then follow the procedure of visible SSID</span></li>
+    </ul>
+    <p><br></p>
+    <p><br></p>
+    <pre class="a-b-r-La" style='user-select: text; display: block; font-family: "Courier New", Courier, monospace, arial, sans-serif; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; white-space: pre-wrap; overflow-wrap: break-word; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;'>
+    </pre>
+    <p><br></p>
+    <p><br></p>
+
+</body>
+</html>

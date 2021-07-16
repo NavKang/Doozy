@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Web Server Methodology</title>
+</head>
+<body>
+
+    <p style="text-align: center;"><strong><span style="font-size: 24px; color: rgb(44, 130, 201);"><u>Web Server Hacking Methodology</u></span></strong></p>
+    <p><span style="font-size: 24px;"><strong><u><span style="color: rgb(71, 85, 119);">Web Server Pen Testing</span></u></strong></span></p>
+    <p><span style="font-size: 24px;"><strong>Identify the target</strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Search open sources for info about the target</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(97, 189, 109);">= internet, newsgroups, bulletin boards etc</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Perform social engineering</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(44, 130, 201);">=social networking, dumpster driving</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Query the whois databases</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(147, 101, 184);">=Whois, traceroute, active whois, etc</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Document all info about target</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><br></span></p>
+    <p><span style="font-size: 24px;"><u><span style="color: rgb(71, 85, 119);">Web Server Pen Testing continued:</span></u></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">fingerprint web server&nbsp;</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(209, 72, 65);">=use tools such as netcraft and httprecon</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Crawl website</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(85, 57, 130);">=Use tools such as HTTtrackm webcopier pro</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Enumerate web directories</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(184, 49, 47);">=use tools such as Nmap</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Perform directory traversal attack</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(243, 121, 52);">=use automated tools such as Dirbuster</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Examine config files</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><br></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Perform vuln assessment</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(65, 168, 95);">=identify weaknesses in a network, tools: Acunetix, web inspect, nessus</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Perform HTTP response splitting</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(41, 105, 176);">=to pass malicious data to a vuln app that includes the data in an http resonse header</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Web cache poisoning attack</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(85, 57, 130);">= to force the web servers cahce to flush its actual cache conent ad senda specially crafted request, which will be stored in cache</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Crack web server authentication</span></li>
+        <li><span style="font-size: 24px;">Bruteforce SSH,FTP, and other services</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(243, 121, 52);">= to gain unauthorized access</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Perform session hijacking</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(41, 105, 176);">= to capture valid session cookies and IDs, Use tools such as Burp Suite, Firesheep, JHiJack, to automate session hijacking</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Perform MITM attack&nbsp;</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(250, 197, 28);">=to access sensitive info by intercepting and altering comms between an end-user and web servers</span></span></p>
+    <p><span style="font-size: 24px;"><br></span></p>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(71, 85, 119);">Perform web app pen testing:</span></strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Examine web server log</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(97, 189, 109);">=Use tools such as webalizer AWstats, Ktmatu relax, to examine web server logs</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Exploit frameworks</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(44, 130, 201);">=Use tools such as metasploit, w3af to exploit frameworks</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Document all findings</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><br></span></p>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(71, 85, 119);">Web server pen testing steps in full:</span></strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Identify the target</span></li>
+        <li><span style="font-size: 24px;">Search open sources for info about the target</span></li>
+        <li><span style="font-size: 24px;">Perform social enginerring</span></li>
+        <li><span style="font-size: 24px;">Query the Whois dbs</span></li>
+        <li><span style="font-size: 24px;">Document all info about target</span></li>
+        <li><span style="font-size: 24px;">Fingerprint web server</span></li>
+        <li><span style="font-size: 24px;">Crawl website</span></li>
+        <li><span style="font-size: 24px;">Enumerate web directories</span></li>
+        <li><span style="font-size: 24px;">Perform directory traversal attack</span></li>
+        <li><span style="font-size: 24px;">Examine config files</span></li>
+        <li><span style="font-size: 24px;">Perform vuln assesment</span></li>
+        <li><span style="font-size: 24px;">Perform HTTP response splitting</span></li>
+        <li><span style="font-size: 24px;">Web cache poisoning attack</span></li>
+        <li><span style="font-size: 24px;">Crack web server authentication</span></li>
+        <li><span style="font-size: 24px;">Bruteforce SSH, FTP, and other services</span></li>
+        <li><span style="font-size: 24px;">Perform session hijacking</span></li>
+        <li><span style="font-size: 24px;">Perform MITM attack</span></li>
+        <li><span style="font-size: 24px;">Perform web app pen testing</span></li>
+        <li><span style="font-size: 24px;">Examine web server logs</span></li>
+        <li><span style="font-size: 24px;">Exploit frameworks</span></li>
+    </ul>   
+
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+    <p style="text-align: center;"><span style="font-size: 24px;"><strong><span style="color: rgb(61, 142, 185);">SQL Usage and Cheatsheet</span></strong></span></p>
+    <p style="text-align: left;"><span style="font-size: 24px;"><strong><span style="color: rgb(226, 80, 65);">Usage:</span></strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">mysql -u &lt;username&gt; -p</span></li>
+        <li><span style="font-size: 24px;">show databases;</span></li>
+        <li><span style="font-size: 24px;">use &lt;db name&gt;;</span></li>
+        <li><span style="font-size: 24px;">show tables;</span></li>
+        <li><span style="font-size: 24px;">select * from users;</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(251, 160, 38);">SQLi methodology:</span></strong></span></p>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(209, 72, 65);"> Information Gathering:</span></strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Does it connect to a DB server</span></li>
+        <li><span style="font-size: 24px;">Make list of all input fields, hiddenfields (inc post requests) will help in stucturing a SQL query</span></li>
+        <li><span style="font-size: 24px;">Inject code in the input fields (what type of errors if any do you get)</span></li>
+        <li><span style="font-size: 24px;">Inject words into fields where numbers are expected (and vice versa) what errors do you get if any</span></li>
+        <li><span style="font-size: 24px;">Using UNION operators will be useful</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(124, 112, 107);">Continued in further detail:</span></strong></span></p>
+    <p><span style="font-size: 24px;">- Identifying data entry paths, use tools such as Burpsuite and Tamper Data</span></p>
+    <p><span style="font-size: 24px;">-Carefully reading error message is essential as wealth of information provided (ie DB type, DB engine type, OS, web server details)</span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Tamper with the parameters - either GET or POST to generate error messages</span></li>
+    </ul>
+    <p><span style="font-size: 24px;">- Test for SQLI, using various string formats</span></p>
+    <p><span style="font-size: 24px;">-You can also do: Fuzz attack, function testing and source code review </span></p>
+
+</body>
+</html>

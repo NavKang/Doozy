@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Evading Honeypots and Firewalls Methodology</title>
+</head>
+<body>
+
+    <p style="text-align: center;"><strong><span style="font-size: 24px;"><u><span style="color: rgb(44, 130, 201);">Evading Honeypots and Firewall Methodology</span></u></span></strong></p>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(147, 101, 184);">Firewall Pen Testing:</span></strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Start Footprint the target</span></li>
+        <li><span style="font-size: 24px;">Perform port scanning to detect firewall</span></li>
+        <li><span style="font-size: 24px;">Firewall Detected</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(65, 168, 95);">&gt;if no<span style="white-space:pre;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span>(&gt;if yes, then end)</span></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(65, 168, 95);">=Perform banner grabbing to detect firewall</span></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(65, 168, 95);">=if not, then perform firewalking to detect firewall</span></span></p>
+    <p><span style="font-size: 24px;"><br></span></p>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(209, 72, 65);">Firewall Pen Testing:</span></strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Disable a trusted host</span></li>
+        <li><span style="font-size: 24px;">Perform IP add spoofing (tp gain unauthorised access to a comp or network)</span></li>
+        <li><span style="font-size: 24px;">Perform source routing (to designate the packet route in order to bypass the firewall)</span></li>
+        <li><span style="font-size: 24px;">Perform IP fragmentation (to force TCP header info into next fragment in order to bypass firewall)</span></li>
+        <li><span style="font-size: 24px;">Use ip add in place of URL (type IP add num instead of name)</span></li>
+        <li><span style="font-size: 24px;">Use anonymous website surfing sites</span></li>
+        <li><span style="font-size: 24px;">Use proxy servers (that block actual IP add, and display another)</span></li>
+        <li><span style="font-size: 24px;">Perform ICMP tunnling (to tunnel a backdoor app in data portion of ICMP echo packets)</span></li>
+        <li><span style="font-size: 24px;">Perform ACK tunneling (using tools such as AckCmd to tunnel backdoor app with TCP packets with the ACK bit set)</span></li>
+        <li><span style="font-size: 24px;">Perform HTTP Tunneling (use tools such as super netork tunnel httport to tunnel traffic across TCP port 80)</span></li>
+        <li><span style="font-size: 24px;">Perform SSH Tunneling (use tools as Bitvise to encrypt and tunnel all traffic from local to remote machine)</span></li>
+        <li><span style="font-size: 24px;">Use External Systems</span></li>
+        <li><span style="font-size: 24px;">Perform MITM attack</span></li>
+        <li><span style="font-size: 24px;">Perform XSS attack</span></li>
+        <li><span style="font-size: 24px;">Document all findings</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><br></span></p>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(226, 80, 65);">IDS pen testing:</span></strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Disable a trusted host</span></li>
+        <li><span style="font-size: 24px;">Perform Insertion attack</span></li>
+        <li><span style="font-size: 24px;">Implement Evasion technique</span></li>
+        <li><span style="font-size: 24px;">Perform Deniel of service attack</span></li>
+        <li><span style="font-size: 24px;">Obfuscate or encode the attack payload</span></li>
+        <li><span style="font-size: 24px;">Perform false positive generation technique</span></li>
+        <li><span style="font-size: 24px;">Perform session splicing technique</span></li>
+        <li><span style="font-size: 24px;">Perform unicode evasions technique</span></li>
+        <li><span style="font-size: 24px;">Perform fragmentation attack</span></li>
+        <li><span style="font-size: 24px;">Perform overlapping fragments technique (to craft a series of packets with TCP seq number configured to overlap)</span></li>
+        <li><span style="font-size: 24px;">Perform time to live attack</span></li>
+        <li><span style="font-size: 24px;">Perform invalid RST packets technique (to bypass IDS as it prevents IDS from processing the stream)</span></li>
+        <li><span style="font-size: 24px;">Perform urgency flag technique (to evade IDS as some IDS do not consider the TCP protocols urgency feature)</span></li>
+        <li><span style="font-size: 24px;">Perform polymorphic Shellcode technique (try to bypass IDS by encrypting the shellcode to make it undetectable to IDS)</span></li>
+        <li><span style="font-size: 24px;">Perform ASCII shelllcode technique (try to evade IDS pattern matching signatures by hiding the shellcode content using ACSII codes)</span></li>
+        <li><span style="font-size: 24px;">Perform app layer attack (as many IDS fail to check the compresed file formats for signatures)</span></li>
+        <li><span style="font-size: 24px;">Perform encryption and flooding techniques (estab an encrypted session with the victim or send loads of unnecessary traffic to produce noise that cannot be analysed by the IDS)</span></li>
+        <li><span style="font-size: 24px;">Perform post connection SYN attack</span></li>
+        <li><span style="font-size: 24px;">Perform Pre Connection SYN attack</span></li>
+        <li><span style="font-size: 24px;">Document all findings</span></li>
+    </ul>
+    <p><br></p>
+    <p><br></p>
+
+</body>
+</html>

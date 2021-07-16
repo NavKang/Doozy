@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tools of the trade</title>
+</head>
+<body>
+    <p style="text-align: center;"><span style="font-family: 'Times New Roman', Times, serif;"><strong><u><span style="font-size: 24px;">Tools of the trade - by category</span></u></strong></span></p>
+    <ul>
+        <li style="text-align: justify;"><span style="font-family: 'Times New Roman', Times, serif;"><span style="font-size: 24px;">Footprinting</span></span></li>
+        <li style="text-align: justify;"><span style="font-family: 'Times New Roman', Times, serif;"><span style="font-size: 24px;">Enumeration</span></span></li>
+        <li style="text-align: justify;"><span style="font-family: 'Times New Roman', Times, serif;"><span style="font-size: 24px;">Vulnerability Analysis</span></span></li>
+        <li style="text-align: justify;"><span style="font-family: 'Times New Roman', Times, serif;"><span style="font-size: 24px;">Sniffing</span></span></li>
+        <li style="text-align: justify;"><span style="font-family: 'Times New Roman', Times, serif;"><span style="font-size: 24px;">DoS/DDoS</span></span></li>
+        <li style="text-align: justify;"><span style='font-size: 24px; font-family: "Times New Roman", Times, serif;'>Evading Honeypots and Firewalls</span></li>
+        <li style="text-align: justify;"><span style='font-size: 24px; font-family: "Times New Roman", Times, serif;'>Crypto&nbsp;</span></li>
+        <li style="text-align: justify;"><span style='font-size: 24px; font-family: "Times New Roman", Times, serif;'>Hacking: Password/Steg/Covering tracks</span></li>
+        <li style="text-align: justify;"><span style='font-size: 24px; font-family: "Times New Roman", Times, serif;'>Session Hijacking</span></li>
+        <li style="text-align: justify;"><span style='font-size: 24px; font-family: "Times New Roman", Times, serif;'>Web Servers</span></li>
+        <li style="text-align: justify;"><span style='font-size: 24px; font-family: "Times New Roman", Times, serif;'>Web Apps</span></li>
+        <li style="text-align: justify;"><span style="font-size: 24px;">IoT</span></li>
+        <li style="text-align: justify;"><span style="font-size: 24px;">Mobile</span></li>
+    </ul>
+    <p><span style="font-family: 'Times New Roman', Times, serif;"><span style="font-size: 24px;">--------------------------------------------------------------------------------------</span></span></p>
+    <pre class="a-b-r-La" style='user-select: text; display: block; font-family: "Courier New", Courier, monospace, arial, sans-serif; margin: 0px; white-space: pre-wrap; overflow-wrap: break-word; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;'><span style="font-family: 'Times New Roman', Times, serif;"><strong><span style="font-size: 24px;">FOOTPRINTING:</span></strong><span style="font-size: 24px;">
+    
+    <span style="color: rgb(97, 189, 109);">Maltego (paterva.com)</span>
+    -is an open source intelligence and forensics application. Can be useful during info gathering.
+    -Maltego is a platform developed to deliver a clear threat picture to enviroment that the organisation owns and operates.
+    <span style="color: rgb(44, 130, 201);">
+    Recon-ng (https://bitbucker.org)</span>
+    -Similar feel to metasploit framework
+    - It is however a web based open source recon. 
+    
+    <span style="color: rgb(147, 101, 184);">FOCA (https://www.elevenpaths.com)</span>
+    -Capable of scanning and analysing wide variety of docs ie PDF, Microsoft Office
+    -Features: Web, DNS search, IP Resolution, PTR scanning, Bing IP, Common Names
+    
+    <span style="color: rgb(41, 105, 176);">Recon-Dog (http://github.com)</span>
+    -Uses APIs to collect info about target system
+    -Features: Whois Lookup, DNS Lookup, Zone Transfer, Port Scan, HTTP Hearder Grabber, Honeypot Detector, Robot.txt Scanner, IP location Finder, Traceroute, Link Grabber
+    
+    <span style="color: rgb(251, 160, 38);">OSRFramework (https://github.com)</span>
+    -is a GNU AGPLv3+ set of libraries developed to perform Open Source Intelligence tasks
+    -The libraries provide a collections of scripts that can enumerate users, domains and more across 200 services. Tools in OSR = usufy.py, mailfy.py, searchfy.py, domainfy.py. phonefy.py, entify.py</span></span>
+    
+    
+    </pre>
+    <p><span style="font-family: 'Times New Roman', Times, serif;"><strong><span style="font-size: 24px;">ENUMERATION:</span></strong></span></p>
+    <pre class="a-b-r-La" style='user-select: text; display: block; font-family: "Courier New", Courier, monospace, arial, sans-serif; margin: 0px; white-space: pre-wrap; overflow-wrap: break-word; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;'><span style='font-family: "Times New Roman", Times, serif; font-size: 24px;'><span style="color: rgb(65, 168, 95);">NetBIOS Tools:</span>
+    NBTstat utility
+    Hyena (systemtools.com)
+    Netscan tools
+    SuperScan
+    MegaPing
+    <span style="color: rgb(44, 130, 201);">
+    SNMP Tools:</span>
+    OpUtils (manageengine.com)
+    NetScan Tools
+    SNScan (mcafee.com)
+    SNMPCheck (nothink.org)
+    
+    <span style="color: rgb(85, 57, 130);">LDAP Tools:</span>
+    Softerra LDAP admin (ldapadministrator.com)
+    LDAP admin (ldapadmin.org)
+    OpenLDAP (openldap.org)
+    <span style="color: rgb(65, 168, 95);">
+    NTP Tools:</span>
+    Command line
+    PRTG network monitor (paessler.com)
+    NTP time server monitor (meinbergglobal.com)
+    
+    <span style="color: rgb(250, 197, 28);">SMTP Tools:</span>
+    NetScanTools Pro (netscantools.com)
+    smtp-user-enum (pentestmonkey.net)
+    Telent (technet.microsoft.com)
+    MX Toolbox (mxtoolbox.com)
+    
+    <span style="color: rgb(41, 105, 176);">DNS Tools:</span>
+    
+    
+    <span style="color: rgb(226, 80, 65);">IPsec Enumeration:</span>
+    ike-scan (github.com)
+    
+    <span style="color: rgb(251, 160, 38);">VOIP Enumeration:</span>
+    Svmap (github.com)
+    
+    <span style="color: rgb(97, 189, 109);">RPC (Remote Procedure call) Enumeration:</span>
+    Use Nmap commands 
+    
+    <span style="color: rgb(84, 172, 210);">Unix/Linux User Enumeration:</span>
+    rusers
+    rwho
+    Finger</span>
+    
+    
+    <span style='font-family: "Times New Roman", Times, serif; font-size: 24px;'><strong>Vulnerability Analysis Tools:</strong></span>
+    
+    </pre>
+    <pre class="a-b-r-La" style='user-select: text; display: block; font-family: "Courier New", Courier, monospace, arial, sans-serif; margin: 0px; white-space: pre-wrap; overflow-wrap: break-word; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;'><span style='font-size: 24px; font-family: "Times New Roman", Times, serif;'><span style="color: rgb(65, 168, 95);">Vuln Scoring System:</span>
+    -Common Vuln Scoring System (CVSS)  --www.first.org --//nvs.nist.gov
+    -Common Vuln and Exposures (CVE) --cve.mitre.org
+    -National Vuln Database (NVD) --nvd.nist.gov
+    
+    <span style="color: rgb(44, 130, 201);">Resources for Vuln Research:</span>
+    -Microsoft Vuln Research (MSVR) -technet.microsoft.com
+    -Security Focus -securityfocus.com
+    -Hackerstorm -hackerstorm.co.uk
+    -Exploit Database -exploit-db.com
+    -rapid7 -rapid7.com
+    
+    <span style="color: rgb(235, 107, 86);">Vuln Tools:</span>
+    -Qualys Vuln Management -qualys.com
+    -Nessus Professional -tenable.com
+    -GFI Languard -gfi.com
+    -Qualys FreeScan -freescan.qualys.com
+    -Nikto -cirt.net
+    -OpenVAS -openvas.org
+    -Retina CS -beyondtrust.com
+    -Saint -Saintcorporation.com
+    -Microsoft Baseline Security Analyzer (MBSA) 
+    -AVDS -Automated Vuln Detection System -beyondsecurity.com
+    -Acunetix Web Vuln Scanner -acunetix.com
+    -Nexpose -rapid7.com
+    -Burp Suite</span>
+    
+    <span style='font-size: 24px; font-family: "Times New Roman", Times, serif;'><strong>Sniffing Tools:</strong></span>
+    
+    </pre>
+    <pre class="a-b-r-La" style='user-select: text; display: block; font-family: "Courier New", Courier, monospace, arial, sans-serif; margin: 0px; white-space: pre-wrap; overflow-wrap: break-word; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;'><span style='color: rgb(65, 168, 95); font-size: 24px; font-family: "Times New Roman", Times, serif;'>DHCP starvation attacks tools:</span><span style="font-family: 'Times New Roman', Times, serif;"><span style="font-size: 24px;">
+    Yersinia -yersinia.net
+    Hyenae -sourceforge.net
+    dhcpstarv -github.com
+    Gobbler -sourceforge.net
+    
+    </span></span><span style='color: rgb(251, 160, 38); font-size: 24px; font-family: "Times New Roman", Times, serif;'>ARP poisoning tools:</span>
+    
+    <span style='font-family: "Times New Roman", Times, serif; font-size: 24px;'>Ufasoft Snif - ufasoft.com
+    BetterCAP -betterCAP.org
+    EtterCap -github.com
+    Arpspooftool -sourceforge.net
+    Cain abel -oxid.it
+    hping3 -hping.org
+    
+    <span style="color: rgb(41, 105, 176);">ARP spoofing detection tools:</span>
+    Xarp - xarp.net
+    Capsa Network Analyzer -colasoft.com
+    ArpON -arpon.spurceforge.net
+    ARP Antispoofer (github)
+    ARPStraw (github)
+    
+    <span style="color: rgb(184, 49, 47);">MAC spoofing tools:</span>
+    Tecnitium MAC add changer - technitium.com
+    MAC add changer - novirusrthanks.org
+    GhostMAC -ghostmac.fevermedia.ro
+    SMAC -kicconsulting.net</span>
+    
+    
+    </pre>
+    <pre class="a-b-r-La" style='user-select: text; display: block; font-family: "Courier New", Courier, monospace, arial, sans-serif; margin: 0px; white-space: pre-wrap; overflow-wrap: break-word; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;'><span style='font-size: 24px; font-family: "Times New Roman", Times, serif;'><span style="color: rgb(0, 0, 0);"><strong>Dos / DDoS attack tools:</strong></span></span>
+    <span style='font-size: 24px; font-family: "Times New Roman", Times, serif;'>
+    High Orbit Ion Cannon (HOIC) - sourceforge.net
+    Low Orbit Ion Cannon (LOIC) - sourceforge.net
+    HULK - sectorix.com</span>
+    
+    
+    <strong><span style='font-size: 24px; font-family: "Times New Roman", Times, serif;'>Evading Honeypots and Firewalls:</span></strong>
+    
+    </pre>
+    <pre class="a-b-r-La" style='user-select: text; display: block; font-family: "Courier New", Courier, monospace, arial, sans-serif; margin: 0px; white-space: pre-wrap; overflow-wrap: break-word; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;'><span style='color: rgb(243, 121, 52); font-size: 24px; font-family: "Times New Roman", Times, serif;'>Intrusion Detection Tools:</span><span style='font-size: 24px; font-family: "Times New Roman", Times, serif;'>
+    Snort - snort.org
+    Check point IPS -checkpoint.com
+    AlienVault - alienvault.com
+    Fortigate IPS - fortinet.com
+    Peek &amp; Spy - networkingdynamics.com
+    Vanguard Enforcer - go2vanguard.com
+    
+    <span style="color: rgb(147, 101, 184);">Firewalls:</span>
+    ZoneAlarm Pro firewalls - zonealarm.com
+    Firewall Analyzer - manageengine.com
+    Sophos XG -sophos.com
+    
+    <span style="color: rgb(209, 72, 65);">Honeypot Tools:</span>
+    KFSensor - keyfocus.net
+    Specter - specter.com
+    Honeybot -atomicsoftwaresolutions.com
+    Glastopf - github.com
+    Honeyd - honeyd.org
+    
+    <span style="color: rgb(243, 121, 52);">for Mobile:</span>
+    HosTaGe - tk.informatik.tu.darmstadt.de
+    Network Guard -play.google.com
+    
+    <span style="color: rgb(41, 105, 176);">Anonymous tools:</span>
+    Anonymizer.com
+    webproxyserver.net
+    anonymous-proxy-server.net
+    zendproxy.com
+    proxify.com
+    guardster.com
+    
+    <span style="color: rgb(65, 168, 95);">HTTP tunnelling tools:</span>
+    Super network tunnel - networktunnel.net
+    HTTPort and HTTHost - targeted.org
+    Tunna - github.com
+    Http Tunnel - http-tunnel.sourceforge.net
+    
+    <span style="color: rgb(147, 101, 184);">SSH Tunneling tools:</span>
+    Bitvise - bitvise.com
+    Secure Pipes - opoet.com
+    
+    <span style="color: rgb(85, 57, 130);">IDS/Firewall Evasion Tools:</span>
+    Traffic IQ professional - idappcom.com
+    Hotspot shield -hotspotshield.com
+    Ftester - inversepath.com
+    Tomahawk - tomahawk.sourceforge.net
+    
+    <span style="color: rgb(243, 121, 52);">Packet Fragment Generator Tools:</span>
+    Colasoft Packet builder - colasoft.com
+    CommView -tamos.com
+    Netscantools pro - netscantools.com
+    Ostinato - ostinato.org
+    WAN killer - solarwinds.com
+    Hping3 - hping.org
+    fping - fping.org</span>
+    
+    </pre>
+    <pre class="a-b-r-La" style='user-select: text; display: block; font-family: "Courier New", Courier, monospace, arial, sans-serif; margin: 0px; white-space: pre-wrap; overflow-wrap: break-word; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;'>
+    <strong><span style='font-family: "Times New Roman", Times, serif; font-size: 24px;'>Crypto Tools:</span></strong><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;">
+    
+    </span></span></pre>
+    <pre class="a-b-r-La" style='user-select: text; display: block; font-family: "Courier New", Courier, monospace, arial, sans-serif; margin: 0px; white-space: pre-wrap; overflow-wrap: break-word; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;'><span style='font-family: "Times New Roman", Times, serif; font-size: 24px;'><span style="color: rgb(97, 189, 109);">MD5 hash Calculators:</span>
+    MD5 Calulator - bullzip.com
+    Hashmy files - nirsoft.net
+    HashCalc - slavasoft.com
+    onlineMD5.com
+    MD5 hash Calculator  - md5calc.com
+    MD5 Hash generator- md5hashgenerator.com
+    
+    <span style="color: rgb(26, 188, 156);">hash for mobile:</span>
+    MD5 hash calc - md5calculator.chromefans.org
+    Hash Droid - play.google.com
+    
+    <span style="color: rgb(84, 172, 210);">Cryptography tools:</span>
+    Advanced encryption package 2017 - aeppro.com
+    BCText Encoder - jetico.com
+    AxCrypt - axcrypt.net
+    Folder Lock - newsoftwares.net
+    Certainsafe - certainsafe.com
+    Veracrypt - veracrypt.codeplex.com
+    Cryptoforge - cryptforge.com
+    WinAES - winaes.com
+    AES crypt - aescrypt.com
+    
+    <span style="color: rgb(44, 130, 201);">for mobile:</span>
+    secret space encryptor - paranoiaworks.mobi
+    Decrypto - play.google.com
+    Sealnote - play.google.com
+    
+    <span style="color: rgb(147, 101, 184);">Certification Authorities:</span>
+    Comodo - comodo.com
+    identrust - identrust.com
+    symatec - websecurity.symantec.com
+    godaddy - in.godaddy.com
+    globalsign - globalsign.com
+    digicert.com
+    verisign
+    
+    <span style="color: rgb(71, 85, 119);">Cryptography toolkits :</span> 
+    OpenSSL - openssl.org
+    Keyczar - github.com
+    
+    <span style="color: rgb(65, 168, 95);">Disk encryption tools: </span>
+    VeraCrypt - veracrypt.codeplex.com
+    Symantec Drive Encryption - symantec.com
+    gilisoft 
+    Endpoint full disk encryption 
+    Axcrypt - axcrypt.net
+    
+    <span style="color: rgb(250, 197, 28);">Cryptanalysis tools:</span>
+    Cryptool - cryptool.org
+    Cryptobench - addario.org
+    Cryptol - cryptol.net
+    Evercrack - evercrack.sourceforge.net
+    Alphapeeler - alphapeeler.sourceforge.net
+    
+    <span style="color: rgb(243, 121, 52);">Online MD5 Decryption tools:</span>
+    MD5 Decoder - dcode.fr
+    MD5 decrypt - md5decrypt.org
+    MD5 decrypter -md5online.org
+    onlinehashcrack.com - onlinehashcrack.com
+    hashkiller.co.uk
+    cmd5.org
+    crackstation.net
+    md5this.com</span>
+    
+    </pre>
+    <pre class="a-b-r-La" style='user-select: text; display: block; font-family: "Courier New", Courier, monospace, arial, sans-serif; margin: 0px; white-space: pre-wrap; overflow-wrap: break-word; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;'>
+    <span style='font-size: 24px; font-family: "Times New Roman", Times, serif;'><strong>Hacking Tools: Password/Steg/Covering Tracks:</strong></span>
+    
+    
+    </pre>
+    <pre class="a-b-r-La" style='user-select: text; display: block; font-family: "Courier New", Courier, monospace, arial, sans-serif; margin: 0px; white-space: pre-wrap; overflow-wrap: break-word; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;'><span style='color: rgb(65, 168, 95); font-size: 24px; font-family: "Times New Roman", Times, serif;'>Online tools to search default passwords:</span><span style='font-size: 24px; font-family: "Times New Roman", Times, serif;'>
+    -open-sez.me
+    -fortypoundhead.com
+    -cirt.net
+    -defaultpassword.us
+    -defaultpasswords.in
+    -routerpasswords.com
+    -defaultpassword.com
+    -default-password.info
+    
+    <span style="color: rgb(251, 160, 38);">LLMNR / NBT -NS Poisoning Tools:</span>
+    -Responder -Github.com
+    -Metasploit
+    -NBNSpoof 
+    -Inveigh (all from github.com)
+    
+    <span style="color: rgb(209, 72, 65);">Tools to create Rainbow Tables:</span>
+    -Rtgen  -project-rainbowcrack.com
+    -Winrtgen -oxid.it
+    
+    <span style="color: rgb(44, 130, 201);">Password Recovery Tools:</span>
+    -Elcomsoft Distributed Password Recovery -elcomsoft.com
+    
+    <span style="color: rgb(85, 57, 130);">Tools to extract the password Hashes:</span>
+    -PWdump7 -tarasco.org
+    -FGdump -foofus.net
+    
+    <span style="color: rgb(85, 57, 130);">Password Cracking tools for Windows Password Resetting:</span>
+    -L0phtcrack -L0phtcrack.com
+    -Ophcrack -ophcrack.sourceforge.net
+    
+    <span style="color: rgb(226, 80, 65);">Password Cracking Tools:</span>
+    -RainbowCrack -project-rainbowcrack.com
+    -Cain Abel -oxid.it
+    -Windws Password Recovery Tools -windowspasswordsrecovery.com
+    -hashcat -hashcat.net
+    -John the Ripper -openwall.com
+    -THC-Hydra -github.com
+    -Medusa -foofus.net</span></pre>
+    <pre class="a-b-r-La" style='user-select: text; display: block; font-family: "Courier New", Courier, monospace, arial, sans-serif; margin: 0px; white-space: pre-wrap; overflow-wrap: break-word; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;'>
+    </pre>
+    <pre class="a-b-r-La" style='user-select: text; display: block; font-family: "Courier New", Courier, monospace, arial, sans-serif; margin: 0px; white-space: pre-wrap; overflow-wrap: break-word; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;'><span style='color: rgb(65, 168, 95); font-size: 24px; font-family: "Times New Roman", Times, serif;'>Tools for executing applications:
+    </span><span style='font-size: 24px; font-family: "Times New Roman", Times, serif;'>-RemoteExec -isdecisions.com
+    -PDQ deploy -pdq.com
+    -Dameware Remote support -dameware.com
+    -Manageengine Desktop central -manageengine.com
+    -PsExec -docs.microsoft.com
+    -TheFatRat </span>
+    
+    
+    </pre>
+    <pre class="a-b-r-La" style='user-select: text; display: block; font-family: "Courier New", Courier, monospace, arial, sans-serif; margin: 0px; white-space: pre-wrap; overflow-wrap: break-word; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;'><span style='color: rgb(243, 121, 52); font-size: 24px; font-family: "Times New Roman", Times, serif;'>NTFS stream detector:</span><span style='font-size: 24px; font-family: "Times New Roman", Times, serif;'>
+    Stream Armor - securityxploded.com
+    Stream  detector -novirusthanks.org
+    Forensic Toolkot -mcafee.com
+    ADS Manager -dmitrybrant.com
+    ADS Scanner -pointstone.com
+    
+    <span style="color: rgb(184, 49, 47);">Whitespace Steg tools:</span>
+    Snow - darkside.com.au
+    
+    <span style="color: rgb(147, 101, 184);">Image Steg Tools:</span>
+    Openstego - openstego.info
+    Quickstego -quickcrypto.com
+    ImageHide -dancemammal.com
+    
+    <span style="color: rgb(243, 121, 52);">Document Steg tools:</span>
+    Stegostick - sourceforge.net
+    StegJ -stegj.sourceforge.net
+    Snow
+    
+    <span style="color: rgb(250, 197, 28);">Video Steg Tools:</span>
+    OmniHide pro - Omnihide.com
+    StegoStick 
+    OpenPuff -embeddedsw.net
+    <span style="color: rgb(247, 218, 100);">
+    Audio Steg Tools:</span>
+    Deepsound -jpinsoft.net
+    BitCrypt -bitcrypt.moshe-szweizer.com
+    MP3 Stego -petitcolas.net
+    
+    <span style="color: rgb(65, 168, 95);">Folder Steg tools:</span>
+    Gilisoft File Lock Pro - gilisoft.com
+    Folder Lock - newsoftwares.net
+    
+    <span style="color: rgb(44, 130, 201);">Spam/Email Steg Tools:</span>
+    Spam Mimic - spammimic.com
+    
+    <span style="color: rgb(147, 101, 184);">Steg tools for Mobile Phones:</span>
+    Steganography Master -play.google.com
+    stegais -stegais.com
+    SPY PIX -juicybitsoftware.com
+    Pocket Stego -talixa.com
+    
+    <span style="color: rgb(251, 160, 38);">Steg Detection Tools:</span>
+    Gargoyle Investigator Forensic Pro - wetstonetech.com
+    StegAlyzerSS -www.sarc.wv.com
+    Stegdetect -github.com
+    
+    <span style="color: rgb(0, 0, 0);">Clearing Logs Tools:</span>
+    Manually
+    
+    <span style="color: rgb(85, 57, 130);">Covering Track Tools:</span>
+    CCleaner - piriform.com
+    DBAN - cybertronsoft.com
+    Wipe - Privacyroot.com
+    BleachBit -bleachbit.org</span></pre>
+    <pre class="a-b-r-La" style='user-select: text; display: block; font-family: "Courier New", Courier, monospace, arial, sans-serif; margin: 0px; white-space: pre-wrap; overflow-wrap: break-word; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;'>
+    
+    <strong><span style='font-size: 24px; font-family: "Times New Roman", Times, serif;'>Session Hijacking:</span></strong></pre>
+    <pre class="a-b-r-La" style='user-select: text; display: block; font-family: "Courier New", Courier, monospace, arial, sans-serif; margin: 0px; white-space: pre-wrap; overflow-wrap: break-word; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;'><span style='font-size: 24px; font-family: "Times New Roman", Times, serif;'>
+    Burp suite -portswigger.net
+    OWASP Zap -owasp.org
+    BetterCap -bettercap.org
+    netool toolkit -sourceforge.net
+    Cookie Catcher -github.com</span>
+    
+    
+    <span style='font-size: 24px; font-family: "Times New Roman", Times, serif;'><strong>Web Servers:</strong></span>
+    
+    </pre>
+    <pre class="a-b-r-La" style='user-select: text; display: block; font-family: "Courier New", Courier, monospace, arial, sans-serif; margin: 0px; white-space: pre-wrap; overflow-wrap: break-word; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;'><span style='color: rgb(61, 142, 185); font-size: 24px; font-family: "Times New Roman", Times, serif;'>Info gathering:</span><span style='font-size: 24px; font-family: "Times New Roman", Times, serif;'>
+    WHOis - whois.net
+    Whois Lookup - whois.domaintools.com
+    Whois -whoiscom
+    DNSstuff toolbox - dnsstuff.com
+    Domain Dossier -centralops.net
+    Robots.txt file
+    
+    <span style="color: rgb(184, 49, 47);">Web Server Footprinting Tools:</span>
+    -Netcat -sourceforge.net
+    -Telnet -technet.microsoft.com
+    -Netcraft -netcraft.com
+    -httprecon -computec.ch
+    -IDserve - grc.com
+    -Recon-ng -bitbucket.org
+    -Uniscan - sourceforge.net
+    -P0f - github.com
+    
+    
+    <span style="color: rgb(147, 101, 184);">Enumerating Web server info:</span>
+    Use NMAP
+    
+    
+    <span style="color: rgb(251, 160, 38);">Website Mirroring tools:</span>
+    Httrack - httrack.com
+    WebCopier Pro -maximumsoft.com
+    Website Ripper Copier -tensons.com
+    Webripper - visualwebripper.com
+    
+    
+    <span style="color: rgb(61, 142, 185);">Finding default credentials of a web server:</span>
+    -Official manuals or documents
+    -Metasploit
+    -Online resources such as Open Sez me or cirt.net
+    -various other online resources
+    
+    
+    <span style="color: rgb(250, 197, 28);">Finding default content of a web server:</span>
+    -Nikto2 -cirt.net
+    -exploit databases such as security focus to find info
+    
+    <span style="color: rgb(97, 189, 109);">Vuln Scanning:</span>
+    -Acenetix 
+    -Fortify WebInspect
+    -Nessus
+    -Paros
+    
+    <span style="color: rgb(84, 172, 210);">Session Hijacking tools:</span>
+    -Burpsuite
+    -Firesheep
+    -JHijack
+    -Ettercap
+    -Cookiecatcher
+    
+    <span style="color: rgb(44, 130, 201);">Web Server Password Hacking:</span>
+    -Hashcat -hashcat.net
+    -THC Hydra
+    -Ncrack
+    -RainbowCrack
+    -Medusa
+    
+    <span style="color: rgb(247, 218, 100);">Web server attack tools:</span>
+    -Wfetch -microsoft.com
+    -THC Hydra
+    -Hulk Dos
+    -MPack
+    -w3af</span>
+    
+    
+    <span style='font-size: 24px; font-family: "Times New Roman", Times, serif;'><strong>Web app:</strong></span>
+    
+    </pre>
+    <pre class="a-b-r-La" style='user-select: text; display: block; font-family: "Courier New", Courier, monospace, arial, sans-serif; margin: 0px; white-space: pre-wrap; overflow-wrap: break-word; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;'><span style='font-size: 24px; font-family: "Times New Roman", Times, serif;'>Footprinting web infrastucture: server discovery:
+    
+    <span style="color: rgb(97, 189, 109);">Whois Lookup</span>
+    -Netcraft
+    -Whois.net
+    -SmartWhois
+    
+    <span style="color: rgb(84, 172, 210);">DNS interrogation</span>
+    -DNSstuff Toolbox
+    -DIG
+    -DNS check
+    -Domain Tools
+    
+    <span style="color: rgb(44, 130, 201);">Port Scanning</span>
+    -Nmap
+    -Netscan tools pro
+    -Advanced port scanner
+    -hping
+    
+    <span style="color: rgb(147, 101, 184);">Footprint web infrastruture : server identification/Banner grabbing</span>
+    -Netcat
+    -ID serve
+    -Netcraft
+    
+    <span style="color: rgb(65, 168, 95);">Footprint web infrastruture : Detecting web app firewalls and proxies on target site</span>
+    Wafw00f - github.com
+    
+    
+    <span style="color: rgb(226, 80, 65);">Footprint web infrastruture : Hidden content discovery</span>
+    
+    <span style="color: rgb(250, 197, 28);">Web spidering:</span>
+    -Burp Suite
+    -OWASP Zed Attack Proxy
+    -Scrapy
+    -WebScarab
+    
+    
+    <span style="color: rgb(124, 112, 107);">Web Crawling using mozenda web agent builder:</span>
+    -Mozenda.com
+    -Octoparse.com
+    -Giant web crawl -80legs.com
+    -Crawler4j - github.com
+    
+    
+    <span style="color: rgb(184, 49, 47);">Web server hacking tools:</span>
+    Web Inspect - software.microfocus.com
+    Metasploit
+    Nikto
+    Nessus
+    HexorBase
+    
+    
+    <span style="color: rgb(97, 189, 109);">identify server side technologies:</span>
+    httprint - net-square.com
+    
+    <span style="color: rgb(243, 121, 52);">identify server side functionality:</span>
+    GNU Wget -gnu.org
+    Blackwidow -softbytelabs.com
+    Teleport Pro -tenmax.com
+    
+    
+    <span style="color: rgb(226, 80, 65);">Password attacks - Password guessing and brute-forcing:</span>
+    -Password guessing
+    -THC hydra
+    -Cain &amp; Abel
+    -Burp Suite
+    -L0phtcrack
+    -Brutus
+    
+    <span style="color: rgb(65, 168, 95);">cookie exploiting tools:</span>
+    OWASP zed attack proxy - owasp.org
+    Burpsuite
+    XSSer - xsser.03c8.net
+    
+    <span style="color: rgb(250, 197, 28);">Web service attack tools:</span>
+    SoapUI Pro - soapui.org
+    XMLSpy - altova.com
+    
+    <span style="color: rgb(235, 107, 86);">Web App hacking tools:</span>
+    Burp Suite
+    Cookiedigger -mcafee.com
+    WebScarab - owasp.org
+    W3af
+    Httrack
+    WPscan
+    
+    <span style="color: rgb(61, 142, 185);">Fuzz Testing tools:</span>
+    WSFuzzer - owasp.org
+    Webscrab
+    Burpsuite
+    Peach Fuzzer -peach.tech</span>
+    
+    </pre>
+    <pre class="a-b-r-La" style='user-select: text; display: block; font-family: "Courier New", Courier, monospace, arial, sans-serif; margin: 0px; white-space: pre-wrap; overflow-wrap: break-word; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;'><span style='font-size: 24px; font-family: "Times New Roman", Times, serif;'><strong>IoT:</strong></span>
+    
+    </pre>
+    <pre class="a-b-r-La" style='user-select: text; display: block; font-family: "Courier New", Courier, monospace, arial, sans-serif; margin: 0px; white-space: pre-wrap; overflow-wrap: break-word; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;'><span style='color: rgb(97, 189, 109); font-size: 24px; font-family: "Times New Roman", Times, serif;'>Info gathering for IoT devices:</span><span style='font-size: 24px; font-family: "Times New Roman", Times, serif;'>
+    -Shodan
+    -Multiping -pingman.com
+    
+    
+    <span style="color: rgb(26, 188, 156);">Vuln Scanning</span> - use nmap
+    
+    <span style="color: rgb(84, 172, 210);">use RIoT vuln scanner</span> - beyondtrust.com
+    <span style="color: rgb(147, 101, 184);">
+    Sniffing using foren6</span> -cetic.github.io
+    
+    <span style="color: rgb(226, 80, 65);">Rolling code attack</span> - RFCrack -github.com
+    
+    <span style="color: rgb(243, 121, 52);">Hacking zigbee devices with attify zigbee framework:</span>
+    -attify.com
+    
+    <span style="color: rgb(250, 197, 28);">Blueborne attack using HackRF One:</span>
+    -greatscottgadgets.com
+    
+    
+    <span style="color: rgb(97, 189, 109);">Info gathering tools:</span>
+    Censys - censys.io
+    Thingful - thingful.net
+    
+    <span style="color: rgb(251, 160, 38);">Sniffing tools:</span>
+    Z Wave Sniffer - suphammer.net
+    Cloudshark - cloudshark.org
+    Ubique Protocol Analyzer -perytons.com
+    
+    <span style="color: rgb(41, 105, 176);">Vuln Scanning tools:</span>
+    beStorm - beyondsecurity.com
+    Rapid7 metasploit pro 
+    IoTsploit - iotsploit.co
+    IoTSeeker - info.rapid7.com
+    IoTinspector - iot-inspector.com
+    
+    <span style="color: rgb(184, 49, 47);">IoT hacking tools:</span>
+    Firmalyzer Enterprise - firmalyzer.com
+    Chipwhisperer - newae.com
+    rfcat-rolljam 
+    killerbee
+    GATTack.io 
+    JTAGULATOR - grandideastudio.com</span></pre>
+    <p><strong><span style='font-size: 24px; font-family: "Times New Roman", Times, serif;'>Mobile:</span></strong></p>
+    <pre class="a-b-r-La" style='user-select: text; display: block; font-family: "Courier New", Courier, monospace, arial, sans-serif; margin: 0px; white-space: pre-wrap; overflow-wrap: break-word; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;'><span style='font-size: 24px; font-family: "Times New Roman", Times, serif;'><span style="color: rgb(97, 189, 109);">Android Rooting Tools:</span>
+    KingoRoot -kingoapp.com
+    TunesGo Root Android tool - tunesgo.wondershare.com
+    One Click Root - oneclickroot.com
+    Unrevoked - unrevoked.com
+    MTK Droid - androidmtk.com
+    Superboot - galaxynexusforum.com
+    Superuser X - ksharkapps.com
+    Root Browser File Manager - jrummyapps.com
+    
+    <span style="color: rgb(44, 130, 201);">Blocking Wi Fi access using NETCUT:</span>
+    -Netcut - aracai.com
+    
+    <span style="color: rgb(147, 101, 184);">Hacking with zANTI:</span>
+    zANTI - zimperium.com
+    
+    <span style="color: rgb(251, 160, 38);">Hacking networks using Network Spoofer:</span>
+    --digitalsquid.co.uk
+    
+    <span style="color: rgb(250, 197, 28);">Launching DoS attack using Low Orbit Ion Cannon (LOIC):</span>
+    LOIC - play.google.com
+    
+    <span style="color: rgb(65, 168, 95);">Performing session hijacking using Droidsheep:</span>
+    -droidsheep.org
+    
+    <span style="color: rgb(147, 101, 184);">Hacking with Orbot Proxy:</span>
+    -guardianproject.info
+    
+    <span style="color: rgb(243, 121, 52);">Android Based sniffers:</span>
+    Faceniff - faceniff.ponury.net
+    Packet Sniffer -play.google.com
+    tpacketcapture - taosoftware.co.jp
+    Android PCAP -play.google.com
+    Testeldroid - play.google.com
+    Postern
+    Wifiinspect
+    Sniffdroid</span></pre>
+
+
+</body>
+</html>

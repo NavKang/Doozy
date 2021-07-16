@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Web App Methodology</title>
+</head>
+<body>
+    <p style="text-align: center;"><strong><span style="font-size: 24px; color: rgb(44, 130, 201);"><u>Web App Hacking Methodology</u></span></strong></p>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(209, 72, 65);">Web app pen testing:</span></strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">define objective</span></li>
+        <li><span style="font-size: 24px;">info gathering</span></li>
+        <li><span style="font-size: 24px;">Configuration management testing</span></li>
+        <li><span style="font-size: 24px;">Authentication testing</span></li>
+        <li><span style="font-size: 24px;">Session management testing</span></li>
+        <li><span style="font-size: 24px;">Denial of service testing</span></li>
+        <li><span style="font-size: 24px;">Data validation testing</span></li>
+        <li><span style="font-size: 24px;">Business logic testing</span></li>
+        <li><span style="font-size: 24px;">Authorization testing</span></li>
+        <li><span style="font-size: 24px;">Web services testing</span></li>
+        <li><span style="font-size: 24px;">AJAX testing</span></li>
+        <li><span style="font-size: 24px;">Document all findings<br></span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(97, 189, 109);">Info gathering:</span></strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Start</span></li>
+        <li><span style="font-size: 24px;">Analyse the robots.txt file</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(84, 172, 210);">=Allowed and disallowed directories</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Perform search engine recon</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(184, 49, 47);">=Issues of web app structure error pages produced</span></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(184, 49, 47);">=retrieve and analyse robots.txt file using tools like GNU wget</span></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(184, 49, 47);">=Use advanced &quot;site:&quot; search op, and then click &quot;cache&quot; to perform search engine recon</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Identify app entry points</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(41, 105, 176);">=Cookie info, 300 http and 400 status codes, 500 internal server error</span></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(41, 105, 176);">=use tools such as Burp Suite, OWASP, TamperIE, TamperData</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Identify the web apps</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(85, 57, 130);">=web apps, old versions of files or artifacts</span></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(85, 57, 130);">=probe for URLS, do dictionary-style searching (intelligent guessing) and perform vuln scanning using Nmap and nessus</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Analyze the O/P from HEAD and OPTIONS http requests</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(65, 168, 95);">=web server software version, scripting enviroment and OS in use</span></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(65, 168, 95);">=Use techniques such as DNS zone transfers, DNS inverse queries, web based DNS searches, querying search engines (googling)</span></span></p>
+    <p><span style="font-size: 24px;"><br></span></p>
+    <p><span style="font-size: 24px;"><strong>Info gathering continued:</strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Analysis of error codes</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(243, 121, 52);">=Software versions, details of databases, bugs and technological components</span></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(243, 121, 52);">=Analyse error codes by requesting invalid pages and utilisealternate request methods (POST/PUT/other) in order to collect confidential info from the server</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Test for recognised file types/extensions/directories</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(71, 85, 119);">=Web app enviroment</span></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(71, 85, 119);">=Examine source code from the accessible pages of the app front-end</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Examine source of available pages</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(209, 72, 65);">=Provide clues to the underlying app enviroment</span></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(209, 72, 65);">=Test for recognised file types/extensions/directories by requesting common file extensions such as .ASP, .HTM, .PHP, .EXE and watch for any unusual output or error codes</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">TCP/ICMP and service fingerprinting</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(44, 130, 201);">=Web app services and associated ports</span></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(44, 130, 201);">=Perform TCP/ICMP and service fingerprinting using traditional fingering tools such as nmap or more recent app fingerprinting tool Amap.</span></span></p>
+    <p><span style="font-size: 24px;"><br></span></p>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(243, 121, 52);">Configuration Management Testing:</span></strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Start</span></li>
+        <li><span style="font-size: 24px;">Perform SSL/TLS testing</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(184, 49, 47);">=disclosure of confidential info</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Perform infrastructure config management testing</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(65, 168, 95);">=source code of the app</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Perform app config management testing</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(251, 160, 38);">=info in source code, log files, and default error codes</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Test for file extensions handling</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(147, 101, 184);">=Confidential info about access credentials</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Verify the presence of old, back, and unreferenced files</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(250, 197, 28);">=Source code, installation paths, passwords for apps and databases</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Test for infrastructure and app admin interfaces</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(0, 168, 133);">=Admin interfaces can be found to gain access to admin functionality</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Test for HTTP methods and XST</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(85, 57, 130);">=credentials of legtimate users</span></span></p>
+    <p><span style="font-size: 24px;"><strong>Conclusion:</strong></span></p>
+    <p><span style="font-size: 24px;">-Identify the ports associated to SSL/TLS wrapped services using NMAP and nessus</span></p>
+    <p><span style="font-size: 24px;">-Perform network scanning and analyse the web serer banner</span></p>
+    <p><span style="font-size: 24px;">-Test the app config management using CGI scanners and reviewing the contents of the web server, app server, comments and &nbsp;config and logs</span></p>
+    <p><span style="font-size: 24px;">-Review source code, enumerate app pages and functionality</span></p>
+    <p><span style="font-size: 24px;">-Perform directory and file enumeration reviewing server and app documentation etc, to test for infrastructure and app admin interfaces</span></p>
+    <p><span style="font-size: 24px;">-Review OPTIONS HTTP method using Netcat and Telnet</span></p>
+    <p><span style="font-size: 24px;"><br></span></p>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(40, 50, 78);">Authentication Testing:</span></strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Start</span></li>
+        <li><span style="font-size: 24px;">Test for vuln remember password and PWD reset</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(97, 189, 109);">=Password, authentication weakness</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Test for logout and browser cache management</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(44, 130, 201);">=Authentication vuln</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Test for CAPTCHA</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(235, 107, 86);">=Authentication vuln</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Test for multiple factors authentication</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(184, 49, 47);">=multiple factors authentication vuln</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Test for race conditions</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(147, 101, 184);">=Race conditions</span></span></p>
+    <p><span style="font-size: 24px;"><strong><u>Conclusion:</u></strong></span></p>
+    <p><span style="font-size: 24px;">-Try to reset passwords by guessing, social eng or cracking secret qs</span></p>
+    <p><span style="font-size: 24px;">Check if &quot;remember by password&quot; mechanism is implemented by checking the HTML code of login page</span></p>
+    <p><span style="font-size: 24px;">-check if it possible to &quot;reuse&quot; a session after logout, also check if the application automatically logs out a user when the user has been idle for a certain amount of time, and that no sensitive data remains stored in the browser cache</span></p>
+    <p><span style="font-size: 24px;">-Identify all parameters that are sent in additiona to the decoded CAPTCHA value from the client to the server and try to send an old decoded CAPTCHA value with an old CAPTCHA ID of an old session id</span></p>
+    <p><span style="font-size: 24px;">-Check if users hold a hardware device of some kind in addition to the password. Check if hardware device communicates directly and independently with the authentication infrastructure using an additional communication channel.</span></p>
+    <p><span style="font-size: 24px;">-Attempt to force a race condition make multiple simultaneous requests while observing the outcome for unexpected behaviour. Perform code review.</span></p>
+    <p><span style="font-size: 24px;"><br></span></p>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(251, 160, 38);">Session Management Testing:</span></strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Start</span></li>
+        <li><span style="font-size: 24px;">Test for session management schema</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(250, 197, 28);">=Cookie tampering results in hijacking the sessions of legtimate users</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Test for cookie attributes</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(147, 101, 184);">=Cookie info to hijack a valid session</span></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(147, 101, 184);">=Collect suffiecient number of cookie samples, analyse cookie generation algorithm and forge a valid cookie in order to perform the attack</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Test for session fixation</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(44, 130, 201);">=Attacker could steal the user session (session hijacking)</span></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(44, 130, 201);">=Test for cookie attributes using intercepting proxies such as webscrab, burp suite, OWASP zap</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Test for exposed session variables</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(226, 80, 65);">=Confidential info of session token leads to a replay session attack</span></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(226, 80, 65);">=to test for session fixation, make a request to the site to be tested and analyse vuln using webscarab tool</span></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(226, 80, 65);">=test for exposed session variables by inspecting encryption &amp; reuse of session token, proxies and caching, GET &amp; POST, and transport vuln</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Test for CSRF&nbsp;</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(65, 168, 95);">=compromises end user data and operation or entire web app</span></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(65, 168, 95);">=Examine the URLs in the restricted area to test for CSRF</span></span></p>
+    <p><span style="font-size: 24px;"><br></span></p>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(147, 101, 184);">Authorization Testing:</span></strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Start</span></li>
+        <li><span style="font-size: 24px;">Test for path traversal</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(243, 121, 52);">=Access to resources /functionality allowing a privilege escalation attack</span></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(243, 121, 52);">=Test for path traversal by performing input vector enumeration and analyzing the input validation functions present in the web app</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Test for HTTP request tampering</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(44, 130, 201);">=Can gain illegal access to reserved functions/resources</span></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(44, 130, 201);">=Test for bypassing authorisation schema by examining the admin functionalities, to gain access to the resources assigned to a different role</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);">Test for cookie parameter tampering</span></span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(209, 72, 65);">=Use web spidering tool</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Test for privilege escalation</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(147, 101, 184);">=Access to resources /functionality allowing a privilege escalation attack</span></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(147, 101, 184);">=Test for role/privilege manipulation</span></span></p>
+    <p><span style="font-size: 24px;"><br></span></p>
+    <p><span style="font-size: 24px;"><strong><span style="color: rgb(247, 218, 100);">Data Validation Testing:</span></strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Start</span></li>
+        <li><span style="font-size: 24px;">Test for reflected cross site scripting</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(226, 80, 65);">=Session cookie info</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Test for stored cross-site scripting</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(251, 160, 38);">=Sensitive info such as session authorisation tokens</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Test for DOM-based cross site scripting</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(41, 105, 176);">=Cookie info</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Test for cross site flashing</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(147, 101, 184);">=Info on DOM based cross site scripting vuln</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Perform SQL injection testing</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(243, 121, 52);">=Database info</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Perform LDAP injection testing</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(184, 49, 47);">=Sensitive info about users and hosts</span></span></p>
+    <p><span style="font-size: 24px;"><br></span></p>
+    <p><span style="font-size: 24px;"><strong>Conclusion:</strong></span></p>
+    <p><span style="font-size: 24px;">-Detect and analyse input vectors for potential vuln , analyse the vuln report and attempt to exploit it. use tools such as OWASP cal900, Webscarab, XSS-proxy, ratproxy, and burpsuite</span></p>
+    <p><span style="font-size: 24px;">-Analyse HTML code, test for stored XSS, leverage stored XSS, verify if the file upload allows setting arbitrary MIME types, using tools such as OWASP cal900, Hackvertor, XSS-proxy, backframe, webscarab, burpsuite, XSS assistant</span></p>
+    <p><span style="font-size: 24px;">-Perform source code analysis to identify Javacript coding errors</span></p>
+    <p><span style="font-size: 24px;">-Analyse SWF files using tools such as SWFintruder, Decomplier-flare, complier - MTASC, Disassembler-Flasm, SWFmill and debugger version of plash plugin/player</span></p>
+    <p><span style="font-size: 24px;">-Perform std SQL injection testing, union query SQL injection esting, blind sql injection testing and stored procedure injection using tools such as OWASP SQLix, SQLninja, SQL power injector</span></p>
+    <p><span style="font-size: 24px;">-Use a trial and error approach by inseting &apos;(&apos;, &apos;|&apos;, &apos;&amp;&apos;, &apos;&quot;&apos; and other characters in other to check the app for errors, use the tool softerra LDAP browser</span></p>
+    <p><span style="font-size: 24px;"><br></span></p>
+    <p><span style="font-size: 24px;"><strong>Data Validation Testing Continued:</strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Perform ORM injection testing</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(40, 50, 78);">=Info on SQL injection vuln</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Perform XML injection testing</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(97, 189, 109);">=Info about XML structure</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Perform SSI injection testing</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(41, 105, 176);">=Web Server CGI enviroment variables</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Perform Xpath Injection testing</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(184, 49, 47);">=Access confidential info</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Perform IMAP/SMTP injection testing</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(44, 130, 201);">=Access to backend mail server</span></span></p>
+    <p><span style="font-size: 24px;"><br></span></p>
+    <p><span style="font-size: 24px;"><strong>Conclusion:</strong></span></p>
+    <p><span style="font-size: 24px;">-Discover vuln of an ORM tool and test web apps that use ORM. Use tools &nbsp;such as hibernate ORM, Nhibernate, and ruby on rails</span></p>
+    <p><span style="font-size: 24px;">-Try to insert XML metacharacters</span></p>
+    <p><span style="font-size: 24px;">-Find if the web server actually supports SSI directories using tools such as burp suite, OWASP ZAP, webscarab</span></p>
+    <p><span style="font-size: 24px;">-Inject Xpath code and interfere with the query result</span></p>
+    <p><span style="font-size: 24px;">-Identify vuln parameters. Understand the data flow and deployment structure of the client and perform IMAP/SMTP command injection</span></p>
+    <p><span style="font-size: 24px;"><br></span></p>
+    <p><span style="font-size: 24px;"><strong>Data Validation Testing Continued:</strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Perform code injection testing</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(209, 72, 65);">=input validation errors</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Perform OS commanding</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(85, 57, 130);">=Local data and system info</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Perform buffer overflow testing</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(84, 172, 210);">=Stack and heap memory info, app control flow</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Perform incubated vuln testing</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(41, 105, 176);">=Server config and input validation schemes</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Test for HTTP splitting/smuggling</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(147, 101, 184);">=Cookies and HTTP redirect info</span></span></p>
+    <p><span style="font-size: 24px;"><br></span></p>
+    <p><span style="font-size: 24px;"><strong>Conclusion:</strong></span></p>
+    <p><span style="font-size: 24px;">-Inject code (a malicious URL) and perform source code analysis to discover code injection vuln</span></p>
+    <p><span style="font-size: 24px;">-Perform manual code analysis and craft malicious HTTP requests using | to test for OS command injection attacks</span></p>
+    <p><span style="font-size: 24px;">-perform manual and automated code analysis using tools such &nbsp;ollybdg to detect buffer overflow condition</span></p>
+    <p><span style="font-size: 24px;">-Upload a file that exploits a component in the local user workstation, when viewed or downloaded by the user, perform XSS and SQL injection attack</span></p>
+    <p><span style="font-size: 24px;">-Identify all user controlled input that influences one or more headers in the response, and check wheather he or she can successfully &nbsp;inject a CR+LF sequence in it</span></p>
+    <p><span style="font-size: 24px;"><br></span></p>
+    <p><span style="font-size: 24px;"><strong>Denial of service testing:</strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Test for SQL wildcard attacks</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(250, 197, 28);">=App info</span></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(250, 197, 28);">=Crafy a query that will not return a result and inclices several wildcards. Test manually or employ a fuzzer to automate the process</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Test for locking customer accounts</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(85, 57, 130);">=Login acc info</span></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(85, 57, 130);">=Test that an account does indeed lock after a certain number of failed login. Find places where the app discloses diff between valid and invalid login</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Test for buffer overflows</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(41, 105, 176);">=Buffer overflow points</span></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(41, 105, 176);">=Perform a manual source code analysis and submit a range of inputs with varying lengths to the app</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Test for user specified object allocation</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(65, 168, 95);">=Maximum number of objects that application can handle</span></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(65, 168, 95);">=Find where the number of submitted as a name/value pair might be used by the application code and attempt to set the value to an extremely large numeric value, then see if the server continues to respond</span></span></p>
+    <p><span style="font-size: 24px;"><br></span></p>
+    <p><span style="font-size: 24px;"><strong>Denial of service testing continued:</strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Test for user input as a loop counter</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(65, 168, 95);">=Logical errors in an app</span></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(65, 168, 95);">=Enter an extremely large number in the input field that is used by the app as a loop counter</span></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(65, 168, 95);">=Use a script to automatically submit an extremely long value to the server in the request that is being logged</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Write user provided data to disk</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(84, 172, 210);">=Local disks exhaustion</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Test for proper release of resources</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(147, 101, 184);">=Programming flaws</span></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(147, 101, 184);">=Identify and send a large number of requests that perform a database operations and observe any slowdown or new error messages</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Test for storing too much data in session</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(71, 85, 119);">=Session management errors</span></span></p>
+    <p><span style="font-size: 24px;"><span style="color: rgb(71, 85, 119);">=Create a script to automate the creation of many new sessions with the server and run the request that is suspected of caching the data within the session for each one</span></span></p>
+    <p><span style="font-size: 24px;"><br></span></p>
+    <p><span style="font-size: 24px;"><strong>Web Services Testing:</strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Start</span></li>
+        <li><span style="font-size: 24px;">Gather WS info</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(184, 49, 47);">=info of UDDI, WSDL, SOAP and UBR</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Test WSDL</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(250, 197, 28);">=WSDL entry points</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Test XML structure</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(65, 168, 95);">=XML parser</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Test XML content level</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(41, 105, 176);">=info about SQL, Xpath, buffer overflow, and command injection vuln</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Test HTTP GET parameters/REST</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(235, 107, 86);">=Http GET/REST attack vectors</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Test Naughty SOAP attachments</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(85, 57, 130);">=SOAP message info</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Perform replay testing</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(209, 72, 65);">=info about MITM vuln</span></span></p>
+    <p><span style="font-size: 24px;"><strong>Conclusion:</strong></span></p>
+    <p><span style="font-size: 24px;">-to gather WS info use toold such as WSchess, soaplite, CURL , etc and online tools such as UDDI broswer and Xmethods</span></p>
+    <p><span style="font-size: 24px;">-Use tools such as WSdigger, webscarab and foundstone to automate web services security testing</span></p>
+    <p><span style="font-size: 24px;">-Pass malformed SOAP message to XML parser or attach a very large string to the message. Use WSdigger to perform automated XML structure testing</span></p>
+    <p><span style="font-size: 24px;">-Use web app vuln scanners such as webscarab to test XML content-level vuln</span></p>
+    <p><span style="font-size: 24px;">-Pass malicious content on the HTTP GET strings that invoke XML apps</span></p>
+    <p><span style="font-size: 24px;">-Craft an XML document (SOAP message) to send to a web service that contains malware as an attachment to check if XML document has SOAP attachement vuln</span></p>
+    <p><span style="font-size: 24px;">-attempt to resend a sniffed XML message using Wireshark and web scarab</span></p>
+    <p><span style="font-size: 24px;"><br></span></p>
+    <p><span style="font-size: 24px;"><strong>AJAX testing:</strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Start</span></li>
+        <li><span style="font-size: 24px;">Testing for AJAX</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(61, 142, 185);">=AJAX app call endpoints</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Parse the HTML and Javascript files</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(184, 49, 47);">=XMLHttpRequest object, Javascript files, AJAX frameworks</span></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Use a proxy to observe traffic</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><span style="color: rgb(65, 168, 95);">= Format of app requests</span></span></p>
+    <p><span style="font-size: 24px;"><br></span></p>
+    <p><span style="font-size: 24px;"><strong>Conclusion:</strong></span></p>
+    <p><span style="font-size: 24px;">-Enumerate the AJAX call endpoints for the asynchronous calls using tools such as Sprajax</span></p>
+    <p><span style="font-size: 24px;">-Observe HTML and Javascript files to find URLs of additional app surface exposure</span></p>
+    <p><span style="font-size: 24px;">-Use proxies and sniffers to observe traffic generated by user-viewable pages and the background asynchronous traffic to the AJAX end points in order to determine the formate and destination of the requests</span></p>
+    <p><span style="font-size: 24px;"><br></span></p>
+    <p><span style="font-size: 24px;"><strong>Web app pen testing framework:</strong></span></p>
+    <ul>
+        <li><span style="font-size: 24px;">Metasploit</span></li>
+        <li><span style="font-size: 24px;">Powersploit</span></li>
+        <li><span style="font-size: 24px;">Browser exploitation framework (BeEF)</span></li>
+        <li><span style="font-size: 24px;">Kali Linux</span></li>
+        <li><span style="font-size: 24px;">WAFninja</span></li>
+        <li><span style="font-size: 24px;">Dradis</span></li>
+        <li><span style="font-size: 24px;">Netsparker</span></li>
+        <li><span style="font-size: 24px;">skipfish</span></li>
+        <li><span style="font-size: 24px;">Wfuzz</span></li>
+    </ul>
+    <p><span style="font-size: 24px;"><br></span></p>
+    <p><br></p>
+
+
+</body>
+</html>
