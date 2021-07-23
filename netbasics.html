@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Networking Basics</title>
+</head>
+<body>
+
+<p style="text-align: center;"><strong><span style="font-size: 24px;">Networking Basics:</span></strong></p>
+<p><span style="font-size: 24px;"><strong><span style="color: rgb(65, 168, 95);">OSI Model:</span></strong></span></p>
+<ul>
+    <li><span style="font-size: 24px;">Layer 7 : Application &nbsp;| <span style="color: rgb(97, 189, 109);">HTTP, FTP</span> | &nbsp;Program that creates and open data | <span style="color: rgb(97, 189, 109);">User applications</span></span></li>
+    <li><span style="font-size: 24px;">Layer 6: Presentation &nbsp;|<span style="color: rgb(97, 189, 109);">&nbsp;JPEG, ASCII, GIF</span> | Formats data, encrypt, decrypt/translates data&nbsp;</span></li>
+    <li><span style="font-size: 24px;">Layer 5: Session &nbsp;| <span style="color: rgb(97, 189, 109);">NFS, RPC, SQL, NetBIOS</span> | synchronize and send to ports | <span style="color: rgb(97, 189, 109);">Logical ports</span></span></li>
+    <li><span style="font-size: 24px;">Layer 4: Transport | <span style="color: rgb(97, 189, 109);">TCP, UDP, SPX</span> | Host to host, flow control | <span style="color: rgb(97, 189, 109);">Hosts, Firewalls</span></span></li>
+    <li><span style="font-size: 24px;">Layer 3: Network &nbsp;<span style='color: rgb(0, 0, 0); font-family: "Times New Roman"; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;'>|&nbsp;</span><span style='color: rgb(97, 189, 109); font-family: "Times New Roman"; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;'>IP, IPX, ICMP</span><span style='color: rgb(0, 0, 0); font-family: "Times New Roman"; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;'>&nbsp;| L3 Addressing |&nbsp;</span><span style='color: rgb(97, 189, 109); font-family: "Times New Roman"; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;'>Routers</span></span></li>
+    <li><span style="font-size: 24px;">Layer 2: Data Link | <span style="color: rgb(97, 189, 109);">ARP, Frame Relay, HDLC, PPP</span> | L2 Addressing | <span style="color: rgb(97, 189, 109);">NICs, L2 Switches</span></span></li>
+    <li><span style="font-size: 24px;">Layer 1: Physical | <span style="color: rgb(97, 189, 109);">Hubs, Repeaters, Connectors, Cables, Lights</span> | Physical pathways</span></li>
+</ul>
+<p><span style="font-size: 24px;"><br></span></p>
+<p><span style="font-size: 24px;"><strong><span style="color: rgb(250, 197, 28);">TCP/IP Mode:</span></strong></span></p>
+<ul>
+    <li><span style="font-size: 24px;">Application Layer (L7,6,5) (TFTP, FTP, Telnet)</span></li>
+    <li><span style="font-size: 24px;">Transport Layer (L 4) &nbsp;(TCP,UDP)</span></li>
+    <li><span style="font-size: 24px;">Internet Layer (L3) &nbsp;(IPv4, IPv6, ICMP)</span></li>
+    <li><span style="font-size: 24px;">Data Link Layer (L2) (ARP, MAC, PPP)</span></li>
+    <li><span style="font-size: 24px;">Physical Layer (L1) (Ethernet)</span></li>
+</ul>
+<p><span style="font-size: 24px;"><br></span></p>
+<p><span style="font-size: 24px;"><strong><span style="color: rgb(209, 72, 65);">TCP vs UDP:</span></strong></span></p>
+<p><span style="font-size: 24px;">Sequenced vs Unsequenced</span></p>
+<p><span style="font-size: 24px;">Reliable vs Unreliable</span></p>
+<p><span style="font-size: 24px;">Connection Oriented vs Connectionless</span></p>
+<p><span style="font-size: 24px;">Virtual Circuit vs Low Overhead</span></p>
+<p><span style="font-size: 24px;">Acknowledgements vs No Acknowledgements</span></p>
+<p><span style="font-size: 24px;">Windowing Flow Control vs No Windows Flow Contol</span></p>
+<p><span style="font-size: 24px;"><br></span></p>
+<p><span style="font-size: 24px;"><strong>Infrastructure components:</strong></span></p>
+<p><span style="font-size: 24px;"><strong><span style="color: rgb(85, 57, 130);">Switches:</span></strong></span></p>
+<p><span style="font-size: 24px;">Layer 2 - makes forwarding decision based on layer 2 addressing</span></p>
+<p><span style="font-size: 24px;">Layer 3 - make routing decision based on layer 3 addressing</span></p>
+<p><span style="font-size: 24px;"><br></span></p>
+<p><span style="font-size: 24px;"><strong><span style="color: rgb(251, 160, 38);">Network Topologies:</span></strong></span></p>
+<p><span style="font-size: 24px;">Star : Used for LANs</span></p>
+<p><span style="font-size: 24px;">Mesh: Used for WANs</span></p>
+<p><span style="font-size: 24px;">Hybrid: Provides redundancy for critical services and single connectivity for devices that are not critical but important</span></p>
+<p><span style="font-size: 24px;"><br></span></p>
+<p><span style="font-size: 24px;"><strong><span style="color: rgb(41, 105, 176);">Networking Architecture:</span></strong></span></p>
+<p><span style="font-size: 24px;">Three Tier: Core, Distribution, Access</span></p>
+<p><span style="font-size: 24px;">Collapsed Core: Core &amp; Distribution, Access</span></p>
+<p><span style="font-size: 24px;"><br></span></p>
+<p><span style="font-size: 24px;"><strong><span style="color: rgb(184, 49, 47);">Cabling:</span></strong></span></p>
+<p><span style="font-size: 24px;">Crossover: switch to switch, router to router, PC to PC</span></p>
+<p><span style="font-size: 24px;">Straight through : switch to PC, router to switch</span></p>
+<p><span style="font-size: 24px;">Rollover : connect to router interface</span></p>
+<p><br></p>
+<p><br></p>
+
+
+</body>
+</html>
