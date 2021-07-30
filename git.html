@@ -4,8 +4,18 @@
 <title>Git Commands</title>
 </head>
 <body>
-
     <p style="text-align: center;"><strong><u><span style="font-size: 24px;">Git</span></u></strong><span style="font-size: 24px;"><strong><u>&nbsp;</u></strong></span></p>
+    <p><strong><u><span style="font-size: 24px; color: rgb(226, 80, 65);">Generate SSH key on Github</span></u></strong></p>
+<ul>
+    <li><span style="font-size: 24px;">ssh-keygen -t ed25519 &nbsp;( this is for elliptic curve)</span></li>
+    <li><span style="font-size: 24px;">enter file name:</span></li>
+    <li><span style="font-size: 24px;">enter passphrase:</span></li>
+    <li><span style="font-size: 24px;">We get a SSH key generated - 2 keys PRIVATE and PUBLIC</span></li>
+    <li><span style="font-size: 24px;">go to github.com --&gt; settings ---&gt; ssh and pgp keys --&gt; new ssh keys</span></li>
+    <li><span style="font-size: 24px;">copy and paste your generated ssh key into here</span></li>
+    <li><span style="font-size: 24px;">Location for these keysis: &nbsp; ~/.ssh</span></li>
+</ul>
+    <br>
     <p><span style="font-size: 24px;"><strong><u><span style="color: rgb(97, 189, 109);">create a repo:</span></u></strong></span></p>
     <p><span style="font-size: 24px;"><strong>new local repo</strong></span></p>
     <p><span style="font-size: 24px;"> -git init (project name)</span></p>
