@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Digital Forensic Notes</title>
+</head>
+<body>
+
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style="font-size: 22px;">What is digital forensics&nbsp;</span></strong></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;">-examination of digital storage and digital environments in order to determine what has happened</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;">- also including monitoring in real time</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;">-forensic investigating is collecting analysing and reporting</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;">computer forensics face same scrutiny as an analysis of a fingerprint or DNA test</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;"><strong>&nbsp;</strong></span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;"><strong>Types of crimes&nbsp;</strong></span></p>
+    <ul style="list-style-type: undefined;">
+        <li><span style="font-size: 22px;">cyber crime</span></li>
+        <li><span style="font-size: 22px;">cyber aided crime</span></li>
+        <li><span style="font-size: 22px;">crimes with digital evidence</span></li>
+    </ul>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;"><strong>computer theory chapter:</strong></span></p>
+    <ul style="list-style-type: undefined;">
+        <li><span style="font-size: 22px;">secondary storage devices &nbsp;- hard drives , Cdr DVD&apos;s , flash drives and memory cards &nbsp;</span></li>
+        <li><span style="font-size: 22px;">on hard drives the c: drive maybe a partition of 200 GB , analysis made sure that 50 GB is hidden somewhere or it has been formatted but that 50GB may contain valuable information</span></li>
+        <li><span style="font-size: 22px;">hard drive formatting handled by the operating system</span></li>
+        <li><span style="font-size: 22px;">repartition does not mean data is overwritten</span></li>
+        <li><span style="font-size: 22px;">hard drive is made up of clusters and sectors that can be allocated to a file or a partition</span></li>
+        <li><span style="font-size: 22px;">when hard drive partition you create a master boot record mbr or partition table</span></li>
+        <li><span style="font-size: 22px;">the partition table is information of partitions , start an ending sector for each partition as well</span></li>
+        <li><span style="font-size: 22px;">if you resize your partitions only the table gets updated the actual data on the hard drive is unaffected. this makes Daytona hard drive inaccessible to the operating system but still possible to recover using forensic tools</span></li>
+        <li><span style="font-size: 22px;">also note an empty hard drive may just be a formatted hard drive , often only the partition table is removed</span></li>
+    </ul>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;">&nbsp;</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;"><strong>NTFS File systems:</strong></span></p>
+    <ul style="list-style-type: undefined;">
+        <li><span style="font-size: 22px;">the file system is essentially a structure used to control how data is stored and retrieved on a story device and is common content of a partition</span></li>
+        <li><span style="font-size: 22px;">so a hard drive contains partitions</span></li>
+        <li><span style="font-size: 22px;">a partition commonly contains a file system</span></li>
+        <li><span style="font-size: 22px;">a file system is used to structure data</span></li>
+    </ul>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;">&nbsp;</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;"><strong>types of file systems:</strong></span></p>
+    <ul style="list-style-type: undefined;">
+        <li><span style="font-size: 22px;">EX64 &nbsp;(commonly found on Linux )</span></li>
+        <li><span style="font-size: 22px;">nfs (common for network storage )</span></li>
+        <li><span style="font-size: 22px;">fat 32 (common on surveillance videos and thumb drives )</span></li>
+    </ul>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;">-partitions are stated in the partition table which are found in the master boot record</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;">&nbsp;</span></p>
+    <ul style="list-style-type: undefined;">
+        <li><span style="font-size: 22px;">A partition formatted with a NTFS file system begins with a metadata file called the partition boot sector</span></li>
+        <li><span style="font-size: 22px;">this contains the master file table (MFT)</span></li>
+        <li><span style="font-size: 22px;">MFT Is basically a Dictionary of all files and folders on the NTFS partition</span></li>
+        <li><span style="font-size: 22px;">most important for forensic examiner in the MFT is the file records</span></li>
+        <li><span style="font-size: 22px;">all files and folders on partition have one</span></li>
+        <li><span style="font-size: 22px;">an mft record cannot be bigger than 1024 bytes (so files which are bigger than 600 bytes &nbsp;(as 400 bytes are reserved for filename and such ) cannot reside in record</span></li>
+        <li><span style="font-size: 22px;">files contained in mft resident</span></li>
+        <li><span style="font-size: 22px;">files not contained in mft are non resident</span></li>
+        <li><span style="font-size: 22px;">be aware there is a backup mfti located at end of partition</span></li>
+        <li><span style="font-size: 22px;">note a technology known as trim that overrides clusters that are unallocated by mft , used for SSD hard drives</span></li>
+    </ul>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;">&nbsp;</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;"><strong>File Structures:</strong></span></p>
+    <ul style="list-style-type: undefined;">
+        <li><span style="font-size: 22px;">common file structure, METADATA &nbsp; &nbsp; ACTUAL DATA &nbsp; &nbsp; TRAILER</span></li>
+        <li><span style="font-size: 22px;">Metadata contains information on type of file (JPEG, PDF etc)</span></li>
+        <li><span style="font-size: 22px;">search for files using metadata or trailers , searching for hexadecimal or alphanumerical file signatures</span></li>
+        <li><span style="font-size: 22px;">most file formats such as plain text many picture formats are stored as plain files</span></li>
+        <li><span style="font-size: 22px;">However some files including Microsoft Office files and compressed zip are stored as compound files</span></li>
+        <li><span style="font-size: 22px;">compound files cannot be fully examined when they&apos;re in there packed state</span></li>
+        <li><span style="font-size: 22px;">must be unpacked to be fully analysed</span></li>
+        <li><span style="font-size: 22px;">because data in compressed state is represented differently</span></li>
+    </ul>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;">&nbsp;</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;"><strong>Data Representation:&nbsp;</strong></span></p>
+    <ul style="list-style-type: undefined;">
+        <li><span style="font-size: 22px;">data stored on any storage media is in binary</span></li>
+        <li><span style="font-size: 22px;">8 bits = one bite</span></li>
+        <li><span style="font-size: 22px;">different apps may store data in different order</span></li>
+        <li><span style="font-size: 22px;">single byte is 8 bits , left is more significant, right is least significant</span></li>
+        <li><span style="font-size: 22px;">two ways to store subsequent bytes</span></li>
+        <li><span style="font-size: 22px;">1st is big Indian , which is storing bikes with the biggest and 1st making the first bite the more significant</span></li>
+        <li><span style="font-size: 22px;">2nd is little Indian , which is storing data with the smallest and first reading from left to right</span></li>
+        <li><span style="font-size: 22px;">computers have different ways of representing data and characters also known as encoding (ascii, utf8, utf16)</span></li>
+        <li><span style="font-size: 22px;">encoding is how sign is represented in binary or Hex</span></li>
+    </ul>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;">&nbsp;</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;"><strong>Windows Registry:</strong></span></p>
+    <ul style="list-style-type: undefined;">
+        <li><span style="font-size: 22px;">Is it hierarchal database which stores information about users installed apps on the windows system itself</span></li>
+        <li><span style="font-size: 22px;">great place for forensic examiners</span></li>
+        <li><span style="font-size: 22px;">windows registry is tree structure , each node is a tree is called a key and every key may have a value or some keys</span></li>
+        <li><span style="font-size: 22px;">the key can be as deep as 512 keys</span></li>
+        <li><span style="font-size: 22px;">values that a key can container just arbitrary data up to the app to decide the format and interpretation</span></li>
+        <li><span style="font-size: 22px;">the registry is made up of hives</span></li>
+        <li><span style="font-size: 22px;">hives contain sets of data</span></li>
+        <li><span style="font-size: 22px;">the high which is of most interest to a forensic examiner is the, SAM, Security, System , Software</span></li>
+        <li><span style="font-size: 22px;">another file associated with user is NTUSER.DAT</span></li>
+        <li><span style="font-size: 22px;">registry hives &nbsp;= system32/config/folder</span></li>
+        <li><span style="font-size: 22px;">- ntuser.dat - stores info about specific user account</span></li>
+        <li><span style="font-size: 22px;">software - information related to applications , common information she says the windows version installed it on the owner</span></li>
+        <li><span style="font-size: 22px;">subkey = /mircosft/windowsnt/current version</span></li>
+        <li><span style="font-size: 22px;">system - information about the system including USB drives that have been connected to the system , time zone , information about networks that the computer has been connected to</span></li>
+        <li><span style="font-size: 22px;">sam and security - protected and cannot be viewed using regedit on a running computer but can be extracted from</span></li>
+        <li><span style="font-size: 22px;">SAM - user information , uses on local machine ,login information , user created and stored hashes</span></li>
+        <li><span style="font-size: 22px;">SYS - mainly system audit policy , syskey needed in collaboration to sam to crack files &nbsp;</span></li>
+        <li><span style="font-size: 22px;">&nbsp;</span></li>
+    </ul>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;"><strong>encryption and hashing:&nbsp;</strong></span></p>
+    <ul style="list-style-type: undefined;">
+        <li><span style="font-size: 22px;">cryptographic techniques to hide data</span></li>
+        <li><span style="font-size: 22px;">for hash to be considered secure must have the following properties</span>
+            <ol style="list-style-type: circle;">
+                <li><span style="font-size: 22px;">&nbsp;collision resistant &nbsp;- meaning that there is only one H for each P</span></li>
+                <li><span style="font-size: 22px;">irreversible - I mean it is impossible to derive P from H</span></li>
+            </ol>
+        </li>
+    </ul>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;">&nbsp;</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;"><strong>memory and paging:&nbsp;</strong></span></p>
+    <ul style="list-style-type: undefined;">
+        <li><span style="font-size: 22px;">memory is very important</span></li>
+        <li><span style="font-size: 22px;">memory emptied when computer restarts so content in memory relates only to what the computer was up to since the last reboot</span></li>
+        <li><span style="font-size: 22px;">when viewing encrypted data in a decrypted format , the decrypted version of the data is temporarily stored in memory. so it makes a good place to find encrypted data which has been decrypted</span></li>
+        <li><span style="font-size: 22px;">whenever the computer needs to hold more data in memory than memory allows, part of the memory stored on hard drive this process is called PAGING</span></li>
+        <li><span style="font-size: 22px;">on windows systems the paged out part of the memory are stored in a file called PAGEFILE.SYS, and it contains the same type of information as memory</span></li>
+    </ul>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;">&nbsp;</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;"><strong>notable artefacts :</strong></span></p>
+    <ul style="list-style-type: undefined;">
+        <li><span style="font-size: 22px;">metadata - very important , Information about information , most objects have metadata</span></li>
+        <li><span style="font-size: 22px;">Exifdata: metadata stored in pictures , tells how the picture was taken and with what such as the information is the name of the device the person sometimes the GPS location</span></li>
+    </ul>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;">&nbsp;</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;"><strong>Prefetch:</strong></span></p>
+    <ul style="list-style-type: undefined;">
+        <li><span style="font-size: 22px;">process of bringing data and code pages into memory before it is needed</span></li>
+        <li><span style="font-size: 22px;">idea is to track normal application usage unload the data the app usually needs doing one time when the app is loaded.</span></li>
+        <li><span style="font-size: 22px;">process was implemented to increase performance of applications</span></li>
+        <li><span style="font-size: 22px;">stored in prefetch files located in prefetch folder under system route</span></li>
+        <li><span style="font-size: 22px;">most important function of prefetch files (from forensic view ) Is they contain information about how many times an executable was run on when it was last run</span></li>
+        <li><span style="font-size: 22px;">filename of a prefetch file begins with the name of the executable followed by a hash of the location where the executable is stored</span></li>
+    </ul>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;">&nbsp;</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;"><strong>shellbags:&nbsp;</strong></span></p>
+    <ul style="list-style-type: undefined;">
+        <li><span style="font-size: 22px;">used to store information about gui settings for explorer , that is used to browse files and folders on a windows based computer</span></li>
+        <li><span style="font-size: 22px;">means they store information about what preferences a user sets for viewing certain directories an example of this is how a user prefers the layout of the folds of the directory&apos;s</span></li>
+        <li><span style="font-size: 22px;">the use of shellbags - from fact that a shell bag for certain folder is created when a user is actually viewing that folder</span></li>
+        <li><span style="font-size: 22px;">thus meaning that user in question has visited that particular folder</span></li>
+        <li><span style="font-size: 22px;">hey stored in ntuser.dat and usrclass.dat</span></li>
+        <li><span style="font-size: 22px;">- shell bugs are not deleted find can serve as evidence of deleted folders and since they collect information about network shares , mounted encrypted volumes , removable media - they can provide that information as well</span></li>
+        <li><span style="font-size: 22px;">shellbags need tools to pass through &nbsp;</span></li>
+    </ul>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;">&nbsp;</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;"><strong>.LNK file</strong></span></p>
+    <ul style="list-style-type: undefined;">
+        <li><span style="font-size: 22px;">Shortcuts within windows</span></li>
+        <li><span style="font-size: 22px;">think of a shortcut you place on your desktop</span></li>
+        <li><span style="font-size: 22px;">but several other reasons why the OS would create .lnk files that make them useful during forensic examinations , for instance &nbsp;.lnk files are created whenever a user opens a file local or remote</span></li>
+        <li><span style="font-size: 22px;">what makes .lnk good ?</span>
+            <ol style="list-style-type: circle;">
+                <li><span style="font-size: 22px;">not deleted when remote drive containing the target file is removed open file is deleted</span></li>
+                <li><span style="font-size: 22px;">good source of information about network storage , removable storage , undelete files</span></li>
+            </ol>
+        </li>
+        <li><span style="font-size: 22px;">info in link files?</span>
+            <ol style="list-style-type: circle;">
+                <li><span style="font-size: 22px;">location of target file (the pah)</span></li>
+                <li><span style="font-size: 22px;">time of creation , last update of link</span></li>
+                <li><span style="font-size: 22px;">information of device let target stored , serial , local and type</span></li>
+            </ol>
+        </li>
+    </ul>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;"><strong>MRU &ndash; Stuff:</strong></span></p>
+    <ul style="list-style-type: undefined;">
+        <li><span style="font-size: 22px;">most recently used keys</span></li>
+        <li><span style="font-size: 22px;">shows what last accessed</span></li>
+        <li><span style="font-size: 22px;">when an event occurs an entry is created with a number . the order of events is recorded in numbers stored in dword (four bites)</span></li>
+        <li><span style="font-size: 22px;">order in MRUlistEx I can tell in what order the events recorded in the listing appeared</span></li>
+    </ul>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;">&nbsp;</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;"><strong>thumbcache:</strong></span></p>
+    <ul style="list-style-type: undefined;">
+        <li><span style="font-size: 22px;">windows feature &nbsp;- purpose of making previewing of pictures quicker</span></li>
+        <li><span style="font-size: 22px;">windows stores the miniatures of thumbnails when their first created</span></li>
+        <li><span style="font-size: 22px;">stored in database files called thumb caches</span></li>
+        <li><span style="font-size: 22px;">two things are important</span>
+            <ol style="list-style-type: circle;">
+                <li><span style="font-size: 22px;">1. contain the actual thumbnails produced when a user is viewing the content of the folder (smoother to analyse )</span></li>
+                <li><span style="font-size: 22px;">2. they are not deleted and therefore thumbnails of pictures that was deleted or stored on a storage devices removed are still there</span></li>
+            </ol>
+        </li>
+        <li><span style="font-size: 22px;">how&apos;s the thumbcache stored in the database he need a special programme to view them such as thumbcache viewer</span></li>
+    </ul>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;">&nbsp;</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;"><strong>windows event viewer:</strong></span></p>
+    <ul style="list-style-type: undefined;">
+        <li><span style="font-size: 22px;">event viewer maintains logs about the applications / system / security</span></li>
+        <li><span style="font-size: 22px;">logs under security could be success or fail</span></li>
+        <li><span style="font-size: 22px;">look at event IDs , very important in forensics</span></li>
+        <li><span style="font-size: 22px;">located at winevt/logs in system32</span></li>
+    </ul>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;">&nbsp;</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;"><strong>program log files:</strong></span></p>
+    <ul style="list-style-type: undefined;">
+        <li><span style="font-size: 22px;">Those that do not log to event viewer are useful &nbsp;</span></li>
+        <li><span style="font-size: 22px;">log files provide a wealth of information</span></li>
+        <li><span style="font-size: 22px;">used in document upload or downloads , chat logs , applicatian behaviour</span></li>
+        <li><span style="font-size: 22px;">go to rule of thumb is to look for application logs wherever there is a suspicion of an application being involved in a case</span></li>
+        <li><span style="font-size: 22px;">look for logs in the user appdata folder under the system root programme data</span></li>
+    </ul>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;">&nbsp;</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;"><strong>USB device history :</strong></span></p>
+    <ul style="list-style-type: undefined;">
+        <li><span style="font-size: 22px;">windows keeps track of connected and unconnected USB drives</span></li>
+        <li><span style="font-size: 22px;">windows combines information from three sources</span>
+            <ol style="list-style-type: circle;">
+                <li><span style="font-size: 22px;">1. Setupapiadev = hello log file located in sysroot/windows/INF</span></li>
+                <li><span style="font-size: 22px;">2. the registry</span></li>
+                <li><span style="font-size: 22px;">3. system logs</span></li>
+            </ol>
+        </li>
+        <li><span style="font-size: 22px;">the most important information is the serial number</span></li>
+        <li><span style="font-size: 22px;">additional information can be found in windows registry</span></li>
+        <li><span style="font-size: 22px;">using USB thumbs will have several traces in registry all in system hive</span></li>
+        <li><span style="font-size: 22px;">first interest = constrolset001/enum/usbstor - this key will hold sub keys for the different USB devices that have been connected</span></li>
+        <li><span style="font-size: 22px;">other places are the mounted device in the registry</span></li>
+    </ul>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;">&nbsp;</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 22px;"><strong>decryption and password enforcing:</strong></span></p>
+    <ul style="list-style-type: undefined;">
+        <li><span style="font-size: 22px;">practical tip is to analyse files and tell if a decryption is possible &nbsp;&nbsp;</span></li>
+        <li><span style="font-size: 22px;">always analyse the software and algorithm you about to crack</span></li>
+        <li><span style="font-size: 22px;">beware of the side channel attacks before doing decryption attack</span></li>
+        <li><span style="font-size: 22px;">side channel is an attack where you find information by looking at sources that the creator of the system did not expect you to look at</span></li>
+        <li><span style="font-size: 22px;">in forensics a common side channel would be computer memory</span>
+            <ol style="list-style-type: circle;">
+                <li><span style="font-size: 22px;">the reason is a temporary copy of the decrypted file may be kept in memory even after encryption has happened</span></li>
+            </ol>
+        </li>
+        <li><span style="font-size: 22px;">remember parts of memory are paged out and stored in a file on the hard drive called pagefile.sys, wait can&apos;t be recovered using forensic tools</span></li>
+    </ul>
+
+</body>
+</html>
