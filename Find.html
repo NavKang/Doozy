@@ -8,28 +8,27 @@
 	html5up.net | 
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<h1>CheatSheet</h1>
 
-<p style="text-align: center;"><span style="font-size: 24px; color: rgb(209, 72, 65);"><strong>Find command</strong></span></p>
-<p><span style="font-size: 24px; color: rgb(0, 0, 0);"> <b><u>Useful site to find common linux file extensions:</u></b>  www.lauraliparulo.altervista.org/most-common-linux-file-extensions/</p>
-<br>
-<p><span style="font-size: 24px; color: rgb(0, 0, 0);"><strong><u>Find passwords</u></strong></span></p>
+<p style="text-align: center;"><u><strong><span style="font-size: 24px;">Whats here: &nbsp;<span style="color: rgb(97, 189, 109);">FIND</span>, <span style="color: rgb(61, 142, 185);">GREP</span>, <span style="color: rgb(251, 160, 38);">EXEC</span>, <span style="color: rgb(44, 130, 201);">TR</span>, <span style="color: rgb(147, 101, 184);">SED</span>, <span style="color: rgb(184, 49, 47);">AWK</span>, TAR, <span style="color: rgb(243, 121, 52);">REGEX</span></span></strong></u></p>
+<p><span style="font-size: 24px; color: rgb(0, 0, 0);">&nbsp;<strong><u><span style="text-shadow: 3px 3px 2px rgba(217, 28, 28, 0.8);">Useful site to find common linux file extensions:</span></u></strong> www.lauraliparulo.altervista.org/most-common-linux-file-extensions/</span></p>
+<p><br></p>
+<p><span style="font-size: 24px; color: rgb(65, 168, 95);"><strong><u>Find passwords</u></strong></span></p>
 <p><span style="font-size: 24px; color: rgb(0, 0, 0);">find / -name pass* 2&gt;/dev/null &nbsp;</span></p>
-<p><span style="font-size: 24px; color: rgb(0, 0, 0);"><strong><u>Type can be file or directory (f or d)</u></strong></span></p>
+<p><span style="font-size: 24px; color: rgb(0, 0, 0);"><strong><u><span style="text-shadow: 3px 3px 2px rgba(54, 221, 135, 0.8);">Type can be file or directory (f or d)</span></u></strong></span></p>
 <p><span style="font-size: 24px; color: rgb(0, 0, 0);">find / -type f &nbsp;-name &lt;filename&gt; 2&gt;/dev/null</span></p>
 <p><span style="font-size: 24px; color: rgb(0, 0, 0);">You can also use wildcards to find files and directories</span></p>
-<p><span style="font-size: 24px; color: rgb(0, 0, 0);"><strong><u>Case insensitive search</u></strong></span></p>
+<p><span style="font-size: 24px; color: rgb(0, 0, 0);"><strong><u><span style="text-shadow: 3px 3px 2px rgba(54, 221, 135, 0.8);">Case insensitive search</span></u></strong></span></p>
 <p><span style="font-size: 24px; color: rgb(0, 0, 0);">-iname</span></p>
-<p><span style="font-size: 24px;"><strong><u>Specify user</u></strong></span></p>
+<p><span style="font-size: 24px;"><strong><u><span style="text-shadow: 3px 3px 2px rgba(54, 221, 135, 0.8);">Specify user</span></u></strong></span></p>
 <p><span style="font-size: 24px;">-user</span></p>
-<p><strong><span style="font-size: 24px;"><u>Size flag</u></span></strong></p>
+<p><strong><span style="font-size: 24px;"><u><span style="text-shadow: 3px 3px 2px rgba(54, 221, 135, 0.8);">Size flag</span></u></span></strong></p>
 <p><span style="font-size: 24px;">-size (use either just number or + - with the number)</span></p>
 <p><span style="font-size: 24px;">with size the following are required:</span></p>
 <p><span style="font-size: 24px;"><strong>-c</strong> = for bytes</span></p>
 <p><span style="font-size: 24px;"><strong>-k</strong> = for KiBs</span></p>
 <p><span style="font-size: 24px;"><strong>-M</strong> = for MiBs</span></p>
 <p><span style="font-size: 24px;">Example: a size of less than 50 bytes :<strong>&nbsp; &nbsp;-50c</strong></span></p>
-<p><span style="font-size: 24px;"><strong><u>Time flags</u></strong></span></p>
+<p><span style="font-size: 24px;"><strong><u><span style="text-shadow: 3px 3px 2px rgba(54, 221, 135, 0.8);">Time flags</span></u></strong></span></p>
 <p><span style="font-size: 24px;"><strong>min</strong> = for minutes</span></p>
 <p><span style="font-size: 24px;"><strong>time</strong> = for days</span></p>
 <p><span style="font-size: 24px;"><strong>prefixes:</strong></span></p>
@@ -38,9 +37,89 @@
 <p><span style="font-size: 24px;"><strong>c</strong> = changed</span></p>
 <p><span style="font-size: 24px;">Example: to find a file last accessed more than 1 hour ago: &nbsp;<strong>&nbsp;-amin +60</strong></span></p>
 <p><span style="font-size: 24px;">*To specify a file modified within last 24 hours, use the<strong>&nbsp;-mtime 0</strong> option</span></p>
-<p><strong><u><span style="font-size: 24px;">Exec flag</span></u></strong></p>
+<p><br></p>
+<p><strong><u><span style="font-size: 24px; color: rgb(251, 160, 38);">Exec flag</span></u></strong></p>
 <p><span style="font-size: 24px;">Will execute a new command for you when used with the find.</span></p>
 <p><span style="font-size: 24px;">Example:&nbsp;</span><strong><span style="font-size: 24px;">-exec whoami \;</span></strong></p>
+<p><br></p>
+<p><span style="font-size: 24px;"><strong><u><span style="color: rgb(41, 105, 176);">Translate (TR)</span></u></strong></span></p>
+<p><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);">TR = translate</span></span></p>
+<ul>
+    <li><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);">Can delete or translate characters</span></span></li>
+    <li><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);">upper to lower, squeese repeating, deleting specific character, basic find and replace</span></span></li>
+    <li><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);">can be used with pipe to support more complex transactiosn</span></span></li>
+</ul>
+<p><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0); text-shadow: rgba(72, 136, 203, 0.8) 3px 3px 2px;"><strong><u>Syntax:</u></strong></span></span></p>
+<p><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);">tr [option] [set 1] [set 2]</span></span></p>
+<p><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);">- The characters in set 1 are translated into character of set 2</span></span></p>
+<p><span style="font-size: 24px; text-shadow: rgba(72, 136, 203, 0.8) 3px 3px 2px;">Flags:</span></p>
+<p><span style="font-size: 24px;">-c = complements set of characters in set 1</span></p>
+<p><span style="font-size: 24px;">-d = delete characters in set 1 from input</span></p>
+<p><span style="font-size: 24px;">-s = replaces repeated character in set 1</span></p>
+<p><span style="font-size: 24px; text-shadow: rgba(72, 136, 203, 0.8) 3px 3px 2px;">Examples: (with flags)</span></p>
+<p><span style="font-size: 24px;">-c&nbsp;</span></p>
+<p><span style="font-size: 24px;">file.txt = Welcome to my homepage</span></p>
+<p><span style="font-size: 24px;">convert lower to upper: cat file.txt | tr &quot;[a-z]&quot; &quot;[A-Z]&quot;</span></p>
+<p><span style="font-size: 24px;">==========</span></p>
+<p><span style="font-size: 24px;">-d</span></p>
+<p><span style="font-size: 24px;">echo &quot;hello&quot; | tr -d &apos;h&apos; &nbsp; = ello &nbsp;(h is removed)</span></p>
+<p><span style="font-size: 24px;">==========</span></p>
+<p><span style="font-size: 24px;">-s</span></p>
+<p><span style="font-size: 24px;">echo &quot;hello&quot; | tr -s &apos;l&apos; &nbsp;= helo (l is squeesed)</span></p>
+<p><br></p>
+<p><span style="font-size: 24px; text-shadow: rgba(72, 136, 203, 0.8) 3px 3px 2px;">More examples:</span></p>
+<p><span style="font-size: 24px;">echo myfoot | tr o x (replaces o&apos;s with x&apos;s) = my fxxt</span></p>
+<p><span style="font-size: 24px;">echo my foot | tr mo tx (change m to t, o to x) = ty fxxt</span></p>
+<p><span style="font-size: 24px;">echo leet | tr let 137 (l to 1, e to 3, t to 7)</span></p>
+<p><span style="font-size: 24px;">echo foo-foo | tr - _ &nbsp; &nbsp;(changes to underscores) = foo_foo</span></p>
+<p><span style="font-size: 24px;">echo foo foo | tr &quot;&quot; _ &nbsp; &nbsp;(whitespace replaced with underscores) = foo_foo</span></p>
+<p><span style="font-size: 24px;">echo football | tr [:lower] [:upper] &nbsp; (replaces lower to upper) = FOOTBALL</span></p>
+<p><span style="font-size: 24px;">echo abc | tr [a-z] x &nbsp; (replaces any a-z letters with letter x) = xxx</span></p>
+<p><span style="font-size: 24px;">echo fooTBall | tr [a-z] x &nbsp; (replaces any a-z (lower) with x) = xxxTBxxx</span></p>
+<p><br></p>
+<p><span style="font-size: 24px; color: rgb(243, 121, 52);"><strong><u>Regular Expressions (REGEX)</u></strong></span></p>
+<ul>
+    <li><span style="font-size: 24px;">2 forms of grep - GREP and EGREP</span></li>
+</ul>
+<p><span style="font-size: 24px;">Examples:</span></p>
+<p><span style="font-size: 24px;">ls -d D* &nbsp;- finds any dir starting with upper D</span></p>
+<p><span style="font-size: 24px;">ls -d *s &nbsp; - finds dirs ending with lower s</span></p>
+<p><span style="font-size: 24px;">ls -d *l* &nbsp;-finds all dir with letter l in it</span></p>
+<p><span style="font-size: 24px;">ls -l Desktop/*.txt &nbsp;- go into desktop and find all files ending in .txt</span></p>
+<p><span style="font-size: 24px;">[a-c]at = finds the first letters a,b,c = bat, cat</span></p>
+<p><span style="font-size: 24px;">[0-9][0-9] = 2 digits</span></p>
+<p><span style="font-size: 24px;">grep &quot;c[aeiou]t&quot; - will find words with letter c in it, followed by either AEIOU, ending with t</span></p>
+<p><span style="font-size: 24px;">^ca = car, cattle</span></p>
+<p><span style="font-size: 24px;">ing$ = floating, sailing</span></p>
+<p><span style="font-size: 24px;">^cat$ = cat</span></p>
+<p><span style="font-size: 24px;">egrep &quot;^s&quot; /etc/passwd &nbsp; - start with letter s</span></p>
+<p><span style="font-size: 24px;">egrep &quot;n$&quot; /etc/passwd &nbsp; - end with n</span></p>
+<p><span style="font-size: 24px;"><span style="text-shadow: 3px 3px 2px rgba(211, 105, 34, 0.8);">Quantifiers:</span></span></p>
+<p><span style="font-size: 24px;">+ = 1 or more</span></p>
+<p><span style="font-size: 24px;">? = 0 or 1 of a character</span></p>
+<p><span style="font-size: 24px;">* = 0 or more of a chater</span></p>
+<p><span style="font-size: 24px;">{ } = (insert number) a certain no. or range</span></p>
+<p><br></p>
+<p><span style="font-size: 24px;"><strong><u><span style="color: rgb(147, 101, 184);">SED</span></u></strong></span></p>
+<ul>
+    <li style="text-align: justify;"><span style="font-size: 24px;">Use SED ot take stream of data &amp; match against pattern and modify that info that matches that pattern in someway.</span></li>
+</ul>
+<p><span style="font-size: 24px; text-shadow: rgba(140, 34, 211, 0.8) 3px 3px 2px;">Example:</span></p>
+<p><span style="font-size: 24px;">sed -e &apos;s/:/---/g&apos; /etc/passwd</span></p>
+<ul>
+    <li><span style="font-size: 24px;">Removes colons fromthat file, so sed wil find colon and replace with --- &nbsp;( g stands for global)</span></li>
+</ul>
+<p><span style="font-size: 24px;">sed -e &apos;s/bin/MIKE/g&apos;</span></p>
+<ul>
+    <li><span style="font-size: 24px;">This replace all instances of bin with MIKE</span></li>
+</ul>
+<p><span style="font-size: 24px;">sed &apos;s/,/ &nbsp;/g&apos; &lt;filename&gt;&nbsp;</span></p>
+<ul>
+    <li><span style="font-size: 24px;">replaces commas with whitespace</span></li>
+    <li><span style="font-size: 24px;">can use -i flag to make a permanen</span><span style="font-size: 24px;">t change to the document</span></li>
+</ul>
+<p><span style="font-size: 24px;"><br></span></p>
+<p><span style="font-size: 24px;"><br></span></p>
 <p><br></p>
 
 </body>
