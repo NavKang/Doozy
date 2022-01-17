@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>VLANs</title>
+</head>
+<body>
+
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style="font-size: 17px;">VLANS:</span></strong></p>
+    <ul style="list-style-type: undefined;">
+        <li style="font-size: 17px;">Normal VLANs range from 1 to 1005</li>
+        <li style="font-size: 17px;">Extended VLANs range from 1006 to 4094</li>
+    </ul>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style="color: rgb(226, 80, 65); font-size: 18px;">Configure, verify and troubleshoot Interswitch connectivity:</span></strong></p>
+    <div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+        <ul style="margin-bottom:0cm;list-style-type: undefined;">
+            <li style="margin: 0cm 0cm 8pt; line-height: 107%; font-size: 17px; font-family: Calibri, sans-serif;">Trunk port are used to interconnect switches</li>
+        </ul>
+    </div>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 17px;"><strong>Trunk ports:</strong></span></p>
+    <ul style="list-style-type: undefined;">
+        <li style="font-size: 17px;">Trunk ports are used to connect layer 2 devices together, when you need to expand your network</li>
+        <li style="font-size: 17px;">&nbsp;adding and removing VLANs on a trunk can be done without interruption to network traffic</li>
+    </ul>
+    <p id="isPasted" style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 17px;"><strong>DTP:</strong></span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 17px;">Dynamic Trunking protocol is used to automatically negotiate the state of switchports</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 17px;"><br></span></p>
+    <ul style="list-style-type: undefined;">
+        <li style="font-size: 17px;">Is how switchports automatically negotiate their mode before you ever configure them</li>
+        <li style="font-size: 17px;">A switchport can be set to one of 4 modes: dynamic auto (default), dynamic desirable, trunk or access</li>
+        <li style="font-size: 17px;">Recommended to keep off, as you avoid switch spoofing and VLAN hopping</li>
+    </ul>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 17px;"><strong>VTP:</strong></span></p>
+    <p id="isPasted" style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 17px;">VLAN trunk protocol ( VTP) is used to automatically update VLAN configuration on a LAN network of switches</span></p>
+    <ul style="list-style-type: undefined;">
+        <li style="font-size: 17px;">Responsible for synchronizing VLAN information within a VTP domain and reduces the need to configure the same VLAN info on each switch &ndash; prevents inconsistencies of configurations when and if changes are made</li>
+        <li style="font-size: 17px;">Cisco proprietary protocol</li>
+        <li style="font-size: 17px;">Propagates VLAN information to other layer 2 devices on the LAN</li>
+        <li style="font-size: 17px;">Switches must be in same domain to receive updates</li>
+        <li style="font-size: 17px;">Switches can in one of 4 modes:<ol style="list-style-type: circle; font-size: initial;">
+                <li style="font-size: 17px;">Servers</li>
+                <li style="font-size: 17px;">Client</li>
+                <li style="font-size: 17px;">Transparent</li>
+                <li style="font-size: 17px;">Off</li>
+            </ol>
+        </li>
+        <li style="font-size: 17px;">Switches by default are configured as VTP servers, but with no VTP domain or password</li>
+        <li style="font-size: 17px;">Switches in server mode with highest revision number take precedence</li>
+        <li style="font-size: 17px;">VTP provides following benefits:<ol style="list-style-type: circle; font-size: initial;">
+                <li style="font-size: 17px;">VLAN configuration consistency across the layer 2 network</li>
+                <li style="font-size: 17px;">Dynamic distribution of added VLANs across the network</li>
+                <li style="font-size: 17px;">Plug and play configuration when adding new VLANs</li>
+            </ol>
+        </li>
+        <li style="font-size: 17px;">VTP has the following drawbacks:<ol style="list-style-type: circle; font-size: initial;">
+                <li style="font-size: 17px;">A switch that is being added to the network can wipe out existing vlan databases if new switch is in server mode, and is configured for proper VTP domain and has higher revision number than other servers</li>
+                <li style="font-size: 17px;">Swiches in different domains do not share VTP information. Non-matching VTP settings might result in issues in negotiating VLAN trunks, port challenges or virtual port channels.</li>
+            </ol>
+        </li>
+    </ul>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 17px;">&nbsp;</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 17px;"><strong>802.1q:</strong></span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 17px;">- a way to tag vlans on an ethernet frame</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 17px;">&nbsp;</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 17px;"><strong>Native VLAN:</strong></span></p>
+    <ul class="decimal_type" style="list-style-type: undefined;">
+        <li style="font-size: 17px;">Used to pass untagged traffic ( non vlan associated) to a neighbouring switch)</li>
+        <li style="font-size: 17px;">On a trunk link each frame must be distinguishable as being within exactly one vlan</li>
+        <li style="font-size: 17px;">If a frame does not carry an 802.1q tag, it is considered to be in the native vlan</li>
+        <li style="font-size: 17px;">Default native vlan is 1</li>
+        <li style="font-size: 17px;">You should the native vlan to an unused vlan &ndash; to prevent double tagging</li>
+    </ul>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+
+</body>
+</html>
