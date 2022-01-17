@@ -72,5 +72,100 @@
     </ul>
     <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
 
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style="font-size: 17px;">Configure and verify VLANS:</span></strong></p>
+<ul style="list-style-type: undefined;">
+    <li style="font-size: 17px;">Vlans used everywhere inside network switching</li>
+    <li style="font-size: 17px;">Every single port on a switch represents it own collision domain</li>
+    <li style="font-size: 17px;">Problem now is one big broadcast domain</li>
+    <li style="font-size: 17px;">Vlans allows us to chop up a 48 port switch logically &ndash; meaning from one 48 port switch you can create smaller logical switches &ndash; for example: 48 ports &ndash; 8/8/8/ etc or 6/6/6/ etc</li>
+    <li style="font-size: 17px;">If you do have a switch with 16 ports ( 8 on left, 8 on right) now if instead, you split that in 8 on top ( as one VLAN) and the bottom 8 as another VLAN you now have 2 different vlans, 2 different broadcast domains and 2 additional collision domains.</li>
+</ul>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 17px;">&nbsp;</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 17px;"><strong>Important notes:</strong></span></p>
+<ul style="list-style-type: undefined;">
+    <li style="font-size: 17px;">Single vlans can span multiple switches and will work as if on a single switch</li>
+    <li style="font-size: 17px;">If you do this, special consideration required, some ports you will have to leave alone so the vlans can communicate with one another across a switch. This is where you end up creating &ldquo;trunks&rdquo;</li>
+    <li style="font-size: 17px;">These get reconfigured to become trunk ports</li>
+    <li style="font-size: 17px;">Trunk ports allow for the idea of multiple vlans to be able to use a single link to go across these switches so they can communicate with each other</li>
+</ul>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 17px;">&nbsp;</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 17px;"><strong>What happens if I do not use trunks ?</strong></span></p>
+<ul style="list-style-type: undefined;">
+    <li style="font-size: 17px;">Then for every vlan created here inside that particular vlan, I would have to run a single connection in to every single one of those in the created vlans across the multiple switches.</li>
+    <li style="font-size: 17px;">Meaning you will lost ports just to make connections between vlans on switches</li>
+</ul>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 17px;"><strong>2 vlans (different) even if on same switch will not communication directly with one another, but can it be done ?</strong></span></p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style="margin: 0cm 0cm 8pt; line-height: 107%; font-size: 17px; font-family: Calibri, sans-serif;">YES using a L3 device which provides routing</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 17px;"><strong>Can it be done without a router ?</strong></span></p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style="margin: 0cm 0cm 8pt; line-height: 107%; font-size: 17px; font-family: Calibri, sans-serif;">YES, you willned a multilayer switch (L3 switch)</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 17px;"><strong>Inter VLAN routing:</strong></span></p>
+<ul class="decimal_type" style="list-style-type: undefined;">
+    <li style="font-size: 17px;">Configuring vlan tagging or encapsulation<ol style="list-style-type: circle; font-size: initial;">
+            <li style="font-size: 17px;">802.1q vlan tagging</li>
+            <li style="font-size: 17px;">ISL (cisco propiertary)</li>
+        </ol>
+    </li>
+    <li style="font-size: 17px;">Two L2 discovery protocols<ol style="list-style-type: circle; font-size: initial;">
+            <li style="font-size: 17px;">CDP</li>
+            <li style="font-size: 17px;">LLDP</li>
+        </ol>
+    </li>
+</ul>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 17px;"><strong>Native VLAN:</strong></span></p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <p><span style="font-size: 17px;">- If you are using 802.1q you will have something called native vlan</span></p>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 17px;">&nbsp;</span></p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <p><span style="font-size: 17px;">-Once you establish Trunks and VLANs everything that passes these two switches It will have a VLAN ag (ie VLAN 4, VLAN 5, etc) EXCEPT when you are sending data to the native vlan</span></p>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:36.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 17px;">&nbsp;</span></p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <p><span style="font-size: 17px;">-Native VLAN is essentially traffic that is untagged</span></p>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 17px;">&nbsp;</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 17px;"><strong>Another note:</strong></span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 17px;">- Vlan 1 = is your default cannot change it or remove it, this is your native vlan</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 17px;">&nbsp;</span></p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <p><span style="font-size: 17px;">- Vlan.dat is stored in FLASH, not NVRAM needs to be manually deleted if you reset switch to factory settings.</span></p>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:36.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 17px;">&nbsp;</span></p>
+<p><span style="font-size: 17px;">- Vlans between 1002- 1005 are legacy</span></p>
+<p></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:36.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <p>- Always hard set trunks for security reasons</p>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:36.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <p>- Do not leave ports on default vlan, security risk, create another vlan (call it 99 or 999) and move all ports to it &ndash; also do a shutdown on them so they cannot be accessed</p>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong>Connecting switches:</strong></p>
+<ul style="list-style-type: undefined;">
+    <li>Trunking technologies<ol style="list-style-type: circle;">
+            <li>Protocol &ndash; dynamic trunking protocol (DTP)</li>
+            <li>VTP</li>
+        </ol>
+    </li>
+    <li>DTP turned on nearly all switches &ndash; sets trunking to auto<ol style="list-style-type: circle;">
+            <li>BUT NEVER allow trunks to auto-negotiate for themselves</li>
+        </ol>
+    </li>
+    <li>Allows hard set switches on both sides</li>
+    <li>VTP &ndash; virtual trunking protocol, switches use VTP<ol style="list-style-type: circle;">
+            <li>Allows config from one switch to all others, saving time</li>
+        </ol>
+    </li>
+</ul>
 </body>
 </html>
