@@ -1,18 +1,16 @@
 <h1><span style="font-size: x-large;">Wireless Attacks</span></h1>
 <p><span style="font-size: large;">- Below are very important steps prior to any pen testing</span></p>
 <p>&nbsp;</p>
-<p><span style="text-decoration: underline; color: #ff00ff;"><span style="font-size: medium;">List interfaces:</span></span></p>
-<p><span style="color: #000000;"><span style="font-size: medium;">- iw dev</span></span></p>
+<p><span style="text-decoration: underline; color: #ff00ff;"><span style="font-size: medium;">List interfaces:&nbsp; (2 ways)</span></span></p>
+<p><span style="color: #000000;"><span style="font-size: medium;">1- iw dev</span></span></p>
 <p>&nbsp;</p>
-<hr />
 <p>&nbsp;</p>
-<p><span style="color: #000000;"><span style="font-size: medium;">- iwconfig</span></span></p>
+<p><span style="color: #000000;"><span style="font-size: medium;">2- iwconfig</span></span></p>
 <p>&nbsp;</p>
-<p><span style="text-decoration: underline; color: #ff6600;"><span style="font-size: medium;">Monitor Mode:</span></span></p>
-<p><span style="font-size: medium; color: #000000;">-&nbsp;</span><span style="font-size: medium;">airmon-ng start wlan0</span></p>
-<hr />
+<p><span style="text-decoration: underline; color: #ff6600;"><span style="font-size: medium;">Monitor Mode: (2 ways)</span></span></p>
+<p><span style="font-size: medium; color: #000000;">1-&nbsp;</span><span style="font-size: medium;">airmon-ng start wlan0</span></p>
 <p>&nbsp;</p>
-<p><span style="font-size: medium; color: #000000;">- ifconfig &lt;interface&gt; down</span></p>
+<p><span style="font-size: medium; color: #000000;">2- ifconfig &lt;interface&gt; down</span></p>
 <p><span style="font-size: medium; color: #000000;">&nbsp; iw dev &lt;interface&gt; set monitor none</span></p>
 <p><span style="font-size: medium; color: #000000;">&nbsp; ifconfig &lt;interface&gt; up</span></p>
 <p>&nbsp;</p>
@@ -20,7 +18,7 @@
 <p><span style="color: #000000;"><span style="font-size: medium;">airmon-ng check</span></span></p>
 <p><span style="color: #000000;"><span style="font-size: medium;">airmon-ng check kill</span></span></p>
 <p>&nbsp;</p>
-<h2><span style="font-size: x-large;"><strong>WEP Live Cracking&nbsp;</strong></span></h2>
+<h2><span style="font-size: xx-large; background-color: #ff9900;"><strong>WEP Live Cracking&nbsp;</strong></span></h2>
 <p><span style="font-size: small;">- need to capture many IV packets</span></p>
 <p>&nbsp;</p>
 <p><span style="font-size: x-large;">airodump-ng wlan0 <span style="font-size: medium;">#ensure the interface name has not changed</span></span></p>
