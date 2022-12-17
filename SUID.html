@@ -34,13 +34,13 @@
     <p><span style="font-size: 20px;"><br></span></p>
     <p style="text-align: center;"><span style="color: rgb(147, 101, 184); font-size: 24px;"><strong><u>Find SUIDs</u></strong></span></p>
     <p><span style="font-size: 24px;"><strong>how to find another users capabilities or sudo permissions?</strong></span></p>
+    <p><span style="font-size: 24px;">find / -perm -4000 -exec ls -ldb {} \; 2>/dev/null</p>	
     <p><span style="font-size: 24px;">find / - user &lt;name&gt; -perm -4000 2&gt;/dev/null</span></p>
     <p><span style="font-size: 24px;">find / -perm -u=s -type f 2&gt;/dev/null</span></p>
     <p><span style="font-size: 24px;"><strong>SGID</strong></span></p>
     <p><span style="font-size: 24px;">find / -perm /2000</span></p>
     <p><span style="font-size: 24px;"><strong>Both SUID and SGID</strong></span></p>
     <p><span style="font-size: 24px;">find / -perm /6000</span></p>
-    <p><span style="font-size: 24px;">find / -perm -4000 -exec ls -ldb {} \; 2>/dev/null</p>
     <p><strong><span style="font-size: 24px;">Capabilities</span></strong></p>
     <p><span style="font-size: 24px;">getcap -r / 2&gt;/dev/null</span></p>
     <p style='font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; box-sizing: border-box; margin-top: 24px; margin-bottom: 16px; font-weight: 600; font-size: 1.5em; line-height: 1; padding-bottom: 0.3em; border-bottom: 1px solid var(--color-border-secondary); color: rgb(36, 41, 46); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"; background-color: rgb(255, 255, 255);'><span style='font-family: "Times New Roman", Times, serif; font-size: 24px;'><strong><u><span style="color: rgb(251, 160, 38);">Shells</span></u></strong></span></p>
