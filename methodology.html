@@ -25,9 +25,9 @@
 <p><span style="font-size: 28px;"><span style="font-size: 30px; font-family: Helvetica; color: rgb(65, 168, 95);">-------------------------------------------------------------------------------------</span></span></p>
 <p><span style="font-size: 28px;"><span style="font-size: 22px; font-family: Helvetica; color: rgb(243, 121, 52);"><strong>Port 389 open: (domain and users information)</strong></span></span></p>
 <p><span style="font-size: 28px;"><span style="font-size: 22px; font-family: Helvetica; color: rgb(0, 0, 0);">LDAPsearch<font color="#f37934"><strong>:</strong></font></span></span></p>
-<p><span style="text-align: inherit; font-size: 22px;">-x = anonymous -b domainname -h= host</span></p>
-<p><span style="text-align: inherit; font-size: 22px;">ldapsearch -x -h 10.10.10.175 -s base namingcontexts (then when you have the domain)</span></p>
-<p><span style="text-align: inherit; font-size: 22px;">ldapsearch -x -h 10.10.10.175 -b &apos;DC=EGOTISTICAL-BANK,DC=LOCAL&apos;</span></p>
+<p><span style="text-align: inherit; font-size: 22px;">-x = anonymous -b domainname -H= host</span></p>
+<p><span style="text-align: inherit; font-size: 22px;">ldapsearch -x -H ldap://10.10.10.175 -s base namingcontexts (then when you have the domain)</span></p>
+<p><span style="text-align: inherit; font-size: 22px;">ldapsearch -x -H ldap://10.10.10.175 -b &apos;DC=EGOTISTICAL-BANK,DC=LOCAL&apos;</span></p>
 <p><span style="font-size: 30px; color: rgb(65, 168, 95);">-------------------------------------------------------------------------------------</span></p>
 <p><span style="font-size: 22px; font-family: Helvetica; color: rgb(65, 168, 95);"><strong>Kerberos port 88 open: (spraying for valid usernames)</strong></span></p>
 <p><span style="font-size: 22px; font-family: Helvetica; color: rgb(0, 0, 0);">kerbrute userenum -d test.local &lt;username list&gt; --dc &lt;ip add&gt;</span></p>
