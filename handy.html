@@ -7,7 +7,7 @@
 <p><span style="font-size: 22px; font-family: Helvetica;">This example uses openssl&nbsp;</span></p>
 <p><span style="font-size: 22px; font-family: Helvetica;">1. generate a password: openssl passwd &lt;choose password&gt;</span></p>
 <p><span style="font-size: 22px; font-family: Helvetica;">2. cp /etc/passwd /tmp/passdoc</span></p>
-<p><span style="font-size: 22px; font-family: Helvetica;">3. echo &nbsp;&quot;newroot1:tUQ7/t9jN8cEU:0:0:root:/root:/bin/bash&quot; &gt;&gt; /tmp/passdoc&quot; - need to escape specail characters with \</span></p>
+<p><span style="font-size: 22px; font-family: Helvetica;">3. echo &nbsp;&quot;newroot1:tUQ7/t9jN8cEU:0:0:root:/root:/bin/bash&quot; &gt;&gt; /tmp/passdoc&quot; - need to escape special characters with \</span></p>
 <p><span style="font-size: 22px; font-family: Helvetica;">4. now copy the /tmp/passdoc into /etc/passwd</span></p>
 <p><span style="font-size: 22px; font-family: Helvetica;">5. cat /tmp/passdoc | openssl enc -out /etc/passwd</span></p>
 <p>---------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
