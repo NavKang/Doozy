@@ -18,4 +18,12 @@ https://rafalcieslak.wordpress.com/2013/04/02/dynamic-linker-tricks-using-ld_pre
 
 ==============================
 
+compile a .c file
+ g++ -Wall -pedantic -O2 -std=c++11 -pthread -o dcow 40847.cpp -lutil
+
+compiling a c file to exectuable:
+gcc -pthread 40839.c -o dirty_cow2
+
+compile a c file and if you get a crypt error use:
+gcc -pthread dirty.c -o dirty -lcrypt
 
