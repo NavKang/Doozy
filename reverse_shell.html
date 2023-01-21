@@ -10,27 +10,7 @@ label {
   color: blue; /* changes the color of the labels to blue */
 }
 </style>
-<form>
-        <label for="ip">IP Address:</label>
-        <input type="text" id="ip" name="ip" required>
-        <br>
-        <label for="port">Port:</label>
-        <input type="number" id="port" name="port" required>
-        <br>
-        <label for="language">Language:</label>
-        <select id="language" name="language" required>
-            <option value="python">Python</option>
-            <option value="bash">Bash</option>
-            <option value="perl">Perl</option>
-            <option value="php">PHP</option>
-            <option value="powershell">PowerShell</option>
-        </select>
-        <br><br>
-        <input type="button" value="Generate Reverse Shell" onclick="generateReverseShell()">
-        <br><br>
-        <textarea id="output" rows="10" cols="100" readonly></textarea>
-</form>
-    <style>
+<style>
 pre {
   font-family: Courier;
   font-size: 26px;
