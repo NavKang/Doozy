@@ -2,15 +2,33 @@
 <html>
 <head>
     <title>Reverse Shell Generator</title>
-    <style>
-textarea {
-  color: green; /* changes the color of the text inside the textarea to green */
-}
-label {
-  color: blue; /* changes the color of the labels to blue */
-margin: 0 auto; /* centers the form horizontally */
-font-size: 20;
-}
+ <style>
+  form {
+    margin: 0 auto; /* centers the form horizontally */
+    text-align: center; /* centers the text within the form elements */
+  }
+  /* changes the color of the labels to blue */
+  label {
+    color: blue;
+  }
+  /* changes the color of the text inside the textarea to green */
+  textarea {
+    color: green;
+  }
+  /* creates a select element for the font size option */
+  select#fontSize {
+    margin-bottom: 10px;
+  }
+  /* changes the font size of all the form elements based on the selected option */
+  select#fontSize option:checked {
+    font-size: 20px;
+  }
+  select#fontSize option[value="30"] {
+    font-size: 30px;
+  }
+  select#fontSize option[value="40"] {
+    font-size: 40px;
+  }
 </style>
 <style>
 pre {
