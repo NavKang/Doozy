@@ -3,8 +3,34 @@
 <head>
     <title>Reverse Shell Generator</title>
     <style>
-        /* CSS styles for the form */
+        form {
+            font-size: 20px;
+            margin: 0 auto; /* centers the form horizontally */
+            text-align: center; /* centers the text within the form elements */
+        }
+        input[type="text"], input[type="number"], select, textarea {
+            font-size: 20px;
+            padding: 12px 20px;
+            font-weight: bold; /* makes the text bold */
+        }
+        /* changes the color of the text to red */
+        input[type="text"], input[type="number"], select, textarea, label {
+            color: red;
+        }
     </style>
+    <style>
+pre {
+  font-family: Courier;
+  font-size: 20px;
+  text-align: center; /* centers the ASCII art horizontally */
+}
+</style>
+<pre>
+ _____ _____ _____ _____ _____ 
+|     |     |     |     |     |
+|  D  |  O  |  O  |  Z  |  Y  |
+|_____|_____|_____|_____|_____|
+</pre>
 </head>
 <body>
     <form>
@@ -25,7 +51,7 @@
         <br><br>
         <input type="button" value="Generate Reverse Shell" onclick="generateReverseShell()">
         <br><br>
-        <textarea id="output" rows="10" cols="50" readonly></textarea>
+        <textarea id="output" rows="10" cols="100" readonly></textarea>
     </form>
     <script>
         function generateReverseShell() {
