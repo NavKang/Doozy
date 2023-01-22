@@ -75,6 +75,10 @@ ul
 </head>
 
 <body lang=EN-GB style='word-wrap:break-word'>
+	  <form>
+    <input type="text" id="search" placeholder="Search...">
+  </form>
+  <div class="content">
 
 <div class=WordSection1>
 
@@ -89,6 +93,7 @@ ul
 	
 ===========================================================================================================================================================
 
+<div class="content">
 <p class=MsoNormal><b><span style='font-size:22.0pt;line-height:107%'>&nbsp;</span></b></p>
 
 <p class=MsoNormal><b><span style='font-size:26.0pt;line-height:107%;
@@ -213,6 +218,35 @@ style='font-size:14.0pt;line-height:107%;color:black'>-<span style='font:7.0pt "
 the priv /sbin/reboot we reboot using that .sh file</span></p>
 
 </div>
+	
+  <script>
+    // Get the input element
+    const input = document.getElementById("search");
+
+    // Listen for changes to the input
+    input.addEventListener("input", function() {
+      // Get the search query
+      const query = input.value.toLowerCase();
+
+      // Get all the content elements
+      const elements = document.querySelectorAll(".content");
+
+      // Iterate through the elements
+      elements.forEach(function(element) {
+        // Get the element's text content
+        const content = element.textContent.toLowerCase();
+
+        // Check if the content contains the query
+        if (content.indexOf(query) !== -1) {
+          // Show the element
+          element.style.display = "block";
+        } else {
+          // Hide the element
+          element.style.display = "none";
+        }
+      });
+    });
+  </script>
 
 </body>
 
