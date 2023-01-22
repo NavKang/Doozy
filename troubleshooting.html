@@ -1,0 +1,74 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:107%;
+	font-size:14.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:107%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-GB style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal><b><span style='font-size:36.0pt;line-height:107%;
+color:#002060'>Troubleshooting </span></b></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span style='font-size:26.0pt;line-height:107%'>#### c
+warning for asprint</span></p>
+
+<p class=MsoNormal>https://github.com/nicowilliams/inplace/issues/6</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>add these to the top of the c file:</p>
+
+<p class=MsoNormal>#ifndef _GNU_SOURCE</p>
+
+<p class=MsoNormal>#define _GNU_SOURCE 1</p>
+
+<p class=MsoNormal>#endif</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span style='font-size:26.0pt;line-height:107%'>#### c
+warning for  implicity dec of function 'system'</span></p>
+
+<p class=MsoNormal>#include &lt;stdlib.h&gt; - add this to file</p>
+
+</div>
+
+</body>
+
+</html>
