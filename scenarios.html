@@ -215,6 +215,185 @@ listener is on) – may need to use CURL</span></p>
 style='font-size:14.0pt;line-height:107%;color:black'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </span></span><span style='font-size:14.0pt;line-height:107%;color:black'>Then using
 the priv /sbin/reboot we reboot using that .sh file</span></p>
+	
+<h1><span style='background:yellow'>###### Source code</span></h1>
+
+<p class=MsoNormal>even on directories found - lookat source code!! and run
+curl on them all</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>website - directory fuzz only gave one link (sec config
+clue)</p>
+
+<p class=MsoNormal>use curl -L , look at source</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h1><span style='background:lime'>##### steghide extract issue</span></h1>
+
+<p class=MsoNormal>tried to extract using steghide extract -sf filename.jpg -
+would not work</p>
+
+<p class=MsoNormal>however when I write to another file it worked!</p>
+
+<p class=MsoNormal>steghide extract -sf filename.jpg -xf hash.txt</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h1><span style='background:silver'>##### Authorized keys</span></h1>
+
+<p class=MsoNormal>if you come across authorized keys from a userA but in the
+key file it shows UserB at the end</p>
+
+<p class=MsoNormal>you can log in as userA using private key of UserB</p>
+
+<p class=MsoNormal>we take the private key of userB and put onto our attacking
+machine, then we use that to log in as userA</p>
+
+<p class=MsoNormal>ssh userA@xx.xx.xx.xx -i .ssh/id_rsa_userB</p>
+
+<p class=MsoNormal>copy to system:</p>
+
+<p class=MsoNormal>scp USERB@192.168.124.230:~/.ssh/id_rsa . </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h1><span style='color:white;background:maroon'>##### Enum’d everything, so cannot
+find way in</span></h1>
+
+<p class=MsoNormal>do directory scan with extension set ie . -x .php</p>
+
+<p class=MsoNormal>(use dirsearch) - /web-content/big.txt -e .php</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h1><span style='color:white;background:navy'>##### Config file for lateral
+movement</span></h1>
+
+<p class=MsoNormal>when doing a box if you find a user and still need to do
+lateral movement</p>
+
+<p class=MsoNormal>go to /etc/phpmyadmin and look for the config file</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h1><span style='background:aqua'>##### DB/PHP passwords, user lists</span></h1>
+
+<p class=MsoNormal>if you find db passwords, php passwords - create a user list
+(from home) and run that single password with user list in hydra</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h1><span style='background:red'>#### Upload perm to smb share / cron job in
+management (box DAWN)</span></h1>
+
+<p class=MsoNormal>you have management.log - which shows a cron job</p>
+
+<p class=MsoNormal>eg: chmod 777 /home/dawn/ITDEPT/product-control </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>you have upload access to smb share</p>
+
+<p class=MsoNormal>create a NC one liner reverse shell and insert into
+product-control and upload</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h1><span style='background:fuchsia'>#### Unshadowed</span></h1>
+
+<p class=MsoNormal>when we unshadowed pass shadow: the password is displayed,
+use this to crack further</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h1><span style='background:teal'>##### Restricted shell</span></h1>
+
+<p class=MsoNormal>type export in cmd</p>
+
+<p class=MsoNormal>is /bin writeable?</p>
+
+<p class=MsoNormal>ls -la /usr/bin (or /bin)</p>
+
+<p class=MsoNormal>look for writeable by all</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b><span style='font-size:18.0pt;line-height:107%'>method 2:</span></b></p>
+
+<p class=MsoNormal>ssh in using: -t &quot;bash --noprofile&quot;</p>
+
+<p class=MsoNormal>then need to use absolute paths - cat = /usr/bin/cat
+&lt;file&gt;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b><span style='font-size:18.0pt;line-height:107%'>method 3:</span></b></p>
+
+<p class=MsoNormal>export
+PATH=&quot;$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin&quot;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h1><span style='color:white;background:purple'>##### Making a file called
+update in /tmp executable</span></h1>
+
+<p class=MsoNormal>just echo a shell into it.</p>
+
+<p class=MsoNormal>may need to use full path for nc (if used)</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>this is what enabled me to run chmod finally: </p>
+
+<p class=MsoNormal>export
+PATH=&quot;$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin&quot;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h1><span style='background:olive'>#### Command injection using |</span> </h1>
+
+<p class=MsoNormal>command injection found, cannot view /etc/passwd</p>
+
+<p class=MsoNormal>used burp suite</p>
+
+<p class=MsoNormal>BUT reverse shells would not work, </p>
+
+<p class=MsoNormal>command injection using | gives a cleaner output</p>
+
+<p class=MsoNormal>enter the reverse shell as found (no url encoding or
+anything) after the |</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>- another thing is the website is on port 80 u need to get a
+reverse connection to port 80</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h1><span style='background:lime'>#### Rabbit hole!</span></h1>
+
+<p class=MsoNormal>easyboxfun</p>
+
+<p class=MsoNormal>kept concentrating on /gym instead of doing a scan on the
+main URL</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h1><span style='background:aqua'>##### Reverse shell escaping issues (wpwpn
+box)</span></h1>
+
+<p class=MsoNormal>we trying to run a reverse shell using command
+pre&lt;system&gt; ' ' &lt;/pre&gt; the python reverse obviously contianed </p>
+
+<p class=MsoNormal>&quot;&quot; and '' so it double the amount of '' in use,
+using \ before the '' enabled the reverse shell to connect</p>
+
 
 </div>
 	
