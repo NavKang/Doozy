@@ -1,7 +1,7 @@
 add tosite:
 
 1. how to use bloodhound and neo4j with sharphound (using winrm to download upload etc) on the site
-2. ffuf usage and other tools
+2. ffuf usage and other tools - autorecon, linux exploiter suggester
 3. pspy
 4. grab the id_rsa private key - and then chmod 600
 
@@ -31,48 +31,7 @@ gcc -pthread dirty.c -o dirty -lcrypt
 
 ==========================
 ========================================================
-Scenarios:
-###### scenario
 
-even on directories found - lookat source code!! and run curl on them all
-
-website - directory fuzz only gave one link (sec config clue)
-use curl -L , look at source 
-
-
-##### scenario
-tried to extract using steghide extract -sf filename.jpg - would not work
-however when i did wrote to another file it worked!
-
-steghide extract -sf filename.jpg -xf hash.txt
-
-
-##### scenario - authorized keys
-if you come across authorized keys from a userA but in the key file it shows UserB at the end
-you can log in as userA using private key of UserB
-
-we take the private key of userB and put onto our attacking machine, then we use that to log in as userA
-
-ssh userA@xx.xx.xx.xx -i .ssh/id_rsa_userB
-
-copy to system:
-scp USERB@192.168.124.230:~/.ssh/id_rsa . 
-
-
-##### scenario - enum everything but cannot find way in
-
-do directory scan with extension set ie . -x .php
-(use dirsearch) - /web-content/big.txt -e .php
-
-##### Scenario
-when doing a box if you find a user and still need to do lateral movement
-go to /etc/phpmyadmin and look for the config file
-
-##### scenario
-if you find db passwords, php passwords - create a user list (from home) and run that single password with user list in hydra
-
-
-=================================================================================================
 =====================================
 ===================================================================================================
 Tool use:
@@ -99,15 +58,6 @@ nikto -h http://
 
 ----------------------
 
-
---- edit steg section to include how to extract stuff using john
-
-steghide extract -sf [carrier_file.ext] -xf [hash_file.txt]
-then use john
-john [hash_file.txt] --wordlist=[wordlist.txt]
-
-
---------
 curl -L - list directories from webserver
 curl -s - is silent option
 
