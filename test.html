@@ -1,0 +1,77 @@
+ <form>
+    <input type="text" id="search" placeholder="Search...">
+  </form>
+<div class="content">
+<p><strong>#### Deleted file by admin</strong></p>
+<p>.bash_history - reveals a file which has now been deleted (sudo -u sysadmin /home/syadmin/luvit privesc.ua)</p>
+<p>sudo -l - reveals we can run root for certain software which execute lua code</p>
+<p>&nbsp;</p>
+<p>echo &quot;require(&apos;os&apos;);&quot; &gt; priv.lua</p>
+<p>echo &quot;os.execute(&apos;/bin/bash&apos;);&quot; &gt;&gt; priv.lua</p>
+<p>&nbsp;</p>
+<p><strong>#### uploading tool to server</strong></p>
+<p>sudo mv pspy64 /var/www/html</p>
+<p>sudo service apache2 start</p>
+<p>&nbsp;</p>
+<p><strong>#### backgrounding a shell</strong></p>
+<p>you can create a shell code and use &amp; to background during SSH. Prevents other users been blocked</p>
+<p>&nbsp;</p>
+<p><strong>#### Magic bytes</strong></p>
+<p>you attempt to upload a file abc.php.jpg</p>
+<p>- gets flagged up immediately</p>
+<p>way around it:</p>
+<p>get the magic bytes from a .jpg image (xxd image.jpg | head)</p>
+<p>add these to start of our abc.php.jpg</p>
+<p>echo &apos;FFD8FFDB&apos; | xxd -r -p &gt; webshell.php.jpg</p>
+<p>then upload</p>
+<p>&nbsp;</p>
+<p><strong>### SQL Truncation</strong></p>
+<p>-<strong>&nbsp;</strong>a website states a username or email cannot be more than xyz size</p>
+<p>-from burp sending a username more than what is permitted</p>
+<p>- so we enter loads of spaces around admin and then url encode</p>
+<p>- this works as according to MySQL documentation, trailing spaces are ingnored</p>
+<p>- so register account using admin@test.abc then catch request</p>
+<p>- so now if we have an email of admin: admin@abc.abc add in many spaces after (admin@abc.abc++++++++++++++test)</p>
+<p><strong>&nbsp;</strong></p>
+<p><strong>#### Email changing to admin for priv</strong></p>
+<p>CTF where by the standard user could change password of the admin by catching in burpsuite and editing from user email to admin (which is found easily).</p>
+<p>-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Then when you go to profile of admin, source code view and you find</p>
+<p>and images upload directory.</p>
+<p>-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;So you go bk to profile, upload a reverse php shell (no indicator if uploaded or not)</p>
+<p>then back to browser, type in /directory of image uploads followed by reverse shell</p>
+<p>(ensure listener is on) &ndash; may need to use CURL</p>
+<p>- &nbsp; &nbsp; &nbsp; &nbsp; Then using the priv /sbin/reboot we reboot using that .sh file</p>
+</div>
+	
+  <script>
+    // Get the input element
+    const input = document.getElementById("search");
+
+    // Listen for changes to the input
+    input.addEventListener("input", function() {
+      // Get the search query
+      const query = input.value.toLowerCase();
+
+      // Get all the content elements
+      const elements = document.querySelectorAll(".content");
+
+      // Iterate through the elements
+      elements.forEach(function(element) {
+        // Get the element's text content
+        const content = element.textContent.toLowerCase();
+
+        // Check if the content contains the query
+        if (content.indexOf(query) !== -1) {
+          // Show the element
+          element.style.display = "block";
+        } else {
+          // Hide the element
+          element.style.display = "none";
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>
