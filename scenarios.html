@@ -75,11 +75,8 @@ ul
 </head>
 
 <body lang=EN-GB style='word-wrap:break-word'>
-	  <form>
-    <input type="text" id="search" placeholder="Search...">
-  </form>
 
-
+<div class=WordSection1>
 
 <p class=MsoListParagraph><b><span style='font-size:24.0pt;line-height:107%'>Scenarios
 – taken from CTF challenges</span></b></p>
@@ -92,7 +89,6 @@ ul
 	
 ===========================================================================================================================================================
 
-<div class="content">
 <p class=MsoNormal><b><span style='font-size:22.0pt;line-height:107%'>&nbsp;</span></b></p>
 
 <p class=MsoNormal><b><span style='font-size:26.0pt;line-height:107%;
@@ -397,35 +393,7 @@ using \ before the '' enabled the reverse shell to connect</p>
 
 </div>
 	
-  <script>
-    // Get the input element
-    const input = document.getElementById("search");
-
-    // Listen for changes to the input
-    input.addEventListener("input", function() {
-      // Get the search query
-      const query = input.value.toLowerCase();
-
-      // Get all the content elements
-      const elements = document.querySelectorAll(".content");
-
-      // Iterate through the elements
-      elements.forEach(function(element) {
-        // Get the element's text content
-        const content = element.textContent.toLowerCase();
-
-        // Check if the content contains the query
-        if (content.indexOf(query) !== -1) {
-          // Show the element
-          element.style.display = "block";
-        } else {
-          // Hide the element
-          element.style.display = "none";
-        }
-      });
-    });
-  </script>
-
+ 
 </body>
 
 </html>
