@@ -66,6 +66,119 @@ warning for asprint</span></p>
 warning for  implicity dec of function 'system'</span></p>
 
 <p class=MsoNormal>#include &lt;stdlib.h&gt; - add this to file</p>
+	
+<p class=MsoNormal><span style='font-size:26.0pt;line-height:106%'>#### Troubleshooting
+- do in directory of the tool<o:p></o:p></span></p>
+
+<p class=MsoNormal>Creating python <span class=SpellE>enviroment</span><o:p></o:p></p>
+
+<p class=MsoNormal>python3 -m <span class=SpellE>venv</span> .<span
+class=SpellE>venv</span><o:p></o:p></p>
+
+<p class=MsoNormal>source .<span class=SpellE>venv</span>/bin/activate<o:p></o:p></p>
+
+<p class=MsoNormal>pip3 install . <o:p></o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>now run bloodyhound.py <o:p></o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span style='font-size:26.0pt;line-height:106%'>#### <span
+class=SpellE>troublehooting</span>: - neo4j<o:p></o:p></span></p>
+
+<p class=MsoNormal>(<span class=GramE>remember</span> <span class=SpellE>burpsuite</span>
+will not work with JDK 17)<o:p></o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>error: Unsupported Java 11.0.17 detected. Please use
+Oracle(R) Java(TM) 17, OpenJDK(TM) 17 to run Neo4j Server.<o:p></o:p></p>
+
+<p class=MsoNormal>https://computingforgeeks.com/install-oracle-java-openjdk-on-debian-linux/<o:p></o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>then type: <span class=SpellE>sudo</span> update-alternatives
+--config java<o:p></o:p></p>
+
+<p class=MsoNormal>and select the java version<o:p></o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>launch: <span class=SpellE>sudo</span> neo4j console (add
+this to syntax for tools / or tool usage)<o:p></o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span style='font-size:26.0pt;line-height:106%'>#### troubleshooting:
+<span class=SpellE>venv</span><o:p></o:p></span></p>
+
+<p class=MsoNormal>Error: name '<span class=SpellE>cmd</span>' is not defined<o:p></o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>install it:<o:p></o:p></p>
+
+<p class=MsoNormal><span class=SpellE>sudo</span> apt-get install python3-venv<o:p></o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>then run:<o:p></o:p></p>
+
+<p class=MsoNormal><span style='mso-spacerun:yes'> </span>python3 -m <span
+class=SpellE>venv</span> .<span class=SpellE>venv</span><span
+style='mso-spacerun:yes'>  </span><o:p></o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span style='font-size:26.0pt;line-height:106%'>#### troubleshooting:
+kali not downloading<o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=SpellE>wget</span> -q -O -
+https://archive.kali.org/archive-key.asc | apt-key add<o:p></o:p></p>
+
+<p class=MsoNormal>apt update<o:p></o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span style='font-size:26.0pt;line-height:106%'>#### troubleshooting
+<span class=SpellE>ldap</span> pip install<o:p></o:p></span></p>
+
+<p class=MsoNormal>&#9472;# apt-get update -y<o:p></o:p></p>
+
+<p class=MsoNormal>&#9492;&#9472;# apt-get install build-essential python3-dev
+python2.7-dev libldap2-dev libsasl2-dev <span class=SpellE>slapd</span> <span
+class=SpellE>ldap</span>-utils tox <span class=SpellE>lcov</span> <span
+class=SpellE>valgrind</span><o:p></o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>&#9492;&#9472;# apt-get update -y<o:p></o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>&#9492;&#9472;# pip install python-<span class=SpellE>ldap</span><o:p></o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span style='font-size:22.0pt;line-height:106%'>#### troubleshooting:
+Connection to<span style='mso-spacerun:yes'>  </span>failed (Error
+NT_STATUS_NOT_FOUND) <o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=SpellE>sudo</span> nano /etc/samba/<span
+class=SpellE>smb.conf</span> <o:p></o:p></p>
+
+<p class=MsoNormal>add: client min protocol=NT1&nbsp;</p>
 
 </div>
 
