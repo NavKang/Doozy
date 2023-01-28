@@ -9,154 +9,513 @@
 <p><br></p>
 <p><br></p>
 <p>-------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
-<p><span style="font-size: 28px; font-family: Helvetica; color: rgb(41, 105, 176);"><strong><u>Windows and Active Directory Tools</u></strong></span></p>
-<p>[PowerView](<a data-fr-linked="true" href="https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1">https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1</a>)/[SharpView](<a data-fr-linked="true" href="https://github.com/dmchell/SharpView">https://github.com/dmchell/SharpView</a>)</p>
-<p>A PowerShell tool and a .NET port of the same used to gain situational awareness in AD. These tools can be used as replacements for various Windows `net*` commands and more. PowerView and SharpView can help us gather much of the data that BloodHound does, but it requires more work to make meaningful relationships among all of the data points. These tools are great for checking what additional access we may have with a new set of credentials, targeting specific users or computers, or finding some &quot;quick wins&quot; such as users that can be attacked via Kerberoasting or ASREPRoasting.</p>
-<p><br></p>
-<p>[BloodHound](<a data-fr-linked="true" href="https://github.com/BloodHoundAD/BloodHound">https://github.com/BloodHoundAD/BloodHound</a>)</p>
-<p>Used to visually map out AD relationships and help plan attack paths that may otherwise go unnoticed. Uses the [SharpHound](<a data-fr-linked="true" href="https://github.com/BloodHoundAD/BloodHound/tree/master/Collectors">https://github.com/BloodHoundAD/BloodHound/tree/master/Collectors</a>) PowerShell or C# ingestor to gather data to later be imported into the BloodHound JavaScript (Electron) application with a [Neo4j](<a data-fr-linked="true" href="https://neo4j.com/">https://neo4j.com/</a>) database for graphical analysis of the AD environment.</p>
-<p><br></p>
-<p>[SharpHound](<a data-fr-linked="true" href="https://github.com/BloodHoundAD/BloodHound/tree/master/Collectors">https://github.com/BloodHoundAD/BloodHound/tree/master/Collectors</a>)</p>
-<p>The C# data collector to gather information from Active Directory about varying AD objects such as users, groups, computers, ACLs, GPOs, user and computer attributes, user sessions, and more. The tool produces JSON files which can then be ingested into the BloodHound GUI tool for analysis.</p>
-<p><br></p>
-<p>[BloodHound.py](<a data-fr-linked="true" href="https://github.com/fox-it/BloodHound.py">https://github.com/fox-it/BloodHound.py</a>)</p>
-<p>A Python-based BloodHound ingestor based on the [Impacket toolkit](<a data-fr-linked="true" href="https://github.com/CoreSecurity/impacket/">https://github.com/CoreSecurity/impacket/</a>). It supports most BloodHound collection methods and can be run from a non-domain joined attack host. The output can be ingested into the BloodHound GUI for analysis.</p>
-<p><br></p>
-<p>[Kerbrute](<a data-fr-linked="true" href="https://github.com/ropnop/kerbrute">https://github.com/ropnop/kerbrute</a>)</p>
-<p>A tool written in Go that uses Kerberos Pre-Authentication to enumerate Active Directory accounts, perform password spraying, and brute-forcing.</p>
-<p><br></p>
-<p>[Impacket toolkit](<a data-fr-linked="true" href="https://github.com/SecureAuthCorp/impacket">https://github.com/SecureAuthCorp/impacket</a>)</p>
-<p>A collection of tools written in Python for interacting with network protocols. The suite of tools contains various scripts for enumerating and attacking Active Directory.</p>
-<p><br></p>
-<p>[Responder](<a data-fr-linked="true" href="https://github.com/lgandx/Responder">https://github.com/lgandx/Responder</a>)</p>
-<p>Responder is a purpose-built tool to poison LLMNR, NBT-NS, and MDNS, with many different functions.</p>
-<p><br></p>
-<p>[Inveigh.ps1](<a data-fr-linked="true" href="https://github.com/Kevin-Robertson/Inveigh/blob/master/Inveigh.ps1">https://github.com/Kevin-Robertson/Inveigh/blob/master/Inveigh.ps1</a>)</p>
-<p>Similar to Responder, a PowerShell tool for performing various network spoofing and poisoning attacks.</p>
-<p><br></p>
-<p>[C# Inveigh (InveighZero)](<a data-fr-linked="true" href="https://github.com/Kevin-Robertson/Inveigh/tree/master/Inveigh">https://github.com/Kevin-Robertson/Inveigh/tree/master/Inveigh</a>)</p>
-<p>The C# version of Inveigh with a semi-interactive console for interacting with captured data such as username and password hashes.</p>
-<p><br></p>
-<p>[rpcclient](<a data-fr-linked="true" href="https://www.samba.org/samba/docs/current/man-html/rpcclient.1.html">https://www.samba.org/samba/docs/current/man-html/rpcclient.1.html</a>)</p>
-<p>A part of the Samba suite on Linux distributions that can be used to perform a variety of Active Directory enumeration tasks via the remote RPC service.</p>
-<p><br></p>
-<p>[CrackMapExec (CME)](<a data-fr-linked="true" href="https://github.com/byt3bl33d3r/CrackMapExec">https://github.com/byt3bl33d3r/CrackMapExec</a>)</p>
-<p>CME is an enumeration, attack, and post-exploitation toolkit which can help us greatly in enumeration and performing attacks with the data we gather. CME attempts to &quot;live off the land&quot; and abuse built-in AD features and protocols like SMB, WMI, WinRM, and MSSQL.</p>
-<p><br></p>
-<p>[Rubeus](<a data-fr-linked="true" href="https://github.com/GhostPack/Rubeus">https://github.com/GhostPack/Rubeus</a>)</p>
-<p>Rubeus is a C# tool built for Kerberos Abuse.</p>
-<p><br></p>
-<p>[GetUserSPNs.py](<a data-fr-linked="true" href="https://github.com/SecureAuthCorp/impacket/blob/master/examples/GetUserSPNs.py">https://github.com/SecureAuthCorp/impacket/blob/master/examples/GetUserSPNs.py</a>)</p>
-<p>Another Impacket module geared towards finding Service Principal names tied to normal users.</p>
-<p><br></p>
-<p>[Hashcat](<a data-fr-linked="true" href="https://hashcat.net/hashcat/">https://hashcat.net/hashcat/</a>)</p>
-<p>A great hash cracking and password recovery tool.</p>
-<p><br></p>
-<p>[enum4linux](<a data-fr-linked="true" href="https://github.com/CiscoCXSecurity/enum4linux">https://github.com/CiscoCXSecurity/enum4linux</a>)</p>
-<p>A tool for enumerating information from Windows and Samba systems.</p>
-<p><br></p>
-<p>[enum4linux-ng](<a data-fr-linked="true" href="https://github.com/cddmp/enum4linux-ng">https://github.com/cddmp/enum4linux-ng</a>)</p>
-<p>A rework of the original Enum4linux tool that works a bit differently.</p>
-<p><br></p>
-<p>[ldapsearch](<a data-fr-linked="true" href="https://linux.die.net/man/1/ldapsearch">https://linux.die.net/man/1/ldapsearch</a>)</p>
-<p>Built-in interface for interacting with the LDAP protocol.</p>
-<p><br></p>
-<p>[windapsearch](<a data-fr-linked="true" href="https://github.com/ropnop/windapsearch">https://github.com/ropnop/windapsearch</a>)</p>
-<p>A Python script used to enumerate AD users, groups, and computers using LDAP queries. Useful for automating custom LDAP queries.</p>
-<p><br></p>
-<p>[DomainPasswordSpray.ps1](<a data-fr-linked="true" href="https://github.com/dafthack/DomainPasswordSpray">https://github.com/dafthack/DomainPasswordSpray</a>)</p>
-<p><br></p>
-<p>------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
-<p><br></p>
-<p><strong><span style="background-color: rgb(243, 121, 52); font-size: 20px;">DomainPasswordSpray is a tool written in PowerShell to perform a password spray attack against users of a domain.&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></strong></p>
-<p><br></p>
-<p>[LAPSToolkit](<a data-fr-linked="true" href="https://github.com/leoloobeek/LAPSToolkit">https://github.com/leoloobeek/LAPSToolkit</a>)</p>
-<p>The toolkit includes functions written in PowerShell that leverage PowerView to audit and attack Active Directory environments that have deployed Microsoft&apos;s Local Administrator Password Solution (LAPS).</p>
-<p><br></p>
-<p>[smbmap](<a data-fr-linked="true" href="https://github.com/ShawnDEvans/smbmap">https://github.com/ShawnDEvans/smbmap</a>)</p>
-<p>SMB share enumeration across a domain.</p>
-<p><br></p>
-<p>[psexec.py](<a data-fr-linked="true" href="https://github.com/SecureAuthCorp/impacket/blob/master/examples/psexec.py">https://github.com/SecureAuthCorp/impacket/blob/master/examples/psexec.py</a>)</p>
-<p>Part of the Impacket toolkit, it provides us with Psexec-like functionality in the form of a semi-interactive shell.</p>
-<p><br></p>
-<p>[wmiexec.py](<a data-fr-linked="true" href="https://github.com/SecureAuthCorp/impacket/blob/master/examples/wmiexec.py">https://github.com/SecureAuthCorp/impacket/blob/master/examples/wmiexec.py</a>)</p>
-<p>Part of the Impacket toolkit, it provides the capability of command execution over WMI.</p>
-<p><br></p>
-<p>[Snaffler](<a data-fr-linked="true" href="https://github.com/SnaffCon/Snaffler">https://github.com/SnaffCon/Snaffler</a>)</p>
-<p>Useful for finding information (such as credentials) in Active Directory on computers with accessible file shares.</p>
-<p><br></p>
-<p>[smbserver.py](<a data-fr-linked="true" href="https://github.com/SecureAuthCorp/impacket/blob/master/examples/smbserver.py">https://github.com/SecureAuthCorp/impacket/blob/master/examples/smbserver.py</a>)</p>
-<p>Simple SMB server execution for interaction with Windows hosts. Easy way to transfer files within a network.</p>
-<p><br></p>
-<p>[setspn.exe](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc731241(v=ws.11))</p>
-<p>Adds, reads, modifies and deletes the Service Principal Names (SPN) directory property for an Active Directory service account.</p>
-<p><br></p>
-<p>[Mimikatz](<a data-fr-linked="true" href="https://github.com/ParrotSec/mimikatz">https://github.com/ParrotSec/mimikatz</a>)</p>
-<p>Performs many functions. Notably, pass-the-hash attacks, extracting plaintext passwords, and Kerberos ticket extraction from memory on a host.</p>
-<p><br></p>
-<p>[secretsdump.py](<a data-fr-linked="true" href="https://github.com/SecureAuthCorp/impacket/blob/master/examples/secretsdump.py">https://github.com/SecureAuthCorp/impacket/blob/master/examples/secretsdump.py</a>)</p>
-<p><br></p>
-<p>---------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
-<p><br></p>
-<p><strong><span style="background-color: rgb(250, 197, 28); font-size: 20px;">Remotely dump SAM and LSA secrets from a host.&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span></strong></p>
-<p><br></p>
-<p>[evil-winrm](<a data-fr-linked="true" href="https://github.com/Hackplayers/evil-winrm">https://github.com/Hackplayers/evil-winrm</a>)</p>
-<p>Provides us with an interactive shell on a host over the WinRM protocol.</p>
-<p><br></p>
-<p>[mssqlclient.py](<a data-fr-linked="true" href="https://github.com/SecureAuthCorp/impacket/blob/master/examples/mssqlclient.py">https://github.com/SecureAuthCorp/impacket/blob/master/examples/mssqlclient.py</a>)</p>
-<p>Part of the Impacket toolkit, it provides the ability to interact with MSSQL databases.</p>
-<p><br></p>
-<p>[noPac.py](<a data-fr-linked="true" href="https://github.com/Ridter/noPac">https://github.com/Ridter/noPac</a>)</p>
-<p>Exploit combo using CVE-2021-42278 and CVE-2021-42287 to impersonate DA from standard domain user.</p>
-<p><br></p>
-<p>[rpcdump.py](<a data-fr-linked="true" href="https://github.com/SecureAuthCorp/impacket/blob/master/examples/rpcdump.py">https://github.com/SecureAuthCorp/impacket/blob/master/examples/rpcdump.py</a>)</p>
-<p>Part of the Impacket toolset, RPC endpoint mapper.</p>
-<p><br></p>
-<p>[CVE-2021-1675.py](<a data-fr-linked="true" href="https://github.com/cube0x0/CVE-2021-1675/blob/main/CVE-2021-1675.py">https://github.com/cube0x0/CVE-2021-1675/blob/main/CVE-2021-1675.py</a>)</p>
-<p>Printnightmare PoC in python.</p>
-<p><br></p>
-<p>[ntlmrelayx.py](<a data-fr-linked="true" href="https://github.com/SecureAuthCorp/impacket/blob/master/examples/ntlmrelayx.py">https://github.com/SecureAuthCorp/impacket/blob/master/examples/ntlmrelayx.py</a>)</p>
-<p>Part of the Impacket toolset, it performs SMB relay attacks.</p>
-<p><br></p>
-<p>[PetitPotam.py](<a data-fr-linked="true" href="https://github.com/topotam/PetitPotam">https://github.com/topotam/PetitPotam</a>)</p>
-<p>PoC tool for CVE-2021-36942 to coerce Windows hosts to authenticate to other machines via MS-EFSRPC EfsRpcOpenFileRaw or other functions.</p>
-<p><br></p>
-<p>[gettgtpkinit.py](<a data-fr-linked="true" href="https://github.com/dirkjanm/PKINITtools/blob/master/gettgtpkinit.py">https://github.com/dirkjanm/PKINITtools/blob/master/gettgtpkinit.py</a>)</p>
-<p>Tool for manipulating certificates and TGTs.</p>
-<p><br></p>
-<p>[getnthash.py](<a data-fr-linked="true" href="https://github.com/dirkjanm/PKINITtools/blob/master/getnthash.py">https://github.com/dirkjanm/PKINITtools/blob/master/getnthash.py</a>)</p>
-<p>This tool will use an existing TGT to request a PAC for the current user using U2U.</p>
-<p><br></p>
-<p>[adidnsdump](<a data-fr-linked="true" href="https://github.com/dirkjanm/adidnsdump">https://github.com/dirkjanm/adidnsdump</a>)</p>
-<p>A tool for enumerating and dumping DNS records from a domain. Similar to performing a DNS Zone transfer.</p>
-<p><br></p>
-<p>[gpp-decrypt](<a data-fr-linked="true" href="https://github.com/t0thkr1s/gpp-decrypt">https://github.com/t0thkr1s/gpp-decrypt</a>)</p>
-<p>Extracts usernames and passwords from Group Policy preferences files.</p>
-<p><br></p>
-<p>[GetNPUsers.py](<a data-fr-linked="true" href="https://github.com/SecureAuthCorp/impacket/blob/master/examples/GetNPUsers.py">https://github.com/SecureAuthCorp/impacket/blob/master/examples/GetNPUsers.py</a>)</p>
-<p>Part of the Impacket toolkit. Used to perform the ASREPRoasting attack to list and obtain AS-REP hashes for users with the &apos;Do not require Kerberos preauthentication&apos; set. These hashes are then fed into a tool such as Hashcat for attempts at offline password cracking.</p>
-<p><br></p>
-<p>[lookupsid.py](<a data-fr-linked="true" href="https://github.com/SecureAuthCorp/impacket/blob/master/examples/lookupsid.py">https://github.com/SecureAuthCorp/impacket/blob/master/examples/lookupsid.py</a>)</p>
-<p><br></p>
-<p>----------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
-<p><br></p>
-<p><strong><span style="font-size: 20px;;background-color: rgb(65, 168, 95);">SID bruteforcing tool. &nbsp;&nbsp;</span><span style="font-size: 20px; background-color: rgb(65, 168, 95);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span></strong><strong><span style="background-color: rgb(65, 168, 95); font-size: 20px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></strong></p>
-<p><br></p>
-<p>[ticketer.py](<a data-fr-linked="true" href="https://github.com/SecureAuthCorp/impacket/blob/master/examples/ticketer.py">https://github.com/SecureAuthCorp/impacket/blob/master/examples/ticketer.py</a>)</p>
-<p>A tool for creation and customization of TGT/TGS tickets. It can be used for Golden Ticket creation, child to parent trust attacks, etc.</p>
-<p><br></p>
-<p>[raiseChild.py](<a data-fr-linked="true" href="https://github.com/SecureAuthCorp/impacket/blob/master/examples/raiseChild.py">https://github.com/SecureAuthCorp/impacket/blob/master/examples/raiseChild.py</a>)</p>
-<p>Part of the Impacket toolkit, It is a tool for automated child to parent domain privilege escalation.</p>
-<p><br></p>
-<p>[Active Directory Explorer](<a data-fr-linked="true" href="https://docs.microsoft.com/en-us/sysinternals/downloads/adexplorer">https://docs.microsoft.com/en-us/sysinternals/downloads/adexplorer</a>)</p>
-<p>Active Directory Explorer (AD Explorer) is an AD viewer and editor. It can be used to navigate an AD database and view object properties and attributes. It can also be used to save a snapshot of an AD database for offline analysis. When an AD snapshot is loaded, it can be explored as a live version of the database. It can also be used to compare two AD database snapshots to see changes in objects, attributes, and security permissions.</p>
-<p><br></p>
-<p>[PingCastle](<a data-fr-linked="true" href="https://www.pingcastle.com/documentation/">https://www.pingcastle.com/documentation/</a>)</p>
-<p>Used for auditing the security level of an AD environment based on a risk assessment and maturity framework (based on [CMMI](<a data-fr-linked="true" href="https://en.wikipedia.org/wiki/Capability_Maturity_Model_Integration">https://en.wikipedia.org/wiki/Capability_Maturity_Model_Integration</a>) adapted to AD security).</p>
-<p><br></p>
-<p>[Group3r](<a data-fr-linked="true" href="https://github.com/Group3r/Group3r">https://github.com/Group3r/Group3r</a>)</p>
-<p>Group3r is useful for auditing and finding security misconfigurations in AD Group Policy Objects (GPO).</p>
-<p><br></p>
-<p>[ADRecon](<a data-fr-linked="true" href="https://github.com/adrecon/ADRecon">https://github.com/adrecon/ADRecon</a>)</p>
-<p>A tool used to extract various data from a target AD environment. The data can be output in Microsoft Excel format with summary views and analysis to assist with analysis and paint a picture of the environment&apos;s overall security state.</p>
-<p><br></p>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{color:#0563C1;
+	text-decoration:underline;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:107%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-GB link="#0563C1" vlink="#954F72" style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal><b><span style='font-size:36.0pt;line-height:107%;
+color:white;background:blue'>1.Windows and Active Directory Tools</span></b></p>
+
+<p class=MsoNormal><span style='font-size:36.0pt;line-height:107%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[PowerView](<a
+href="https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1">https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1</a>)/[SharpView](<a
+href="https://github.com/dmchell/SharpView">https://github.com/dmchell/SharpView</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>A PowerShell
+tool and a .NET port of the same used to gain situational awareness in AD.
+These tools can be used as replacements for various Windows `net*` commands and
+more. PowerView and SharpView can help us gather much of the data that
+BloodHound does, but it requires more work to make meaningful relationships
+among all of the data points. These tools are great for checking what
+additional access we may have with a new set of credentials, targeting specific
+users or computers, or finding some &quot;quick wins&quot; such as users that
+can be attacked via Kerberoasting or ASREPRoasting.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[BloodHound](<a
+href="https://github.com/BloodHoundAD/BloodHound">https://github.com/BloodHoundAD/BloodHound</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>Used to
+visually map out AD relationships and help plan attack paths that may otherwise
+go unnoticed. Uses the [SharpHound](<a
+href="https://github.com/BloodHoundAD/BloodHound/tree/master/Collectors">https://github.com/BloodHoundAD/BloodHound/tree/master/Collectors</a>)
+PowerShell or C# ingestor to gather data to later be imported into the
+BloodHound JavaScript (Electron) application with a [Neo4j](<a
+href="https://neo4j.com/">https://neo4j.com/</a>) database for graphical
+analysis of the AD environment.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[SharpHound](<a
+href="https://github.com/BloodHoundAD/BloodHound/tree/master/Collectors">https://github.com/BloodHoundAD/BloodHound/tree/master/Collectors</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>The C# data
+collector to gather information from Active Directory about varying AD objects
+such as users, groups, computers, ACLs, GPOs, user and computer attributes,
+user sessions, and more. The tool produces JSON files which can then be
+ingested into the BloodHound GUI tool for analysis.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[BloodHound.py](<a
+href="https://github.com/fox-it/BloodHound.py">https://github.com/fox-it/BloodHound.py</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>A Python-based
+BloodHound ingestor based on the [Impacket toolkit](<a
+href="https://github.com/CoreSecurity/impacket/">https://github.com/CoreSecurity/impacket/</a>).
+It supports most BloodHound collection methods and can be run from a non-domain
+joined attack host. The output can be ingested into the BloodHound GUI for
+analysis.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[Kerbrute](<a
+href="https://github.com/ropnop/kerbrute">https://github.com/ropnop/kerbrute</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>A tool
+written in Go that uses Kerberos Pre-Authentication to enumerate Active
+Directory accounts, perform password spraying, and brute-forcing.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[Impacket
+toolkit](<a href="https://github.com/SecureAuthCorp/impacket">https://github.com/SecureAuthCorp/impacket</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>A collection
+of tools written in Python for interacting with network protocols. The suite of
+tools contains various scripts for enumerating and attacking Active Directory.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[Responder](<a
+href="https://github.com/lgandx/Responder">https://github.com/lgandx/Responder</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>Responder is
+a purpose-built tool to poison LLMNR, NBT-NS, and MDNS, with many different
+functions.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[Inveigh.ps1](<a
+href="https://github.com/Kevin-Robertson/Inveigh/blob/master/Inveigh.ps1">https://github.com/Kevin-Robertson/Inveigh/blob/master/Inveigh.ps1</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>Similar to
+Responder, a PowerShell tool for performing various network spoofing and
+poisoning attacks.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[C# Inveigh
+(InveighZero)](<a
+href="https://github.com/Kevin-Robertson/Inveigh/tree/master/Inveigh">https://github.com/Kevin-Robertson/Inveigh/tree/master/Inveigh</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>The C#
+version of Inveigh with a semi-interactive console for interacting with
+captured data such as username and password hashes.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[rpcclient](<a
+href="https://www.samba.org/samba/docs/current/man-html/rpcclient.1.html">https://www.samba.org/samba/docs/current/man-html/rpcclient.1.html</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>A part of
+the Samba suite on Linux distributions that can be used to perform a variety of
+Active Directory enumeration tasks via the remote RPC service.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[CrackMapExec
+(CME)](<a href="https://github.com/byt3bl33d3r/CrackMapExec">https://github.com/byt3bl33d3r/CrackMapExec</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>CME is an
+enumeration, attack, and post-exploitation toolkit which can help us greatly in
+enumeration and performing attacks with the data we gather. CME attempts to
+&quot;live off the land&quot; and abuse built-in AD features and protocols like
+SMB, WMI, WinRM, and MSSQL.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[Rubeus](<a
+href="https://github.com/GhostPack/Rubeus">https://github.com/GhostPack/Rubeus</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>Rubeus is a
+C# tool built for Kerberos Abuse.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[GetUserSPNs.py](<a
+href="https://github.com/SecureAuthCorp/impacket/blob/master/examples/GetUserSPNs.py">https://github.com/SecureAuthCorp/impacket/blob/master/examples/GetUserSPNs.py</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>Another
+Impacket module geared towards finding Service Principal names tied to normal
+users.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[Hashcat](<a
+href="https://hashcat.net/hashcat/">https://hashcat.net/hashcat/</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>A great hash
+cracking and password recovery tool.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[enum4linux](<a
+href="https://github.com/CiscoCXSecurity/enum4linux">https://github.com/CiscoCXSecurity/enum4linux</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>A tool for
+enumerating information from Windows and Samba systems.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[enum4linux-ng](<a
+href="https://github.com/cddmp/enum4linux-ng">https://github.com/cddmp/enum4linux-ng</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>A rework of
+the original Enum4linux tool that works a bit differently.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[ldapsearch](<a
+href="https://linux.die.net/man/1/ldapsearch">https://linux.die.net/man/1/ldapsearch</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>Built-in
+interface for interacting with the LDAP protocol.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[windapsearch](<a
+href="https://github.com/ropnop/windapsearch">https://github.com/ropnop/windapsearch</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>A Python
+script used to enumerate AD users, groups, and computers using LDAP queries.
+Useful for automating custom LDAP queries.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[DomainPasswordSpray.ps1](<a
+href="https://github.com/dafthack/DomainPasswordSpray">https://github.com/dafthack/DomainPasswordSpray</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[LAPSToolkit](<a
+href="https://github.com/leoloobeek/LAPSToolkit">https://github.com/leoloobeek/LAPSToolkit</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>The toolkit
+includes functions written in PowerShell that leverage PowerView to audit and
+attack Active Directory environments that have deployed Microsoft's Local
+Administrator Password Solution (LAPS).</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[smbmap](<a
+href="https://github.com/ShawnDEvans/smbmap">https://github.com/ShawnDEvans/smbmap</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>SMB share
+enumeration across a domain.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[psexec.py](<a
+href="https://github.com/SecureAuthCorp/impacket/blob/master/examples/psexec.py">https://github.com/SecureAuthCorp/impacket/blob/master/examples/psexec.py</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>Part of the
+Impacket toolkit, it provides us with Psexec-like functionality in the form of
+a semi-interactive shell.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[wmiexec.py](<a
+href="https://github.com/SecureAuthCorp/impacket/blob/master/examples/wmiexec.py">https://github.com/SecureAuthCorp/impacket/blob/master/examples/wmiexec.py</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>Part of the
+Impacket toolkit, it provides the capability of command execution over WMI.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[Snaffler](<a
+href="https://github.com/SnaffCon/Snaffler">https://github.com/SnaffCon/Snaffler</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>Useful for
+finding information (such as credentials) in Active Directory on computers with
+accessible file shares.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[smbserver.py](<a
+href="https://github.com/SecureAuthCorp/impacket/blob/master/examples/smbserver.py">https://github.com/SecureAuthCorp/impacket/blob/master/examples/smbserver.py</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>Simple SMB
+server execution for interaction with Windows hosts. Easy way to transfer files
+within a network.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[setspn.exe](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc731241(v=ws.11))</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>Adds, reads,
+modifies and deletes the Service Principal Names (SPN) directory property for
+an Active Directory service account.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[Mimikatz](<a
+href="https://github.com/ParrotSec/mimikatz">https://github.com/ParrotSec/mimikatz</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>Performs
+many functions. Notably, pass-the-hash attacks, extracting plaintext passwords,
+and Kerberos ticket extraction from memory on a host.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[secretsdump.py](<a
+href="https://github.com/SecureAuthCorp/impacket/blob/master/examples/secretsdump.py">https://github.com/SecureAuthCorp/impacket/blob/master/examples/secretsdump.py</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>---------------------------------------------------------------------------------------------------------------------------------------------------------------</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:36.0pt;line-height:107%;
+background:lime'>2. Remotely dump SAM and LSA secrets from a host.</span></b><b><span
+style='font-size:36.0pt;line-height:107%'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span></b></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[evil-winrm](<a
+href="https://github.com/Hackplayers/evil-winrm">https://github.com/Hackplayers/evil-winrm</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>Provides us
+with an interactive shell on a host over the WinRM protocol.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[mssqlclient.py](<a
+href="https://github.com/SecureAuthCorp/impacket/blob/master/examples/mssqlclient.py">https://github.com/SecureAuthCorp/impacket/blob/master/examples/mssqlclient.py</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>Part of the
+Impacket toolkit, it provides the ability to interact with MSSQL databases.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[noPac.py](<a
+href="https://github.com/Ridter/noPac">https://github.com/Ridter/noPac</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>Exploit
+combo using CVE-2021-42278 and CVE-2021-42287 to impersonate DA from standard
+domain user.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[rpcdump.py](<a
+href="https://github.com/SecureAuthCorp/impacket/blob/master/examples/rpcdump.py">https://github.com/SecureAuthCorp/impacket/blob/master/examples/rpcdump.py</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>Part of the
+Impacket toolset, RPC endpoint mapper.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[CVE-2021-1675.py](<a
+href="https://github.com/cube0x0/CVE-2021-1675/blob/main/CVE-2021-1675.py">https://github.com/cube0x0/CVE-2021-1675/blob/main/CVE-2021-1675.py</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>Printnightmare
+PoC in python.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[ntlmrelayx.py](<a
+href="https://github.com/SecureAuthCorp/impacket/blob/master/examples/ntlmrelayx.py">https://github.com/SecureAuthCorp/impacket/blob/master/examples/ntlmrelayx.py</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>Part of the
+Impacket toolset, it performs SMB relay attacks.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[PetitPotam.py](<a
+href="https://github.com/topotam/PetitPotam">https://github.com/topotam/PetitPotam</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>PoC tool for
+CVE-2021-36942 to coerce Windows hosts to authenticate to other machines via
+MS-EFSRPC EfsRpcOpenFileRaw or other functions.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[gettgtpkinit.py](<a
+href="https://github.com/dirkjanm/PKINITtools/blob/master/gettgtpkinit.py">https://github.com/dirkjanm/PKINITtools/blob/master/gettgtpkinit.py</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>Tool for
+manipulating certificates and TGTs.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[getnthash.py](<a
+href="https://github.com/dirkjanm/PKINITtools/blob/master/getnthash.py">https://github.com/dirkjanm/PKINITtools/blob/master/getnthash.py</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>This tool
+will use an existing TGT to request a PAC for the current user using U2U.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[adidnsdump](<a
+href="https://github.com/dirkjanm/adidnsdump">https://github.com/dirkjanm/adidnsdump</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>A tool for
+enumerating and dumping DNS records from a domain. Similar to performing a DNS
+Zone transfer.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[gpp-decrypt](<a
+href="https://github.com/t0thkr1s/gpp-decrypt">https://github.com/t0thkr1s/gpp-decrypt</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>Extracts
+usernames and passwords from Group Policy preferences files.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[GetNPUsers.py](<a
+href="https://github.com/SecureAuthCorp/impacket/blob/master/examples/GetNPUsers.py">https://github.com/SecureAuthCorp/impacket/blob/master/examples/GetNPUsers.py</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>Part of the
+Impacket toolkit. Used to perform the ASREPRoasting attack to list and obtain
+AS-REP hashes for users with the 'Do not require Kerberos preauthentication'
+set. These hashes are then fed into a tool such as Hashcat for attempts at
+offline password cracking.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[lookupsid.py](<a
+href="https://github.com/SecureAuthCorp/impacket/blob/master/examples/lookupsid.py">https://github.com/SecureAuthCorp/impacket/blob/master/examples/lookupsid.py</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>----------------------------------------------------------------------------------------------------------------------------------------------------------------</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:36.0pt;line-height:107%;
+background:teal'>3. SID bruteforcing tool.</span></b><b><span style='font-size:
+36.0pt;line-height:107%'> &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></b></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[ticketer.py](<a
+href="https://github.com/SecureAuthCorp/impacket/blob/master/examples/ticketer.py">https://github.com/SecureAuthCorp/impacket/blob/master/examples/ticketer.py</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>A tool for
+creation and customization of TGT/TGS tickets. It can be used for Golden Ticket
+creation, child to parent trust attacks, etc.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[raiseChild.py](<a
+href="https://github.com/SecureAuthCorp/impacket/blob/master/examples/raiseChild.py">https://github.com/SecureAuthCorp/impacket/blob/master/examples/raiseChild.py</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>Part of the
+Impacket toolkit, It is a tool for automated child to parent domain privilege
+escalation.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[Active
+Directory Explorer](<a
+href="https://docs.microsoft.com/en-us/sysinternals/downloads/adexplorer">https://docs.microsoft.com/en-us/sysinternals/downloads/adexplorer</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>Active
+Directory Explorer (AD Explorer) is an AD viewer and editor. It can be used to
+navigate an AD database and view object properties and attributes. It can also
+be used to save a snapshot of an AD database for offline analysis. When an AD
+snapshot is loaded, it can be explored as a live version of the database. It
+can also be used to compare two AD database snapshots to see changes in
+objects, attributes, and security permissions.</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[PingCastle](<a
+href="https://www.pingcastle.com/documentation/">https://www.pingcastle.com/documentation/</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>Used for
+auditing the security level of an AD environment based on a risk assessment and
+maturity framework (based on [CMMI](<a
+href="https://en.wikipedia.org/wiki/Capability_Maturity_Model_Integration">https://en.wikipedia.org/wiki/Capability_Maturity_Model_Integration</a>)
+adapted to AD security).</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[Group3r](<a
+href="https://github.com/Group3r/Group3r">https://github.com/Group3r/Group3r</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>Group3r is
+useful for auditing and finding security misconfigurations in AD Group Policy
+Objects (GPO).</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>[ADRecon](<a
+href="https://github.com/adrecon/ADRecon">https://github.com/adrecon/ADRecon</a>)</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;line-height:107%'>A tool used
+to extract various data from a target AD environment. The data can be output in
+Microsoft Excel format with summary views and analysis to assist with analysis
+and paint a picture of the environment's overall security state.</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+</body>
