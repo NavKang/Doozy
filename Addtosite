@@ -1,3 +1,20 @@
+
+creating our own ls : 
+- cp /usr/bin/ls newls
+
+creating our own chmod:
+- cat /usr/bin/chmod > chmodnew
+
+giving a file perm:
+chmodnew +x no_permissions.py
+
+using it to run a file which had no perms for user:
+- ./chmodnew +x no_permissions.py
+
+
+
+
+----------------------
 add tosite:
 
 1. how to use bloodhound and neo4j with sharphound (using winrm to download upload etc) on the site
