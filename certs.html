@@ -1,1 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Boxes</title>
+  <style>
+    .box {
+      width: 300px;
+      height: 300px;
+      border: 1px solid #000;
+      display: inline-block;
+      margin: 10px;
+      cursor: pointer;
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Image Boxes</h1>
 
+  <div class="box" id="box1"></div>
+  <div class="box" id="box2"></div>
+  <div class="box" id="box3"></div>
+  <div class="box" id="box4"></div>
+  <div class="box" id="box5"></div>
+  <div class="box" id="box6"></div>
+
+  <input type="file" id="image-input" accept="image/*" style="display: none;">
+
+  <script>
+    function handleImageUpload(event) {
+      var file = event.target.files[0];
+      var reader = new FileReader();
+
+      reader.onload = function(event) {
+        var box = document.getElementById(event.target.boxId);
+        box.style.backgroundImage = 'url(' + event.target.result + ')';
+      };
+
+      reader.boxId = event.target.boxId;
+      reader.readAsDataURL(file);
+    }
+
+    var boxes = document.getElementsByClassName('box');
+    for (var i = 0; i < boxes.length; i++) {
+      var box = boxes[i];
+      box.addEventListener('click', function() {
+        var imageInput = document.getElementById('image-input');
+        imageInput.boxId = this.id;
+        imageInput.click();
+      });
+    }
+
+    document.getElementById('image-input').addEventListener('change', handleImageUpload);
+  </script>
+</body>
+</html>
