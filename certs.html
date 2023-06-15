@@ -19,26 +19,55 @@
 
     .box {
       width: 300px;
-      height: 300px;
+      height: 400px;
       border: 1px solid #000;
       margin: 10px;
       cursor: pointer;
       background-size: cover;
       background-position: center;
+      position: relative;
+    }
+
+    .box-text {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      color: #fff;
+      font-size: 20px;
     }
   </style>
 </head>
 <body>
-   <div class="box-container">
-    <div class="box" style="background-image: url('image1.jpg');"></div>
-    <div class="box" style="background-image: url('image2.jpg');"></div>
-    <div class="box" style="background-image: url('image3.jpg');"></div>
-    <div class="box" style="background-image: url('image4.jpg');"></div>
-    <div class="box" style="background-image: url('image5.jpg');"></div>
-    <div class="box" style="background-image: url('image6.jpg');"></div>
-    <div class="box" style="background-image: url('image7.jpg');"></div>
-    <div class="box" style="background-image: url('image8.jpg');"></div>
-    <div class="box" style="background-image: url('image9.jpg');"></div>
+  <h1>Clickable Boxes</h1>
+
+  <div class="box-container">
+    <div class="box" style="background-image: url('image1.jpg');">
+      <div class="box-text">Text 1</div>
+    </div>
+    <div class="box" style="background-image: url('image2.jpg');">
+      <div class="box-text">Text 2</div>
+    </div>
+    <div class="box" style="background-image: url('image3.jpg');">
+      <div class="box-text">Text 3</div>
+    </div>
+    <div class="box" style="background-image: url('image4.jpg');">
+      <div class="box-text">Text 4</div>
+    </div>
+    <div class="box" style="background-image: url('image5.jpg');">
+      <div class="box-text">Text 5</div>
+    </div>
+    <div class="box" style="background-image: url('image6.jpg');">
+      <div class="box-text">Text 6</div>
+    </div>
+    <div class="box" style="background-image: url('image7.jpg');">
+      <div class="box-text">Text 7</div>
+    </div>
+    <div class="box" style="background-image: url('image8.jpg');">
+      <div class="box-text">Text 8</div>
+    </div>
+    <div class="box" style="background-image: url('image9.jpg');">
+      <div class="box-text">Text 9</div>
+    </div>
   </div>
 </body>
 </html>
